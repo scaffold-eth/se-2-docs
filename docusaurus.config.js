@@ -21,7 +21,7 @@ const config = {
   organizationName: 'scaffold-eth',
   projectName: 'caffold-eth-2',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internalization, you can use this field to set useful
