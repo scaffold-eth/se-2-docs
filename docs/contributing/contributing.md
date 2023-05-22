@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# Contributing to Scaffold-ETH 2
+# 🙏 Contributing to Scaffold-ETH 2
 
 We welcome contributions to Scaffold-ETH 2!
 
