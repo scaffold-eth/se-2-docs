@@ -60,7 +60,7 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Scaffold-eth 2',
+        title: 'Scaffold-ETH 2',
         logo: {
           alt: 'scaffold-eth-logo',
           src: 'img/logo.svg',
