@@ -5,7 +5,9 @@ slug: /
 
 # 🏗 Welcome to Scaffold-ETH 2
 
-Scaffold-eth is everything you need to get started building decentralized applications on Ethereum! 🚀
+[Scaffold-eth](https://github.com/scaffold-eth/scaffold-eth-2) is everything you need to get started building decentralized applications on Ethereum! 🚀
+
+⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, and Typescript.
 
 ## About Scaffold-ETH 2
 
@@ -15,7 +17,7 @@ Scaffold-eth is an open-source, up-to-date toolkit for building decentralized ap
 - 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
 - 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
 
-## The Scaffold-ETH 2 Tech Stack
+## Scaffold-ETH 2 Tech Stack
 
 Scaffold-eth is not a product itself but more of a combination or stack of other great tools. It allows you to quickly build and iterate over your smart contracts and frontends.
 
