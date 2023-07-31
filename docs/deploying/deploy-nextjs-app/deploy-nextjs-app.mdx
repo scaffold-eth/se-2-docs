@@ -4,12 +4,12 @@ sidebar_position: 2
 
 # Deploy your NextJS App
 
+:::tip Hint
+We recommend connecting your GitHub repo to Vercel (through the Vercel UI) so it gets automatically deployed when pushing to `main`.
+:::tip Hint
+
 If you want to deploy directly from the CLI, run `yarn vercel` and follow the steps to deploy to Vercel. Once you log in (email, github, etc), the default options should work. It'll give you a public URL.
 
 If you want to redeploy to the same production URL you can run `yarn vercel --prod`. If you omit the `--prod` flag it will deploy it to a preview/test URL.
 
-**Make sure your `packages/nextjs/scaffold.config.ts` file has the values you need.**
-
-:::tip Hint
-We recommend connecting your GitHub repo to Vercel (through the Vercel UI) so it gets automatically deployed when pushing to `main`.
-:::tip Hint
+**Make sure to check the values of your [Scaffold Configuration](./scaffold-configuration) before deploying your NextJS App.**
