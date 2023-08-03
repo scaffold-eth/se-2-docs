@@ -6,12 +6,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: '🏗 Scaffold-ETH 2',
+  title: '🏗 Scaffold-ETH 2 | Docs',
   tagline: 'Open-source toolkit for building dapps',
   favicon: 'img/favicon.png',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://scaffold-eth-2-docs.vercel.app',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -19,7 +19,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'scaffold-eth',
-  projectName: 'caffold-eth-2',
+  projectName: 'scaffold-eth-2',
 
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
@@ -41,10 +41,9 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           sidebarCollapsible: false,
-          // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/scaffold-eth/se2-docs/blob/main/',
         },
         blog: false,
         //theme: {
@@ -58,23 +57,29 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/thumbnail.jpg',
       navbar: {
-        title: 'Scaffold-ETH 2',
+        title: 'Scaffold-ETH 2 | Docs',
         logo: {
           alt: 'scaffold-eth-logo',
           src: 'img/logo.svg',
         },
         items: [
+          // commented until Scaffold-eth 2 website is launched
+          // {
+          //   href: 'https://scaffoldeth.io/',
+          //   label: 'SE-2 Website',
+          //   position: 'left',
+            
+          // },
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Documentation',
+            href: 'https://github.com/scaffold-eth/se2-docs',
+            label: 'GitHub Docs',
+            position: 'right',
           },
           {
-            href: 'https://github.com/facebook/docusaurus', // TODO: link to docs repo
-            label: 'GitHub',
+            href: 'https://github.com/scaffold-eth/scaffold-eth-2',
+            label: 'GitHub SE-2',
             position: 'right',
           },
         ],
@@ -83,29 +88,45 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Built with ♥ at BuidlGuidl',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'BuidlGuidl Website',
+                to: 'https://buidlguidl.com/',
+              },
+              {
+                label: 'BuidlGuidl Twitter',
+                to: 'https://twitter.com/buidlguidl',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'GitHub',
+            items: [
+              {
+                label: 'Scaffold-Eth 2 GitHub',
+                href: 'https://github.com/scaffold-eth/scaffold-eth-2',
+              },
+              {
+                label: 'Docs GitHub',
+                href: 'https://github.com/scaffold-eth/se2-docs',
+              },
+            ],
+          },
+          {
+            title: 'Social',
             items: [
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/buidlguidl',
+                href: 'https://twitter.com/ScaffoldETH',
               },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
               {
-                label: 'Scaffold-Eth2 GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                label: 'Telegram',
+                href: 'https://t.me/joinchat/F7nCRK3kI93PoCOk',
+              },
+              {
+                label: 'Youtube',
+                href: 'https://www.youtube.com/@austingriffith3550/playlists',
               },
             ],
           },
