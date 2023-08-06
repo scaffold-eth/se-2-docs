@@ -46,9 +46,9 @@ const config = {
             'https://github.com/scaffold-eth/se2-docs/blob/main/',
         },
         blog: false,
-        //theme: {
-        //  customCss: require.resolve('./src/css/custom.css'),
-        //},
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
+        },
       }),
     ],
   ],
