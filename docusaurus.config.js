@@ -57,6 +57,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
+      colorMode : {
+        respectPrefersColorScheme : true,
+      },
       image: 'img/thumbnail.jpg',
       navbar: {
         title: 'Scaffold-ETH 2 | Docs',
