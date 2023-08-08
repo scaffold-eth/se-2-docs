@@ -22,7 +22,21 @@ yarn deploy --network sepolia
 
 The deployer account is the account that will deploy your contracts. Additionally, the deployer account will be used to execute any function calls that are part of your deployment script.
 
-You can generate a random account / private key with `yarn generate` or add the private key of your crypto wallet. `yarn generate` will create a random account and add the DEPLOYER_PRIVATE_KEY to the .env file. You can check the generated account with `yarn account`.
+You can generate a random account / private key or add the private key of your crypto wallet.
+
+To create a random account and add the `DEPLOYER_PRIVATE_KEY` to the `.env` file, run:
+
+```
+yarn generate
+```
+
+If you prefer to manually set your own private key, need to add `DEPLOYER_PRIVATE_KEY=yourWalletPrivateKey` to `packages/hardhat/.env` file.
+
+You can check the configured (generated or manually set) account and balances with:
+
+```
+yarn account
+```
 
 ## 3. Deploy your smart contract(s)
 
