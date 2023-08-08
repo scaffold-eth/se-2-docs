@@ -6,7 +6,7 @@ sidebar_position: 1
 
 To deploy your smart contracts to a live network, there are a few things you need to adjust.
 
-1. Select the network
+## 1. Select the network
 
 By default, `yarn deploy` will deploy the contract to the local network. You can change the defaultNetwork in `packages/hardhat/hardhat.config.ts.` You could also simply run `yarn deploy --network target_network` to deploy to another network.
 
@@ -18,18 +18,27 @@ Example: To deploy the contract to the Sepolia network, run the command below:
 yarn deploy --network sepolia
 ```
 
-2. Generate a new account or add one to deploy the contract(s) from. Additionally you will need to add your Alchemy API key. Rename `.env.example` to `.env` and fill the required keys.
-
-```
-ALCHEMY_API_KEY="",
-DEPLOYER_PRIVATE_KEY=""
-```
+## 2. Generate a new account or add one to deploy the contract(s) from.
 
 The deployer account is the account that will deploy your contracts. Additionally, the deployer account will be used to execute any function calls that are part of your deployment script.
 
-You can generate a random account / private key with `yarn generate` or add the private key of your crypto wallet. `yarn generate` will create a random account and add the DEPLOYER_PRIVATE_KEY to the .env file. You can check the generated account with `yarn account`.
+You can generate a random account / private key or add the private key of your crypto wallet.
 
-3. Deploy your smart contract(s)
+To create a random account and add the `DEPLOYER_PRIVATE_KEY` to the `.env` file, run:
+
+```
+yarn generate
+```
+
+If you prefer to manually set your own private key, need to add `DEPLOYER_PRIVATE_KEY=yourWalletPrivateKey` to `packages/hardhat/.env` file.
+
+You can check the configured (generated or manually set) account and balances with:
+
+```
+yarn account
+```
+
+## 3. Deploy your smart contract(s)
 
 Run the command below to deploy the smart contract to the target network. Make sure to have some funds in your deployer account to pay for the transaction.
 
@@ -37,10 +46,24 @@ Run the command below to deploy the smart contract to the target network. Make s
 yarn deploy --network network_name
 ```
 
-4. Verify your smart contract
+## 4. Verify your smart contract
 
 You can verify your smart contract on Etherscan by running:
 
 ```
 yarn verify --network network_name
 ```
+
+## Configuration of Third-Party Services for Production-Grade Apps.
+
+By default, Scaffold-ETH 2 provides predefined API keys for popular services such as Alchemy and Etherscan. This allows you to begin developing and testing your applications more easily, avoiding the need to register for these services.
+
+For production-grade applications, it's recommended to obtain your own API keys (to prevent rate limiting issues). You can configure these at:
+
+- `ALCHEMY_API_KEY` variable in `packages/hardhat/.env` and `packages/nextjs/.env.local`. You can create API keys from the [Alchemy dashboard](https://dashboard.alchemy.com/).
+
+- `ETHERSCAN_API_KEY` variable in `packages/hardhat/.env` with your generated API key. You can get your key [here](https://etherscan.io/myapikey).
+
+:::tip Hint
+It's recommended to store env's for nextjs in Vercel/system env config for live apps and use .env.local for local testing.
+:::tip Hint
