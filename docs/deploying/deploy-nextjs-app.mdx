@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+toc_max_heading_level: 5
 ---
 
 # Deploy your NextJS App
@@ -11,7 +12,7 @@ We recommend connecting your GitHub repo to Vercel (through the Vercel UI) so it
 If you want to deploy directly from the CLI, run this and follow the steps to deploy to Vercel:
 
 ```
-`yarn vercel`
+yarn vercel
 ```
 
 Once you log in (email, github, etc), the default options should work. It'll give you a public URL.
@@ -19,7 +20,7 @@ Once you log in (email, github, etc), the default options should work. It'll giv
 If you want to redeploy to the same production URL you can run:
 
 ```
-`yarn vercel --prod`
+yarn vercel --prod
 ```
 
 If you omit the `--prod` flag it will deploy it to a preview/test URL.
@@ -45,32 +46,32 @@ export type ScaffoldConfig = {
 
 The configuration parameters are described below, make sure to update the values according to your needs:
 
-### - targetNetwork
+#### - targetNetwork
 
 Sets the blockchain network where your dapp is deployed. Use values from `wagmi/chains`.
 
-### - pollingInterval
+#### - pollingInterval
 
 The interval in milliseconds at which your front-end application polls the RPC servers for fresh data. _Note that this setting does not affect the local network._
 
-### - alchemyApiKey
+#### - alchemyApiKey
 
 Default Alchemy API key from Scaffold ETH 2 for local testing purposes.  
  It's recommended to obtain your own API key from the [Alchemy Dashboard](https://dashboard.alchemyapi.io/) and store it in an environment variable: `NEXT_PUBLIC_ALCHEMY_API_KEY` at `\packages\nextjs\.env.local` file.
 
-### - walletConnectProjectId
+#### - walletConnectProjectId
 
 WalletConnect's default project ID from Scaffold ETH 2 for local testing purposes.
 It's recommended to obtain your own project ID from the [WalletConnect website](https://cloud.walletconnect.com) and store it in an environment variable: `NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID` at `\packages\nextjs\.env.local` file.
 
-### - onlyLocalBurnerWallet
+#### - onlyLocalBurnerWallet
 
 Controls the networks where the Burner Wallet feature is available. This feature provides a lightweight wallet for users.
 
 - `true` => Use Burner Wallet only on hardhat network.
 - `false` => Use Burner Wallet on all networks.
 
-### - walletAutoConnect
+#### - walletAutoConnect
 
 Set it to `true` to activate automatic wallet connection behavior:
 
