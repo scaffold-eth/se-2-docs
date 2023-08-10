@@ -13,8 +13,8 @@ Clone the repository, install all dependencies as well as build all local packag
 ```
 git clone https://github.com/scaffold-eth/se2-docs.git
 cd se2-docs
-yarn install
-yarn start
+npm install
+npm run start
 ```
 
 ## Contribution Guidelines
@@ -61,7 +61,9 @@ TODO: Explain _category_.json
 
 ## Website contributions
 
-For contributions to the Website Code, fork the repository, create a new branch, and make all changes necessary in your repository. Once you are done with your changes, create a PR to Scaffold-ETH 2 Documentation repository.
+For contributions to the Website Code, we follow the ["fork-and-pull" Git workflow](https://github.com/susam/gitpr).
+
+Fork the repository, create a new branch, and make all changes necessary in your repository. Once you are done with your changes, create a PR to Scaffold-ETH 2 Documentation repository.
 
 ### Configuration
 
