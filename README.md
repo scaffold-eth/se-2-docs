@@ -4,7 +4,7 @@ This website contains Scaffold-ETH 2 Documentation and is built using [Docusauru
 
 ## Requirements
 
-To run the Documentation site locally, but first ensure you have [Node](https://nodejs.org/en/download/), [Yarn](https://yarnpkg.com/) and [Git](https://git-scm.com/downloads) installed.
+To run the Documentation site locally, but first ensure you have [Node](https://nodejs.org/en/download/) and [Git](https://git-scm.com/downloads) installed.
 
 ## Installation
 
