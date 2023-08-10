@@ -43,7 +43,7 @@ const config = {
           sidebarCollapsible: false,
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/scaffold-eth/se2-docs/blob/main/',
+            'https://github.com/scaffold-eth/se2-docs/edit/main/',
         },
         blog: false,
         theme: {
