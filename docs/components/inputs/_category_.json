@@ -1,0 +1,10 @@
+{
+  "label": "Inputs",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "title": "✏ Inputs",
+    "slug": "inputs",
+    "description": "These input components may be useful when you need to capture data from your users."
+  }
+}
