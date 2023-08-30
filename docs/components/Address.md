@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Address
 
-Display an address (or ENS) plus a copy address icon utility. If the address has an ENS associated with avatar, it will show its avatar, if not it will show a blockie image for that address.
+Display an address (or ENS) plus a copy address icon utility. If the address has an ENS with avatar associated, it will show this avatar, if not it will show a blockie image for that address.
 
 By default, clicking on the address sends you to blockexplorer details for that address.
 
@@ -26,8 +26,8 @@ const [selectedAddress, setSelectedAddress] = useState("");
 
 ## Props
 
-- `address` => Pass the address in `0x___` format, it will resolve ENS if it's associated.
+- `address` => Address in `0x___` format, it will resolve its ENS if has one associated.
 
 - `disableAddressLink` => Set it to `true` to disable the blockexplorer link behaviour when clicking on the address.
 
-- `format` => By default displayed address it's only the first five characters from the address, set this to `"long"` to display the full address.
+- `format` => By default, displayed address it's only the first five characters from the address, set this to `"long"` to display the full address.

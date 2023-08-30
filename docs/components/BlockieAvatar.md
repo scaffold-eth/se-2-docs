@@ -6,7 +6,7 @@ sidebar_position: 6
 
 Show a blockie (bar code profile icon) component for a public address.
 
-If the address has an ENS avatar linked to it, will show it, otherwise will show the generated blockie.
+If the address has an ENS avatar linked to it, will show it. Otherwise, will show the generated blockie.
 
 ![BlockieAvatar Example](/img/BlockieAvatar.png)
 
