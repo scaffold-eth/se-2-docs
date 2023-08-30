@@ -5,6 +5,6 @@
   "link": {
     "type": "generated-index",
     "slug": "components",
-    "description": "Scaffold-ETH 2 provides pre-built components for common web3 use cases, so you can build your apps faster."
+    "description": "Scaffold-ETH 2 provides a set of pre-built components for common web3 use cases. You can make use of them to accelerate and simplify your dapp development."
   }
 }

@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # IntergerInput
 
-Provides a input field for integer values, validating that user input it's a valid integer, and showing error if not.  
+Provides an input field for integer values, validating that user input it's a valid integer, and showing error if not.  
 Shows by default a small button to multiply input's value \* 10^18 to transform to wei.
 
 ![IntegerInput Example](/img/integerInput.png)

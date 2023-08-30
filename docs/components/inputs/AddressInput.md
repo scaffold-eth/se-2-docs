@@ -4,7 +4,9 @@ sidebar_position: 1
 
 # AddressInput
 
-Display an address input, that resolves ENS domains and displays its avatars, plus a blockie image for each address.
+Display an Ethereum address input that validates the address format, resolves ENS domains, and shows their avatars.
+
+Also shows a blockie image for each address.
 
 ![AddressInput Example](/img/addressInput.png)
 
@@ -29,7 +31,7 @@ const [validatorAddress, setValidatorAddress] = useState("");
 
 ## Props
 
-- `value` => You can enter an address (`0x___` format) or enter a ENS domain.
+- `value` => An Ethereum address in (`0x___` format) or a ENS domain.
 
 - `onChange` => Callback that is called when the address input's data changes.
 

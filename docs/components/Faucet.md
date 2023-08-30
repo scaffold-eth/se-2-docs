@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # Faucet
 
-Displays a Faucet button, which opens a modal with a local faucet to send ETH to a given address. A wallet is also provided.
+Displays a _"Faucet"_ button, which opens a modal with a Local Faucet to send ETH to a given address. A wallet is also provided.
 
 ![Faucet Example](/img/Faucet.png)
 

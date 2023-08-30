@@ -8,7 +8,7 @@ Displays a _"Connect Wallet"_ button, which opens a Custom RainbowKit modal to c
 
 Provides connection with most popular wallets plus a Burner Wallet to interact with your app easily.
 
-![RainbowKitCustomConnectButton Example](/img/RainbowKitCustomConnectButton.png)
+![RainbowKitCustomConnectButton Example](/img/RainbowKitCustomConnectButton.png?acc=1)
 
 ## Import
 
