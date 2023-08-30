@@ -1,8 +1,9 @@
 {
   "label": "🛳 Shipping your dApp",
-  "position": 3,
+  "position": 5,
   "link": {
     "type": "generated-index",
+    "slug": "deploying",
     "description": "Learn how to Deploy your Smart Contracts to a Live Network and how to Deploy your NextJS App"
   }
 }
