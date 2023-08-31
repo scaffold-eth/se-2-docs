@@ -28,3 +28,9 @@ useScaffoldEventSubscriber({
 ```
 
 This example subscribes to the `GreetingChange` event emitted by the `YourContract` smart contract, and logs the parameters emitted by the event to the console whenever it is emitted. The `listener` function accepts an array of `logs` that occurred during the [ `pollingInterval` ](/deploying/deploy-nextjs-app#--pollinginterval) and each array items contains `args` property which can be destructed to get the parameters emitted by the event, this function can customized according to your needs.
+
+:::note
+
+It is recommended to `setState` using [updater function](https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state) in `listner` function to avoid problems due to caching
+
+:::
