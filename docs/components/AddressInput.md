@@ -19,21 +19,19 @@ import { AddressInput } from "~~/components/scaffold-eth";
 ## Usage
 
 ```tsx
-const [validatorAddress, setValidatorAddress] = useState("");
-
+const [address, setAddress] = useState("");
 <AddressInput
-  value={validatorAddress}
-  onChange={(address) => setValidatorAddress(address)}
-  placeholder="The friend who is going to validate your goal"
-  name="Validator"
+  onChange={setAddress}
+  value={address}
+  placeholder="Input your address"
 />;
 ```
 
 ## Props
 
-- `value` => An Ethereum address in (`0x___` format) or a ENS domain.
+- `value` => An Ethereum address in (`0x___` format) or an ENS domain.
 
-- `onChange` => Callback that is called when the address input's data changes.
+- `onChange` => A callback invoked when the data in the address input changes.
 
 - `placeholder` => The string that will be rendered before address input has been entered.
 
