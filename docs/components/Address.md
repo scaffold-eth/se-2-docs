@@ -28,6 +28,6 @@ import { Address } from "~~/components/scaffold-eth";
 
 - `disableAddressLink` => Set it to `true` to disable the blockexplorer link behaviour when clicking on the address.
 
-- `format` => By default, displayed address it's only the first five characters from the address, set this to `"long"` to display the full address.
+- `format` => By default, only the first five characters of the address are displayed. Set this to `"long"` to display the entire address.
 
 - `size` (optional) => Size for the displayed Address component. `base` by default but you can pass in `xs`, `sm`, `base`, `lg`, `xl`, `2xl`, `3xl`.
