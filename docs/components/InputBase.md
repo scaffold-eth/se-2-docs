@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # InputBase
 
-Simple building block for creating an input.
+Simple building block for creating an input which comes with basic default styles (colors, rounded borders).
 
 ![InputBase Example](/img/inputBase.png)
 
