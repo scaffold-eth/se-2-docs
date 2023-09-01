@@ -10,13 +10,13 @@ Displays input field for ETH/USD amount, with an option to convert between ETH a
 
 ## Import
 
-```ts
+```tsx
 import { EtherInput } from "~~/components/scaffold-eth";
 ```
 
 ## Usage
 
-```ts
+```tsx
 const [ethAmount, setEthAmount] = useState("");
 
 <EtherInput value={ethAmount} onChange={(amount) => setEthAmount(amount)} />;

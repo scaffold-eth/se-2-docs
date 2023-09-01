@@ -11,13 +11,13 @@ Shows by default a small button to multiply input's value \* 10^18 to transform 
 
 ## Import
 
-```ts
+```tsx
 import { IntegerInput } from "~~/components/scaffold-eth";
 ```
 
 ## Usage
 
-```ts
+```tsx
 const [txValue, setTxValue] = useState<string | bigint>("");
 
 <IntegerInput

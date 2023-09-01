@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 # RainbowKitCustomConnectButton
@@ -12,12 +12,12 @@ Provides connection with most popular wallets plus a Burner Wallet to interact w
 
 ## Import
 
-```ts
+```tsx
 import { RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 ```
 
 ## Usage
 
-```ts
+```tsx
 <RainbowKitCustomConnectButton />
 ```

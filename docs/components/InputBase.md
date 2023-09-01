@@ -10,13 +10,13 @@ Simple building block for creating an input.
 
 ## Import
 
-```ts
+```tsx
 import { InputBase } from "~~/components/scaffold-eth";
 ```
 
 ## Usage
 
-```ts
+```tsx
 const [url, setUrl] = useState<string>();
 
 <InputBase name="url" placeholder="url" value={url} onChange={setUrl} />;
