@@ -4,24 +4,22 @@ sidebar_position: 1
 
 # Address
 
-Display an address (or ENS) plus a copy address icon utility. If the address has an ENS with avatar associated, it will show this avatar, if not it will show a blockie image for that address.
+Display an address (or ENS) along with a utility icon to copy the address. If the address is associated with an ENS that has an avatar, this avatar will be displayed. If not, a blockie image representation of the address will be shown.
 
-By default, clicking on the address sends you to blockexplorer details for that address.
+By default, clicking on the address redirects you to the `targetNetwork` blockexplorer with the details of that address.
 
 ![Address Example](/img/Address.png)
 
 ## Import
 
-```ts
+```tsx
 import { Address } from "~~/components/scaffold-eth";
 ```
 
 ## Usage
 
-```ts
-const [selectedAddress, setSelectedAddress] = useState("");
-
-<Address address={selectedAddress} />;
+```tsx
+<Address address="0x34aA3F359A9D614239015126635CE7732c18fDF3" />
 ```
 
 ## Props
@@ -31,3 +29,5 @@ const [selectedAddress, setSelectedAddress] = useState("");
 - `disableAddressLink` => Set it to `true` to disable the blockexplorer link behaviour when clicking on the address.
 
 - `format` => By default, displayed address it's only the first five characters from the address, set this to `"long"` to display the full address.
+
+- `size` (optional) => Size for the displayed Address component. `base` by default but you can pass in `xs`, `sm`, `base`, `lg`, `xl`, `2xl`, `3xl`.
