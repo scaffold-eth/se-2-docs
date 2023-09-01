@@ -26,7 +26,7 @@ const [url, setUrl] = useState<string>();
 
 - `value` => The data that your input will show.
 
-- `onChange` => Callback that is called when the input's data changes.
+- `onChange` => A callback invoked when the data in the input changes.
 
 - `placeholder` => The string that will be rendered before input data has been entered.
 

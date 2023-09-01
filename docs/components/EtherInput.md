@@ -26,7 +26,7 @@ const [ethAmount, setEthAmount] = useState("");
 
 - `value` => You can enter ether quantity or USD quantity, but value will be always stored in ETH.
 
-- `onChange` => Callback that is called when the ether input's amount changes.
+- `onChange` => A callback invoked when the amount in the ether input changes.
 
 - `placeholder` => The string that will be rendered before ether input has been entered.
 
