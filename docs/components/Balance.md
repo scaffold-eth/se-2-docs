@@ -10,21 +10,18 @@ Displays the balance of a given address in both ether (ETH) and US dollars (USD)
 
 ## Import
 
-```ts
+```tsx
 import { Balance } from "~~/components/scaffold-eth";
 ```
 
 ## Usage
 
-```ts
-<Balance
-  address={address}
-  className="text-3xl bg-neutral h-14 p-6 rounded-md mb-6"
-/>
+```tsx
+<Balance address="0x34aA3F359A9D614239015126635CE7732c18fDF3" />
 ```
 
 ## Props
 
 - `address` => The address you want to check the balance for. Ensure it's in the `0x___` format.
 
-- `className` => An optional prop to pass additional CSS styling to the component. You can use tailwind and daisyUI for styling.
+- `className` (optional) => Prop to pass additional CSS styling to the component. You can use tailwind / daisyUI classes like `text-3xl` for styling.
