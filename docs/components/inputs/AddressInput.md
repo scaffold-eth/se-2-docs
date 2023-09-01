@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # AddressInput
 
-Display an Ethereum address input that validates the address format, resolves ENS domains, and shows their avatars.
+Display an Ethereum address input that validates the address format or ENS domain, resolves ENS domains or reverse resolves address if ens domain is entered, and shows their avatars.
 
 Also shows a blockie image for each address.
 
