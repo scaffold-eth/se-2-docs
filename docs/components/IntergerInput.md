@@ -23,7 +23,6 @@ const [txValue, setTxValue] = useState<string | bigint>("");
 <IntegerInput
   value={txValue}
   onChange={(updatedTxValue) => {
-    setDisplayedTxResult(undefined);
     setTxValue(updatedTxValue);
   }}
   placeholder="value (wei)"
