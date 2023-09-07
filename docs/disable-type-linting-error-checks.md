@@ -12,11 +12,11 @@ Typescript helps you catch errors at compile time, which can save time and impro
 
 We run `pre-commit` [git hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) which lints the staged files and don't let you commit if there is an linting error.
 
-To disable this, go to `.husky/pre-commit` file and comment out `yarn lint-staged --verbose`
+To disable this, go to `.husky/pre-commit` file and comment out `pnpm lint-staged --verbose`
 
 ```diff
-- yarn lint-staged --verbose
-+ # yarn lint-staged --verbose
+- pnpm lint-staged --verbose
++ # pnpm lint-staged --verbose
 ```
 
 ## Deploying to Vercel without any checks
@@ -26,7 +26,7 @@ By default, Vercel runs types and lint checks before building your app. The depl
 To ignore these checks while deploying from the CLI, use:
 
 ```shell
-yarn vercel:yolo
+pnpm vercel:yolo
 ```
 
 If your repo is connected to Vercel, you can set `NEXT_PUBLIC_IGNORE_BUILD_ERROR` to `true` in a [environment variable](https://vercel.com/docs/concepts/projects/environment-variables).

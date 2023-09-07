@@ -8,14 +8,14 @@ To deploy your smart contracts to a live network, there are a few things you nee
 
 ## 1. Select the network
 
-By default, `yarn deploy` will deploy the contract to the local network. You can change the defaultNetwork in `packages/hardhat/hardhat.config.ts.` You could also simply run `yarn deploy --network target_network` to deploy to another network.
+By default, `pnpm run deploy` will deploy the contract to the local network. You can change the defaultNetwork in `packages/hardhat/hardhat.config.ts.` You could also simply run `pnpm run deploy --network target_network` to deploy to another network.
 
-Check the `hardhat.config.ts` for the networks that are pre-configured. You can also add other network settings to the `hardhat.config.ts` file. Here are the [Alchemy docs](https://docs.alchemy.com/docs/how-to-add-alchemy-rpc-endpoints-to-metamask) for information on specific networks.
+Check the `hardhat.config.ts` for the networks that are pre-configured. You can also add other network settings to the `hardhat.config.ts` file. Here are the [Alchemy docs](https://docs.alchemy.com/docs/how-to-add-alchemy-rpc-endpoints-to-metamask) for information on specific networks.
 
 Example: To deploy the contract to the Sepolia network, run the command below:
 
 ```
-yarn deploy --network sepolia
+pnpm run deploy --network sepolia
 ```
 
 ## 2. Generate a new account or add one to deploy the contract(s) from.
@@ -27,7 +27,7 @@ You can generate a random account / private key or add the private key of your c
 To create a random account and add the `DEPLOYER_PRIVATE_KEY` to the `.env` file, run:
 
 ```
-yarn generate
+pnpm generate
 ```
 
 If you prefer to manually set your own private key, need to add `DEPLOYER_PRIVATE_KEY=yourWalletPrivateKey` to `packages/hardhat/.env` file.
@@ -35,7 +35,7 @@ If you prefer to manually set your own private key, need to add `DEPLOYER_PRIVAT
 You can check the configured (generated or manually set) account and balances with:
 
 ```
-yarn account
+pnpm account
 ```
 
 ## 3. Deploy your smart contract(s)
@@ -43,7 +43,7 @@ yarn account
 Run the command below to deploy the smart contract to the target network. Make sure to have some funds in your deployer account to pay for the transaction.
 
 ```
-yarn deploy --network network_name
+pnpm run deploy --network network_name
 ```
 
 ## 4. Verify your smart contract
@@ -51,7 +51,7 @@ yarn deploy --network network_name
 You can verify your smart contract on Etherscan by running:
 
 ```
-yarn verify --network network_name
+pnpm verify --network network_name
 ```
 
 ## Configuration of Third-Party Services for Production-Grade Apps.
