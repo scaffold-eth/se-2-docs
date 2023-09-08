@@ -4,11 +4,15 @@ sidebar_position: 7
 
 # RainbowKitCustomConnectButton
 
-Displays a _"Connect Wallet"_ button, which opens a Custom RainbowKit modal to connect a wallet to your app.
+Scaffold-ETH 2 uses a custom _"Connect Button"_, based on RainbowKit, enhanced with several useful features:
 
-Provides connection with most popular wallets plus a Burner Wallet to interact with your app easily.
+- **Balance Display**. Show the balance of the native token from the connected address.
+- **Chain Name and Color**. Displays the name of the connected blockchain and uses a distinct color for each chain.
+- **Custom Modal**. Includes copy address feature, view its QR code, access address details in blockexplorer, and disconnect.
 
-![RainbowKitCustomConnectButton Example](/img/RainbowKitCustomConnectButton.png?acc=1)
+You can extend this component to suit your app needs.
+
+![RainbowKitCustomConnectButton Example](/img/RainbowKitCustomConnectButton.gif)
 
 ## Import
 
