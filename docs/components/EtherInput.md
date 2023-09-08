@@ -6,7 +6,7 @@ sidebar_position: 4
 
 Displays input field for ETH/USD amount, with an option to convert between ETH and USD.
 
-![EtherInput Example](/img/etherInput.gif)
+![EtherInput Example](/img/EtherInput.gif)
 
 ## Import
 
