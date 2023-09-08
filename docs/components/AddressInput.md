@@ -8,7 +8,7 @@ Display an Ethereum address input that validates the address format, resolves EN
 
 Also shows a blockie image for each address.
 
-![AddressInput Example](/img/addressInput.png)
+![AddressInput Example](/img/addressInput.gif)
 
 ## Import
 
