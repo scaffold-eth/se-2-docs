@@ -6,7 +6,7 @@ sidebar_position: 2
 
 Displays the balance of a given address in both ether (ETH) and US dollars (USD).
 
-![Balance Example](/img/Balance.png)
+![Balance Example](/img/Balance.gif)
 
 ## Import
 
