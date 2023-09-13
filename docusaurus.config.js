@@ -41,7 +41,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           // sidebarCollapsible: false,
-          sidebarCollapsed: false,
+          sidebarCollapsed: true,
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/scaffold-eth/se2-docs/edit/main/',
