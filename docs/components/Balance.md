@@ -22,6 +22,7 @@ import { Balance } from "~~/components/scaffold-eth";
 
 ## Props
 
-- `address` => The address you want to check the balance for. Ensure it's in the `0x___` format.
-
-- `className` (optional) => Prop to pass additional CSS styling to the component. You can use tailwind / daisyUI classes like `text-3xl` for styling.
+| Prop                     | Type     | Default     | Description                                                                                                               |
+| ------------------------ | -------- | ----------- | ------------------------------------------------------------------------------------------------------------------------- |
+| **address**              | `string` | `undefined` | Address in `0x___` format, it will resolve its ENS if has one associated.                                                 |
+| **className** (optional) | `string` | `""`        | Prop to pass additional CSS styling to the component. You can use tailwind / daisyUI classes like `text-3xl` for styling. |
