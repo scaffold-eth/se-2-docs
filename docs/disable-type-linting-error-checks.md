@@ -1,8 +1,8 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 ---
 
-# ⚙️ Disabling Type and Linting Error Checks
+# ✅ Disabling Type and Linting Error Checks
 
 :::tip Hint
 Typescript helps you catch errors at compile time, which can save time and improve code quality, but can be challenging for those who are new to the language or who are used to the more dynamic nature of JavaScript. This sections shows the steps required to disable type & lint check on different levels
