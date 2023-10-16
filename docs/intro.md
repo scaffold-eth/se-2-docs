@@ -7,7 +7,7 @@ slug: /
 
 [Scaffold-eth](https://github.com/scaffold-eth/scaffold-eth-2) is everything you need to get started building decentralized applications on Ethereum! 🚀
 
-⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, and Typescript.
+⚙️ Built using NextJS, RainbowKit, Hardhat, Foundry, Wagmi, and Typescript.
 
 ## About Scaffold-ETH 2
 
@@ -22,8 +22,9 @@ Scaffold-eth is an open-source, up-to-date toolkit for building decentralized ap
 Scaffold-eth is not a product itself but more of a combination or stack of other great tools. It allows you to quickly build and iterate over your smart contracts and frontends.
 
 Here are the main components:
-- **Hardhat** for running local networks, deploying and testing smart contracts.
+
+- **Hardhat** or **Foundry** (user's choice) for running local networks, deploying and testing smart contracts.
 - **Wagmi** for React Hooks to start working with Ethereum
 - **NextJS** for building a frontend, using many useful pre-made hooks.
 - **RainbowKit** for adding wallet connection
-- **DaisyUI** for pre-built Tailwind CSS components
+- **DaisyUI** for pre-built Tailwind CSS components- **DaisyUI** for pre-built Tailwind CSS components
