@@ -27,4 +27,4 @@ Here are the main components:
 - **Wagmi** for React Hooks to start working with Ethereum
 - **NextJS** for building a frontend, using many useful pre-made hooks.
 - **RainbowKit** for adding wallet connection
-- **DaisyUI** for pre-built Tailwind CSS components- **DaisyUI** for pre-built Tailwind CSS components
+- **DaisyUI** for pre-built Tailwind CSS components
