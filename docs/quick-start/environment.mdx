@@ -17,8 +17,8 @@ yarn chain
 
 This command starts a local Ethereum network using Hardhat or Foundry, depending on which one you selected in the CLI. The network runs on your local machine and can be used for testing and development. You can customize the network configuration in:
 
-- `packages/hardhat/hardhat.config.ts` if you have Hardhat as solidity framework.
-- `packages/foundry/foundry.toml` if you have Foundry as solidity framework.
+- Hardhat => `packages/hardhat/hardhat.config.ts`
+- Foundry => `packages/foundry/foundry.toml`
 
 ### 2. **Deploy Your Smart Contract**:
 
@@ -28,12 +28,12 @@ In the second terminal, deploy the test contract:
 yarn deploy
 ```
 
-This command deploys a test smart contract to the local network. The contract can be modified to suit your needs. Is located in:
+This command deploys a test smart contract to the local network. The contract can be modified to suit your needs and can be found in:
 
 - Hardhat => `packages/hardhat/contracts`
 - Foundry => `packages/foundry/contracts`
 
-The `yarn deploy` command uses a deploy script to deploy the contract to the network. You can customize it. Is located in:
+The `yarn deploy` command uses a deploy script to deploy the contract to the network. You can customize the deployment script located in:
 
 - Hardhat => `packages/hardhat/deploy`
 - Foundry => `packages/foundry/script`
@@ -58,4 +58,9 @@ Visit your app on `http://localhost:3000`. You can interact with your smart cont
   - Foundry => `packages/foundry/script`
 - Edit your frontend in `packages/nextjs/pages`
 - Edit the app config in `packages/nextjs/scaffold.config.ts`
-- Run smart contract test with `yarn hardhat:test`
+- Edit your smart contract test in:
+  - Hardhat => `packages/hardhat/test`
+  - Foundry => `packages/foundry/test`
+- Run smart contract test with:
+  - Hardhat => `yarn hardhat:test`
+  - Foundry => `yarn foundry:test`
