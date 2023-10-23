@@ -21,6 +21,15 @@ const config = {
   organizationName: 'scaffold-eth',
   projectName: 'scaffold-eth-2',
 
+  scripts: [
+    {
+      src: "https://plausible.io/js/plausible.js",
+      async: true,
+      defer: true,
+      "data-domain": "docs.scaffoldeth.io",
+    },
+  ],
+
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
 
@@ -74,7 +83,6 @@ const config = {
           //   href: 'https://scaffoldeth.io/',
           //   label: 'SE-2 Website',
           //   position: 'left',
-            
           // },
           {
             href: 'https://github.com/scaffold-eth/se2-docs',
