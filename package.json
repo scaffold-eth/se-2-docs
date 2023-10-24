@@ -12,7 +12,8 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "format": "npx prettier --write ."
+    "format": "npx prettier --write '**/*.{js,jsx,md,mdx,json}'",
+    "format-check": "npx prettier --check '**/*.{js,jsx,md,mdx,json}'"
   },
   "dependencies": {
     "@docusaurus/core": "2.4.0",
