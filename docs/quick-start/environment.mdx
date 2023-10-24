@@ -15,7 +15,10 @@ In the first terminal, run a local network:
 yarn chain
 ```
 
-This command starts a local Ethereum network using Hardhat. The network runs on your local machine and can be used for testing and development. You can customize the network configuration in `hardhat.config.ts`.
+This command starts a local Ethereum network using Hardhat or Foundry, depending on which one you selected in the CLI. The network runs on your local machine and can be used for testing and development. You can customize the network configuration in:
+
+- Hardhat => `packages/hardhat/hardhat.config.ts`
+- Foundry => `packages/foundry/foundry.toml`
 
 ### 2. **Deploy Your Smart Contract**:
 
@@ -25,7 +28,15 @@ In the second terminal, deploy the test contract:
 yarn deploy
 ```
 
-This command deploys a test smart contract to the local network. The contract is located in `packages/hardhat/contracts` and can be modified to suit your needs. The `yarn deploy` command uses the deploy script located in `packages/hardhat/deploy` to deploy the contract to the network. You can also customize the deploy script.
+This command deploys a test smart contract to the local network. The contract can be modified to suit your needs and can be found in:
+
+- Hardhat => `packages/hardhat/contracts`
+- Foundry => `packages/foundry/contracts`
+
+The `yarn deploy` command uses a deploy script to deploy the contract to the network. You can customize the deployment script located in:
+
+- Hardhat => `packages/hardhat/deploy`
+- Foundry => `packages/foundry/script`
 
 ### 3. **Launch your NextJS Application**:
 
@@ -39,8 +50,14 @@ Visit your app on `http://localhost:3000`. You can interact with your smart cont
 
 ## What's Next:
 
-- Edit your smart contract `YourContract.sol` in `packages/hardhat/contracts`
-- Edit your deployment scripts in `packages/hardhat/deploy`
+- Edit your smart contract:
+  - Hardhat => `YourContract.sol` in `packages/hardhat/contracts`
+  - Foundry => `YourContract.sol` in `packages/foundry/contracts`
+- Edit your deployment scripts:
+  - Hardhat => `packages/hardhat/deploy`
+  - Foundry => `packages/foundry/script`
 - Edit your frontend in `packages/nextjs/pages`
 - Edit the app config in `packages/nextjs/scaffold.config.ts`
-- Run smart contract test with `yarn hardhat:test`
+- Edit your smart contract test in:
+  - Hardhat => `packages/hardhat/test` to run test use `yarn hardhat:test`
+  - Foundry => `packages/foundry/test` to run test use `yarn foundry:test`
