@@ -13,16 +13,10 @@ useScaffoldEventSubscriber({
   // The listener function is called whenever a GreetingChange event is emitted by the contract.
   // Parameters emitted by the event can be destructed using the below example
   // for this example: event GreetingChange(address greetingSetter, string newGreeting, bool premium, uint256 value);
-  listener: (logs) => {
-    logs.map((log) => {
+  listener: logs => {
+    logs.map(log => {
       const { greetingSetter, value, premium, newGreeting } = log.args;
-      console.log(
-        "📡 GreetingChange event",
-        greetingSetter,
-        value,
-        premium,
-        newGreeting
-      );
+      console.log("📡 GreetingChange event", greetingSetter, value, premium, newGreeting);
     });
   },
 });

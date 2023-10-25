@@ -16,7 +16,7 @@ const { writeAsync, isLoading, isMining } = useScaffoldContractWrite({
   // The number of block confirmations to wait for before considering transaction to be confirmed (default : 1).
   blockConfirmations: 1,
   // The callback function to execute when the transaction is confirmed.
-  onBlockConfirmation: (txnReceipt) => {
+  onBlockConfirmation: txnReceipt => {
     console.log("Transaction blockHash", txnReceipt.blockHash);
   },
 });
