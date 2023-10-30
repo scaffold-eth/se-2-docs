@@ -90,7 +90,7 @@ You can also create a writeAsync button sending args imperatively, here is an ex
 
 ### Step 4: Test and Deploy
 
-Test your component to ensure that it correctly interacts with the smart contract. You can verify if you are getting the same output as executing the Smart Contract function directly from `Debug` tab.
+Test your component to ensure that it correctly interacts with the smart contract. You can verify if you are getting the same output as executing the Smart Contract `setGreeting` function directly from `Debug` tab.
 
 ## Conclusion
 
