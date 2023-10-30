@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-title: Wait for Transaction Approval Receipt before launching next Transaction
+title: Wait for TxReceipt to Send a Second Tx
 description: Learn how to wait for a transaction receipt before sending a second transaction in a multi-step process.
 ---
 
@@ -14,7 +14,7 @@ Before you proceed with this recipe, make sure you have the [required dependenci
 
 In this recipe you will use a few hooks:
 
-- [usePublicClient](https://wagmi.sh/react/hooks/usePublicClient) and [useContractWrite](https://wagmi.sh/react/hooks/useContractWrite) from wagmi
+- [usePublicClient](https://wagmi.sh/react/hooks/usePublicClient) and [useContractWrite](https://wagmi.sh/react/hooks/useContractWrite) from wagmi.
 - [useScaffoldContractWrite](/hooks/useScaffoldContractWrite) and [useDeployedContractInfo](/hooks/useDeployedContractInfo) Scaffold ETH-2 hooks.
 
 You'll also use [AddressInput](/components/AddressInput) and [InputBase](/components/InputBase) Scaffold ETH-2 components, [ParseEther viem utility](https://viem.sh/docs/utilities/parseEther.html#parseether) and erc721ABI from wagmi. We recommend checking out the details of these hooks, components and utils before start implementing this recipe.
