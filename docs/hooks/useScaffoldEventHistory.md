@@ -18,7 +18,7 @@ const {
   fromBlock: 31231n,
   blockData: true,
   // Apply filters to the event based on parameter names and values { [parameterName]: value },
-  filters: { premium: true }
+  filters: { premium: true },
   // If set to true it will return the transaction data for each event (default: false),
   transactionData: true,
   // If set to true it will return the receipt data for each event (default: false),
