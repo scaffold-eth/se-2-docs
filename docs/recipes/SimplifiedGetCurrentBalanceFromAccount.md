@@ -6,14 +6,13 @@ description: Learn how to retrieve and display the ETH balance of the connected 
 
 # Get the Current Balance of the Connected Account
 
-This recipe shows how to fetch and display the ETH balance of the currently connected account in your decentralized application. After the recipe code, you'll find an implementation guide that walks you through the steps of creating this recipe yourself.
+This recipe shows how to fetch and display the ETH balance of the currently connected account in your decentralized application.
 
 ```tsx
-import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import { Address, Balance } from "~~/components/scaffold-eth";
 
-const ConnectedAddressBalance: NextPage = () => {
+export const ConnectedAddressBalance = () => {
   const { address: connectedAddress } = useAccount();
 
   return (
@@ -30,28 +29,19 @@ const ConnectedAddressBalance: NextPage = () => {
     </div>
   );
 };
-
-export default ConnectedAddressBalance;
 ```
 
 ## Implementation guide
 
 ### Step 1: Create a new Component
 
-Begin by creating a new component in the "components" folder of your application. In our recipe we'll call it "ConnectedAddressBalance.tsx".
-
-Import the required libraries and components:
+Begin by creating a new component in the "components" folder of your application. We will name it "ConnectedAddressBalance.tsx".
 
 ```tsx
-import type { NextPage } from "next";
 import { useAccount } from "wagmi";
 import { Address, Balance } from "~~/components/scaffold-eth";
-```
 
-Define your functional component, which we'll call "ConnectedAddressBalance". This component will be used to display the connected account and its ETH balance.
-
-```tsx
-const ConnectedAddressBalance: NextPage = () => {
+export const ConnectedAddressBalance = () => {
   // Your component code will go here.
 };
 ```
@@ -64,9 +54,9 @@ Fetch the Ethereum address of the currently connected account using the [useAcco
 const { address: connectedAddress } = useAccount();
 ```
 
-### Step 3: Create the User Interface
+### Step 3: Display the Address and ETH Balance
 
-Build the user interface to display the address and its current ETH balance. Here is an example with very basic styling:
+Now, you can use [Address](/components/Address) and [Balance](/components/Balance) Scaffold ETH-2 components to display the info of your `{connectedAddress}`.
 
 ```tsx
 return (
@@ -83,7 +73,3 @@ return (
   </div>
 );
 ```
-
-:::info Hint
-You can extend this component to display the balance of any other address by passing the address as a prop to the `Balance` component.
-:::info Hint
