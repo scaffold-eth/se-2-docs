@@ -8,10 +8,9 @@ description: Learn how to retrieve and display the ETH balance of the connected 
 
 This recipe shows how to fetch and display the ETH balance of the currently connected account in your decentralized application.
 
-<details>
-<summary>Here's the complete code for the "ConnectedAddressBalance.tsx" component along with styles:</summary>
+Here is the full code, which we will implement in this section :
 
-```tsx
+```tsx title="components/ConnectedAddressBalance.tsx"
 import { useAccount } from "wagmi";
 import { Address, Balance } from "~~/components/scaffold-eth";
 
@@ -33,8 +32,6 @@ export const ConnectedAddressBalance = () => {
   );
 };
 ```
-
-</details>
 
 ## Implementation guide
 
