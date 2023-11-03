@@ -8,6 +8,34 @@ description: Learn how to retrieve and display the ETH balance of the connected 
 
 This recipe shows how to fetch and display the ETH balance of the currently connected account in your decentralized application.
 
+<details>
+<summary>Here's the complete code for the "ConnectedAddressBalance.tsx" component along with styles:</summary>
+
+```tsx
+import { useAccount } from "wagmi";
+import { Address, Balance } from "~~/components/scaffold-eth";
+
+export const ConnectedAddressBalance = () => {
+  const { address: connectedAddress } = useAccount();
+
+  return (
+    <div className="bg-base-300 p-6 rounded-lg max-w-md mx-auto mt-6">
+      <h2 className="text-lg font-bold mb-2">Your Ethereum Balance</h2>
+
+      <div className="text-sm font-semibold mb-2">
+        Address: <Address address={connectedAddress} />
+      </div>
+
+      <div className="text-sm font-semibold">
+        Balance: <Balance address={connectedAddress} />
+      </div>
+    </div>
+  );
+};
+```
+
+</details>
+
 ## Implementation guide
 
 ### Step 1: Create a new Component
@@ -41,42 +69,12 @@ export const ConnectedAddressBalance = () => {
 
   return (
     <div>
-      // highlight-start
       <h2>Your Ethereum Balance</h2>
+      {/* highlight-start */}
       Address: <Address address={connectedAddress} />
       Balance: <Balance address={connectedAddress} />
-      // highlight-end
+      {/* highlight-end */}
     </div>
   );
 };
 ```
-
-## Full Recipe Code
-
-<details>
-<summary>Here's the complete code for the "ConnectedAddressBalance" component along with styles:</summary>
-
-```tsx
-import { useAccount } from "wagmi";
-import { Address, Balance } from "~~/components/scaffold-eth";
-
-export const ConnectedAddressBalance = () => {
-  const { address: connectedAddress } = useAccount();
-
-  return (
-    <div className="bg-base-300 p-6 rounded-lg max-w-md mx-auto mt-6">
-      <h2 className="text-lg font-bold mb-2">Your Ethereum Balance</h2>
-
-      <div className="text-sm font-semibold mb-2">
-        Address: <Address address={connectedAddress} />
-      </div>
-
-      <div className="text-sm font-semibold">
-        Balance: <Balance address={connectedAddress} />
-      </div>
-    </div>
-  );
-};
-```
-
-</details>
