@@ -37,7 +37,7 @@ export const ConnectedAddressBalance = () => {
 
 ### Step 1: Create a new Component
 
-Begin by creating a new component in the `components` folder of your application.
+Begin by creating a new component in the "components" folder of your application.
 
 ```tsx title="components/ConnectedAddressBalance.tsx"
 export const ConnectedAddressBalance = () => {
@@ -51,7 +51,7 @@ export const ConnectedAddressBalance = () => {
 
 ### Step 2: Retrieve the Connected Account
 
-Fetch the Ethereum address of the currently connected account using the [useAccount wagmi hook](https://wagmi.sh/react/hooks/useAccount) and easily display them using Scaffold ETH-2 [Address](/components/Address) and [Balance](/components/Balance) components
+Fetch the Ethereum address of the currently connected account using the [useAccount wagmi hook](https://wagmi.sh/react/hooks/useAccount) and easily display them using Scaffold ETH-2 [Address](/components/Address) and [Balance](/components/Balance) components.
 
 ```tsx title="components/ConnectedAddressBalance.tsx"
 // highlight-start
