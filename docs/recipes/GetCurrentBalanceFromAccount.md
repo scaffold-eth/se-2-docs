@@ -6,7 +6,7 @@ description: Learn how to retrieve and display the ETH balance of the connected 
 
 # Get the Current Balance of the Connected Account
 
-This recipe shows how to fetch and display the ETH balance of the currently connected account in your decentralized application.
+This recipe shows how to fetch and display the ETH balance of the currently connected account.
 
 Here is the full code, which we will implement in this section :
 
