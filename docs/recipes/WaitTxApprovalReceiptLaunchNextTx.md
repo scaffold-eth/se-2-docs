@@ -8,7 +8,8 @@ description: Learn how to wait for TxReceipt before sending a new transaction in
 
 This recipe shows how to create a multi-step transaction process where you wait for the receipt of the first transaction before sending a second transaction.
 
-Here is the full code, which we will be implementing in the guide below:
+<details open>
+<summary>Here is the full code, which we will be implementing in the guide below:</summary>
 
 ```tsx title="components/SellNFT.tsx"
 import { useState } from "react";
@@ -74,6 +75,8 @@ export const SellNFT = () => {
   );
 };
 ```
+
+</details>
 
 ## Implementation
 

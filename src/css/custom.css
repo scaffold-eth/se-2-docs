@@ -28,3 +28,7 @@ h1 {
   /* Color which works with dark mode syntax highlighting theme */
   --docusaurus-highlighted-code-line-bg: rgb(100, 100, 100);
 }
+
+details[open] {
+  min-height: 50px;
+}

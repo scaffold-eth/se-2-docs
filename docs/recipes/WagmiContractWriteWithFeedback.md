@@ -8,7 +8,8 @@ description: Show feedback on transaction status to user by `useContractWrite` a
 
 This recipe demonstrates how to create a button for contract interaction using the "useTransactor" and "useContractWrite" hooks from the "wagmi" library. The interaction includes the capability provides feedback on the transaction status when using wagmi `useContractWrite`.
 
-Here is the full code, which we will implement in this section:
+<details open>
+<summary>Here is the full code, which we will be implementing in the guide below:</summary>
 
 ```tsx title="components/ContractInteraction.tsx"
 import * as React from "react";
@@ -50,6 +51,8 @@ export const ContractInteraction = () => {
   );
 };
 ```
+
+</details>
 
 ## Implementation
 

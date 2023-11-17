@@ -8,7 +8,8 @@ description: Learn how to create a button that executes the writeAsync function 
 
 This recipe shows how to implement a button that allows users to interact with a smart contract by executing the `writeAsync` function returned by [useScaffoldContractWrite](/hooks/useScaffoldContractWrite). By following this guide, you can create a user interface for writing data to a contract.
 
-Here is the full code, which we will be implementing in the guide below:
+<details open>
+<summary>Here is the full code, which we will be implementing in the guide below:</summary>
 
 ```tsx title="components/Greetings.tsx"
 import { useState } from "react";
@@ -43,6 +44,8 @@ export const Greetings = () => {
   );
 };
 ```
+
+</details>
 
 ## Implementation
 
