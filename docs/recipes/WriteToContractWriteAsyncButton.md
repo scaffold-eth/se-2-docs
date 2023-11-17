@@ -6,9 +6,7 @@ description: Learn how to create a button that executes the writeAsync function 
 
 # Write to a Contract with `writeAsync` button
 
-This recipe shows how to implement a button that allows users to interact with a smart contract by executing the `writeAsync` function. By following this guide, you can create a user interface for writing data to a contract.
-
-In this recipe you will use [useScaffoldContractWrite](/hooks/useScaffoldContractWrite) Scaffold ETH-2 hook, and [ParseEther viem utility](https://viem.sh/docs/utilities/parseEther.html#parseether).
+This recipe shows how to implement a button that allows users to interact with a smart contract by executing the `writeAsync` function returned by [useScaffoldContractWrite](/hooks/useScaffoldContractWrite). By following this guide, you can create a user interface for writing data to a contract.
 
 Here is the full code, which we will be implementing in the guide below:
 
