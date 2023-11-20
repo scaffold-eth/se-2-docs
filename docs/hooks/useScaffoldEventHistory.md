@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # useScaffoldEventHistory
 
-Use this hook to retrieve historical event logs for your smart contract, providing past activity data.
+Use this hook to retrieve historical event logs for your smart contract, providing past activity data, with the option to watch for new events.
 
 ```ts
 const {
