@@ -29,4 +29,13 @@ const {
 });
 ```
 
-This example retrieves the historical event logs for the `GreetingChange` event of the `YourContract` smart contract, starting from block number 31231 and filtering events where the premium parameter is true. The data property of the returned object contains an array of event objects, each containing the event parameters and (optionally) the block, transaction, and receipt data. The `isLoading` property indicates whether the event logs are currently being fetched, and the `error` property contains any error that occurred during the fetching process (if applicable). Since `watch` is set to true, the event logs will be refetched every [`pollingInterval`](/deploying/deploy-nextjs-app#--pollinginterval) (set at `scaffold.config.ts`).
+## Parameters
+
+This example retrieves the historical event logs for the `GreetingChange` event of the `YourContract` smart contract, starting from block number 31231 and filtering events where the premium parameter is true.
+
+## Return Values
+
+- `data` property of the returned object contains an array of event objects, each containing the event parameters and (optionally) the block, transaction, and receipt data.
+- `isLoading` property indicates whether the event logs are currently being fetched.
+- `error` property contains any error that occurred during the fetching process (if applicable).
+- Since `watch` is set to true, the event logs will be refetched every [`pollingInterval`](/deploying/deploy-nextjs-app#--pollinginterval) (set at `scaffold.config.ts`).
