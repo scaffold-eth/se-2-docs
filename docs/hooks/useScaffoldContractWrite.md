@@ -30,7 +30,11 @@ To send the transaction, you can call the `writeAsync` function returned by the 
 </button>
 ```
 
-This example sends a transaction to the `YourContract` smart contract to call the `setGreeting` function with the arguments passed in `args`. The `writeAsync` function sends the transaction to the smart contract, and the `isLoading` and `isMining` properties indicate whether the transaction is currently being processed by the network.
+## Parameters
+
+This example sends a transaction to the `YourContract` smart contract to call the `setGreeting` function with the arguments passed in `args`. You can also pass other arguments accepted by [useContractWrite wagmi hook](https://wagmi.sh/react/hooks/useContractWrite#configuration).
+
+The `writeAsync` function sends the transaction to the smart contract, and the `isLoading` and `isMining` properties indicate whether the transaction is currently being processed by the network.
 
 It is also possible to pass arguments imperatively to the `writeAsync` function:
 
@@ -39,3 +43,9 @@ It is also possible to pass arguments imperatively to the `writeAsync` function:
   Send TX
 </button>
 ```
+
+## Return Values
+
+- The `writeAsync` function sends the transaction to the smart contract.
+- The `isMining` property indicates whether the transaction is currently being mined.
+- The extended object includes properties inherited from wagmi useContractWrite. You can check the [useContractWrite return values](https://wagmi.sh/react/hooks/useContractWrite#return-value) documentation to check the types.
