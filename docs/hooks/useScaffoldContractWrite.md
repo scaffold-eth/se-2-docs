@@ -46,6 +46,6 @@ It is also possible to pass arguments imperatively to the `writeAsync` function:
 
 ## Return Values
 
-- The `writeAsync` function sends the transaction to the smart contract.
-- The `isMining` property indicates whether the transaction is currently being mined.
+- `writeAsync` function sends the transaction to the smart contract.
+- `isMining` property indicates whether the transaction is currently being mined.
 - The extended object includes properties inherited from wagmi useContractWrite. You can check the [useContractWrite return values](https://wagmi.sh/react/hooks/useContractWrite#return-value) documentation to check the types.
