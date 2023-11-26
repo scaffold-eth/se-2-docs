@@ -14,4 +14,14 @@ const { data: totalCounter } = useScaffoldContractRead({
 });
 ```
 
-This example retrieves the data returned by the `getGreeting` function of the `YourContract` smart contract. If the function accepts any arguments, they can be passed in the args array. The retrieved data is stored in the `data` property of the returned object.
+This example retrieves the data returned by the `getGreeting` function of the `YourContract` smart contract.
+
+## Parameters
+
+Along with `contractName` and `functionName`, if the function accepts any arguments, they can be passed in the `args` array. You can also pass other arguments accepted by [useContractRead wagmi hook](https://wagmi.sh/react/hooks/useContractRead#configuration).
+
+## Return Values
+
+- The retrieved data is stored in the `data` property of the returned object.
+- You can refetch the data by calling the `refetch` function.
+- The extended object includes properties inherited from wagmi useContractRead. You can check the [useContractRead return values](https://wagmi.sh/react/hooks/useContractRead#return-value) documentation to check the types.
