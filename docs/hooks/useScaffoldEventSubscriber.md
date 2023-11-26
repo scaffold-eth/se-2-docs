@@ -24,7 +24,7 @@ useScaffoldEventSubscriber({
 
 This example subscribes to the `GreetingChange` event emitted by the `YourContract` smart contract and logs the parameters from the event to the console when it's emitted. The `listener` function accepts an array of `logs` that occurred during the [`pollingInterval`](/deploying/deploy-nextjs-app#--pollinginterval) (set at `scaffold.config.ts`) and each array items contains an `args` property which can be destructured to get the parameters emitted by the event, this function can customized according to your needs.
 
-This hook is a wrap for [useContractEvent wagmi hook](https://wagmi.sh/react/hooks/useContractEvent).
+This hook is a wrapper around wagmi's [useContractEvent](https://wagmi.sh/react/hooks/useContractEvent).
 
 :::note
 
