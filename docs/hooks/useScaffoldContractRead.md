@@ -16,13 +16,13 @@ const { data: totalCounter } = useScaffoldContractRead({
 
 This example retrieves the data returned by the `getGreeting` function of the `YourContract` smart contract.
 
-## Parameters
+## Configuration
 
-| Parameter        | Type     | Description                                                     |
-| :--------------- | :------- | :-------------------------------------------------------------- |
-| **contractName** | `string` | The name of the contract to read from.                          |
-| **functionName** | `string` | The name of the function to call.                               |
-| **args**         | `any[]`  | An array of arguments to pass to the function (if accepts any). |
+| Parameter        | Type     | Description                                                  |
+| :--------------- | :------- | :----------------------------------------------------------- |
+| **contractName** | `string` | Name of the contract to read from.                           |
+| **functionName** | `string` | Name of the function to call.                                |
+| **args**         | `any[]`  | Array of arguments to pass to the function (if accepts any). |
 
 You can also pass other arguments accepted by [useContractRead wagmi hook](https://wagmi.sh/react/hooks/useContractRead#configuration).
 

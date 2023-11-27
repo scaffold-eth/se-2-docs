@@ -30,11 +30,11 @@ const setGreeting = async () => {
 
 This example uses the `useScaffoldContract` hook to obtain a contract instance for the `YourContract` smart contract.
 
-## Parameters
+## Configuration
 
 | Parameter                   | Type                                                           | Description                                                                   |
 | :-------------------------- | :------------------------------------------------------------- | :---------------------------------------------------------------------------- |
-| **contractName**            | `string`                                                       | The name of the contract.                                                     |
+| **contractName**            | `string`                                                       | Name of the contract.                                                         |
 | **walletClient** (optional) | [`WalletClient`](https://wagmi.sh/react/hooks/useWalletClient) | Wallet client must be passed in order to call `write` methods of the contract |
 
 ## Return Value

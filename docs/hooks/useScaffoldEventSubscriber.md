@@ -26,13 +26,13 @@ This example subscribes to the `GreetingChange` event emitted by the `YourContra
 
 This hook is a wrapper around wagmi's [useContractEvent](https://wagmi.sh/react/hooks/useContractEvent).
 
-## Parameters
+## Configuration
 
-| Parameter        | Type       | Description                                                 |
-| :--------------- | :--------- | :---------------------------------------------------------- |
-| **contractName** | `string`   | The name of the contract to read from.                      |
-| **eventName**    | `string`   | The name of the event to read.                              |
-| **listener**     | `function` | The callback function to execute when the event is emitted. |
+| Parameter        | Type       | Description                                                                                                                                                                                                                                                                                                                                                                            |
+| :--------------- | :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **contractName** | `string`   | Name of the contract to read from.                                                                                                                                                                                                                                                                                                                                                     |
+| **eventName**    | `string`   | Name of the event to read.                                                                                                                                                                                                                                                                                                                                                             |
+| **listener**     | `function` | Callback function to execute when the event is emitted. Accepts an array of `logs` that occurred during the [`pollingInterval`](/deploying/deploy-nextjs-app#--pollinginterval) set at `scaffold.config.ts`. Each array items contains an `args` property, which can be destructured to get the parameters emitted by the event. This function can customized according to your needs. |
 
 :::note
 
