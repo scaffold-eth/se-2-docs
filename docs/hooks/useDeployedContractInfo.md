@@ -12,3 +12,13 @@ const { data: deployedContractData } = useDeployedContractInfo(contractName);
 ```
 
 This example retrieves the details of the deployed contract with the specified name and stores the details in the deployedContractData object.
+
+## Parameters
+
+| Parameter        | Type     | Description           |
+| :--------------- | :------- | :-------------------- |
+| **contractName** | `string` | Name of the contract. |
+
+### Return Value
+
+- `data`: Object containing `address` and `abi` of contract.
