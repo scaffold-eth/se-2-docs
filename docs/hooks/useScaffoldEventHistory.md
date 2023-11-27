@@ -29,9 +29,11 @@ const {
 });
 ```
 
+This example retrieves the historical event logs for the `GreetingChange` event of the `YourContract` smart contract, starting from block number 31231 and filtering events where the premium parameter is true.
+
 ## Parameters
 
-This example retrieves the historical event logs for the `GreetingChange` event of the `YourContract` smart contract, starting from block number 31231 and filtering events where the premium parameter is true.
+All the parameters accepted by `useScaffoldEventHistory` hooks are explained in above code block example with comments.
 
 ## Return Values
 
