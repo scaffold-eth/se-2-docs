@@ -32,10 +32,10 @@ This example uses the `useScaffoldContract` hook to obtain a contract instance f
 
 ## Parameters
 
-| Parameter                   | Type                                                                     | Description                                                                   |
-| :-------------------------- | :----------------------------------------------------------------------- | :---------------------------------------------------------------------------- |
-| **contractName**            | `string`                                                                 | The name of the contract.                                                     |
-| **walletClient** (optional) | [`WalletClient`](https://viem.sh/docs/clients/wallet.html#wallet-client) | Wallet client must be passed in order to call `write` methods of the contract |
+| Parameter                   | Type                                                           | Description                                                                   |
+| :-------------------------- | :------------------------------------------------------------- | :---------------------------------------------------------------------------- |
+| **contractName**            | `string`                                                       | The name of the contract.                                                     |
+| **walletClient** (optional) | [`WalletClient`](https://wagmi.sh/react/hooks/useWalletClient) | Wallet client must be passed in order to call `write` methods of the contract |
 
 ## Return Value
 
