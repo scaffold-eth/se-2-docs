@@ -26,6 +26,14 @@ This example subscribes to the `GreetingChange` event emitted by the `YourContra
 
 This hook is a wrapper around wagmi's [useContractEvent](https://wagmi.sh/react/hooks/useContractEvent).
 
+## Parameters
+
+| Parameter        | Type       | Description                                                 |
+| :--------------- | :--------- | :---------------------------------------------------------- |
+| **contractName** | `string`   | The name of the contract to read from.                      |
+| **eventName**    | `string`   | The name of the event to read.                              |
+| **listener**     | `function` | The callback function to execute when the event is emitted. |
+
 :::note
 
 It is recommended to `setState` using [updater function](https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state) in `listener` function to avoid problems due to caching.

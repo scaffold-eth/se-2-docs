@@ -18,7 +18,13 @@ This example retrieves the data returned by the `getGreeting` function of the `Y
 
 ## Parameters
 
-Along with `contractName` and `functionName`, if the function accepts any arguments, they can be passed in the `args` array. You can also pass other arguments accepted by [useContractRead wagmi hook](https://wagmi.sh/react/hooks/useContractRead#configuration).
+| Parameter      | Type     | Description                                                     |
+| :------------- | :------- | :-------------------------------------------------------------- |
+| `contractName` | `string` | The name of the contract to read from.                          |
+| `functionName` | `string` | The name of the function to call.                               |
+| `args`         | `any[]`  | An array of arguments to pass to the function (if accepts any). |
+
+You can also pass other arguments accepted by [useContractRead wagmi hook](https://wagmi.sh/react/hooks/useContractRead#configuration).
 
 ## Return Values
 

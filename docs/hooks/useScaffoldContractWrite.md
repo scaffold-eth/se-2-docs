@@ -11,11 +11,8 @@ const { writeAsync, isLoading, isMining } = useScaffoldContractWrite({
   contractName: "YourContract",
   functionName: "setGreeting",
   args: ["The value to set"],
-  // For payable functions
   value: parseEther("0.1"),
-  // The number of block confirmations to wait for before considering transaction to be confirmed (default : 1).
   blockConfirmations: 1,
-  // The callback function to execute when the transaction is confirmed.
   onBlockConfirmation: txnReceipt => {
     console.log("Transaction blockHash", txnReceipt.blockHash);
   },
@@ -42,7 +39,16 @@ It is also possible to pass arguments imperatively to the `writeAsync` function:
 
 ## Parameters
 
-Along with `contractName` and `functionName`, if the function accepts any arguments, they can be passed in the `args` array. Apart from extra arguments like `blockConfirmations` and `onBlockConfirmation` you can also pass other arguments accepted by [useContractWrite wagmi hook](https://wagmi.sh/react/hooks/useContractWrite#configuration).
+| Parameter             | Type       | Description                                                                                                 |
+| :-------------------- | :--------- | :---------------------------------------------------------------------------------------------------------- |
+| `contractName`        | `string`   | The name of the contract to write to.                                                                       |
+| `functionName`        | `string`   | The name of the function to call.                                                                           |
+| `args`                | `any[]`    | An array of arguments to pass to the function (if accepts any).                                             |
+| `value`               | `bigint`   | The amount of ETH to send with the transaction (for payable functions only).                                |
+| `onBlockConfirmation` | `function` | The callback function to execute when the transaction is confirmed.                                         |
+| `blockConfirmations`  | `number`   | The number of block confirmations to wait for before considering transaction to be confirmed (default : 1). |
+
+You can also pass other arguments accepted by [useContractWrite wagmi hook](https://wagmi.sh/react/hooks/useContractWrite#configuration).
 
 ## Return Values
 
