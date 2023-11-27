@@ -39,14 +39,14 @@ It is also possible to pass arguments imperatively to the `writeAsync` function:
 
 ## Parameters
 
-| Parameter             | Type       | Description                                                                                                 |
-| :-------------------- | :--------- | :---------------------------------------------------------------------------------------------------------- |
-| `contractName`        | `string`   | The name of the contract to write to.                                                                       |
-| `functionName`        | `string`   | The name of the function to call.                                                                           |
-| `args`                | `any[]`    | An array of arguments to pass to the function (if accepts any).                                             |
-| `value`               | `bigint`   | The amount of ETH to send with the transaction (for payable functions only).                                |
-| `onBlockConfirmation` | `function` | The callback function to execute when the transaction is confirmed.                                         |
-| `blockConfirmations`  | `number`   | The number of block confirmations to wait for before considering transaction to be confirmed (default : 1). |
+| Parameter               | Type       | Description                                                                                                 |
+| :---------------------- | :--------- | :---------------------------------------------------------------------------------------------------------- |
+| **contractName**        | `string`   | The name of the contract to write to.                                                                       |
+| **functionName**        | `string`   | The name of the function to call.                                                                           |
+| **args**                | `any[]`    | An array of arguments to pass to the function (if accepts any).                                             |
+| **value**               | `bigint`   | The amount of ETH to send with the transaction (for payable functions only).                                |
+| **onBlockConfirmation** | `function` | The callback function to execute when the transaction is confirmed.                                         |
+| **blockConfirmations**  | `number`   | The number of block confirmations to wait for before considering transaction to be confirmed (default : 1). |
 
 You can also pass other arguments accepted by [useContractWrite wagmi hook](https://wagmi.sh/react/hooks/useContractWrite#configuration).
 
