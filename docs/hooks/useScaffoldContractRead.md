@@ -14,7 +14,7 @@ const { data: totalCounter } = useScaffoldContractRead({
 });
 ```
 
-This example retrieves the data returned by the `getGreeting` function of the `YourContract` smart contract.
+This example retrieves the data returned by the `userGreetingCounter` function of the `YourContract` smart contract.
 
 ## Configuration
 
