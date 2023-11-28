@@ -9,8 +9,8 @@ Use this hook to read public variables and get data from read-only functions of 
 ```ts
 const { data: totalCounter } = useScaffoldContractRead({
   contractName: "YourContract",
-  functionName: "getGreeting",
-  args: ["ARGUMENTS IF THE FUNCTION ACCEPTS ANY"],
+  functionName: "userGreetingCounter",
+  args: ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
 });
 ```
 
