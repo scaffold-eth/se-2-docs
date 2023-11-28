@@ -27,17 +27,17 @@ This example retrieves the historical event logs for the `GreetingChange` event 
 
 ## Configuration
 
-| Parameter           | Type      | Description                                                                                                                                                           |
-| :------------------ | :-------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **contractName**    | `string`  | Name of the contract to read from.                                                                                                                                    |
-| **eventName**       | `string`  | Name of the event to read.                                                                                                                                            |
-| **fromBlock**       | `bigint`  | Block number from which to start reading events.                                                                                                                      |
-| **filters**         | `object`  | Apply filters to the event based on parameter names and values `{ [parameterName]: value }`.                                                                          |
-| **blockData**       | `boolean` | If set to true it will return the block data for each event (default: false).                                                                                         |
-| **transactionData** | `boolean` | If set to true it will return the transaction data for each event (default: false).                                                                                   |
-| **receiptData**     | `boolean` | If set to true it will return the receipt data for each event (default: false).                                                                                       |
-| **watch**           | `boolean` | If set to true, the events will be refetched every [`pollingInterval`](/deploying/deploy-nextjs-app#--pollinginterval) set at `scaffold.config.ts`. (default: false). |
-| **enabled**         | `boolean` | If set to false, the hook will not fetch any data (default: true).                                                                                                    |
+| Parameter                      | Type      | Description                                                                                                                                                           |
+| :----------------------------- | :-------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **contractName**               | `string`  | Name of the contract to read from.                                                                                                                                    |
+| **eventName**                  | `string`  | Name of the event to read.                                                                                                                                            |
+| **fromBlock**                  | `bigint`  | Block number from which to start reading events.                                                                                                                      |
+| **filters** (optional)         | `object`  | Apply filters to the event based on parameter names and values `{ [parameterName]: value }`.                                                                          |
+| **blockData** (optional)       | `boolean` | If set to true it will return the block data for each event (default: false).                                                                                         |
+| **transactionData** (optional) | `boolean` | If set to true it will return the transaction data for each event (default: false).                                                                                   |
+| **receiptData** (optional)     | `boolean` | If set to true it will return the receipt data for each event (default: false).                                                                                       |
+| **watch** (optional)           | `boolean` | If set to true, the events will be refetched every [`pollingInterval`](/deploying/deploy-nextjs-app#--pollinginterval) set at `scaffold.config.ts`. (default: false). |
+| **enabled** (optional)         | `boolean` | If set to false, the hook will not fetch any data (default: true).                                                                                                    |
 
 ## Return Values
 
