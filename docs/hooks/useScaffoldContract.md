@@ -28,4 +28,15 @@ const setGreeting = async () => {
 };
 ```
 
-This example uses the `useScaffoldContract` hook to obtain a contract instance for the `YourContract` smart contract. The data property of the returned object contains the contract instance that can be used to call any of the smart contract methods.
+This example uses the `useScaffoldContract` hook to obtain a contract instance for the `YourContract` smart contract.
+
+## Configuration
+
+| Parameter                   | Type                                                           | Description                                                                   |
+| :-------------------------- | :------------------------------------------------------------- | :---------------------------------------------------------------------------- |
+| **contractName**            | `string`                                                       | Name of the contract.                                                         |
+| **walletClient** (optional) | [`WalletClient`](https://wagmi.sh/react/hooks/useWalletClient) | Wallet client must be passed in order to call `write` methods of the contract |
+
+## Return Value
+
+- `data` : Object representing viem's [contract instance](https://viem.sh/docs/contract/getContract.html#return-value). Which can be used to call `read` and `write` of the contract.
