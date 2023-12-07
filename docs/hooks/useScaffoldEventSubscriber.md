@@ -13,22 +13,26 @@ useScaffoldEventSubscriber({
   // The listener function is called whenever a GreetingChange event is emitted by the contract.
   // Parameters emitted by the event can be destructed using the below example
   // for this example: event GreetingChange(address greetingSetter, string newGreeting, bool premium, uint256 value);
-  listener: (logs) => {
-    logs.map((log) => {
+  listener: logs => {
+    logs.map(log => {
       const { greetingSetter, value, premium, newGreeting } = log.args;
-      console.log(
-        "📡 GreetingChange event",
-        greetingSetter,
-        value,
-        premium,
-        newGreeting
-      );
+      console.log("📡 GreetingChange event", greetingSetter, value, premium, newGreeting);
     });
   },
 });
 ```
 
-This example subscribes to the `GreetingChange` event emitted by the `YourContract` smart contract and logs the parameters from the event to the console when it's emitted. The `listener` function accepts an array of `logs` that occurred during the [ `pollingInterval`](/deploying/deploy-nextjs-app#--pollinginterval) and each array item contains an `args` property which can be destructured to get the parameters emitted by the event (this function can customized according to your needs).
+This example subscribes to the `GreetingChange` event emitted by the `YourContract` smart contract and logs the parameters from the event to the console when it's emitted.
+
+This hook is a wrapper around wagmi's [useContractEvent](https://wagmi.sh/react/hooks/useContractEvent).
+
+## Configuration
+
+| Parameter        | Type       | Description                                                                                                                                                                                                                                                                                                                                                                           |
+| :--------------- | :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **contractName** | `string`   | Name of the contract to read from.                                                                                                                                                                                                                                                                                                                                                    |
+| **eventName**    | `string`   | Name of the event to read.                                                                                                                                                                                                                                                                                                                                                            |
+| **listener**     | `function` | Callback function to execute when the event is emitted. Accepts an array of `logs` that occurred during the [`pollingInterval`](/deploying/deploy-nextjs-app#--pollinginterval) set at `scaffold.config.ts`. Each array item contains an `args` property, which can be destructured to get the parameters emitted by the event. This function can customized according to your needs. |
 
 :::note
 
