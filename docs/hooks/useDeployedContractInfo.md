@@ -11,4 +11,4 @@ Use this hook to fetch details about a deployed smart contract, including the AB
 const { data: deployedContractData } = useDeployedContractInfo(contractName);
 ```
 
-This example retrieves the details of the deployed contract with the specified name and stores the details in the deployedContractData object.
+This example retrieves the details of the deployed contract with the specified name and stores the details in the `deployedContractData` object.

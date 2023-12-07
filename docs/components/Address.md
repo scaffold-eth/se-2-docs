@@ -26,7 +26,7 @@ import { Address } from "~~/components/scaffold-eth";
 
 | Prop                              | Type      | Default Value | Description                                                                                                                   |
 | --------------------------------- | --------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| **address**                       | `string`  | `undefined`   | Address in `0x___` format, it will resolve its ENS if has one associated.                                                     |
+| **address**                       | `string`  | `undefined`   | Address in `0x___` format, it will resolve its ENS if it has one associated.                                                     |
 | **disableAddressLink** (optional) | `boolean` | `false`       | Set it to `true` to disable the blockexplorer link behaviour when clicking on the address.                                    |
 | **format** (optional)             | `string`  | `"short"`     | By default, only the first five characters of the address are displayed. Set this to `"long"` to display the entire address.  |
 | **size** (optional)               | `string`  | `"base"`      | Size for the displayed Address component. `base` by default but you can pass in `xs`, `sm`, `base`, `lg`, `xl`, `2xl`, `3xl`. |

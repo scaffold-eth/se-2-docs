@@ -5,13 +5,13 @@ slug: /
 
 # 🏗 Welcome to Scaffold-ETH 2
 
-[Scaffold-eth](https://github.com/scaffold-eth/scaffold-eth-2) is everything you need to get started building decentralized applications on Ethereum! 🚀
+[Scaffold-Eth](https://github.com/scaffold-eth/scaffold-eth-2) is everything you need to get started building decentralized applications on Ethereum! 🚀
 
-⚙️ Built using NextJS, RainbowKit, Hardhat, Foundry, Wagmi, and Typescript.
+⚙️ Built using NextJS, RainbowKit, Hardhat, Foundry, Wagmi, and TypeScript.
 
 ## About Scaffold-ETH 2
 
-Scaffold-eth is an open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
+Scaffold-Eth is an open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
 
 - ✅ **Contract Hot Reload**: Your frontend auto-adapts to your smart contract as you edit it.
 - 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
@@ -19,12 +19,12 @@ Scaffold-eth is an open-source, up-to-date toolkit for building decentralized ap
 
 ## Scaffold-ETH 2 Tech Stack
 
-Scaffold-eth is not a product itself but more of a combination or stack of other great tools. It allows you to quickly build and iterate over your smart contracts and frontends.
+Scaffold-Eth is not a product itself but more of a combination or stack of other great tools. It allows you to quickly build and iterate over your smart contracts and frontends.
 
 Here are the main components:
 
 - **Hardhat** or **Foundry** (user's choice) for running local networks, deploying and testing smart contracts.
-- **Wagmi** for React Hooks to start working with Ethereum
+- **wagmi** for React Hooks to start working with Ethereum
 - **NextJS** for building a frontend, using many useful pre-made hooks.
 - **RainbowKit** for adding wallet connection
 - **DaisyUI** for pre-built Tailwind CSS components

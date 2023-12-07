@@ -30,5 +30,5 @@ const [url, setUrl] = useState<string>();
 | **onChange**               | `function` | `undefined`   | A callback invoked when the data in the input changes.                                 |
 | **placeholder** (optional) | `string`   | `undefined`   | The string that will be rendered before input data has been entered.                   |
 | **name** (optional)        | `string`   | `undefined`   | Helps identify the data being sent if InputBase is submitted into a form.              |
-| **error** (optional)       | `boolean`  | `false`       | When set to `true` changes input border to have error styling.                         |
-| **disabled** (optional)    | `boolean`  | `false`       | When set to `true` changes input background color and border to have disabled styling. |
+| **error** (optional)       | `boolean`  | `false`       | When set to `true`, changes input border to have error styling.                         |
+| **disabled** (optional)    | `boolean`  | `false`       | When set to `true`, changes input background color and border to have disabled styling. |
