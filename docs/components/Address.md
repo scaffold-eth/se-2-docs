@@ -6,7 +6,7 @@ sidebar_position: 1
 
 Display an address (or ENS) along with a utility icon to copy the address. If the address is associated with an ENS that has an avatar, this avatar will be displayed. If not, a blockie image representation of the address will be shown.
 
-By default, clicking on the address redirects you to the [`targetNetwork`](/deploying/deploy-nextjs-app#--targetnetwork) blockexplorer with the details of that address.
+By default, clicking on the address redirects to the connected wallet's network block explorer. If the wallet is not connected, it redirects to the block explorer of [`targetNetworks[0]`](/deploying/deploy-nextjs-app#--targetnetworks).
 
 ![Address Example](/img/Address.png)
 
