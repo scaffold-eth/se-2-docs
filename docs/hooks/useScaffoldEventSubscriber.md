@@ -21,7 +21,7 @@ useScaffoldEventSubscriber({
         greetingSetter,
         value,
         premium,
-        newGreeting
+        newGreeting,
       );
     });
   },
