@@ -23,6 +23,7 @@ const externalContracts = {
       address: "0x...",
       abi: [...],
     },
+  },
   5: {
     DAI: {
       address: "0x...",
@@ -32,6 +33,7 @@ const externalContracts = {
       address: "0x...",
       abi: [...],
     },
+  },
 } as const;
 ```
 
