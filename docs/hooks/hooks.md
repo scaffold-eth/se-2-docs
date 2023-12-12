@@ -8,7 +8,7 @@ Scaffold-ETH 2 provides a collection of custom React hooks designed to simplify 
 
 If you need to interact with external contracts (i.e. not deployed with your SE-2 instance) you can add external contract data to your `packages/nextjs/contracts/externalContracts.ts` file, which would let you use Scaffold-ETH 2 hooks.
 
-To do that, you will have to add the contract `address` and `abi` for every contract you define in your `externalContracts.ts` file. Need to register this info for all the different network IDs where you want to use them. You will have to change the `targetNetwork` of your `scaffold.config.ts` file to your desired network to be able to use the hooks with autocompletion.
+To achieve this, include the contract name, its `address`, and `abi` in `externalContracts.ts` for each chain ID. Ensure to update the [`targetNetworks`](/deploying/deploy-nextjs-app#--targetnetworks) in `scaffold.config.ts` to your preferred chains to enable hooks typescript autocompletion.
 
 This is the structure of `externalContracts` object:
 
@@ -23,14 +23,22 @@ const externalContracts = {
       address: "0x...",
       abi: [...],
     },
+  },
   5: {
     DAI: {
       address: "0x...",
       abi: [...],
     },
-    USDT: {
+    WETH: {
       address: "0x...",
       abi: [...],
     },
+  },
 } as const;
 ```
+
+:::note
+
+When having multiple chains configured in [`targetNetworks`](/deploying/deploy-nextjs-app#--targetnetworks), make sure to have same contractName's on other chains as `targetNetworks[0].id`.This ensures proper functionality and autocompletion of custom hooks, as the current setup and types assumes that same contract's are present on other chains as `targetNetworks[0]`.
+
+:::

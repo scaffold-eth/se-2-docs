@@ -33,7 +33,7 @@ You can configure different settings for your dapp at `packages/nextjs/scaffold.
 
 ```ts
 export type ScaffoldConfig = {
-  targetNetwork: chains.Chain;
+  targetNetworks: Chain[];
   pollingInterval: number;
   alchemyApiKey: string;
   walletConnectProjectId: string;
@@ -46,9 +46,9 @@ export type ScaffoldConfig = {
 
 The configuration parameters are described below, make sure to update the values according to your needs:
 
-#### - targetNetwork
+#### - targetNetworks
 
-Sets the blockchain network where your dapp is deployed. Use values from `wagmi/chains`.
+Array of blockchain networks where your dapp is deployed. Use values from [`viem/chains`](https://viem.sh/docs/clients/chains.html#chains).
 
 #### - pollingInterval
 
