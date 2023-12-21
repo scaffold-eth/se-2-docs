@@ -19,7 +19,7 @@ Scaffold-ETH is an open-source, up-to-date toolkit for building decentralized ap
 
 ## Scaffold-ETH 2 Tech Stack
 
-Scaffold-Eth is not a product itself but more of a combination or stack of other great tools. It allows you to quickly build and iterate over your smart contracts and frontends.
+Scaffold-ETH is not a product itself but more of a combination or stack of other great tools. It allows you to quickly build and iterate over your smart contracts and frontends.
 
 Here are the main components:
 
