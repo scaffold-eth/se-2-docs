@@ -5,7 +5,7 @@ slug: /
 
 # 🏗 Welcome to Scaffold-ETH 2
 
-[Scaffold-Eth](https://github.com/scaffold-eth/scaffold-eth-2) is everything you need to get started building decentralized applications on Ethereum! 🚀
+[Scaffold-ETH](https://github.com/scaffold-eth/scaffold-eth-2) is everything you need to get started building decentralized applications on Ethereum! 🚀
 
 ⚙️ Built using NextJS, RainbowKit, Hardhat, Foundry, Wagmi, and TypeScript.
 
