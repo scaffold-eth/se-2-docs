@@ -36,6 +36,6 @@ This hook is a wrapper around wagmi's [useContractEvent](https://wagmi.sh/react/
 
 :::note
 
-It is recommended to `setState` using [updater function](https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state) in `listener` function to avoid problems due to caching.
+It is recommended to `setState` using [updater function](https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state) in the `listener` function to avoid problems due to caching.
 
 :::

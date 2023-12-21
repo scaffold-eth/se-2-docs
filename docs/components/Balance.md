@@ -24,5 +24,5 @@ import { Balance } from "~~/components/scaffold-eth";
 
 | Prop                     | Type     | Default Value | Description                                                                                                               |
 | ------------------------ | -------- | ------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| **address**              | `string` | `undefined`   | Address in `0x___` format, it will resolve its ENS if has one associated.                                                 |
-| **className** (optional) | `string` | `""`          | Prop to pass additional CSS styling to the component. You can use tailwind / daisyUI classes like `text-3xl` for styling. |
+| **address**              | `string` | `undefined`   | Address in `0x___` format, it will resolve its ENS if it has one associated.                                              |
+| **className** (optional) | `string` | `""`          | Prop to pass additional CSS styling to the component. You can use Tailwind / daisyUI classes like `text-3xl` for styling. |

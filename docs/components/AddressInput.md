@@ -32,4 +32,4 @@ const [address, setAddress] = useState("");
 | **onChange**               | `function` | `undefined`   | A callback invoked when the data in the address input changes.               |
 | **placeholder** (optional) | `string`   | `undefined`   | The string that will be rendered before address input has been entered.      |
 | **name** (optional)        | `string`   | `undefined`   | Helps identify the data being sent if AddressInput is submitted into a form. |
-| **disabled** (optional)    | `boolean`  | `false`       | If `true` sets the address input un-clickable and unusable.                  |
+| **disabled** (optional)    | `boolean`  | `false`       | If `true`, sets the address input un-clickable and unusable.                 |

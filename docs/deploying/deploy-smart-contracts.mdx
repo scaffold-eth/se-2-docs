@@ -2,13 +2,13 @@
 sidebar_position: 1
 ---
 
-# Deploy your Smart Contracts
+# Deploy Your Smart Contracts
 
 To deploy your smart contracts to a live network, there are a few things you need to adjust.
 
 ## 1. Configure your network
 
-Scaffold-ETH 2 comes with a predefined networks. You can also add your custom network in:
+Scaffold-ETH 2 comes with a selection of predefined networks. You can also add your custom network in:
 
 - Hardhat => `packages/hardhat/hardhat.config.ts`
 - Foundry => `packages/foundry/foundry.toml`
@@ -19,7 +19,7 @@ Here are the [Alchemy docs](https://docs.alchemy.com/docs/how-to-add-alchemy-rpc
 
 The deployer account is the account that will deploy your contracts. Additionally, the deployer account will be used to execute any function calls that are part of your deployment script.
 
-You can generate a random account / private key or add the private key of your crypto wallet.
+You can generate a random account / private key or add your crypto wallet's private key.
 
 To create a random account and add the `DEPLOYER_PRIVATE_KEY` to the `.env` file, run:
 
@@ -27,7 +27,7 @@ To create a random account and add the `DEPLOYER_PRIVATE_KEY` to the `.env` file
 yarn generate
 ```
 
-If you prefer to manually set your own private key, need to add `DEPLOYER_PRIVATE_KEY=yourWalletPrivateKey` to `packages/hardhat/.env` / `packages/foundry/.env` file.
+If you prefer to manually set your own private key, you will need to add `DEPLOYER_PRIVATE_KEY=yourWalletPrivateKey` to the `packages/hardhat/.env` / `packages/foundry/.env` file.
 
 You can check the configured (generated or manually set) account and balances with:
 
@@ -66,8 +66,8 @@ For production-grade applications, it's recommended to obtain your own API keys 
 
 - `ALCHEMY_API_KEY` variable in `packages/hardhat/.env` and `packages/nextjs/.env.local`. You can create API keys from the [Alchemy dashboard](https://dashboard.alchemy.com/).
 
-- `ETHERSCAN_API_KEY` variable in `packages/hardhat/.env` | `packages/foundry/.env` with your generated API key. You can get your key [here](https://etherscan.io/myapikey).
+- `ETHERSCAN_API_KEY` variable in `packages/hardhat/.env` | `packages/foundry/.env` using your generated API key. You can get your key [here](https://etherscan.io/myapikey).
 
 :::tip Hint
-It's recommended to store env's for nextjs in Vercel/system env config for live apps and use .env.local for local testing.
+It's recommended to store envs for nextjs in Vercel/system env config for live apps and use .env.local for local testing.
 :::tip Hint
