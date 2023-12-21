@@ -1,0 +1,9 @@
+{
+  "label": "🧪 Recipes",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "slug": "recipes",
+    "description": "Explore a collection of practical recipes to implement common web3 use-cases with Scaffold-ETH 2. Learn how to interact with smart contracts, read and display data, manage account balances, and more. Each recipe offers step-by-step guidance, making it easy to implement different blockchain features into your dApps."
+  }
+}
