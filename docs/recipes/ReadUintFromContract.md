@@ -76,7 +76,7 @@ export const GreetingsCount = () => {
 
 ### Step 2: Retrieve total greetings count
 
-Initialize the [useScaffoldContractRead](/hooks/scaffold-eth#usescaffoldcontractread) hook to read from the contract. This hook provides the `data` which contains the return value of the function.
+Initialize the [useScaffoldContractRead](/hooks/useScaffoldContractRead) hook to read from the contract. This hook provides the `data` which contains the return value of the function.
 
 ```tsx title="components/GreetingsCount.tsx"
 //highlight-start
