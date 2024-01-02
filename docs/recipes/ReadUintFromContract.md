@@ -4,7 +4,7 @@ title: Read a uint from a contract
 description: Learn how to read from contract functions which accepts arguments / no arguments and display them on UI.
 ---
 
-This recipe demonstrates how to read data from contract functions that accepts some arguments / no arguments and display it on the UI.
+This recipe demonstrates how to read data from contract functions that accept some arguments (parameters) or no arguments at all and displays it on the UI.
 
 <details open>
 <summary>Here is the full code, which we will be implementing in the guide below:</summary>
