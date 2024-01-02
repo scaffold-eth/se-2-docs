@@ -151,7 +151,7 @@ export const GreetingsCount = () => {
 
 ### Step 4: Bonus adding loading state
 
-We can use `isLoading` returned from [`useScaffoldContractRead`](/hooks/scaffold-eth#usescaffoldcontractread) which is set to `true` while fetching the data from contract.
+We can use `isLoading` returned from the [`useScaffoldContractRead`](/hooks/scaffold-eth#usescaffoldcontractread) hook. This variable is set to `true` while fetching data from the contract.
 
 ```tsx title="components/GreetingsCount.tsx"
 import { useScaffoldContractRead } from "~~/hooks/scaffold-eth";
