@@ -6,7 +6,7 @@ description: Learn how to read from contract functions which accepts arguments /
 
 # Read a `uint` from a contract
 
-This recipe demonstrates how to read data from contract functions that accept some arguments (parameters) or no arguments at all and displays it on the UI.
+This recipe demonstrates how to read data from contract functions and display it on the UI. We'll showcase an example that accepts some arguments (parameters), and another with no arguments at all.
 
 <details open>
 <summary>Here is the full code, which we will be implementing in the guide below:</summary>
