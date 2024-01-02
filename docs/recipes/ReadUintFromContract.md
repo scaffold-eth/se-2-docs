@@ -110,7 +110,7 @@ In the contract, `totalCounter` returns an `uint` value, which is represented as
 
 ### Step 3: Retrieve connected address greetings count
 
-We can get the connected address using the [useAccount](https://wagmi.sh/react/hooks/useAccount) hook and pass it to `args` key in the `useScaffoldContractRead` hooks configuration. This will be used as an argument to read the contract function.
+We can get the connected address using the [useAccount](https://wagmi.sh/react/hooks/useAccount) hook and pass it to `args` key in the `useScaffoldContractRead` hook configuration. This will be used as an argument to read the contract function.
 
 ```tsx title="components/GreetingsCount.tsx"
 import { useScaffoldContractRead } from "~~/hooks/scaffold-eth";
