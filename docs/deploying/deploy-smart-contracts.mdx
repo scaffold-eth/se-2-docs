@@ -52,11 +52,17 @@ eg: `yarn deploy --network sepolia`
 
 ## 4. Verify your smart contract
 
-You can verify your smart contract on Etherscan by running:
+There are two options to verify your smart contract on Etherscan, by running either command:
 
-```
-yarn verify --network network_name
-```
+- `yarn verify --network network_name`
+
+  We suggest using this option. Integrates well with `yarn deploy` workflow, verifying all your deployed contracts in a go, using [etherscan-verify from hardhat-deploy](https://www.npmjs.com/package/hardhat-deploy#4-hardhat-etherscan-verify).
+
+- `yarn hardhat-verify --network network_name contract_address`
+
+  This options supports more chains by default, so may be useful when the chain you are using is not supported by `yarn verify`. Uses [hardhat-verify](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify).
+
+If the chain you're using is not supported by any of the verifying methods, you can add new supported chains to your choosen method, either [etherscan-verify](https://www.npmjs.com/package/hardhat-deploy#options-2) or [hardhat-verify](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify#adding-support-for-other-networks).
 
 ## Configuration of Third-Party Services for Production-Grade Apps.
 
