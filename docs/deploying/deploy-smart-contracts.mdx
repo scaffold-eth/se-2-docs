@@ -60,12 +60,12 @@ yarn verify --network network_name
 
 eg: `yarn verify --network sepolia`
 
-This command **works in both Hardhat and Foundry**, verifying all the deployed contracts. The method of verification varies within the solidity framework:
+This command **works in both Hardhat and Foundry**, verifying all the deployed contracts. However, the verification method differs depending on the Solidity framework you're using:
 
 - Hardhat => uses [etherscan-verify from hardhat-deploy](https://www.npmjs.com/package/hardhat-deploy#4-hardhat-etherscan-verify).
 - Foundry => uses `VerifyAll.s.sol` script located in `packages/foundry/script`.
 
-**In Hardhat**, you can alternatively use [hardhat-verify](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify) to verify your contracts, passing network name, contract address and constructor arguments (if any): `yarn hardhat-verify --network network_name contract_address "Constructor arg 1"`
+Additionally, **in Hardhat**, there's an alternative method for contract verification. You can use [hardhat-verify](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify) to verify your contracts, passing in the network name, contract address and constructor arguments (if any): `yarn hardhat-verify --network network_name contract_address "Constructor arg 1"`
 
 If the chain you're using is not supported by any of the verifying methods, you can add new supported chains to your chosen method, either [etherscan-verify](https://www.npmjs.com/package/hardhat-deploy#options-2) or [hardhat-verify](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify#adding-support-for-other-networks).
 
