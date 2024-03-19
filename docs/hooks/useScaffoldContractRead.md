@@ -24,10 +24,10 @@ This example retrieves the data returned by the `userGreetingCounter` function o
 | **functionName**    | `string` | Name of the function to call.                                |
 | **args** (optional) | `any[]`  | Array of arguments to pass to the function (if accepts any). |
 
-You can also pass other arguments accepted by [useContractRead wagmi hook](https://wagmi.sh/react/hooks/useContractRead#configuration).
+You can also pass other arguments accepted by [useContractRead wagmi hook](https://1.x.wagmi.sh/react/hooks/useContractRead#configuration).
 
 ## Return Values
 
 - The retrieved data is stored in the `data` property of the returned object.
 - You can refetch the data by calling the `refetch` function.
-- The extended object includes properties inherited from wagmi useContractRead. You can check the [useContractRead return values](https://wagmi.sh/react/hooks/useContractRead#return-value) documentation to check the types.
+- The extended object includes properties inherited from wagmi useContractRead. You can check the [useContractRead return values](https://1.x.wagmi.sh/react/hooks/useContractRead#return-value) documentation to check the types.
