@@ -39,4 +39,4 @@ This example uses the `useScaffoldContract` hook to obtain a contract instance f
 
 ## Return Value
 
-- `data` : Object representing viem's [contract instance](https://v1.viem.sh/docs/contract/getContract.html#return-value). Which can be used to call `read` and `write` of the contract.
+- `data` : Object representing viem's [contract instance](https://viem.sh/docs/contract/getContract.html#return-value). Which can be used to call `read` and `write` of the contract.
