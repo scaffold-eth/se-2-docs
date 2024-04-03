@@ -24,7 +24,7 @@ useScaffoldEventSubscriber({
 
 This example subscribes to the `GreetingChange` event emitted by the `YourContract` smart contract and logs the parameters from the event to the console when it's emitted.
 
-This hook is a wrapper around wagmi's [useContractEvent](https://1.x.wagmi.sh/react/hooks/useContractEvent).
+This hook is a wrapper around wagmi's [useWatchContractEvent](https://wagmi.sh/react/api/hooks/useWatchContractEvent).
 
 ## Configuration
 

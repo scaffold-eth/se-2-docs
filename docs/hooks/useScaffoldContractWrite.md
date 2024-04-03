@@ -48,10 +48,10 @@ It is also possible to pass arguments imperatively to the `writeAsync` function:
 | **onBlockConfirmation** (optional) | `function` | Callback function to execute when the transaction is confirmed.                                         |
 | **blockConfirmations** (optional)  | `number`   | Number of block confirmations to wait for before considering transaction to be confirmed (default : 1). |
 
-You can also pass other arguments accepted by [useContractWrite wagmi hook](https://1.x.wagmi.sh/react/hooks/useContractWrite#configuration).
+You can also pass other arguments accepted by [useContractWrite wagmi hook](https://wagmi.sh/react/api/hooks/useWriteContract).
 
 ## Return Values
 
 - `writeAsync` function sends the transaction to the smart contract.
 - `isMining` property indicates whether the transaction is currently being mined.
-- The extended object includes properties inherited from wagmi useContractWrite. You can check the [useContractWrite return values](https://1.x.wagmi.sh/react/hooks/useContractWrite#return-value) documentation to check the types.
+- The extended object includes properties inherited from wagmi useContractWrite. You can check the [useContractWrite return values](https://wagmi.sh/react/api/hooks/useWriteContract#return-type) documentation to check the types.
