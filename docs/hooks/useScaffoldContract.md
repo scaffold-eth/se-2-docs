@@ -5,13 +5,13 @@ sidebar_position: 6
 # useScaffoldContract
 
 Use this hook to get your contract instance by providing the contract name. It enables you to interact with your contract methods.
-For reading data or sending transactions, it's recommended to use `useScaffoldContractRead` and `useScaffoldContractWrite`.
+For reading data or sending transactions, it's recommended to use `useScaffoldReadContract` and `useScaffoldWriteContract`.
 
 ```ts
 const { data: yourContract } = useScaffoldContract({
   contractName: "YourContract",
 });
-// Returns the greeting and can be called in any function, unlike useScaffoldContractRead
+// Returns the greeting and can be called in any function, unlike useScaffoldReadContract
 await yourContract?.read.greeting();
 
 // Used to write to a contract and can be called in any function

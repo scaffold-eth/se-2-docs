@@ -2,12 +2,12 @@
 sidebar_position: 1
 ---
 
-# useScaffoldContractRead
+# useScaffoldReadContract
 
 Use this hook to read public variables and get data from read-only functions of your smart contract.
 
 ```ts
-const { data: totalCounter } = useScaffoldContractRead({
+const { data: totalCounter } = useScaffoldReadContract({
   contractName: "YourContract",
   functionName: "userGreetingCounter",
   args: ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
