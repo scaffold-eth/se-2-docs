@@ -7,35 +7,28 @@ sidebar_position: 2
 Use this hook to send a transaction to your smart contract to write data or perform an action.
 
 ```ts
-const { writeAsync, isLoading, isMining } = useScaffoldContractWrite({
-  contractName: "YourContract",
-  functionName: "setGreeting",
-  args: ["The value to set"],
-  value: parseEther("0.1"),
-  blockConfirmations: 1,
-  onBlockConfirmation: txnReceipt => {
-    console.log("Transaction blockHash", txnReceipt.blockHash);
-  },
-});
+  const { writeContractAsync: writeYourContractAsync } = useScaffoldWriteContract();
 ```
 
-To send the transaction, you can call the `writeAsync` function returned by the hook. Here's an example usage:
+To send the transaction, you can call the `writeContractAsync` function returned by the hook (which we instance as `writeYourContractAsync`). Here's an example usage:
 
 ```tsx
-<button className="btn btn-primary" onClick={() => writeAsync()}>
-  Send TX
+<button
+  className="btn btn-primary"
+  onClick={async () => {
+      await writeYourContractAsync({
+        contractName: "YourContract",
+        functionName: "setGreeting",
+        args: ["The value to set"],
+        value: parseEther("0.1"),
+      });
+  }}
+>
+  Set Greeting
 </button>
 ```
 
-This example sends a transaction to the `YourContract` smart contract to call the `setGreeting` function with the arguments passed in `args`. The `writeAsync` function sends the transaction to the smart contract.
-
-It is also possible to pass arguments imperatively to the `writeAsync` function:
-
-```tsx
-<button className="btn btn-primary" onClick={() => writeAsync({ args: ["Dynamic value"], value: parseEther("0.2") })}>
-  Send TX
-</button>
-```
+This example sends a transaction to the `YourContract` smart contract to call the `setGreeting` function with the arguments passed in `args`. The `writeContractAsync` function (`writeYourContractAsync` instance) sends the transaction to the smart contract.
 
 ## Configuration
 
@@ -48,10 +41,10 @@ It is also possible to pass arguments imperatively to the `writeAsync` function:
 | **onBlockConfirmation** (optional) | `function` | Callback function to execute when the transaction is confirmed.                                         |
 | **blockConfirmations** (optional)  | `number`   | Number of block confirmations to wait for before considering transaction to be confirmed (default : 1). |
 
-You can also pass other arguments accepted by [useContractWrite wagmi hook](https://wagmi.sh/react/api/hooks/useWriteContract).
+You can also pass other arguments accepted by [useWriteContract wagmi hook](https://wagmi.sh/react/api/hooks/useWriteContract).
 
 ## Return Values
 
-- `writeAsync` function sends the transaction to the smart contract.
+- `writeContractAsync` function sends the transaction to the smart contract.
 - `isMining` property indicates whether the transaction is currently being mined.
-- The extended object includes properties inherited from wagmi useContractWrite. You can check the [useContractWrite return values](https://wagmi.sh/react/api/hooks/useWriteContract#return-type) documentation to check the types.
+- The extended object includes properties inherited from wagmi useWriteContract. You can check the [useWriteContract return values](https://wagmi.sh/react/api/hooks/useWriteContract#return-type) documentation to check the types.
