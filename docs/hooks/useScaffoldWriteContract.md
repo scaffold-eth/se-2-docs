@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# useScaffoldContractWrite
+# useScaffoldWriteContract
 
 Use this hook to send a transaction to your smart contract to write data or perform an action.
 
