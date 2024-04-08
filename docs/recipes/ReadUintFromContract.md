@@ -13,22 +13,20 @@ This recipe demonstrates how to read data from contract functions and display it
 
 ```tsx title="components/GreetingsCount.tsx"
 import { useAccount } from "wagmi";
-import { useScaffoldContractRead } from "~~/hooks/scaffold-eth";
+import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
 
 export const GreetingsCount = () => {
   const { address: connectedAddress } = useAccount();
 
-  const { data: totalCounter, isLoading: isTotalCounterLoading } = useScaffoldContractRead({
+  const { data: totalCounter, isLoading: isTotalCounterLoading } = useScaffoldReadContract({
     contractName: "YourContract",
     functionName: "totalCounter",
-    watch: true,
   });
 
-  const { data: connectedAddressCounter, isLoading: isConnectedAddressCounterLoading } = useScaffoldContractRead({
+  const { data: connectedAddressCounter, isLoading: isConnectedAddressCounterLoading } = useScaffoldReadContract({
     contractName: "YourContract",
     functionName: "userGreetingCounter",
     args: [connectedAddress], // passing args to function
-    watch: true,
   });
 
   return (
@@ -76,19 +74,18 @@ export const GreetingsCount = () => {
 
 ### Step 2: Retrieve total greetings count
 
-Initialize the [useScaffoldContractRead](/hooks/useScaffoldContractRead) hook to read from the contract. This hook provides the `data` which contains the return value of the function.
+Initialize the [useScaffoldReadContract](/hooks/useScaffoldReadContract) hook to read from the contract. This hook provides the `data` which contains the return value of the function.
 
 ```tsx title="components/GreetingsCount.tsx"
 //highlight-start
-import { useScaffoldContractRead } from "~~/hooks/scaffold-eth";
+import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
 // highlight-end
 
 export const GreetingsCount = () => {
   // highlight-start
-  const { data: totalCounter } = useScaffoldContractRead({
+  const { data: totalCounter } = useScaffoldReadContract({
     contractName: "YourContract",
     functionName: "totalCounter",
-    watch: true,
   });
   // highlight-end
 
@@ -104,16 +101,16 @@ export const GreetingsCount = () => {
 };
 ```
 
-In the line `const {data: totalCounter} = useScaffoldContractRead({...})` we are using [destructuring asssignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to assign `data` to a new name `totalCounter`.
+In the line `const {data: totalCounter} = useScaffoldReadContract({...})` we are using [destructuring asssignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to assign `data` to a new name `totalCounter`.
 
 In the contract, `totalCounter` returns an `uint` value, which is represented as a [`BigInt`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) in javascript and can be converted to a readable string using `.toString()`.
 
 ### Step 3: Retrieve connected address greetings count
 
-We can get the connected address using the [useAccount](https://wagmi.sh/react/api/hooks/useAccount) hook and pass it to `args` key in the `useScaffoldContractRead` hook configuration. This will be used as an argument to read the contract function.
+We can get the connected address using the [useAccount](https://wagmi.sh/react/api/hooks/useAccount) hook and pass it to `args` key in the `useScaffoldReadContract` hook configuration. This will be used as an argument to read the contract function.
 
 ```tsx title="components/GreetingsCount.tsx"
-import { useScaffoldContractRead } from "~~/hooks/scaffold-eth";
+import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
 //highlight-start
 import { useAccount } from "wagmi";
 //highlight-end
@@ -123,18 +120,16 @@ export const GreetingsCount = () => {
   const { address: connectedAddress } = useAccount();
   //highlight-end
 
-  const { data: totalCounter } = useScaffoldContractRead({
+  const { data: totalCounter } = useScaffoldReadContract({
     contractName: "YourContract",
     functionName: "totalCounter",
-    watch: true,
   });
 
   //highlight-start
-  const { data: connectedAddressCounter } = useScaffoldContractRead({
+  const { data: connectedAddressCounter } = useScaffoldReadContract({
     contractName: "YourContract",
     functionName: "userGreetingCounter",
     args: [connectedAddress], // passing args to function
-    watch: true,
   });
   //highlight-end
 
@@ -153,44 +148,46 @@ export const GreetingsCount = () => {
 
 ### Step 4: Bonus adding loading state
 
-We can use `isLoading` returned from the [`useScaffoldContractRead`](/hooks/scaffold-eth#usescaffoldcontractread) hook. This variable is set to `true` while fetching data from the contract.
+We can use `isLoading` returned from the [`useScaffoldReadContract`](/hooks/usescaffoldreadcontract) hook. This variable is set to `true` while fetching data from the contract.
 
 ```tsx title="components/GreetingsCount.tsx"
-import { useScaffoldContractRead } from "~~/hooks/scaffold-eth";
+import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
 import { useAccount } from "wagmi";
 
 export const GreetingsCount = () => {
   const { address: connectedAddress } = useAccount();
 
   // highlight-start
-  const { data: totalCounter, isLoading: isTotalCounterLoading } = useScaffoldContractRead({
+  const { data: totalCounter, isLoading: isTotalCounterLoading } = useScaffoldReadContract({
     // highlight-end
     contractName: "YourContract",
     functionName: "totalCounter",
-    watch: true,
   });
 
   // highlight-start
-  const { data: connectedAddressCounter, isLoading: isConnectedAddressCounterLoading } = useScaffoldContractRead({
+  const { data: connectedAddressCounter, isLoading: isConnectedAddressCounterLoading } = useScaffoldReadContract({
     // highlight-end
     contractName: "YourContract",
     functionName: "userGreetingCounter",
     args: [connectedAddress], // passing args to function
-    watch: true,
   });
 
   return (
     <div>
       <h2>Total Greetings count:</h2>
       // highlight-start
-      {isTotalCounterLoading ? "Loading..." : <p>{totalCounter ? totalCounter.toString() : 0}</p>}
+      {isTotalCounterLoading ? (
+        <span className="loading loading-spinner"></span>
+      ) : (
+        <p className="m-0">{totalCounter ? totalCounter.toString() : 0}</p>
+      )}
       // highlight-end
       <h2>Your Greetings count:</h2>
       // highlight-start
       {isConnectedAddressCounterLoading ? (
-        "Loading..."
+        <span className="loading loading-spinner"></span>
       ) : (
-        <p>{connectedAddressCounter ? connectedAddressCounter.toString() : 0}</p>
+        <p className="m-0">{connectedAddressCounter ? connectedAddressCounter.toString() : 0}</p>
       )}
       // highlight-end
     </div>
