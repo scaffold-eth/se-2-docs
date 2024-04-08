@@ -21,13 +21,13 @@ This example retrieves the data returned by the `userGreetingCounter` function o
 
 ## Configuration
 
-| Parameter            | Type      | Description                                                                                                                                                                               |
-| :------------------- | :-------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **contractName**     | `string`  | Name of the contract to read from.                                                                                                                                                        |
-| **functionName**     | `string`  | Name of the function to call.                                                                                                                                                             |
-| **args** (optional)  | `any[]`   | Array of arguments to pass to the function (if accepts any).                                                                                                                              |
-| **query** (optional) | `object`  | An object containing query options. The `enabled` property determines whether the query is automatically run or not. Set this to `false` to disable the query from automatically running. |
-| **watch** (optional) | `boolean` | Watches and refreshes data on new blocks. (default : `true`)                                                                                                                              |
+| Parameter            | Type      | Description                                                                                                                                                                                       |
+| :------------------- | :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **contractName**     | `string`  | Name of the contract to read from.                                                                                                                                                                |
+| **functionName**     | `string`  | Name of the function to call.                                                                                                                                                                     |
+| **args** (optional)  | `any[]`   | Array of arguments to pass to the function (if accepts any).                                                                                                                                      |
+| **watch** (optional) | `boolean` | Watches and refreshes data on new blocks. (default : `true`)                                                                                                                                      |
+| **query** (optional) | `object`  | An object containing query options. `enabled` property determines if the query is automatically run or not. Set `false` to disable the query from automatically running. (default: `watch` value) |
 
 You can also pass other arguments accepted by [useReadContract wagmi hook](https://wagmi.sh/react/api/hooks/useReadContract#parameters).
 
