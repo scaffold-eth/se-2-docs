@@ -19,12 +19,11 @@ import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 export const Greetings = () => {
   const [newGreeting, setNewGreeting] = useState("");
 
-  const { writeContractAsync, isPending } = useScaffoldWriteContract();
+  const { writeContractAsync, isPending } = useScaffoldWriteContract("YourContract");
 
   const writeContractAsyncWithParams = () =>
     writeContractAsync(
       {
-        contractName: "YourContract",
         functionName: "setGreeting",
         args: [newGreeting],
         value: parseEther("0.01"),
@@ -88,12 +87,11 @@ import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 
 export const Greetings = () => {
   // highlight-start
-  const { writeContractAsync } = useScaffoldWriteContract();
+  const { writeContractAsync } = useScaffoldWriteContract("YourContract");
 
   const writeContractAsyncWithParams = () =>
     writeContractAsync(
       {
-        contractName: "YourContract",
         functionName: "setGreeting",
         args: [newGreeting],
         value: parseEther("0.01"),
@@ -126,12 +124,11 @@ import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 export const Greetings = () => {
   const [newGreeting, setNewGreeting] = useState("");
 
-  const { writeContractAsync } = useScaffoldWriteContract();
+  const { writeContractAsync } = useScaffoldWriteContract("YourContract");
 
   const writeContractAsyncWithParams = () =>
     writeContractAsync(
       {
-        contractName: "YourContract",
         functionName: "setGreeting",
         args: [newGreeting],
         value: parseEther("0.01"),
@@ -178,13 +175,12 @@ import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 export const Greetings = () => {
   const [newGreeting, setNewGreeting] = useState("");
   // highlight-start
-  const { writeContractAsync, isPending } = useScaffoldWriteContract();
+  const { writeContractAsync, isPending } = useScaffoldWriteContract("YourContract");
   // highlight-end
 
   const writeContractAsyncWithParams = () =>
     writeContractAsync(
       {
-        contractName: "YourContract",
         functionName: "setGreeting",
         args: [newGreeting],
         value: parseEther("0.01"),

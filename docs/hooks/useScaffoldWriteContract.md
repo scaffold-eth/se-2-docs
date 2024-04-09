@@ -7,7 +7,7 @@ sidebar_position: 2
 Use this hook to send a transaction to your smart contract to write data or perform an action.
 
 ```ts
-const { writeContractAsync: writeYourContractAsync } = useScaffoldWriteContract();
+const { writeContractAsync: writeYourContractAsync } = useScaffoldWriteContract("YourContract");
 ```
 
 To send the transaction, you can call the `writeContractAsync` function returned by the hook (which we instance as `writeYourContractAsync`). Here's an example usage:
@@ -17,7 +17,6 @@ To send the transaction, you can call the `writeContractAsync` function returned
   className="btn btn-primary"
   onClick={async () => {
     await writeYourContractAsync({
-      contractName: "YourContract",
       functionName: "setGreeting",
       args: ["The value to set"],
       value: parseEther("0.1"),
