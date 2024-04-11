@@ -26,8 +26,8 @@ import { BlockieAvatar } from "~~/components/scaffold-eth";
 
 ## Props
 
-- `address` => The address for which you want to display its blockie. Ensure it's in the `0x___` format.
-
-- `ensImage` => ENS avatar from the ENS linked to the address.
-
-- `size` => Width and Height in pixels (square).
+| Prop                  | Type     | Default Value | Description                                                                               |
+| --------------------- | -------- | ------------- | ----------------------------------------------------------------------------------------- |
+| `address`             | `string` | `undefined`   | The address for which you want to display its blockie. Ensure it's in the `0x___` format. |
+| `size`                | `number` | `undefined`   | Width and Height in pixels (square).                                                      |
+| `ensImage` (optional) | `string` | `undefined`   | ENS avatar from the ENS linked to the address.                                            |
