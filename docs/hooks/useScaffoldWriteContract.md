@@ -16,11 +16,15 @@ To send the transaction, you can call the `writeContractAsync` function returned
 <button
   className="btn btn-primary"
   onClick={async () => {
-    await writeYourContractAsync({
-      functionName: "setGreeting",
-      args: ["The value to set"],
-      value: parseEther("0.1"),
-    });
+    try {
+      await writeYourContractAsync({
+        functionName: "setGreeting",
+        args: ["The value to set"],
+        value: parseEther("0.1"),
+      });
+    } catch (e) {
+      console.error("Error setting greeting:", e);
+    }
   }}
 >
   Set Greeting
