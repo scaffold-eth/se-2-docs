@@ -11,9 +11,6 @@ const { data: totalCounter } = useScaffoldReadContract({
   contractName: "YourContract",
   functionName: "userGreetingCounter",
   args: ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
-  query: {
-    enabled: true,
-  },
 });
 ```
 
@@ -21,13 +18,12 @@ This example retrieves the data returned by the `userGreetingCounter` function o
 
 ## Configuration
 
-| Parameter            | Type        | Description                                                                                                                                                                                       |
-| :------------------- | :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **contractName**     | `string`    | Name of the contract to read from.                                                                                                                                                                |
-| **functionName**     | `string`    | Name of the function to call.                                                                                                                                                                     |
-| **args** (optional)  | `unknown[]` | Array of arguments to pass to the function (if accepts any). Types are inferred from contract's function parameters                                                                               |
-| **watch** (optional) | `boolean`   | Watches and refreshes data on new blocks. (default : `true`)                                                                                                                                      |
-| **query** (optional) | `object`    | An object containing query options. `enabled` property determines if the query is automatically run or not. Set `false` to disable the query from automatically running. (default: `watch` value) |
+| Parameter            | Type        | Description                                                                                                         |
+| :------------------- | :---------- | :------------------------------------------------------------------------------------------------------------------ |
+| **contractName**     | `string`    | Name of the contract to read from.                                                                                  |
+| **functionName**     | `string`    | Name of the function to call.                                                                                       |
+| **args** (optional)  | `unknown[]` | Array of arguments to pass to the function (if accepts any). Types are inferred from contract's function parameters |
+| **watch** (optional) | `boolean`   | Watches and refreshes data on new blocks. (default : `true`)                                                        |
 
 You can also pass other arguments accepted by [useReadContract wagmi hook](https://wagmi.sh/react/api/hooks/useReadContract#parameters).
 
