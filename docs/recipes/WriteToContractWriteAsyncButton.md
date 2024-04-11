@@ -21,19 +21,24 @@ export const Greetings = () => {
 
   const { writeContractAsync, isPending } = useScaffoldWriteContract("YourContract");
 
-  const writeContractAsyncWithParams = () =>
-    writeContractAsync(
-      {
-        functionName: "setGreeting",
-        args: [newGreeting],
-        value: parseEther("0.01"),
-      },
-      {
-        onBlockConfirmation: txnReceipt => {
-          console.log("📦 Transaction blockHash", txnReceipt.blockHash);
+  const handleSetGreeting = async () => {
+    try {
+      await writeContractAsync(
+        {
+          functionName: "setGreeting",
+          args: [newGreeting],
+          value: parseEther("0.01"),
         },
-      },
-    );
+        {
+          onBlockConfirmation: txnReceipt => {
+            console.log("📦 Transaction blockHash", txnReceipt.blockHash);
+          },
+        },
+      );
+    } catch (e) {
+      console.error("Error setting greeting", e);
+    }
+  };
 
   return (
     <>
@@ -43,12 +48,8 @@ export const Greetings = () => {
         className="input border border-primary"
         onChange={e => setNewGreeting(e.target.value)}
       />
-      <button
-        className="btn btn-primary"
-        onClick={async () => await writeContractAsyncWithParams()}
-        disabled={isPending}
-      >
-        {isPending ? <span className="loading loading-spinner loading-sm"></span> : <>Send</>}
+      <button className="btn btn-primary" onClick={handleSetGreeting} disabled={isPending}>
+        {isPending ? <span className="loading loading-spinner loading-sm"></span> : "Send"}
       </button>
     </>
   );
@@ -76,7 +77,7 @@ export const Greetings = () => {
 
 ### Step 2: Initialize `useScaffoldWriteContract` hook
 
-Initialize the `useScaffoldWriteContract` hook to set up the contract interaction. This hook provides the `writeContractAsync` function for sending transactions, and we'll create `writeContractAsyncWithParams` to pass the parameters to it.
+Initialize the `useScaffoldWriteContract` hook. This hook provides the `writeContractAsync` function for sending transactions, we'll create `handleSetGreeting` function in which we'll call and pass parameters to `writeContractAsync` required to perform contract interaction.
 
 ```tsx
 // highlight-start
@@ -87,22 +88,34 @@ import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 
 export const Greetings = () => {
   // highlight-start
-  const { writeContractAsync } = useScaffoldWriteContract("YourContract");
-
-  const writeContractAsyncWithParams = () =>
-    writeContractAsync(
-      {
-        functionName: "setGreeting",
-        args: [newGreeting],
-        value: parseEther("0.01"),
-      },
-      {
-        onBlockConfirmation: txnReceipt => {
-          console.log("📦 Transaction blockHash", txnReceipt.blockHash);
-        },
-      },
-    );
+  const [newGreeting, setNewGreeting] = useState("");
   // highlight-end
+
+  // highlight-start
+  const { writeContractAsync } = useScaffoldWriteContract("YourContract");
+  // highlight-end
+
+  // highlight-start
+  const handleSetGreeting = async () => {
+    try {
+      await writeContractAsync(
+        {
+          functionName: "setGreeting",
+          args: [newGreeting],
+          value: parseEther("0.01"),
+        },
+        {
+          onBlockConfirmation: txnReceipt => {
+            console.log("📦 Transaction blockHash", txnReceipt.blockHash);
+          },
+        },
+      );
+    } catch (e) {
+      console.error("Error setting greeting", e);
+    }
+  };
+  // highlight-end
+
   return (
     <>
       <input type="text" placeholder="Write your greeting" className="input border border-primary" />
@@ -114,10 +127,9 @@ export const Greetings = () => {
 
 ### Step 3: Add input change logic and send transaction when users click the button
 
-Design the user interface to allow users to input data and trigger the contract interaction. The example below demonstrates a simple form:
+Wire up the input field to update the `newGreeting` state when the user types in a new greeting and call `handleSetGreeting` function when user click on the button.
 
 ```tsx
-import { useState } from "react";
 import { parseEther } from "viem";
 import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 
@@ -126,19 +138,24 @@ export const Greetings = () => {
 
   const { writeContractAsync } = useScaffoldWriteContract("YourContract");
 
-  const writeContractAsyncWithParams = () =>
-    writeContractAsync(
-      {
-        functionName: "setGreeting",
-        args: [newGreeting],
-        value: parseEther("0.01"),
-      },
-      {
-        onBlockConfirmation: txnReceipt => {
-          console.log("📦 Transaction blockHash", txnReceipt.blockHash);
+  const handleSetGreeting = async () => {
+    try {
+      await writeContractAsync(
+        {
+          functionName: "setGreeting",
+          args: [newGreeting],
+          value: parseEther("0.01"),
         },
-      },
-    );
+        {
+          onBlockConfirmation: txnReceipt => {
+            console.log("📦 Transaction blockHash", txnReceipt.blockHash);
+          },
+        },
+      );
+    } catch (e) {
+      console.error("Error setting greeting", e);
+    }
+  };
 
   return (
     <>
@@ -153,7 +170,7 @@ export const Greetings = () => {
       <button
         className="btn btn-primary"
         // highlight-start
-        onClick={async () => await writeContractAsyncWithParams()}
+        onClick={handleSetGreeting}
         // highlight-end
       >
         Send
@@ -178,19 +195,24 @@ export const Greetings = () => {
   const { writeContractAsync, isPending } = useScaffoldWriteContract("YourContract");
   // highlight-end
 
-  const writeContractAsyncWithParams = () =>
-    writeContractAsync(
-      {
-        functionName: "setGreeting",
-        args: [newGreeting],
-        value: parseEther("0.01"),
-      },
-      {
-        onBlockConfirmation: txnReceipt => {
-          console.log("📦 Transaction blockHash", txnReceipt.blockHash);
+  const handleSetGreeting = async () => {
+    try {
+      await writeContractAsync(
+        {
+          functionName: "setGreeting",
+          args: [newGreeting],
+          value: parseEther("0.01"),
         },
-      },
-    );
+        {
+          onBlockConfirmation: txnReceipt => {
+            console.log("📦 Transaction blockHash", txnReceipt.blockHash);
+          },
+        },
+      );
+    } catch (e) {
+      console.error("Error setting greeting", e);
+    }
+  };
 
   return (
     <>
@@ -203,11 +225,11 @@ export const Greetings = () => {
 
       <button
         className="btn btn-primary"
-        onClick={async () => await writeContractAsyncWithParams()}
+        onClick={handleSetGreeting}
         // highlight-start
         disabled={isPending}
       >
-        {isPending ? <span className="loading loading-spinner loading-sm"></span> : <>Send</>}
+        {isPending ? <span className="loading loading-spinner loading-sm"></span> : "Send"}
       </button>
     </>
     // highlight-end
