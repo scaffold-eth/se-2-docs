@@ -236,32 +236,3 @@ export const Greetings = () => {
   );
 };
 ```
-
-:::info Hint
-You can also create a `writeContractAsync` button sending args imperatively, here is an example:
-
-```tsx
-<button
-  className="btn btn-primary"
-  onClick={async () =>
-    await writeContractAsync(
-      {
-        contractName: "YourContract",
-        functionName: "setGreeting",
-        args: [newGreeting],
-        value: parseEther("0.01"),
-      },
-      {
-        onBlockConfirmation: txnReceipt => {
-          console.log("📦 Transaction blockHash", txnReceipt.blockHash);
-        },
-      },
-    )
-  }
-  disabled={isPending}
->
-  {isPending ? <span className="loading loading-spinner loading-sm"></span> : <>Send Imperatively</>}
-</button>
-```
-
-:::info Hint
