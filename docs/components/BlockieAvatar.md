@@ -4,11 +4,13 @@ sidebar_position: 8
 
 # BlockieAvatar
 
-Show a blockie (bar code profile icon) component for a public address.
+Show a blockie (bar code profile icon) component for a given public address.
 
-If the address has an ENS avatar linked to it, will show it. Otherwise, will show the generated blockie.
+If the address has an ENS avatar linked to it, this avatar will be displayed. Otherwise, a generated blockie will be shown.
 
 ![BlockieAvatar Example](/img/BlockieAvatar.png)
+
+If you want more control over styling the blockie, you can directly use [blo](https://github.com/bpierre/blo) (pre-installed in Scaffold-ETH 2) and internally used by `BlockieAvatar` component to get the image URL.
 
 ## Import
 
