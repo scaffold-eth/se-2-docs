@@ -66,7 +66,7 @@ export const ContractInteraction = () => {
 
 ### Step 2: Configure wagmi's `useWriteContract` hook
 
-Add wagmi's `useWriteContract` hook and configure it with the parameters: `abi`, `address`, `functionName`, `value`and `args`. Get the ABI and address of your smart contract from the DeployedContracts or you can grab it from ExternalContracts object, those will be used to set up the contract interaction.
+Add wagmi's `useWriteContract` hook and configure `writeContractAsync` with the parameters: `abi`, `address`, `functionName`, `value` and `args`. Get the ABI and address of your smart contract from the DeployedContracts or you can grab it from ExternalContracts object, those will be used to set up the contract interaction.
 
 ```tsx
 import * as React from "react";
