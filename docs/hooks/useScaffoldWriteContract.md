@@ -10,6 +10,8 @@ Use this hook to send a transaction to your smart contract to write data or perf
 const { writeContractAsync: writeYourContractAsync } = useScaffoldWriteContract("YourContract");
 ```
 
+The first argument is name of the contract to write to and the second argument is wagmi's `useWriteContract` hook [parameters object](https://wagmi.sh/react/api/hooks/useWriteContract#parameters).
+
 To send the transaction, you can call the `writeContractAsync` function returned by the hook (which we instance as `writeYourContractAsync`). Here's an example usage:
 
 ```tsx
@@ -33,18 +35,19 @@ To send the transaction, you can call the `writeContractAsync` function returned
 
 This example sends a transaction to the `YourContract` smart contract to call the `setGreeting` function with the arguments passed in `args`. The `writeContractAsync` function (`writeYourContractAsync` instance) sends the transaction to the smart contract.
 
+Below is the configuration for `writeContractAsync` function:
+
 ## Configuration
 
 | Parameter                          | Type       | Description                                                                                             |
 | :--------------------------------- | :--------- | :------------------------------------------------------------------------------------------------------ |
-| **contractName**                   | `string`   | Name of the contract to write to.                                                                       |
 | **functionName**                   | `string`   | Name of the function to call.                                                                           |
 | **args** (optional)                | `any[]`    | Array of arguments to pass to the function (if accepts any).                                            |
 | **value** (optional)               | `bigint`   | Amount of ETH to send with the transaction (for payable functions only).                                |
 | **onBlockConfirmation** (optional) | `function` | Callback function to execute when the transaction is confirmed.                                         |
 | **blockConfirmations** (optional)  | `number`   | Number of block confirmations to wait for before considering transaction to be confirmed (default : 1). |
 
-You can also pass other arguments accepted by [useWriteContract wagmi hook](https://wagmi.sh/react/api/hooks/useWriteContract).
+You can also pass other arguments accepted by [writeContractAsync from wagmi](https://wagmi.sh/react/api/hooks/useWriteContract#mutate).
 
 ## Return Values
 
