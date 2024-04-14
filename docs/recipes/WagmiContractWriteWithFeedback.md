@@ -22,7 +22,7 @@ import { useTransactor } from "~~/hooks/scaffold-eth";
 export const ContractInteraction = () => {
   const writeTx = useTransactor();
 
-  const { writeAsync } = useContractWrite({
+  const { writeAsync, isLoading } = useContractWrite({
     address: DeployedContracts[31337].YourContract.address,
     abi: DeployedContracts[31337].YourContract.abi,
     functionName: "setGreeting",
