@@ -24,8 +24,8 @@ Scaffold-ETH is not a product itself but more of a combination or stack of other
 Here are the main components:
 
 - [**Hardhat**](https://hardhat.org/docs) or [**Foundry**](https://book.getfoundry.sh/) (user's choice) for running local networks, deploying and testing smart contracts.
-- [**Wagmi**](https://1.x.wagmi.sh/react/getting-started) for React Hooks to start working with Ethereum.
-- [**Viem**](https://v1.viem.sh/docs/getting-started.html) as low-level interface that provides primitives to interact with Ethereum. The alternative to ethers.js and web3.js.
+- [**Wagmi**](https://wagmi.sh/react/getting-started) for React Hooks to start working with Ethereum.
+- [**Viem**](https://viem.sh/docs/getting-started.html) as low-level interface that provides primitives to interact with Ethereum. The alternative to ethers.js and web3.js.
 - [**NextJS**](https://nextjs.org/docs) for building a frontend, using many useful pre-made hooks.
 - [**RainbowKit**](https://www.rainbowkit.com/docs/) for adding wallet connection.
 - [**DaisyUI**](https://daisyui.com/docs/) for pre-built [Tailwind CSS](https://tailwindui.com/components) components.

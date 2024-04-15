@@ -54,7 +54,7 @@ export const ConnectedAddressBalance = () => {
 
 ### Step 2: Retrieve the Connected Account
 
-Fetch the Ethereum address of the currently connected account using the [useAccount wagmi hook](https://1.x.wagmi.sh/react/hooks/useAccount) and easily display them using Scaffold ETH-2 [Address](/components/Address) and [Balance](/components/Balance) components.
+Fetch the Ethereum address of the currently connected account using the [useAccount wagmi hook](https://wagmi.sh/react/api/hooks/useAccount) and easily display them using Scaffold ETH-2 [Address](/components/Address) and [Balance](/components/Balance) components.
 
 ```tsx title="components/ConnectedAddressBalance.tsx"
 // highlight-start
