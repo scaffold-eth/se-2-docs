@@ -47,7 +47,7 @@ Below is the configuration for `writeContractAsync` function:
 | **onBlockConfirmation** (optional) | `function`  | Callback function to execute when the transaction is confirmed.                                                      |
 | **blockConfirmations** (optional)  | `number`    | Number of block confirmations to wait for before considering transaction to be confirmed (default : 1).              |
 
-You can also pass other arguments accepted by [writeContractAsync from wagmi](https://wagmi.sh/react/api/hooks/useWriteContract#mutate).
+You can also pass other arguments accepted by [writeContractAsync from wagmi](https://wagmi.sh/react/api/hooks/useWriteContract#mutate-async).
 
 ## Return Values
 
