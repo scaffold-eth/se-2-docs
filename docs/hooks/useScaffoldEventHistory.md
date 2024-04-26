@@ -16,14 +16,14 @@ const {
   eventName: "GreetingChange",
   fromBlock: 31231n,
   watch: true,
-  filters: { premium: true },
+  filters: { greetingSetter: "0x9eB2C4866aAe575bC88d00DE5061d5063a1bb3aF" },
   blockData: true,
   transactionData: true,
   receiptData: true,
 });
 ```
 
-This example retrieves the historical event logs for the `GreetingChange` event of the `YourContract` smart contract, starting from block number 31231 and filtering events where the premium parameter is true.
+This example retrieves the historical event logs for the `GreetingChange` event of the `YourContract` smart contract, starting from block number 31231 and filtering events where the `greetingSetter` parameter is `0x9eB2C4866aAe575bC88d00DE5061d5063a1bb3aF`.
 
 ## Configuration
 
@@ -32,7 +32,7 @@ This example retrieves the historical event logs for the `GreetingChange` event 
 | **contractName**               | `string`  | Name of the contract to read from.                                                                                                                                    |
 | **eventName**                  | `string`  | Name of the event to read.                                                                                                                                            |
 | **fromBlock**                  | `bigint`  | Block number from which to start reading events.                                                                                                                      |
-| **filters** (optional)         | `object`  | Apply filters to the event based on parameter names and values `{ [parameterName]: value }`.                                                                          |
+| **filters** (optional)         | `object`  | Apply filters to the event based on **indexed** parameter names and values `{ [parameterName]: value }`.                                                              |
 | **blockData** (optional)       | `boolean` | If set to true it will return the block data for each event (default: false).                                                                                         |
 | **transactionData** (optional) | `boolean` | If set to true it will return the transaction data for each event (default: false).                                                                                   |
 | **receiptData** (optional)     | `boolean` | If set to true it will return the receipt data for each event (default: false).                                                                                       |
