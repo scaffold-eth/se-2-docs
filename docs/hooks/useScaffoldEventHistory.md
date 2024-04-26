@@ -23,7 +23,7 @@ const {
 });
 ```
 
-This example retrieves the historical event logs for the `GreetingChange` event of the `YourContract` smart contract, starting from block number 31231 and filtering events where the greetingSetter parameter is `0x9eB2C4866aAe575bC88d00DE5061d5063a1bb3aF`.
+This example retrieves the historical event logs for the `GreetingChange` event of the `YourContract` smart contract, starting from block number 31231 and filtering events where the `greetingSetter` parameter is `0x9eB2C4866aAe575bC88d00DE5061d5063a1bb3aF`.
 
 ## Configuration
 
