@@ -4,26 +4,45 @@ sidebar_position: 7
 
 # 🙏 Contributing to Scaffold-ETH 2
 
-We welcome contributions to Scaffold-ETH 2!
+Welcome to the Scaffold-ETH 2 contributing guide! Thank you for investing your time in contributing to our project. This guide aims to provide a comprehensive overview of the contribution workflow, ensuring an effective and efficient process for everyone involved.
 
-This section aims to provide an overview of the contribution workflow to help us make the contribution process effective for everyone involved.
+### About the Project
+Scaffold-ETH 2 is a minimal and forkable repository providing builders with a starter kit to develop decentralized applications (dApps) on Ethereum. For an overview of the project, please read the [README](README.md) to get an overview of the project.
 
-:::caution
-The project is under active development. You can view the open Issues, follow the development process, and contribute to the project.
-:::caution
+### Our Vision
+Our goal is to provide the primary building blocks for creating dApps. While the repository can be forked to include additional integrations and features, we aim to keep the master branch simple and minimalistic.
 
-## Getting Started
+### Project Status
+The project is under active development. You can view open issues, follow the development process, and contribute to the project.
 
-You can contribute to this repo in many ways:
-
+### Getting Started
+You can contribute to this repository in several ways:
 - Solve open issues
-- Report bugs or feature requests
+- Report bugs or request new features
 - Improve the documentation
 
-Contributions are made via Issues and Pull Requests (PRs). A few general guidelines for contributions:
+### General Contribution Guidelines
 
-- Search for existing Issues and PRs before creating your own.
-- Contributions should only fix/add the functionality in the issue OR address style issues, _not both_.
-- If you're running into an error, please give context. Explain what you're trying to do and how to reproduce the error.
-- Please use the same formatting in the code repository. You can configure your IDE to do this by using the prettier / linting config files included in each package.
-- If applicable, please edit the README.md file to reflect changes.
+**1. Understand Our Project:** Scaffold-ETH 2 is a minimal and forkable repository providing builders with a starter kit to develop decentralized applications (dApps) on Ethereum.
+
+**2. Read Our Documentation:** https://docs.scaffoldeth.io/
+
+**3. Search Existing Issues and  Pull-Requests (PRs):** Before creating a new issue or Pull-Request (PR), check if a similar one already exists.
+
+**4. Communication:**
+Participate in the Our communication channel - [Telegram](https://t.me/joinchat/KByvmRe5wkR-8F_zz6AjpA)
+
+**5. Focused Contributions:** Contributions should either fix/add functionality or address style issues, but not both.
+
+**6. Provide Context:** When reporting an error, explain what you were trying to do and how to reproduce the error.
+
+**7. Consistent Formatting:** Use the same formatting as in the repository. Configure your IDE using the included prettier/linting config files.
+
+**8. Update Documentation:** If applicable, edit the README.md file to reflect any changes you make.
+
+**9. Respond to Feedback:** Engage with maintainers and reviewers, making necessary changes and improvements based on their feedback.
+
+**10. Be Patient:** Understand that maintainers are often busy and it may take time for your PR to be reviewed and merged.
+
+**10. Monitor Your Contribution:** Keep an eye on your PR and address any further comments or requested changes.
+Stay Engaged: Continue to contribute, help others, and be an active member of the community. By following these guidelines, you can make meaningful contributions to Our open-source project and become a valuable member of Our open-source community
