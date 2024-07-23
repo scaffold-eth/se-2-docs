@@ -1,12 +1,12 @@
 ---
 sidebar_position: 2
-title: Write to contract with writeAsync button
-description: Learn how to create a button that executes the writeAsync function to interact with a smart contract.
+title: Write to contract with writeContractAsync button
+description: Learn how to create a button that executes the writeContractAsync function to interact with a smart contract.
 ---
 
-# Write to a Contract with `writeAsync` button
+# Write to a Contract with `writeContractAsync` button
 
-This recipe shows how to implement a button that allows users to interact with a smart contract by executing the `writeAsync` function returned by [useScaffoldContractWrite](/hooks/useScaffoldContractWrite). By following this guide, you can create a user interface for writing data to a contract.
+This recipe shows how to implement a button that allows users to interact with a smart contract by executing the `writeContractAsync` function returned by [useScaffoldWriteContract](/hooks/useScaffoldWriteContract). By following this guide, you can create a user interface for writing data to a contract.
 
 <details open>
 <summary>Here is the full code, which we will be implementing in the guide below:</summary>
@@ -14,20 +14,31 @@ This recipe shows how to implement a button that allows users to interact with a
 ```tsx title="components/Greetings.tsx"
 import { useState } from "react";
 import { parseEther } from "viem";
-import { useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
+import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 
 export const Greetings = () => {
   const [newGreeting, setNewGreeting] = useState("");
 
-  const { writeAsync, isLoading } = useScaffoldContractWrite({
-    contractName: "YourContract",
-    functionName: "setGreeting",
-    args: [newGreeting],
-    value: parseEther("0.01"),
-    onBlockConfirmation: txnReceipt => {
-      console.log("📦 Transaction blockHash", txnReceipt.blockHash);
-    },
-  });
+  const { writeContractAsync, isPending } = useScaffoldWriteContract("YourContract");
+
+  const handleSetGreeting = async () => {
+    try {
+      await writeContractAsync(
+        {
+          functionName: "setGreeting",
+          args: [newGreeting],
+          value: parseEther("0.01"),
+        },
+        {
+          onBlockConfirmation: txnReceipt => {
+            console.log("📦 Transaction blockHash", txnReceipt.blockHash);
+          },
+        },
+      );
+    } catch (e) {
+      console.error("Error setting greeting", e);
+    }
+  };
 
   return (
     <>
@@ -37,8 +48,8 @@ export const Greetings = () => {
         className="input border border-primary"
         onChange={e => setNewGreeting(e.target.value)}
       />
-      <button className="btn btn-primary" onClick={() => writeAsync()} disabled={isLoading}>
-        {isLoading ? <span className="loading loading-spinner loading-sm"></span> : <>Send</>}
+      <button className="btn btn-primary" onClick={handleSetGreeting} disabled={isPending}>
+        {isPending ? <span className="loading loading-spinner loading-sm"></span> : "Send"}
       </button>
     </>
   );
@@ -64,31 +75,47 @@ export const Greetings = () => {
 };
 ```
 
-### Step 2: Initialize `useScaffoldContractWrite` hook
+### Step 2: Initialize `useScaffoldWriteContract` hook
 
-Initialize the `useScaffoldContractWrite` hook to set up the contract interaction. This hook provides the `writeAsync` function for sending transactions.
+Initialize the `useScaffoldWriteContract` hook. This hook provides the `writeContractAsync` function for sending transactions, we'll create `handleSetGreeting` function in which we'll call and pass parameters to `writeContractAsync` required to perform contract interaction.
 
 ```tsx
 // highlight-start
 import { useState } from "react";
 import { parseEther } from "viem";
-import { useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
+import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 // highlight-end
 
 export const Greetings = () => {
   // highlight-start
   const [newGreeting, setNewGreeting] = useState("");
-
-  const { writeAsync } = useScaffoldContractWrite({
-    contractName: "YourContract",
-    functionName: "setGreeting",
-    args: [newGreeting],
-    value: parseEther("0.01"),
-    onBlockConfirmation: txnReceipt => {
-      console.log("📦 Transaction blockHash", txnReceipt.blockHash);
-    },
-  });
   // highlight-end
+
+  // highlight-start
+  const { writeContractAsync } = useScaffoldWriteContract("YourContract");
+  // highlight-end
+
+  // highlight-start
+  const handleSetGreeting = async () => {
+    try {
+      await writeContractAsync(
+        {
+          functionName: "setGreeting",
+          args: [newGreeting],
+          value: parseEther("0.01"),
+        },
+        {
+          onBlockConfirmation: txnReceipt => {
+            console.log("📦 Transaction blockHash", txnReceipt.blockHash);
+          },
+        },
+      );
+    } catch (e) {
+      console.error("Error setting greeting", e);
+    }
+  };
+  // highlight-end
+
   return (
     <>
       <input type="text" placeholder="Write your greeting" className="input border border-primary" />
@@ -100,25 +127,36 @@ export const Greetings = () => {
 
 ### Step 3: Add input change logic and send transaction when users click the button
 
-Design the user interface to allow users to input data and trigger the contract interaction. The example below demonstrates a simple form:
+Wire up the input field to update the `newGreeting` state when the user types in a new greeting and call `handleSetGreeting` function when user click on the button.
 
 ```tsx
-import { useState } from "react";
 import { parseEther } from "viem";
-import { useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
+import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 
 export const Greetings = () => {
   const [newGreeting, setNewGreeting] = useState("");
 
-  const { writeAsync } = useScaffoldContractWrite({
-    contractName: "YourContract",
-    functionName: "setGreeting",
-    args: [newGreeting],
-    value: parseEther("0.01"),
-    onBlockConfirmation: txnReceipt => {
-      console.log("📦 Transaction blockHash", txnReceipt.blockHash);
-    },
-  });
+  const { writeContractAsync } = useScaffoldWriteContract("YourContract");
+
+  const handleSetGreeting = async () => {
+    try {
+      await writeContractAsync(
+        {
+          functionName: "setGreeting",
+          args: [newGreeting],
+          value: parseEther("0.01"),
+        },
+        {
+          onBlockConfirmation: txnReceipt => {
+            console.log("📦 Transaction blockHash", txnReceipt.blockHash);
+          },
+        },
+      );
+    } catch (e) {
+      console.error("Error setting greeting", e);
+    }
+  };
+
   return (
     <>
       <input
@@ -132,7 +170,7 @@ export const Greetings = () => {
       <button
         className="btn btn-primary"
         // highlight-start
-        onClick={() => writeAsync()}
+        onClick={handleSetGreeting}
         // highlight-end
       >
         Send
@@ -144,26 +182,38 @@ export const Greetings = () => {
 
 ### Step 4: Bonus adding loading state
 
-We can use `isLoading` returned from `useScaffoldContractWrite` while the transaction is being mined and also disable the button.
+We can use `isPending` returned from `useScaffoldWriteContract` while the transaction is being mined and also disable the button.
 
 ```tsx
 import { useState } from "react";
 import { parseEther } from "viem";
-import { useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
+import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 
 export const Greetings = () => {
   const [newGreeting, setNewGreeting] = useState("");
   // highlight-start
-  const { writeAsync, isLoading } = useScaffoldContractWrite({
-    // highlight-end
-    contractName: "YourContract",
-    functionName: "setGreeting",
-    args: [newGreeting],
-    value: parseEther("0.01"),
-    onBlockConfirmation: txnReceipt => {
-      console.log("📦 Transaction blockHash", txnReceipt.blockHash);
-    },
-  });
+  const { writeContractAsync, isPending } = useScaffoldWriteContract("YourContract");
+  // highlight-end
+
+  const handleSetGreeting = async () => {
+    try {
+      await writeContractAsync(
+        {
+          functionName: "setGreeting",
+          args: [newGreeting],
+          value: parseEther("0.01"),
+        },
+        {
+          onBlockConfirmation: txnReceipt => {
+            console.log("📦 Transaction blockHash", txnReceipt.blockHash);
+          },
+        },
+      );
+    } catch (e) {
+      console.error("Error setting greeting", e);
+    }
+  };
+
   return (
     <>
       <input
@@ -175,25 +225,14 @@ export const Greetings = () => {
 
       <button
         className="btn btn-primary"
-        onClick={() => writeAsync()}
+        onClick={handleSetGreeting}
         // highlight-start
-        disabled={isLoading}
+        disabled={isPending}
       >
-        {isLoading ? <span className="loading loading-spinner loading-sm"></span> : <>Send</>}
+        {isPending ? <span className="loading loading-spinner loading-sm"></span> : "Send"}
       </button>
     </>
     // highlight-end
   );
 };
 ```
-
-:::info Hint
-You can also create a writeAsync button sending args imperatively, here is an example:
-
-```tsx
-<button className="btn btn-primary" onClick={() => writeAsync({ args: ["Hello"], value: parseEther("0.02") })}>
-  Send imperatively
-</button>
-```
-
-:::info Hint
