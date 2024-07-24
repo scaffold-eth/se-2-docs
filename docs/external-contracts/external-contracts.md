@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-# 🛠 Interacting with External Contracts
+# 📡 Interacting with External Contracts
 
 If you need to interact with external contracts (i.e. not deployed with your SE-2 instance, e.g [`DAI`](https://etherscan.io/token/0x6b175474e89094c44da98b954eedeac495271d0f#code) contract) you can add external contract data to your `packages/nextjs/contracts/externalContracts.ts` file, which would let you use Scaffold-ETH 2 [custom hooks](/hooks).
 
