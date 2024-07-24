@@ -6,36 +6,18 @@ sidebar_position: 4
 
 Scaffold-ETH 2 provides a collection of custom React hooks designed to simplify interactions with your deployed smart contracts. These hooks are wrappers around Wagmi, an easy-to-use interface with typescript autocompletions for reading from, writing to, and monitoring events emitted by your smart contracts.
 
-If you need to interact with external contracts (i.e. not deployed with your SE-2 instance) you can add external contract data to your `packages/nextjs/contracts/externalContracts.ts` file, which would let you use Scaffold-ETH 2 hooks.
+To ensure autocompletions function correctly, always update the [`targetNetworks` ](/deploying/deploy-nextjs-app#--targetnetworks) in `scaffold.config.ts` to include the relevant network/chain whenever you deploy your contract using [`yarn deploy --network`](/deploying/deploy-smart-contracts#3-deploy-your-smart-contracts).
 
-To achieve this, include the contract name, its `address`, and `abi` in `externalContracts.ts` for each chain ID. Ensure to update the [`targetNetworks`](/deploying/deploy-nextjs-app#--targetnetworks) in `scaffold.config.ts` to your preferred chains to enable hooks typescript autocompletion.
+:::info
+The custom hooks rely on three main files for their functionality and TypeScript autocompletion:
 
-This is the structure of `externalContracts` object:
+- `packages/nextjs/contracts/deployedContracts.ts`
+- [`packages/nextjs/contracts/externalContracts.ts`](/external-contracts)
+- `scaffold.config.ts`
 
-```ts
-const externalContracts = {
-  1: {
-    DAI: {
-      address: "0x...",
-      abi: [...],
-    },
-    WETH: {
-      address: "0x...",
-      abi: [...],
-    },
-  },
-  5: {
-    DAI: {
-      address: "0x...",
-      abi: [...],
-    },
-    WETH: {
-      address: "0x...",
-      abi: [...],
-    },
-  },
-} as const;
-```
+The `deployedContracts.ts` file is auto-generated/updated whenever you run `yarn deploy --network`. It organizes contract addresses and abi's based on chainId.
+
+:::
 
 :::note
 

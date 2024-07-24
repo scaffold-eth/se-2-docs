@@ -26,6 +26,10 @@ This example subscribes to the `GreetingChange` event emitted by the `YourContra
 
 This hook is a wrapper around wagmi's [useWatchContractEvent](https://wagmi.sh/react/api/hooks/useWatchContractEvent).
 
+:::note
+Due to shortcomings of some RPC providers, this hook may or may not fire events always [checkout this discussion](https://github.com/wevm/wagmi/issues/3883) for more details. To update the RPC link checkout [this section](/deploying/deploy-nextjs-app#--alchemyapikey)
+:::
+
 ## Configuration
 
 | Parameter        | Type       | Description                                                                                                                                                                                                                                                                                                                                                                           |
