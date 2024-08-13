@@ -17,6 +17,17 @@ npm install
 npm run start
 ```
 
+<details>
+  <summary>With search-bar...</summary>
+  Instead of `npm run start` run:
+  ```bash
+  npm run docusaurus build
+  npm run docusaurus serve
+  ```
+
+</details>
+
+
 ## Contribution Guidelines
 
 Thank you for your interest in contributing to improve the documentation!
