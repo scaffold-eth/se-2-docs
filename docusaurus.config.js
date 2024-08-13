@@ -20,7 +20,14 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "scaffold-eth",
   projectName: "scaffold-eth-2",
-
+  plugins: [
+    [
+      require.resolve("@cmfcmf/docusaurus-search-local"),
+      {
+        indexBlog: false,
+      },
+    ],
+  ],
   scripts: [
     {
       src: "https://plausible.io/js/plausible.js",
