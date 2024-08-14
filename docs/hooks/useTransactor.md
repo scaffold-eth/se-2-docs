@@ -4,20 +4,20 @@ sidebar_position: 7
 
 # useTransactor
 
-Use this hook to interact with the chain and give UI feedback on the transaction status. You can pass in anything that is a valid parameter to [Viem's `sendTransaction` function](https://viem.sh/docs/actions/wallet/sendTransaction#parameters).
+Use this hook to interact with the chain and give UI feedback on the transaction status.
+
+You can pass in anything that is a valid parameter to [Viem's `sendTransaction` function](https://viem.sh/docs/actions/wallet/sendTransaction#parameters). It also possible to pass it an promise that resolves in with a transaction hash for example promise from [Wagmi's `writeContractAsync` function](https://wagmi.sh/react/api/hooks/useWriteContract#mutate-async). This is actually what [useScaffoldWriteContract](/hooks/useScaffoldWriteContract) does under the hood. [Refer to this recipe](/recipes/WriteToContractWriteAsyncButton) for a more detailed example.
 
 ```ts
 const transactor = useTransactor();
 const writeTx = transactor({
-  to: "0x97843608a00e2bbc75ab0C1911387E002565DEDE",
+  to: "0x97843608a00e2bbc75ab0C1911387E002565DEDE", // address of buidlguidl.eth
   value: 1000000000000000000n,
 });
 await writeTx();
 ```
 
 This example tries to send 1 ETH to the address `buidlguidl.eth`, prompting the connected [`WalletClient`](https://wagmi.sh/react/api/hooks/useWalletClient#usewalletclient) for a signature. And in the case of a successful transaction, it will show a popup in the UI with the message: "🎉 Transaction completed successfully!".
-
-It also possible to pass it an promise that resolves in with a transaction hash for example promise from [Wagmi's `writeContractAsync` function](https://wagmi.sh/react/api/hooks/useWriteContract#mutate-async). This is actually what [useScaffoldWriteContract](/hooks/useScaffoldWriteContract) does under the hood. There is also a recepie explaining how to set that up [here](/recipes/WriteToContractWriteAsyncButton).
 
 ## Configuration
 ### useTransactor
