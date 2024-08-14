@@ -67,6 +67,13 @@ const transactor = useTransactor();
 
 ## UI Feedback
 A small popup will appear in the UI with the following messages:
+
 1. "Awaiting for user confirmation."
 2. "Waiting for transaction to complete."
-3. "Transaction completed successfully!" or "Transaction failed."
+3. "Transaction completed successfully!"
+
+![Happy Flow](/img/transactorHappyFlow.gif)
+
+Any error will instead show a popup with the error message.
+
+![Error Example](/img/transactorFail.gif)
