@@ -4,7 +4,7 @@ sidebar_position: 7
 
 # useTransactor
 
-Use this hook to interact with the chain and get UI feedback on the transaction status. You can pass in anything that is a valid parameter to [Viem's `sendTransaction` function](https://viem.sh/docs/actions/wallet/sendTransaction#parameters).
+Use this hook to interact with the chain and give UI feedback on the transaction status. You can pass in anything that is a valid parameter to [Viem's `sendTransaction` function](https://viem.sh/docs/actions/wallet/sendTransaction#parameters).
 
 ```ts
 const transactor = useTransactor();
@@ -17,32 +17,7 @@ await writeTx();
 
 This example tries to send 1 ETH to the address `buidlguidl.eth`, prompting the connected [`WalletClient`](https://wagmi.sh/react/api/hooks/useWalletClient#usewalletclient) for a signature. And in the case of a successful transaction, it will show a popup in the UI with the message: "🎉 Transaction completed successfully!".
 
-It's also possible to pass in a promise from [`writeContractAsync` from `useWriteContract`](/hooks/useScaffoldWriteContract) as the first argument. This way, you will also have access to data from the transaction, such as the current status and the result.
-```ts
-const { isPending, writeContractAsync: writeYourContractAsync } = useScaffoldWriteContract("YourContract");
-const transactor = useTransactor();
-
-...
-
-<button
-  className="btn btn-primary"
-  disabled={isPending}
-  onClick={async () => {
-    try {
-      const contractWritePromise = writeYourContractAsync({
-        functionName: "setGreeting",
-        args: ["The value to set"],
-        value: parseEther("0.1"),
-      });
-      await transactor(contractWritePromise);
-    } catch (e) {
-      console.error("Error setting greeting:", e);
-    }
-  }}
->
-  Set Greeting
-</button>
-```
+It also possible to pass it an promise that resolves in with a transaction hash for example promise from [Wagmi's `writeContractAsync` function](https://wagmi.sh/react/api/hooks/useWriteContract#mutate-async). This is actually what [useScaffoldWriteContract](/hooks/useScaffoldWriteContract) does under the hood. There is also a recepie explaining how to set that up [here](/recipes/WriteToContractWriteAsyncButton).
 
 ## Configuration
 ### useTransactor
@@ -53,7 +28,7 @@ const transactor = useTransactor();
 ### callback function
 | Parameter            | Type        | Description                                                                                                         |
 | :------------------- | :---------- | :------------------------------------------------------------------------------------------------------------------ |
-| **tx**     |  [`sendTransaction`-parameters](https://viem.sh/docs/actions/wallet/sendTransaction#parameters) or `Promise<Hash>`   | Either valid parameters for [`sendTransaction`-parameters](https://viem.sh/docs/actions/wallet/sendTransaction#parameters) or a promise that resolves with the transaction hash. |
+| **tx**     |  [`sendTransaction`-parameters](https://viem.sh/docs/actions/wallet/sendTransaction#parameters) or `Promise<Hash>`   | Either valid parameters for [`sendTransaction`-parameters](https://viem.sh/docs/actions/wallet/sendTransaction#parameters) or a promise that resolves with the transaction hash, e.g. [Wagmi's `writeContractAsync` function](https://wagmi.sh/react/api/hooks/useWriteContract#mutate-async). |
 | **options** (optional)  | `object` | Additional options for the confirmation. |
 | **└─options.blockConfirmations** (optional)  | `number` | The number of block confirmations to wait for before resolving. Defaults to 1. |
 | **└─options.onBlockConfirmation** (optional)  | `function` | A callback function that is called once all `blockConfirmations` is reached. |
