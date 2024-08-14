@@ -9,13 +9,13 @@ Use this hook to interact with the chain and get UI feedback on the transaction 
 ```ts
 const transactor = useTransactor();
 const writeTx = transactor({
-  to: '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
+  to: "0x97843608a00e2bbc75ab0C1911387E002565DEDE",
   value: 1000000000000000000n,
 });
 await writeTx();
 ```
 
-This example tries to send 1 ETH to the address `0x70997970c51812dc3a010c7d01b50e0d17dc79c8`, prompting the connected `WalletClient` for a signature. And in the case of a successful transaction, it will show a popup in the UI with the message: "🎉 Transaction completed successfully!".
+This example tries to send 1 ETH to the address `buidlguidl.eth`, prompting the connected [`WalletClient`](https://wagmi.sh/react/api/hooks/useWalletClient#usewalletclient) for a signature. And in the case of a successful transaction, it will show a popup in the UI with the message: "🎉 Transaction completed successfully!".
 
 It's also possible to pass in a promise from [`writeContractAsync` from `useWriteContract`](/hooks/useScaffoldWriteContract) as the first argument. This way, you will also have access to data from the transaction, such as the current status and the result.
 ```ts
