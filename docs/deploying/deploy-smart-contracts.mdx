@@ -1,9 +1,9 @@
 ---
 sidebar_position: 1
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
 # Deploy Your Smart Contracts
 
@@ -30,6 +30,7 @@ packages/hardhat/hardhat.config.ts
 ```sh
 packages/foundry/foundry.toml
 ```
+
 </TabItem>
 </Tabs>
 
@@ -60,9 +61,9 @@ If you prefer to manually set your own private key, you will need to add `DEPLOY
 ```
 
 If you prefer to manually set your own private key, you will need to add `DEPLOYER_PRIVATE_KEY=yourWalletPrivateKey` to `packages/foundry/.env`.
+
 </TabItem>
 </Tabs>
-
 
 You can check the configured (generated or manually set) account and balances with:
 
@@ -91,6 +92,7 @@ packages/hardhat/hardhat.config.ts
 ```sh
 packages/foundry/foundry.toml
 ```
+
 </TabItem>
 </Tabs>
 
@@ -120,6 +122,7 @@ This command **works in both Hardhat and Foundry**, verifying all the deployed c
 Hardhat uses [etherscan-verify from hardhat-deploy](https://www.npmjs.com/package/hardhat-deploy#4-hardhat-etherscan-verify).
 
 Additionally, **in Hardhat**, there's an alternative method for contract verification. You can use [hardhat-verify](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify) to verify your contracts, passing in the network name, contract address and constructor arguments (if any):
+
 ```sh
 yarn hardhat-verify --network network_name contract_address "Constructor arg 1"`
 ```
@@ -144,14 +147,18 @@ For production-grade applications, it's recommended to obtain your own API keys 
 <Tabs groupId="dev-tool">
 <TabItem value="hardhat" label="Hardhat" default>
 ```
+
 - `ALCHEMY_API_KEY` variable in `packages/hardhat/.env` and `packages/nextjs/.env.local`. You can create API keys from the [Alchemy dashboard](https://dashboard.alchemy.com/).
 - `ETHERSCAN_API_KEY` variable in `packages/hardhat/.env` using your generated API key. You can get your key [here](https://etherscan.io/myapikey).
+
 ```mdx-code-block
 </TabItem>
 <TabItem value="foundry" label="Foundry">
 ```
+
 - `ALCHEMY_API_KEY` variable in `packages/nextjs/.env.local`. You can create API keys from the [Alchemy dashboard](https://dashboard.alchemy.com/).
 - `ETHERSCAN_API_KEY` variable in `packages/foundry/.env` using your generated API key. You can get your key [here](https://etherscan.io/myapikey).
+
 ```mdx-code-block
 </TabItem>
 </Tabs>
