@@ -27,7 +27,6 @@ npm run start
 
 </details>
 
-
 ## Contribution Guidelines
 
 Thank you for your interest in contributing to improve the documentation!
