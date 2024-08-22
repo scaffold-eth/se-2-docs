@@ -25,6 +25,7 @@ const config = {
       require.resolve("@cmfcmf/docusaurus-search-local"),
       {
         indexBlog: false,
+        includeParentCategoriesInPageTitle: true,
       },
     ],
   ],
