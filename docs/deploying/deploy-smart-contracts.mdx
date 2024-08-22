@@ -2,6 +2,9 @@
 sidebar_position: 1
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 # Deploy Your Smart Contracts
 
 To deploy your smart contracts to a live network, there are a few things you need to adjust.
@@ -10,8 +13,26 @@ To deploy your smart contracts to a live network, there are a few things you nee
 
 Scaffold-ETH 2 comes with a selection of predefined networks. You can also add your custom network in:
 
-- Hardhat => `packages/hardhat/hardhat.config.ts`
-- Foundry => `packages/foundry/foundry.toml`
+```mdx-code-block
+<Tabs groupId="dev-tool">
+<TabItem value="hardhat" label="Hardhat" default>
+```
+
+```sh
+packages/hardhat/hardhat.config.ts
+```
+
+```mdx-code-block
+</TabItem>
+<TabItem value="foundry" label="Foundry">
+```
+
+```sh
+packages/foundry/foundry.toml
+```
+
+</TabItem>
+</Tabs>
 
 Here are the [Alchemy docs](https://docs.alchemy.com/docs/how-to-add-alchemy-rpc-endpoints-to-metamask) for information on specific networks.
 
@@ -27,7 +48,22 @@ To create a random account and add the `DEPLOYER_PRIVATE_KEY` to the `.env` file
 yarn generate
 ```
 
-If you prefer to manually set your own private key, you will need to add `DEPLOYER_PRIVATE_KEY=yourWalletPrivateKey` to the `packages/hardhat/.env` / `packages/foundry/.env` file.
+```mdx-code-block
+<Tabs groupId="dev-tool">
+<TabItem value="hardhat" label="Hardhat" default>
+```
+
+If you prefer to manually set your own private key, you will need to add `DEPLOYER_PRIVATE_KEY=yourWalletPrivateKey` to `packages/hardhat/.env`.
+
+```mdx-code-block
+</TabItem>
+<TabItem value="foundry" label="Foundry">
+```
+
+If you prefer to manually set your own private key, you will need to add `DEPLOYER_PRIVATE_KEY=yourWalletPrivateKey` to `packages/foundry/.env`.
+
+</TabItem>
+</Tabs>
 
 You can check the configured (generated or manually set) account and balances with:
 
@@ -39,8 +75,26 @@ yarn account
 
 By default `yarn deploy` will deploy contract to the local network. You can change `defaultNetwork` in:
 
-- Hardhat => `hardhat.config.ts`
-- Foundry => `foundry.toml`
+```mdx-code-block
+<Tabs groupId="dev-tool">
+<TabItem value="hardhat" label="Hardhat" default>
+```
+
+```sh
+packages/hardhat/hardhat.config.ts
+```
+
+```mdx-code-block
+</TabItem>
+<TabItem value="foundry" label="Foundry">
+```
+
+```sh
+packages/foundry/foundry.toml
+```
+
+</TabItem>
+</Tabs>
 
 Run the command below to deploy the smart contract to the target network. Make sure to have some funds in your deployer account to pay for the transaction.
 
@@ -60,14 +114,28 @@ yarn verify --network network_name
 
 eg: `yarn verify --network sepolia`
 
-This command **works in both Hardhat and Foundry**, verifying all the deployed contracts. However, the verification method differs depending on the Solidity framework you're using:
+This command **works in both Hardhat and Foundry**, verifying all the deployed contracts. However, the verification method differs depending on the Solidity framework you're using...
 
-- Hardhat => uses [etherscan-verify from hardhat-deploy](https://www.npmjs.com/package/hardhat-deploy#4-hardhat-etherscan-verify).
-- Foundry => uses `VerifyAll.s.sol` script located in `packages/foundry/script`.
+<Tabs groupId="dev-tool">
+<TabItem value="hardhat" label="Hardhat" default>
 
-Additionally, **in Hardhat**, there's an alternative method for contract verification. You can use [hardhat-verify](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify) to verify your contracts, passing in the network name, contract address and constructor arguments (if any): `yarn hardhat-verify --network network_name contract_address "Constructor arg 1"`
+Hardhat uses [etherscan-verify from hardhat-deploy](https://www.npmjs.com/package/hardhat-deploy#4-hardhat-etherscan-verify).
+
+Additionally, **in Hardhat**, there's an alternative method for contract verification. You can use [hardhat-verify](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify) to verify your contracts, passing in the network name, contract address and constructor arguments (if any):
+
+```sh
+yarn hardhat-verify --network network_name contract_address "Constructor arg 1"`
+```
 
 If the chain you're using is not supported by any of the verifying methods, you can add new supported chains to your chosen method, either [etherscan-verify](https://www.npmjs.com/package/hardhat-deploy#options-2) or [hardhat-verify](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify#adding-support-for-other-networks).
+
+</TabItem>
+<TabItem value="foundry" label="Foundry">
+
+Foundry uses `VerifyAll.s.sol` script located in `packages/foundry/script`.
+
+</TabItem>
+</Tabs>
 
 ## Configuration of Third-Party Services for Production-Grade Apps.
 
@@ -75,9 +143,26 @@ By default, Scaffold-ETH 2 provides predefined API keys for popular services suc
 
 For production-grade applications, it's recommended to obtain your own API keys (to prevent rate limiting issues). You can configure these at:
 
-- `ALCHEMY_API_KEY` variable in `packages/hardhat/.env` and `packages/nextjs/.env.local`. You can create API keys from the [Alchemy dashboard](https://dashboard.alchemy.com/).
+```mdx-code-block
+<Tabs groupId="dev-tool">
+<TabItem value="hardhat" label="Hardhat" default>
+```
 
-- `ETHERSCAN_API_KEY` variable in `packages/hardhat/.env` | `packages/foundry/.env` using your generated API key. You can get your key [here](https://etherscan.io/myapikey).
+- `ALCHEMY_API_KEY` variable in `packages/hardhat/.env` and `packages/nextjs/.env.local`. You can create API keys from the [Alchemy dashboard](https://dashboard.alchemy.com/).
+- `ETHERSCAN_API_KEY` variable in `packages/hardhat/.env` using your generated API key. You can get your key [here](https://etherscan.io/myapikey).
+
+```mdx-code-block
+</TabItem>
+<TabItem value="foundry" label="Foundry">
+```
+
+- `ALCHEMY_API_KEY` variable in `packages/nextjs/.env.local`. You can create API keys from the [Alchemy dashboard](https://dashboard.alchemy.com/).
+- `ETHERSCAN_API_KEY` variable in `packages/foundry/.env` using your generated API key. You can get your key [here](https://etherscan.io/myapikey).
+
+```mdx-code-block
+</TabItem>
+</Tabs>
+```
 
 :::tip Hint
 It's recommended to store envs for nextjs in Vercel/system env config for live apps and use .env.local for local testing.
