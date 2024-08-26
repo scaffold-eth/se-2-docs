@@ -14,7 +14,7 @@ Extensions are modular add-ons for Scaffold-ETH 2 that provide additional functi
 - Quick addition of new features, pages, contracts, or components
 - Compatibility with Scaffold-ETH 2 core updates and improvements
 
-Extensions just hold the "extra" code you need for your example (such as a specific smart contract or UI component) that are automatically integrated with the latest version of Scaffold-ETH 2 when initializing a new project via npx.
+Extensions are compact packages containing specific code (such as a smart contract or UI component) that automatically integrate with the latest version of Scaffold-ETH 2 when initializing a new project via npx. They are starting points for your project, not finished products.
 
 ## Using Extensions
 
