@@ -42,7 +42,7 @@ For simple extensions, such as adding a new page or component, you can directly 
 That's it! Your simple extension is ready to be used by others via:
 
 ```shell
-npx create-eth@latest -e {your-github-username}/{extension-repo-name}:{extension-branch-name} # extension-branch-name is optional
+npx create-eth@latest -e {your-github-username}/{extension-repo-name}:{branch-name} # branch-name is optional
 ```
 
 ## Developing an Advanced Extension

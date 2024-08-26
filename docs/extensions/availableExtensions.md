@@ -27,7 +27,7 @@ Here are the core extensions:
 Third-party extensions are extensions built by the community and can be accessed by mentioning the GitHub username and the repository name. To use a third-party extension, use the following format:
 
 ```bash
-npx create-eth@latest -e {your-github-userName}/{extension-repo-name}:{extension-branch-name} # extension-branch-name is optional
+npx create-eth@latest -e {your-github-userName}/{extension-repo-name}:{branch-name} # branch-name is optional
 ```
 
-To create your own extension, check out the createExtension.md section.
+To create your own extension, check out the To create your own extension, check out the [Create Extension](./createExtensions.md) section. section.

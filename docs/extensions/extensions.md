@@ -21,7 +21,7 @@ Extensions just hold the "extra" code you need for your example (such as a speci
 To use an extension when creating a new Scaffold-ETH 2 project, run:
 
 ```bash
-npx create-eth@latest -e {your-github-userName}/{extension-repo-name}:{extension-branch-name}
+npx create-eth@latest -e {your-github-userName}/{extension-repo-name}:{branch-name}
 ```
 
-The `{extension-branch-name}` is optional. If not specified, it uses the default branch.
+The `{branch-name}` is optional. If not specified, it uses the default branch.
