@@ -19,13 +19,13 @@ your-extension/
 │   │   ├── hardhat/        # (optional) For Hardhat-specific additions
 │   │   ├── foundry/        # (optional) For Foundry-specific additions
 │   │   └── nextjs/
-│   │       ├── app/        # any new pages/files
+│   │       ├── app/        # Any new pages/files
 │   │       │   └── my-page
 │   │       │       ├── page.tsx
 │   │       │
-│   │       ├── ...         # any extra files/directories
+│   │       ├── ...         # Any extra files/directories
 │   │       └── package.json  # Only include additional dependencies/scripts
-│   ├── package.json        # monorepo root package.json file
+│   ├── package.json        # Monorepo root package.json file
 │   └── README.md           # Instance README
 └── README.md               # Documentation for your extension
 ```
