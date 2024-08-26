@@ -1,5 +1,5 @@
 ---
-sidebar_position: 10
+sidebar_position: 11
 ---
 
 # Creating Your Own Extension
@@ -42,7 +42,7 @@ For simple extensions, such as adding a new page or component, you can directly 
 That's it! Your simple extension is ready to be used by others via:
 
 ```shell
-npx create-eth@latest -e {your-github-userName}/{extension-repo-name}
+npx create-eth@latest -e {your-github-username}/{extension-repo-name}:{extension-branch-name} # extension-branch-name is optional
 ```
 
 ## Developing an Advanced Extension
@@ -55,7 +55,7 @@ Key points:
 
 - They allow you to add specific content to files in the base project.
 - Not all files can be modified this way. See [TEMPLATE-FILES.md](./TEMPLATE-FILES.md) for a list of supported template files.
-- To use a template file, create an `*.args.mjs` file in your extension having same patch structure as `*.template.mjs`. For example, to add extra tab in the header, you'd create `extension/packages/nextjs/components/Header.tsx.args.mjs`.
+- To use a template file, create an `*.args.mjs` file in your extension having the same path structure as `*.template.mjs`. For example, to add extra tab in the header, you'd create `extension/packages/nextjs/components/Header.tsx.args.mjs`.
 
 ### Advanced Development Workflow
 
