@@ -30,4 +30,6 @@ Third-party extensions are extensions built by the community. To use a third-par
 npx create-eth@latest -e {github-username}/{extension-repo-name}:{branch-name} # branch-name is optional
 ```
 
+E.g.: `npx create-eth@latest -e ChangoMan/charts-extension`
+
 To create your own extension, check out the [Creating Your Own Extension](./createExtensions.md) section.
