@@ -26,4 +26,4 @@ npx create-eth@latest -e {github-username}/{extension-repo-name}:{branch-name}
 
 The `{branch-name}` is optional. If not specified, it uses the default branch.
 
-E.g.: `npx create-eth@latest -e subgraph`
+E.g.: `npx create-eth@latest -e ChangoMan/charts-extension`
