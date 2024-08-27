@@ -17,22 +17,12 @@ Before you begin, you need to install the following tools:
 
 To get started with Scaffold-ETH 2, you have two options:
 
-1. Use git clone to clone the repository.
-2. **[Beta]** Use the npx command: `npx create-eth@latest` to bootstrap the project directly.
+1. Use the npx command: `npx create-eth@latest` to bootstrap the project directly.
+2. Use git clone to clone the repository.
 
-### Option 1: Setup using `git clone`
+### Option 1: Setup using `npx create-eth@latest`
 
-Clone this repo & install dependencies:
-
-```
-git clone https://github.com/scaffold-eth/scaffold-eth-2.git
-cd scaffold-eth-2
-yarn install
-```
-
-### Option 2: [Beta] Setup using `npx create-eth@latest`
-
-For a simplified setup, Scaffold-ETH 2 offers a beta npx method that guides you interactively through the setup.
+For a simplified setup, Scaffold-ETH 2 offers a npx method that guides you interactively through the setup.
 
 Bootstrap the project:
 
@@ -56,3 +46,21 @@ cd project-name
 If you choose Foundry as solidity framework in the CLI, you'll also need Foundryup installed on your machine.
 Checkout: [getfoundry.sh](https://getfoundry.sh/)
 :::info Hint
+
+If you want to use extensions, you can add the -e flag followed by the extension name:
+
+```
+npx create-eth@latest -e extension-name
+```
+
+For more information about available extensions and how to use them, check out the Extensions section.
+
+### Option 2: Setup using `git clone`
+
+Clone this repo & install dependencies:
+
+```
+git clone https://github.com/scaffold-eth/scaffold-eth-2.git
+cd scaffold-eth-2
+yarn install
+```
