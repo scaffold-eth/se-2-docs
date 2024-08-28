@@ -54,7 +54,7 @@ npx create-eth@latest -e {github-username}/{extension-repo-name}:{branch-name} #
 Key points:
 
 - They allow you to add specific content to files in the base project.
-- Not all files can be modified this way. See [TEMPLATE-FILES.md](./TEMPLATE-FILES.md) for a list of supported template files.
+- Not all files can be modified this way. See [TEMPLATE-FILES.md](https://github.com/scaffold-eth/create-eth/blob/main/contributors/TEMPLATE-FILES.md) for a list of supported template files.
 - To use a template file, create an `*.args.mjs` file in your extension having the same path structure as `*.template.mjs`. For example, to add extra tab in the header, you'd create `extension/packages/nextjs/components/Header.tsx.args.mjs`.
 
 ### Advanced Development Workflow
