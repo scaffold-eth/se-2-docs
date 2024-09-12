@@ -10,9 +10,9 @@ This guide introduces starter extensions for Scaffold-ETH 2 and explains how to 
 
 Starter Extensions are modular add-ons for Scaffold-ETH 2 that provide additional functionality or serve as examples for specific features.
 
-:::info Hint
 Starter Extensions can only be installed during the initial setup of a new Scaffold-ETH 2 project.
-:::info Hint
+:::info Info
+:::info Info
 
 They offer several benefits:
 

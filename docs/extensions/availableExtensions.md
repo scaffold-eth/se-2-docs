@@ -4,9 +4,9 @@ sidebar_position: 10
 
 # Available Extensions
 
-:::info Hint
+:::info Info
 Extensions can only be installed during the initial setup of a new Scaffold-ETH 2 project.
-:::info Hint
+:::info Info
 
 ## Core Extensions
 
