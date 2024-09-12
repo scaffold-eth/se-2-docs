@@ -4,6 +4,10 @@ sidebar_position: 10
 
 # Available Extensions
 
+:::info Hint
+Extensions can only be installed during the initial setup of a new Scaffold-ETH 2 project.
+:::info Hint
+
 ## Core Extensions
 
 Core extensions are extensions built and maintained by Scaffold-ETH 2 team. These extensions can be directly accessed via just extension name without mentioning the github user name and branch name:
