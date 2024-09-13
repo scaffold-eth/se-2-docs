@@ -1,0 +1,152 @@
+---
+sidebar_position: 5
+title: Add a custom chain
+description: Learn how to add custom chains to your project.
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Add a custom chain
+
+This recipe demonstrates how to add a custom chain to your project. We'll use Base as an example, but you can apply this process to any other chain you want to add. Normally, Base already exists in viem/chains and you can import it and use it, but we're going to add it manually to show you how to do it. 
+
+## Step 1: Define the chain
+
+First, create a new file called `customChains.ts` in your `packages/nextjs/utils/` directory.
+```bash
+touch packages/nextjs/utils/customChains.ts
+```
+
+Open the file with your favorite editor and add the following code to define the chain.
+
+```typescript title="packages/nextjs/utils/customChains.ts"
+import { defineChain } from 'viem'
+
+// Base chain
+export const base = defineChain({
+    id: 8453,
+    name: "Base",
+    nativeCurrency: { name: "Base", symbol: "ETH", decimals: 18 },
+    rpcUrls: {
+        default: {
+            http: ["https://mainnet.base.org"],
+        },
+        public: {
+            http: ["https://mainnet.base.org"],
+        },
+    },
+    blockExplorers: {
+        default: {
+            name: "Basescan",
+            url: "https://basescan.org",
+        },
+        etherscan: {
+            name: "Basescan",
+            url: "https://basescan.org",
+        },
+    },
+    contracts: {
+        multicall3: {
+            address: "0xca11bde05977b3631167028862be2a173976ca11",
+            blockCreated: 5022,
+        },
+    },
+});
+```
+
+In this file, we're defining the Base chain. We're using the `defineChain` function from viem to define the chain. You can add as many chains as you want to the `customChains.ts` file.
+
+
+## Step 2: Update `scaffold.config.ts`
+
+Next, update your `scaffold.config.ts` file to include the new chain:
+
+```typescript title="packages/nextjs/scaffold.config.ts"
+import { base } from "./utils/customChains";
+// ... other imports and type definitions
+
+const scaffoldConfig = {
+  targetNetworks: [base],
+  // ... other configuration options
+} as const satisfies ScaffoldConfig;
+
+export default scaffoldConfig;
+```
+
+If you'd like to add multiple chains, you can do so by adding them to the `targetNetworks` array. Below is a simple example of how to add multiple chains.
+
+```typescript title="packages/nextjs/scaffold.config.ts"
+import { base, baseSepolia } from "./utils/customChains";
+
+const scaffoldConfig = {
+  targetNetworks: [base, baseSepolia],
+  // ... other configuration options
+} as const satisfies ScaffoldConfig;
+```
+
+### Step 3: Update configuration
+To deploy to these new chains, you'll need to update your configuration. Add the following to your configuration file.
+
+```mdx-code-block
+<Tabs groupId="dev-tool">
+<TabItem value="hardhat" label="Hardhat" default>
+```
+
+```typescript title="packages/hardhat/hardhat.config.ts"
+networks: {
+    // ... other networks
+    base: {
+        url: "https://mainnet.base.org",
+        accounts: [deployerPrivateKey]
+    },
+}
+```
+
+If you'd like to add multiple chains, you can do so by adding them to the networks object.
+
+```typescript title="packages/hardhat/hardhat.config.ts"
+networks: {
+    // ... other networks
+    base: {
+        url: "https://mainnet.base.org",
+        accounts: [deployerPrivateKey]
+    },
+    baseSepolia: {
+        url: "https://sepolia.base.org",
+        accounts: [deployerPrivateKey]
+    },
+}
+```
+
+
+```mdx-code-block
+</TabItem>
+<TabItem value="foundry" label="Foundry">
+```
+
+```toml title="packages/foundry/foundry.toml"
+[rpc_endpoints]
+...other chains
+base = "https://mainnet.base.org"
+``` 
+
+If you'd like to add multiple chains, you can do so by adding them to the rpc_endpoints section.
+```toml title="packages/foundry/foundry.toml"
+[rpc_endpoints]
+...other chains
+base = "https://mainnet.base.org"
+base_sepolia = "https://sepolia.base.org"
+```
+</TabItem>
+</Tabs>
+
+### Step 4: Deploy to the new chain
+Now you can deploy your contracts to these new chains using the deploy command
+
+
+```	bash
+yarn deploy --network base
+```
+
+
