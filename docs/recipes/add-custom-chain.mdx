@@ -11,10 +11,23 @@ import TabItem from "@theme/TabItem";
 
 This recipe demonstrates how to add a custom chain to your project. We'll use Base as an example, but you can apply this process to any other chain you want to add. Normally, Base already exists in viem/chains and you can import it and use it, but we're going to add it manually to show you how to do it.
 
-<details open>
-<summary>Here is how you can add a chain that already exists in viem/chains:</summary>
+:::info
+Scaffold-ETH 2 consists of two parts:
 
-[viem/chains](https://viem.sh/docs/chains/introduction) is an entrypoint for popular EVM-compatible chains. Most of the time, what you will need will be there. 
+- `packages/nextjs`: nextjs frontend
+- `packages/hardhat` or `packages/foundry`: hardhat or foundry to deploy smart contracts
+
+The frontend and the hardhat/foundry project use a different set of chains. 
+You should add the chain to both the frontend and your hardhat/foundry config.
+
+By doing this, you will be able to deploy the contracts to the chain you added and interact with them from the frontend.  
+
+:::
+
+<details open>
+<summary>Here is how you can add a chain that exists in viem/chains:</summary>
+
+[viem/chains](https://viem.sh/docs/chains/introduction) is an entrypoint for popular EVM-compatible chains. Most of the time, the chain you need will be there. 
 To add a chain that is in viem/chains, you can add it to the `targetNetworks` array in your `scaffold.config.ts` file with the `chains.` prefix. In the example below we are adding Optimism.
 
 ```tsx title="packages/nextjs/scaffold.config.ts"
@@ -59,7 +72,7 @@ const scaffoldConfig = {
 export default scaffoldConfig;
 ```
 
-After adding the chain to the `targetNetworks` array, you should add the chain to the `networks` object in your `hardhat.config.ts` file.
+After adding the chain to the `targetNetworks` array, you should add the chain to the `networks` object in your `hardhat.config.ts` file to be able to deploy to it.
 
 ```typescript title="packages/hardhat/hardhat.config.ts"
 networks: {
