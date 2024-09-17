@@ -50,6 +50,27 @@ The configuration parameters are described below. Make sure to update the values
 
 Array of blockchain networks where your dapp is deployed. Use values from [`viem/chains`](https://viem.sh/docs/chains/introduction.html).
 
+<details>
+<summary>How to add a chain to the frontend using viem/chains</summary>
+
+To add a new chain to your frontend:
+
+1. Import the chain from `viem/chains` in your `scaffold.config.ts` file.
+2. Add the imported chain to the `targetNetworks` array.
+
+Here's an example of how to add the Optimism network:
+
+```ts
+import { hardhat, optimism } from "viem/chains";
+
+export const scaffoldConfig = {
+  targetNetworks: [hardhat, optimism],
+  // ... other config options
+};
+```
+
+</details>
+
 #### - pollingInterval
 
 The interval in milliseconds at which your front-end application polls the RPC servers for fresh data. _Note that this setting does not affect the local network._

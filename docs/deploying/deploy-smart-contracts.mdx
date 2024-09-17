@@ -11,15 +11,25 @@ To deploy your smart contracts to a live network, there are a few things you nee
 
 ## 1. Configure your network
 
-Scaffold-ETH 2 comes with a selection of predefined networks. You can also add your custom network in:
+Scaffold-ETH 2 comes with a selection of predefined networks. 
+
 
 ```mdx-code-block
 <Tabs groupId="dev-tool">
 <TabItem value="hardhat" label="Hardhat" default>
 ```
 
-```sh
-packages/hardhat/hardhat.config.ts
+Go to `packages/hardhat/hardhat.config.ts` and add your network to the `networks` object.
+
+
+```typescript title="packages/hardhat/hardhat.config.ts"
+networks: {
+    // ... other networks
+    base: {
+        url: "https://mainnet.base.org",
+        accounts: [deployerPrivateKey]
+    },
+}
 ```
 
 ```mdx-code-block
@@ -27,14 +37,21 @@ packages/hardhat/hardhat.config.ts
 <TabItem value="foundry" label="Foundry">
 ```
 
-```sh
-packages/foundry/foundry.toml
+Go to `packages/foundry/foundry.toml` and add your network to the `rpc_endpoints` object.
+
+
+```toml title="packages/foundry/foundry.toml"
+[rpc_endpoints]
+...other chains
+base = "https://mainnet.base.org"
 ```
 
 </TabItem>
 </Tabs>
 
 Here are the [Alchemy docs](https://docs.alchemy.com/docs/how-to-add-alchemy-rpc-endpoints-to-metamask) for information on specific networks.
+
+You can also add your custom network by following the recipe [here](/recipes/add-custom-chain).
 
 ## 2. Generate a new account or add one to deploy the contract(s) from.
 
