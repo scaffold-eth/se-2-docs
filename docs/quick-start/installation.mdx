@@ -3,6 +3,9 @@ sidebar_position: 1
 description: Requirements and installation methods to get started with Scaffold ETH-2.
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Installation
 
 ## Requirements
@@ -57,10 +60,31 @@ For more information about available extensions and how to use them, check out t
 
 ### Option 2: Setup using `git clone`
 
-Clone this repo & install dependencies:
-
+```mdx-code-block
+<Tabs groupId="dev-tool">
+<TabItem value="hardhat" label="Hardhat" default>
 ```
+
+```sh
 git clone https://github.com/scaffold-eth/scaffold-eth-2.git
 cd scaffold-eth-2
 yarn install
 ```
+
+```mdx-code-block
+</TabItem>
+<TabItem value="foundry" label="Foundry">
+```
+
+```sh
+git clone -b foundry --recurse-submodules https://github.com/scaffold-eth/scaffold-eth-2.git 
+cd scaffold-eth-2
+yarn install
+```
+
+</TabItem>
+</Tabs>
+
+Clone this repo & install dependencies:
+
+
