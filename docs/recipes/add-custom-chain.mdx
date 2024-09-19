@@ -9,8 +9,8 @@ import TabItem from "@theme/TabItem";
 
 # Add a custom chain
 
-This recipe demonstrates how to add a custom chain to your project. We'll use Base as an example, but you can apply this process to any other chain you want to add. 
-Scaffold-ETH 2 uses [viem/chains](https://viem.sh/docs/chains/introduction) as a list of chains. 
+This recipe demonstrates how to add a custom chain to your project. We'll use Base as an example, but you can apply this process to any other chain you want to add.
+Scaffold-ETH 2 uses [viem/chains](https://viem.sh/docs/chains/introduction) as a list of chains.
 Normally, Base already exists in viem/chains and [you can import it and use it](/deploying/deploy-nextjs-app#--targetnetworks), but we're going to add it manually to show you how to do it.
 
 :::info
@@ -19,10 +19,10 @@ Scaffold-ETH 2 consists of two parts:
 - `packages/nextjs`: nextjs frontend
 - `packages/hardhat` or `packages/foundry`: hardhat or foundry to deploy smart contracts
 
-The frontend and the hardhat/foundry project use a different set of chains. 
+The frontend and the hardhat/foundry project use a different set of chains.
 You should add the chain to both the frontend and your hardhat/foundry config.
 
-By doing this, you will be able to deploy the contracts to the chain you added and interact with them from the frontend.  
+By doing this, you will be able to deploy the contracts to the chain you added and interact with them from the frontend.
 
 :::
 
