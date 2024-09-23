@@ -85,7 +85,7 @@ const scaffoldConfig = {
 
 ### Step 3: Update configuration
 
-To deploy to these new chains, you'll need to update your configuration. Add the following to your configuration file.
+To be able to deploy to these new chains, you'll need to update your hardhat/foundry configuration. Add the following to your configuration file.
 
 ```mdx-code-block
 <Tabs groupId="dev-tool">
@@ -140,11 +140,3 @@ base_sepolia = "https://sepolia.base.org"
 
 </TabItem>
 </Tabs>
-
-### Step 4: Deploy to the new chain
-
-Now you can deploy your contracts to these new chains using the deploy command
-
-```bash
-yarn deploy --network base
-```
