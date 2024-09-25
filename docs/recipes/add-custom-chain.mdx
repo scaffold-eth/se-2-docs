@@ -1,0 +1,84 @@
+---
+sidebar_position: 5
+title: Add a custom chain
+description: Learn how to add custom chains to your project.
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Add a custom chain
+
+This recipe demonstrates how to add a custom chain to your project. We'll use Base as an example, but you can apply this process to any other chain you want to add.
+Scaffold-ETH 2 uses [viem/chains](https://viem.sh/docs/chains/introduction) as a list of chains.
+Normally, Base already exists in viem/chains and [you can import it and use it](/deploying/deploy-nextjs-app#--targetnetworks), but we're going to add it manually to show you how to do it.
+
+:::info
+Scaffold-ETH 2 consists of two parts:
+
+- `packages/nextjs`: nextjs frontend
+- `packages/hardhat` or `packages/foundry`: hardhat or foundry to deploy smart contracts
+
+The frontend and the hardhat/foundry project use a different set of chains.
+You should add the chain to both the frontend and your hardhat/foundry config. Checkout [deploying your smart contract](/deploying/deploy-smart-contracts) section on how to deploy different chains.
+
+By doing this, you will be able to deploy the contracts to the chain you added and interact with them from the frontend.
+
+:::
+
+### Step 1: Define the chain
+
+First, create a new file called `customChains.ts` in your `packages/nextjs/utils/` directory.
+
+Open the file with your favorite editor and add the following code to define the chain.
+
+```typescript title="packages/nextjs/utils/customChains.ts"
+import { defineChain } from "viem";
+
+// Base chain
+export const base = defineChain({
+  id: 8453,
+  name: "Base",
+  nativeCurrency: { name: "Base", symbol: "ETH", decimals: 18 },
+  rpcUrls: {
+    default: {
+      http: ["https://mainnet.base.org"],
+    },
+  },
+  blockExplorers: {
+    default: {
+      name: "Basescan",
+      url: "https://basescan.org",
+    },
+  },
+});
+```
+
+In this file, we're defining the Base chain. We're using the `defineChain` function from viem to define the chain. You can add as many chains as you want to the `customChains.ts` file.
+
+### Step 2: Update `scaffold.config.ts`
+
+Next, update your `scaffold.config.ts` file to include the new chain:
+
+```typescript title="packages/nextjs/scaffold.config.ts"
+import { base } from "./utils/customChains";
+// ... other imports and type definitions
+
+const scaffoldConfig = {
+  targetNetworks: [base],
+  // ... other configuration options
+} as const satisfies ScaffoldConfig;
+
+export default scaffoldConfig;
+```
+
+If you'd like to add multiple chains, you can do so by adding them to the `targetNetworks` array. Below is a simple example of how to add multiple chains.
+
+```typescript title="packages/nextjs/scaffold.config.ts"
+import { base, baseSepolia } from "./utils/customChains";
+
+const scaffoldConfig = {
+  targetNetworks: [base, baseSepolia],
+  // ... other configuration options
+} as const satisfies ScaffoldConfig;
+```
