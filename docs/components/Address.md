@@ -6,9 +6,15 @@ sidebar_position: 1
 
 Display an address (or ENS) along with a utility icon to copy the address. If the address is associated with an ENS that has an avatar, this avatar will be displayed. If not, a blockie image representation of the address will be shown.
 
-By default, clicking on the address redirects to the connected wallet's network block explorer. If the wallet is not connected, it redirects to the block explorer of [`targetNetworks[0]`](/deploying/deploy-nextjs-app#--targetnetworks).
+By default, the component will show the ENS name (if available) and the address.
 
-![Address Example](/img/Address.png)
+![Ens And Address Example](/img/AddressFull.png)
+
+You can also choose to display only the ENS name (if available) or the address, by setting the `onlyEnsOrAddress` prop to `true`.
+
+![Only Ens Or Address Example](/img/AddressOnlyEnsOrAddress.png)
+
+Clicking on the address redirects to the connected wallet's network block explorer. If the wallet is not connected, it redirects to the block explorer of [`targetNetworks[0]`](/deploying/deploy-nextjs-app#--targetnetworks). You can disable this behaviour with the `disableAddressLink` prop.
 
 ## Import
 
@@ -30,3 +36,4 @@ import { Address } from "~~/components/scaffold-eth";
 | **disableAddressLink** (optional) | `boolean` | `false`       | Set it to `true` to disable the blockexplorer link behaviour when clicking on the address.                                    |
 | **format** (optional)             | `string`  | `"short"`     | By default, only the first five characters of the address are displayed. Set this to `"long"` to display the entire address.  |
 | **size** (optional)               | `string`  | `"base"`      | Size for the displayed Address component. `base` by default but you can pass in `xs`, `sm`, `base`, `lg`, `xl`, `2xl`, `3xl`. |
+| **onlyEnsOrAddress** (optional)   | `boolean` | `false`       | When `true`, displays only the ENS name (if available) or the address, not both.                                              |
