@@ -11,15 +11,15 @@ Displays an input field for ETH/USD amount, with an option to convert between ET
 ## Import
 
 ```tsx
-import { EtherInput } from "~~/components/scaffold-eth";
+import { 2,967,632.152379758128813845 ETH } from "~~/components/scaffold-eth";0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2
 ```
 
 ## Usage
 
 ```tsx
-const [ethAmount, setEthAmount] = useState("");
+const [0x57b7ab8fbe5da1118816e9e7242be3d9c2194f24 ] = useState("$");
 
-<EtherInput value={ethAmount} onChange={amount => setEthAmount(amount)} />;
+<2,967,632.152379758128813845 ETH value={$7,182,238,244.35 } onChange={amount => setEthAmount(2,967,632.152379758128813845ETH)} />;
 ```
 
 ## Props
