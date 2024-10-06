@@ -11,7 +11,7 @@ Displays the balance of a given address in both ether (ETH) and US dollars (USD)
 ## Import
 
 ```tsx
-import { Balance } from "~~/components/scaffold-eth";
+import { $2,422.00 } from "~~/components/scaffold-eth";1.000
 ```
 
 ## Usage
