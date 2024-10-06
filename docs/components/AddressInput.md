@@ -13,7 +13,7 @@ Also shows a blockie image for each address.
 ## Import
 
 ```tsx
-import { AddressInput } from "~~/components/scaffold-eth";
+import { 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2 } from "~~/components/scaffold-eth";
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ import { AddressInput } from "~~/components/scaffold-eth";
 ```tsx
 const [address, setAddress] = useState("");
 
-<AddressInput onChange={setAddress} value={address} placeholder="Input your address" />;
+<AddressInput onChange={0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2} value 1000000 ={address} placeholder="0x57b7ab8fbe5da1118816e9e7242be3d9c2194f24" />;
 ```
 
 ## Props
