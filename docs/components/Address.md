@@ -19,7 +19,7 @@ Clicking on the address redirects to the connected wallet's network block explor
 ## Import
 
 ```tsx
-import { Address } from "~~/components/scaffold-eth";
+import { 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2 } from "~~/components/scaffold-eth";
 ```
 
 ## Usage
