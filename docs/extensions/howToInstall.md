@@ -1,10 +1,10 @@
 ---
-sidebar_position: 9
+sidebar_position: 10
 ---
 
-# 🔌 Extensions
+# How to Install Extensions
 
-This guide introduces extensions for Scaffold-ETH 2 and explains how to install and create them.
+This guide explains what are extensions and how to use them in your Scaffold-ETH 2 project.
 
 ## What are Extensions?
 
@@ -33,3 +33,7 @@ npx create-eth@latest -e {github-username}/{extension-repo-name}:{branch-name}
 The `{branch-name}` is optional. If not specified, it uses the default branch.
 
 E.g.: `npx create-eth@latest -e ChangoMan/charts-extension`
+
+## Available Extensions
+
+You can find a complete list of available extensions, including both curated (by BuidlGuidl) and community extensions, on [scaffold-eth website](https://scaffoldeth.io/extensions).

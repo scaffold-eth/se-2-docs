@@ -1,0 +1,9 @@
+{
+  "label": "🔌 Extensions",
+  "position": 9,
+  "link": {
+    "type": "generated-index",
+    "slug": "extensions",
+    "description": "Extensions are modular add-ons for Scaffold-ETH 2 that provide additional functionality or serve as examples for specific features. They allow you to quickly add new features, pages, contracts, or components during project creation, ensuring seamless integration with Scaffold-ETH 2 core functionality."
+  }
+}
