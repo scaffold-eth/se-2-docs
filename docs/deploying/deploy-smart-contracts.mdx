@@ -56,18 +56,20 @@ The deployer account is the account that will deploy your contracts. Additionall
 
 You can generate a random account / private key or add your crypto wallet's private key.
 
-To create a random account and add the `DEPLOYER_PRIVATE_KEY` to the `.env` file, run:
+To create a random account and add the `DEPLOYER_PRIVATE_KEY_ENCRYPTED` to the `.env` file, run:
 
 ```
 yarn generate
 ```
+
+You will be prompted to enter a password which will be used to encrypt your private key. Make sure to remember this password as you'll need it for future deployments and account queries.
 
 ```mdx-code-block
 <Tabs groupId="dev-tool">
 <TabItem value="hardhat" label="Hardhat" default>
 ```
 
-If you prefer to manually set your own private key, you will need to add `DEPLOYER_PRIVATE_KEY=yourWalletPrivateKey` to `packages/hardhat/.env`.
+If you prefer to manually set your own private key, you can use the `yarn account:import` command to encrypt and store your private key. You will get prompted to set a encryption password before storing your `DEPLOYER_PRIVATE_KEY_ENCRYPTED` to `packages/hardhat/.env`.
 
 ```mdx-code-block
 </TabItem>
@@ -84,6 +86,8 @@ You can check the configured (generated or manually set) account and balances wi
 ```
 yarn account
 ```
+
+You will need to enter your password to decrypt the private key and view the account information and balances.
 
 ## 3. Deploy your smart contract(s)
 
@@ -110,7 +114,7 @@ packages/foundry/foundry.toml
 </TabItem>
 </Tabs>
 
-Run the command below to deploy the smart contract to the target network. Make sure to have some funds in your deployer account to pay for the transaction.
+Run the command below to deploy the smart contract to the target network. Make sure to have your encryption password and some funds in your deployer account to pay for the transaction.
 
 ```
 yarn deploy --network network_name
