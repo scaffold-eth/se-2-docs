@@ -86,11 +86,11 @@ You will get prompted to paste your private key and set the encryption password.
 <TabItem value="foundry" label="Foundry">
 ```
 
-It will automatically generate a new keystore under the name `scaffold-eth-custom`.
+It will automatically generate a new [keystore](https://book.getfoundry.sh/reference/cli/cast/wallet#cast-wallet) with the name `scaffold-eth-custom`.
 
 You will be prompted to enter a password which will be used to encrypt your keystore. **Make sure to remember this password as you'll need it for future deployments and account queries.**
 
-Now you'll need to open your `packages/foundry/.env` file, and update `ETH_KEYSTORE_ACCOUNT = scaffold-eth-custom` to start using the new keystore.
+Now you'll need to open your `packages/foundry/.env` file, and update `ETH_KEYSTORE_ACCOUNT=scaffold-eth-custom` to start using the new keystore.
 
 If you prefer to import your private key (you need to delete your `scaffold-eth-custom` keystore first, if exists), run:
 
@@ -100,7 +100,7 @@ yarn account:import
 
 You will get prompted to paste your private key and set the encryption password. It will store your encrypted private key in the `scaffold-eth-custom` keystore file.
 
-Also if you want to use your existing keystore account you can just update the `ETH_KEYSTORE_ACCOUNT` in your `.env` file, setting the name of your existing account.
+Also if you want to use your existing keystore account you can just update the `ETH_KEYSTORE_ACCOUNT` in your `.env` file, setting the name of your existing keystore.
 
 </TabItem>
 </Tabs>
