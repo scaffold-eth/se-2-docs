@@ -142,14 +142,14 @@ packages/foundry/foundry.toml
 
 ### 3.1 Deploy specific contracts
 
-To deploy specific contracts instead of all your contracts, you can follow these steps:
+To deploy specific contracts instead of all of them, you can follow these steps:
 
 ```mdx-code-block
 <Tabs groupId="dev-tool">
 <TabItem value="hardhat" label="Hardhat" default>
 ```
 
-1. Add tags to your deploy script located in `packages/hardhat/deploy`.
+1. Add tags to the deploy scripts located in `packages/hardhat/deploy`.
 
 ```ts
 deployMyContract.tags = ["tagExample"];
@@ -168,14 +168,14 @@ deployMyContract.tags = ["tagExample"];
 ```sh
 yarn deploy --file DeployMyContract.s.sol
 ```
-If you don't specify the file, it will default to `Deploy.s.sol` file, where you can setup all the contracts to deploy with the `yarn deploy` command.
+If you don't specify the `--file` parameter, the deployment will use the default `Deploy.s.sol` file. This default file can be configured to deploy multiple contracts in a specific order when you run the `yarn deploy` command.
 
 </TabItem>
 </Tabs>
 
 ### 3.2 Deploy to specific networks
 
-Run the command below to deploy the smart contract to the target network. Make sure to have your encryption password and some funds in your deployer account to pay for the transaction.
+Run the command below to deploy the smart contracts to the target network. Make sure to have your encryption password and some funds in your deployer account to pay for the transaction.
 
 ```
 yarn deploy --network network_name
