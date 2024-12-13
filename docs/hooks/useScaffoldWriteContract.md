@@ -7,7 +7,7 @@ sidebar_position: 2
 Use this hook to send a transaction to your smart contract to write data or perform an action.
 
 ```ts
-const { writeContractAsync: writeYourContractAsync } = useScaffoldWriteContract("YourContract");
+const { writeContractAsync: writeYourContractAsync } = useScaffoldWriteContract({ contractName: "YourContract" });
 ```
 
 The first argument is name of the contract to write to and the second argument is wagmi's `useWriteContract` hook [parameters object](https://wagmi.sh/react/api/hooks/useWriteContract#parameters).
@@ -42,6 +42,7 @@ Below is the configuration for `writeContractAsync` function:
 | Parameter                          | Type        | Description                                                                                                          |
 | :--------------------------------- | :---------- | :------------------------------------------------------------------------------------------------------------------- |
 | **functionName**                   | `string`    | Name of the function to call.                                                                                        |
+| **chainId** (optional)             | `string`    | Id of the chain the contract lives on.                                                                               |
 | **args** (optional)                | `unknown[]` | Array of arguments to pass to the function (if accepts any). Types are inferred from contract's function parameters. |
 | **value** (optional)               | `bigint`    | Amount of ETH to send with the transaction (for payable functions only).                                             |
 | **onBlockConfirmation** (optional) | `function`  | Callback function to execute when the transaction is confirmed.                                                      |

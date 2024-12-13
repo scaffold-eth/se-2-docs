@@ -15,6 +15,7 @@ const {
   contractName: "YourContract",
   eventName: "GreetingChange",
   fromBlock: 31231n,
+  chainId: 31337,
   watch: true,
   filters: { greetingSetter: "0x9eB2C4866aAe575bC88d00DE5061d5063a1bb3aF" },
   blockData: true,
@@ -32,6 +33,7 @@ This example retrieves the historical event logs for the `GreetingChange` event 
 | **contractName**               | `string`  | Name of the contract to read from.                                                                                                                                    |
 | **eventName**                  | `string`  | Name of the event to read.                                                                                                                                            |
 | **fromBlock**                  | `bigint`  | Block number from which to start reading events.                                                                                                                      |
+| **chainId** (optional)         | `string`  | Id of the chain the contract lives on.                                                                                                                                |
 | **filters** (optional)         | `object`  | Apply filters to the event based on **indexed** parameter names and values `{ [parameterName]: value }`.                                                              |
 | **blockData** (optional)       | `boolean` | If set to true it will return the block data for each event (default: false).                                                                                         |
 | **transactionData** (optional) | `boolean` | If set to true it will return the transaction data for each event (default: false).                                                                                   |

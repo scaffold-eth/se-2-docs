@@ -14,9 +14,10 @@ This example retrieves the details of the deployed contract with the specified n
 
 ## Parameters
 
-| Parameter        | Type     | Description           |
-| :--------------- | :------- | :-------------------- |
-| **contractName** | `string` | Name of the contract. |
+| Parameter              | Type     | Description                            |
+| :--------------------- | :------- | :------------------------------------- |
+| **contractName**       | `string` | Name of the contract.                  |
+| **chainId** (optional) | `string` | Id of the chain the contract lives on. |
 
 ### Return Value
 
