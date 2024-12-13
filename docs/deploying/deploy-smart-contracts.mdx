@@ -115,12 +115,12 @@ You will need to enter your password to decrypt the private key and view the acc
 
 ## 3. Deploy your smart contract(s)
 
-By default `yarn deploy` will deploy contract to the local network. You can change `defaultNetwork` in:
-
 ```mdx-code-block
 <Tabs groupId="dev-tool">
 <TabItem value="hardhat" label="Hardhat" default>
 ```
+
+By default `yarn deploy` will deploy all the contracts from your `packages/hardhat/contracts` folder to the local network. You can change `defaultNetwork` in:
 
 ```sh
 packages/hardhat/hardhat.config.ts
@@ -131,6 +131,8 @@ packages/hardhat/hardhat.config.ts
 <TabItem value="foundry" label="Foundry">
 ```
 
+By default `yarn deploy` will deploy all the contracts from your `packages/foundry/contracts` folder to the local network. You can change `defaultNetwork` in:
+
 ```sh
 packages/foundry/foundry.toml
 ```
@@ -138,13 +140,72 @@ packages/foundry/foundry.toml
 </TabItem>
 </Tabs>
 
+### 3.1 Deploy specific contracts
+
+To deploy specific contracts instead of all your contracts, you can follow these steps:
+
+```mdx-code-block
+<Tabs groupId="dev-tool">
+<TabItem value="hardhat" label="Hardhat" default>
+```
+
+1. Add tags to your deploy script located in `packages/hardhat/deploy`.
+
+```ts
+deployMyContract.tags = ["tagExample"];
+```
+
+2. Run `yarn deploy --tags tagExample` to run all the scripts with the "tagExample" tag.
+
+`````mdx-code-block
+</TabItem>
+<TabItem value="foundry" label="Foundry">
+
+1. Each contract that you wish to deploy individually should have its own deployment script in `packages/foundry/script`. For example: `DeployMyContract.s.sol`
+
+2. Run the specific deployment script using:
+
+```sh
+yarn deploy --file DeployMyContract.s.sol
+```
+If you don't specify the file, it will default to `Deploy.s.sol` file, where you can setup all the contracts to deploy with the `yarn deploy` command.
+
+</TabItem>
+</Tabs>
+
+### 3.2 Deploy to specific networks
+
 Run the command below to deploy the smart contract to the target network. Make sure to have your encryption password and some funds in your deployer account to pay for the transaction.
 
 ```
 yarn deploy --network network_name
 ```
 
-eg: `yarn deploy --network sepolia`
+```mdx-code-block
+<Tabs groupId="dev-tool">
+<TabItem value="hardhat" label="Hardhat" default>
+```
+
+You can also specify a tag:
+
+```sh
+yarn deploy --network sepolia --tags tagExample
+```
+
+````mdx-code-block
+</TabItem>
+<TabItem value="foundry" label="Foundry">
+
+Requires custom keystore setup, see [generate accounts](#2-generate-a-new-account-or-add-one-to-deploy-the-contracts-from)
+
+You can also specify a file:
+
+```sh
+yarn deploy --network sepolia --file DeployMyContract.s.sol
+```
+
+</TabItem>
+</Tabs>
 
 ## 4. Verify your smart contract
 
@@ -209,3 +270,5 @@ For production-grade applications, it's recommended to obtain your own API keys 
 :::tip Hint
 It's recommended to store envs for nextjs in Vercel/system env config for live apps and use .env.local for local testing.
 :::tip Hint
+```
+`````
