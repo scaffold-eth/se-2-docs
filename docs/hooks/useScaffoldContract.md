@@ -20,6 +20,7 @@ import { useWalletClient } from "wagmi";
 const { data: walletClient } = useWalletClient();
 const { data: yourContract } = useScaffoldContract({
   contractName: "YourContract",
+  chainId: 31337,
   walletClient,
 });
 const setGreeting = async () => {
@@ -32,10 +33,11 @@ This example uses the `useScaffoldContract` hook to obtain a contract instance f
 
 ## Configuration
 
-| Parameter                   | Type                                                               | Description                                                                   |
-| :-------------------------- | :----------------------------------------------------------------- | :---------------------------------------------------------------------------- |
-| **contractName**            | `string`                                                           | Name of the contract.                                                         |
-| **walletClient** (optional) | [`WalletClient`](https://wagmi.sh/react/api/hooks/useWalletClient) | Wallet client must be passed in order to call `write` methods of the contract |
+| Parameter                   | Type                                                               | Description                                                                                                                |
+| :-------------------------- | :----------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------- |
+| **contractName**            | `string`                                                           | Name of the contract.                                                                                                      |
+| **walletClient** (optional) | [`WalletClient`](https://wagmi.sh/react/api/hooks/useWalletClient) | Wallet client must be passed in order to call `write` methods of the contract                                              |
+| **chainId** (optional)      | `string`                                                           | Id of the chain the contract lives on. Defaults to [`targetNetworks[0].id`](/deploying/deploy-nextjs-app#--targetnetworks) |
 
 ## Return Value
 

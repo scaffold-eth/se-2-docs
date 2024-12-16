@@ -18,12 +18,13 @@ This example retrieves the data returned by the `userGreetingCounter` function o
 
 ## Configuration
 
-| Parameter            | Type        | Description                                                                                                         |
-| :------------------- | :---------- | :------------------------------------------------------------------------------------------------------------------ |
-| **contractName**     | `string`    | Name of the contract to read from.                                                                                  |
-| **functionName**     | `string`    | Name of the function to call.                                                                                       |
-| **args** (optional)  | `unknown[]` | Array of arguments to pass to the function (if accepts any). Types are inferred from contract's function parameters |
-| **watch** (optional) | `boolean`   | Watches and refreshes data on new blocks. (default : `true`)                                                        |
+| Parameter              | Type        | Description                                                                                                                |
+| :--------------------- | :---------- | :------------------------------------------------------------------------------------------------------------------------- |
+| **contractName**       | `string`    | Name of the contract to read from.                                                                                         |
+| **functionName**       | `string`    | Name of the function to call.                                                                                              |
+| **args** (optional)    | `unknown[]` | Array of arguments to pass to the function (if accepts any). Types are inferred from contract's function parameters        |
+| **watch** (optional)   | `boolean`   | Watches and refreshes data on new blocks. (default : `true`)                                                               |
+| **chainId** (optional) | `string`    | Id of the chain the contract lives on. Defaults to [`targetNetworks[0].id`](/deploying/deploy-nextjs-app#--targetnetworks) |
 
 You can also pass other arguments accepted by [useReadContract wagmi hook](https://wagmi.sh/react/api/hooks/useReadContract#parameters).
 
