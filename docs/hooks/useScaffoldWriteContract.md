@@ -42,11 +42,11 @@ Below is the configuration for `writeContractAsync` function:
 | Parameter                          | Type        | Description                                                                                                          |
 | :--------------------------------- | :---------- | :------------------------------------------------------------------------------------------------------------------- |
 | **functionName**                   | `string`    | Name of the function to call.                                                                                        |
-| **chainId** (optional)             | `string`    | Id of the chain the contract lives on.                                                                               |
 | **args** (optional)                | `unknown[]` | Array of arguments to pass to the function (if accepts any). Types are inferred from contract's function parameters. |
 | **value** (optional)               | `bigint`    | Amount of ETH to send with the transaction (for payable functions only).                                             |
 | **onBlockConfirmation** (optional) | `function`  | Callback function to execute when the transaction is confirmed.                                                      |
 | **blockConfirmations** (optional)  | `number`    | Number of block confirmations to wait for before considering transaction to be confirmed (default : 1).              |
+| **chainId** (optional)             | `string`    | Id of the chain the contract lives on.                                                                               |
 
 You can also pass other arguments accepted by [writeContractAsync from wagmi](https://wagmi.sh/react/api/hooks/useWriteContract#mutate-async).
 
