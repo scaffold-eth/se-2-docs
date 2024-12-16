@@ -14,10 +14,10 @@ This example retrieves the details of the deployed contract with the specified n
 
 ## Configuration
 
-| Parameter              | Type     | Description                            |
-| :--------------------- | :------- | :------------------------------------- |
-| **contractName**       | `string` | Name of the contract.                  |
-| **chainId** (optional) | `string` | Id of the chain the contract lives on. |
+| Parameter              | Type     | Description                                                                                                                |
+| :--------------------- | :------- | :------------------------------------------------------------------------------------------------------------------------- |
+| **contractName**       | `string` | Name of the contract.                                                                                                      |
+| **chainId** (optional) | `string` | Id of the chain the contract lives on. Defaults to [`targetNetworks[0].id`](/deploying/deploy-nextjs-app#--targetnetworks) |
 
 ### Return Value
 
