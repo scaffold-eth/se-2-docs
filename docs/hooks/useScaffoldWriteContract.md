@@ -10,7 +10,15 @@ Use this hook to send a transaction to your smart contract to write data or perf
 const { writeContractAsync: writeYourContractAsync } = useScaffoldWriteContract({ contractName: "YourContract" });
 ```
 
-The first argument is name of the contract to write to and the second argument is wagmi's `useWriteContract` hook [parameters object](https://wagmi.sh/react/api/hooks/useWriteContract#parameters).
+Following configuration can be passed to hook:
+
+## Configuration
+
+| Parameter                        | Type     | Description                                                                                                                |
+| :------------------------------- | :------- | :------------------------------------------------------------------------------------------------------------------------- |
+| **contractName**                 | `string` | Name of the contract to read.                                                                                              |
+| **chainId** (optional)           | `string` | Id of the chain the contract lives on. Defaults to [`targetNetworks[0].id`](/deploying/deploy-nextjs-app#--targetnetworks) |
+| **wagmiParamsObject** (optional) | `object` | wagmi's `useWriteContract` hook [parameters object](https://wagmi.sh/react/api/hooks/useWriteContract#parameters)          |
 
 To send the transaction, you can call the `writeContractAsync` function returned by the hook (which we instance as `writeYourContractAsync`). Here's an example usage:
 
