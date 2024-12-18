@@ -18,8 +18,10 @@ import { InputBase } from "~~/components/scaffold-eth";
 
 ```tsx
 const [url, setUrl] = useState<string>();
+```
 
-<InputBase name="url" placeholder="url" value={url} onChange={setUrl} />;
+```tsx
+<InputBase name="url" placeholder="url" value={url} onChange={setUrl} />
 ```
 
 ## Props

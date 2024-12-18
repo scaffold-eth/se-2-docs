@@ -20,8 +20,10 @@ import { AddressInput } from "~~/components/scaffold-eth";
 
 ```tsx
 const [address, setAddress] = useState("");
+```
 
-<AddressInput onChange={setAddress} value={address} placeholder="Input your address" />;
+```tsx
+<AddressInput onChange={setAddress} value={address} placeholder="Input your address" />
 ```
 
 ## Props
