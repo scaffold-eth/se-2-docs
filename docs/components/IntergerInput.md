@@ -19,14 +19,16 @@ import { IntegerInput } from "~~/components/scaffold-eth";
 
 ```tsx
 const [txValue, setTxValue] = useState<string | bigint>("");
+```
 
+```tsx
 <IntegerInput
   value={txValue}
   onChange={updatedTxValue => {
     setTxValue(updatedTxValue);
   }}
   placeholder="value (wei)"
-/>;
+/>
 ```
 
 ## Props

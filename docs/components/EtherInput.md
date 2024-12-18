@@ -18,8 +18,10 @@ import { EtherInput } from "~~/components/scaffold-eth";
 
 ```tsx
 const [ethAmount, setEthAmount] = useState("");
+```
 
-<EtherInput value={ethAmount} onChange={amount => setEthAmount(amount)} />;
+```tsx
+<EtherInput value={ethAmount} onChange={amount => setEthAmount(amount)} />
 ```
 
 ## Props
