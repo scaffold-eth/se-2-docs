@@ -48,7 +48,7 @@ You can pass in anything that is a valid parameter to [Viem's `sendTransaction` 
 
 ### useTransactor
 
-- The callback function that is used to inialize the UI feedback flow.
+- The callback function that is used to initialize the UI feedback flow.
 
 ### callback function
 
