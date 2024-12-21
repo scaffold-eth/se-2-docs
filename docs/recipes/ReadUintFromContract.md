@@ -101,7 +101,7 @@ export const GreetingsCount = () => {
 };
 ```
 
-In the line `const {data: totalCounter} = useScaffoldReadContract({...})` we are using [destructuring asssignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to assign `data` to a new name `totalCounter`.
+In the line `const {data: totalCounter} = useScaffoldReadContract({...})` we are using [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to assign `data` to a new name `totalCounter`.
 
 In the contract, `totalCounter` returns an `uint` value, which is represented as a [`BigInt`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) in javascript and can be converted to a readable string using `.toString()`.
 
