@@ -119,7 +119,7 @@ You will need to enter your password to decrypt the private key and view the acc
 
 By default `yarn deploy` will deploy all the contracts from your `packages/hardhat/contracts` folder to the local network. You can change `defaultNetwork` in `packages/hardhat/hardhat.config.ts` file.
 
-To deploy to a specific network, you can use the `--network` flag.
+To deploy to a specific network, you can also use the `--network` flag.
 
 ```sh
 yarn deploy --network network_name
@@ -145,11 +145,19 @@ yarn deploy --tags tagExample
 
 <TabItem value="foundry" label="Foundry">
 
-By default, `yarn deploy` runs deployment scripts from the `packages/foundry/script` folder and deploys to the local network. You can change the `defaultNetwork` in the `packages/foundry/foundry.toml` file. To deploy to a specific network, use the `--network` flag:
+By default, `yarn deploy` runs `Deploy.s.sol`, deploying to the local network using Anvil's 9th account (configured via `LOCALHOST_KEYSTORE_ACCOUNT` in `packages/foundry/.env`).
+
+Change the `default_network` in `packages/foundry/foundry.toml` to change default deployment network.
+
+To deploy to a specific network, you can also use the `--network` flag:
 
 ```sh
 yarn deploy --network network_name
 ```
+
+eg: `yarn deploy --network sepolia`
+
+> **Note:** Deploying to live network will prompt you to create or choose an account and enter the password for the keystore account.
 
 ### Deploy Specific Contracts
 
