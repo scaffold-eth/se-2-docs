@@ -13,10 +13,9 @@ To deploy your smart contracts to a live network, there are a few things you nee
 
 Scaffold-ETH 2 comes with a selection of predefined networks. To add your custom network:
 
-```mdx-code-block
 <Tabs groupId="dev-tool">
+
 <TabItem value="hardhat" label="Hardhat" default>
-```
 
 Go to `packages/hardhat/hardhat.config.ts` and add your network to the `networks` object.
 
@@ -30,10 +29,9 @@ networks: {
 }
 ```
 
-```mdx-code-block
 </TabItem>
+
 <TabItem value="foundry" label="Foundry">
-```
 
 Go to `packages/foundry/foundry.toml` and add your network to the `rpc_endpoints` object.
 
@@ -44,6 +42,7 @@ base = "https://mainnet.base.org"
 ```
 
 </TabItem>
+
 </Tabs>
 
 Here are the [Alchemy docs](https://docs.alchemy.com/docs/how-to-add-alchemy-rpc-endpoints-to-metamask) for information on specific networks.
@@ -54,15 +53,13 @@ You can also add your custom network by following the recipe [here](/recipes/add
 
 The deployer account is the account that will deploy your contracts. Additionally, the deployer account will be used to execute any function calls that are part of your deployment script.
 
+<Tabs groupId="dev-tool">
+<TabItem value="hardhat" label="Hardhat" default>
+
 You can generate a random account / private key by running:
 
 ```
 yarn generate
-```
-
-```mdx-code-block
-<Tabs groupId="dev-tool">
-<TabItem value="hardhat" label="Hardhat" default>
 ```
 
 It will automatically add the encrypted private key (`DEPLOYER_PRIVATE_KEY_ENCRYPTED`) in your `.env` file.
@@ -81,26 +78,28 @@ yarn account:import
 
 You will get prompted to paste your private key and set the encryption password. It will store your encrypted private key in your `.env` file.
 
-```mdx-code-block
 </TabItem>
 <TabItem value="foundry" label="Foundry">
+
+> **Note:** If you already have a foundry keystore account, you can skip the following steps.
+
+You can generate a new keystore account by running:
+
+```
+yarn generate
 ```
 
-It will automatically generate a new [keystore](https://book.getfoundry.sh/reference/cli/cast/wallet#cast-wallet) with the name `scaffold-eth-custom`.
+It will automatically generate a new [keystore](https://book.getfoundry.sh/reference/cast/cast-wallet-import) with the name `scaffold-eth-custom`.
 
 You will be prompted to enter a password which will be used to encrypt your keystore. **Make sure to remember this password as you'll need it for future deployments and account queries.**
 
-Now you'll need to open your `packages/foundry/.env` file, and update `ETH_KEYSTORE_ACCOUNT=scaffold-eth-custom` to start using the new keystore.
-
-If you prefer to import your private key (you need to delete your `scaffold-eth-custom` keystore first, if exists), run:
+If you prefer to import your private key run:
 
 ```
 yarn account:import
 ```
 
-You will get prompted to paste your private key and set the encryption password. It will store your encrypted private key in the `scaffold-eth-custom` keystore file.
-
-Also if you want to use your existing keystore account you can just update the `ETH_KEYSTORE_ACCOUNT` in your `.env` file, setting the name of your existing keystore.
+You will get prompted to enter [keystore](https://book.getfoundry.sh/reference/cast/cast-wallet-import#cast-wallet-import) name, private key and set the encryption password. It will create a new keystore in `~/.foundry/keystore` directory.
 
 </TabItem>
 </Tabs>
@@ -115,26 +114,27 @@ You will need to enter your password to decrypt the private key and view the acc
 
 ## 3. Deploy your smart contract(s)
 
-```mdx-code-block
 <Tabs groupId="dev-tool">
 <TabItem value="hardhat" label="Hardhat" default>
-```
 
-By default `yarn deploy` will deploy all the contracts from your `packages/hardhat/contracts` folder to the local network. You can change `defaultNetwork` in:
+By default `yarn deploy` will deploy all the contracts from your `packages/hardhat/contracts` folder to the local network. You can change `defaultNetwork` in `packages/hardhat/hardhat.config.ts` file.
+
+To deploy to a specific network, you can use the `--network` flag.
 
 ```sh
-packages/hardhat/hardhat.config.ts
+yarn deploy --network network_name
 ```
 
-```mdx-code-block
 </TabItem>
-<TabItem value="foundry" label="Foundry">
-```
 
-By default `yarn deploy` will deploy all the contracts from your `packages/foundry/contracts` folder to the local network. You can change `defaultNetwork` in:
+<TabItem value="foundry" label="Foundry">
+
+By default `yarn deploy` run deployment scripts from `packages/foundry/script` folder and deploy to local network. You can change `defaultNetwork` in `packages/foundry/foundry.toml` file.
+
+To deploy to a specific network, you can use the `--network` flag.
 
 ```sh
-packages/foundry/foundry.toml
+yarn deploy --network network_name
 ```
 
 </TabItem>
@@ -144,10 +144,8 @@ packages/foundry/foundry.toml
 
 To deploy specific contracts instead of all of them, you can follow these steps:
 
-```mdx-code-block
 <Tabs groupId="dev-tool">
 <TabItem value="hardhat" label="Hardhat" default>
-```
 
 1. Add tags to the deploy scripts located in `packages/hardhat/deploy`. For example `01_deploy_my_contract.ts`:
 
@@ -157,7 +155,6 @@ deployMyContract.tags = ["tagExample"];
 
 2. Run `yarn deploy --tags tagExample` to run all the scripts with the "tagExample" tag.
 
-`````mdx-code-block
 </TabItem>
 <TabItem value="foundry" label="Foundry">
 
@@ -168,41 +165,8 @@ deployMyContract.tags = ["tagExample"];
 ```sh
 yarn deploy --file DeployMyContract.s.sol
 ```
+
 If you don't specify the `--file` parameter, the deployment will use the default `Deploy.s.sol` file. This default file can be configured to deploy multiple contracts in a specific order when you run the `yarn deploy` command.
-
-</TabItem>
-</Tabs>
-
-### 3.2 Deploy to specific networks
-
-Run the command below to deploy the smart contracts to the target network. Make sure to have your encryption password and some funds in your deployer account to pay for the transaction.
-
-```
-yarn deploy --network network_name
-```
-
-```mdx-code-block
-<Tabs groupId="dev-tool">
-<TabItem value="hardhat" label="Hardhat" default>
-```
-
-You can also specify a tag:
-
-```sh
-yarn deploy --network sepolia --tags tagExample
-```
-
-````mdx-code-block
-</TabItem>
-<TabItem value="foundry" label="Foundry">
-
-Requires custom keystore setup, see [generate accounts](#2-generate-a-new-account-or-add-one-to-deploy-the-contracts-from)
-
-You can also specify a file:
-
-```sh
-yarn deploy --network sepolia --file DeployMyContract.s.sol
-```
 
 </TabItem>
 </Tabs>
@@ -246,29 +210,21 @@ By default, Scaffold-ETH 2 provides predefined API keys for popular services suc
 
 For production-grade applications, it's recommended to obtain your own API keys (to prevent rate limiting issues). You can configure these at:
 
-```mdx-code-block
 <Tabs groupId="dev-tool">
 <TabItem value="hardhat" label="Hardhat" default>
-```
 
 - `ALCHEMY_API_KEY` variable in `packages/hardhat/.env` and `packages/nextjs/.env.local`. You can create API keys from the [Alchemy dashboard](https://dashboard.alchemy.com/).
 - `ETHERSCAN_API_KEY` variable in `packages/hardhat/.env` using your generated API key. You can get your key [here](https://etherscan.io/myapikey).
 
-```mdx-code-block
 </TabItem>
 <TabItem value="foundry" label="Foundry">
-```
 
 - `ALCHEMY_API_KEY` variable in `packages/nextjs/.env.local`. You can create API keys from the [Alchemy dashboard](https://dashboard.alchemy.com/).
 - `ETHERSCAN_API_KEY` variable in `packages/foundry/.env` using your generated API key. You can get your key [here](https://etherscan.io/myapikey).
 
-```mdx-code-block
 </TabItem>
 </Tabs>
-```
 
 :::tip Hint
 It's recommended to store envs for nextjs in Vercel/system env config for live apps and use .env.local for local testing.
 :::tip Hint
-```
-`````
