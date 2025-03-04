@@ -125,48 +125,41 @@ To deploy to a specific network, you can use the `--network` flag.
 yarn deploy --network network_name
 ```
 
-</TabItem>
+eg: `yarn deploy --network sepolia`
 
-<TabItem value="foundry" label="Foundry">
+### Deploy Specific Contracts
 
-By default `yarn deploy` run deployment scripts from `packages/foundry/script` folder and deploy to local network. You can change `defaultNetwork` in `packages/foundry/foundry.toml` file.
-
-To deploy to a specific network, you can use the `--network` flag.
-
-```sh
-yarn deploy --network network_name
-```
-
-</TabItem>
-</Tabs>
-
-### 3.1 Deploy specific contracts
-
-To deploy specific contracts instead of all of them, you can follow these steps:
-
-<Tabs groupId="dev-tool">
-<TabItem value="hardhat" label="Hardhat" default>
-
-1. Add tags to the deploy scripts located in `packages/hardhat/deploy`. For example `01_deploy_my_contract.ts`:
+To deploy specific contracts, add tags to the deploy scripts in `packages/hardhat/deploy`. For example, in `01_deploy_my_contract.ts`:
 
 ```ts
 deployMyContract.tags = ["tagExample"];
 ```
 
-2. Run `yarn deploy --tags tagExample` to run all the scripts with the "tagExample" tag.
+Then run:
+
+```sh
+yarn deploy --tags tagExample
+```
 
 </TabItem>
+
 <TabItem value="foundry" label="Foundry">
 
-1. Each contract that you wish to deploy individually should have its own deployment script in `packages/foundry/script`. For example: `DeployMyContract.s.sol`
+By default, `yarn deploy` runs deployment scripts from the `packages/foundry/script` folder and deploys to the local network. You can change the `defaultNetwork` in the `packages/foundry/foundry.toml` file. To deploy to a specific network, use the `--network` flag:
 
-2. Run the specific deployment script using:
+```sh
+yarn deploy --network network_name
+```
+
+### Deploy Specific Contracts
+
+For individual contracts, create a separate deployment script in `packages/foundry/script`, e.g., `DeployMyContract.s.sol`. Run the script with:
 
 ```sh
 yarn deploy --file DeployMyContract.s.sol
 ```
 
-If you don't specify the `--file` parameter, the deployment will use the default `Deploy.s.sol` file. This default file can be configured to deploy multiple contracts in a specific order when you run the `yarn deploy` command.
+If `--file` parameter is not specified, `Deploy.s.sol` file is used.
 
 </TabItem>
 </Tabs>
