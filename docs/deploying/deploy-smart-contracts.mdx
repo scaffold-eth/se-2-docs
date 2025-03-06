@@ -143,7 +143,15 @@ yarn deploy --network network_name
 
 eg: `yarn deploy --network sepolia`
 
-> **Note:** When deploying to a live network, you'll be prompted to create a keystore account and enter its password.
+> **Note:** When deploying to a live network, you'll be prompted to create or select a keystore account and enter its password.
+
+You can also bypass the keystore selection prompt and use a specific keystore account with the `--keystore` flag:
+
+```sh
+yarn deploy --network sepolia --keystore my-account
+```
+
+The keystore must exist in `~/.foundry/keystores/`.
 
 </TabItem>
 </Tabs>
