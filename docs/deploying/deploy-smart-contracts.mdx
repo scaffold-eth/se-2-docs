@@ -127,20 +127,6 @@ yarn deploy --network network_name
 
 eg: `yarn deploy --network sepolia`
 
-### Deploy Specific Contracts
-
-To deploy specific contracts, add tags to the deploy scripts in `packages/hardhat/deploy`. For example, in `01_deploy_my_contract.ts`:
-
-```ts
-deployMyContract.tags = ["tagExample"];
-```
-
-Then run:
-
-```sh
-yarn deploy --tags tagExample
-```
-
 </TabItem>
 
 <TabItem value="foundry" label="Foundry">
@@ -157,9 +143,31 @@ yarn deploy --network network_name
 
 eg: `yarn deploy --network sepolia`
 
-> **Note:** When deploying to a live network, you'll be prompted to create or select an keystore account and enter its password.
+> **Note:** When deploying to a live network, you'll be prompted to create a keystore account and enter its password.
+
+</TabItem>
+</Tabs>
 
 ### Deploy Specific Contracts
+
+<Tabs groupId="dev-tool">
+<TabItem value="hardhat" label="Hardhat" default>
+
+To deploy specific contracts, add tags to the deploy scripts in `packages/hardhat/deploy`. For example, in `01_deploy_my_contract.ts`:
+
+```ts
+deployMyContract.tags = ["tagExample"];
+```
+
+Then run:
+
+```sh
+yarn deploy --tags tagExample
+```
+
+</TabItem>
+
+<TabItem value="foundry" label="Foundry">
 
 For individual contracts, create a separate deployment script in `packages/foundry/script`, e.g., `DeployMyContract.s.sol`. Run the script with:
 
