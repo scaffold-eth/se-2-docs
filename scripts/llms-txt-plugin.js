@@ -1,6 +1,6 @@
-const path = require('path');
-const fs = require('fs');
-const generateLlmsTxt = require('./generate-llms-txt');
+const path = require("path");
+const fs = require("fs");
+const generateLlmsTxt = require("./generate-llms-txt");
 
 /**
  * Docusaurus plugin to generate llms-full.txt file during build
@@ -8,23 +8,22 @@ const generateLlmsTxt = require('./generate-llms-txt');
  */
 function llmsTxtPlugin() {
   return {
-    name: 'llms-txt-plugin',
+    name: "llms-txt-plugin",
     async loadContent() {
       return {};
     },
-    async contentLoaded({ content, actions }) {
-    },
+    async contentLoaded({ content, actions }) {},
     async postBuild({ outDir, siteConfig }) {
-      console.log('📝 Generating llms-full.txt file for LLM context...');
+      console.log("📝 Generating llms-full.txt file for LLM context...");
 
       if (!outDir) {
-        console.error('Error: outDir is undefined');
+        console.error("Error: outDir is undefined");
         return;
       }
 
       // Use a simpler approach - generate the file directly in the build output directory
-      const docsDir = path.join(process.cwd(), 'docs');
-      const outputPath = path.join(outDir, 'llms-full.txt');
+      const docsDir = path.join(process.cwd(), "docs");
+      const outputPath = path.join(outDir, "llms-full.txt");
 
       // Check if docs directory exists
       if (!fs.existsSync(docsDir)) {
@@ -185,7 +184,7 @@ export const lineaSepolia = defineChain({
           const stats = fs.statSync(outputPath);
 
           // Also copy the file to the static directory for reference
-          const staticPath = path.join(process.cwd(), 'static', 'llms-full.txt');
+          const staticPath = path.join(process.cwd(), "static", "llms-full.txt");
           fs.copyFileSync(outputPath, staticPath);
 
           console.log(`✅ Generated llms-full.txt (${Math.round(stats.size / 1024)} KB)`);
@@ -193,7 +192,7 @@ export const lineaSepolia = defineChain({
           console.error(`❌ Failed to generate llms-full.txt`);
         }
       } catch (error) {
-        console.error('❌ Error generating llms-full.txt:', error.message);
+        console.error("❌ Error generating llms-full.txt:", error.message);
       }
     },
   };

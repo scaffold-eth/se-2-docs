@@ -1,20 +1,20 @@
 #!/usr/bin/env node
 
-const path = require('path');
-const fs = require('fs');
-const generateLlmsTxt = require('./generate-llms-txt');
+const path = require("path");
+const fs = require("fs");
+const generateLlmsTxt = require("./generate-llms-txt");
 
-console.log('📝 Generating llms-full.txt file for LLM context...');
+console.log("📝 Generating llms-full.txt file for LLM context...");
 
 // Ensure the static directory exists
-const staticDir = path.join(__dirname, '..', 'static');
+const staticDir = path.join(__dirname, "..", "static");
 if (!fs.existsSync(staticDir)) {
   fs.mkdirSync(staticDir, { recursive: true });
 }
 
 // Define paths
-const docsDir = path.join(__dirname, '..', 'docs');
-const outputPath = path.join(staticDir, 'llms-full.txt');
+const docsDir = path.join(__dirname, "..", "docs");
+const outputPath = path.join(staticDir, "llms-full.txt");
 
 // Check if docs directory exists
 if (!fs.existsSync(docsDir)) {
@@ -179,6 +179,6 @@ generateLlmsTxt(docsDir, outputPath, headerContent)
     }
   })
   .catch(err => {
-    console.error('❌ Error generating llms-full.txt:', err.message);
+    console.error("❌ Error generating llms-full.txt:", err.message);
     process.exit(1);
   });

@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 /**
  * Generate a llms-full.txt file containing all documentation content
@@ -19,7 +19,7 @@ async function generateLlmsTxt(docsDir, outputPath, headerContent) {
 
   // Process each directory
   for (const dirName of docDirs) {
-    if (dirName === '') {
+    if (dirName === "") {
       // Process files in the root docs directory
       const rootFiles = await getMdFiles(docsDir);
       for (const filePath of rootFiles) {
@@ -29,11 +29,11 @@ async function generateLlmsTxt(docsDir, outputPath, headerContent) {
         }
 
         const fileName = path.basename(filePath, path.extname(filePath));
-        if (fileName === 'intro') {
+        if (fileName === "intro") {
           continue; // Skip intro file as it's likely covered in the header
         }
 
-        await processFile(filePath, docsDir, allContent, '###');
+        await processFile(filePath, docsDir, allContent, "###");
       }
       continue;
     }
@@ -62,7 +62,7 @@ async function generateLlmsTxt(docsDir, outputPath, headerContent) {
     // Get all markdown files in the directory (non-recursive)
     const entries = await fs.promises.readdir(dirPath, { withFileTypes: true });
     const mdFiles = entries
-      .filter(entry => !entry.isDirectory() && (entry.name.endsWith('.md') || entry.name.endsWith('.mdx')))
+      .filter(entry => !entry.isDirectory() && (entry.name.endsWith(".md") || entry.name.endsWith(".mdx")))
       .map(entry => path.join(dirPath, entry.name));
 
     // Skip the file with the same name as the directory (already used for folder description)
@@ -73,12 +73,12 @@ async function generateLlmsTxt(docsDir, outputPath, headerContent) {
 
     // Process each markdown file
     for (const filePath of filteredMdFiles) {
-      await processFile(filePath, docsDir, allContent, '###');
+      await processFile(filePath, docsDir, allContent, "###");
     }
   }
 
   // Write concatenated content to file
-  await fs.promises.writeFile(outputPath, allContent.join('\n\n'));
+  await fs.promises.writeFile(outputPath, allContent.join("\n\n"));
 }
 
 /**
@@ -90,7 +90,7 @@ async function generateLlmsTxt(docsDir, outputPath, headerContent) {
  */
 async function processFile(filePath, docsDir, allContent, titlePrefix) {
   // Read file content
-  let content = await fs.promises.readFile(filePath, 'utf8');
+  let content = await fs.promises.readFile(filePath, "utf8");
 
   // Extract title from the file name if not found in frontmatter
   const fileName = path.basename(filePath, path.extname(filePath));
@@ -106,28 +106,28 @@ async function processFile(filePath, docsDir, allContent, titlePrefix) {
     }
 
     // Remove the entire frontmatter block
-    content = content.replace(/^---\n[\s\S]*?\n---\n/, '');
+    content = content.replace(/^---\n[\s\S]*?\n---\n/, "");
   }
 
   // Get the relative path for URL construction
   const relativePath = path.relative(docsDir, filePath);
 
   // Convert file path to URL path
-  let urlPath = relativePath.replace(/\.mdx?$/, '');
+  let urlPath = relativePath.replace(/\.mdx?$/, "");
 
   // Construct the full URL
-  const fullUrl = `https://docs.scaffoldeth.io/${urlPath.replace(/\\/g, '/')}`;
+  const fullUrl = `https://docs.scaffoldeth.io/${urlPath.replace(/\\/g, "/")}`;
 
   // Process content
 
   // 1. Remove any additional frontmatter-like sections (sidebar_position, etc.)
-  content = content.replace(/^---\n[\s\S]*?---\n/gm, '');
+  content = content.replace(/^---\n[\s\S]*?---\n/gm, "");
 
   // 2. Remove the title if it starts with # (could be # Title or # title)
-  content = content.replace(/^#\s+.*?\n+/i, '');
+  content = content.replace(/^#\s+.*?\n+/i, "");
 
   // 3. Process the content line by line to adjust heading levels
-  const lines = content.split('\n');
+  const lines = content.split("\n");
   const processedLines = [];
 
   let foundFirstHeading = false;
@@ -136,14 +136,14 @@ async function processFile(filePath, docsDir, allContent, titlePrefix) {
     const line = lines[i];
 
     // Skip any remaining frontmatter-like lines
-    if (line.trim() === '---') {
+    if (line.trim() === "---") {
       // Check if this is the start of a frontmatter block
       let j = i + 1;
       let isFrontmatter = false;
 
       // Look ahead to see if there's a closing --- within a reasonable distance
       while (j < lines.length && j < i + 20) {
-        if (lines[j].trim() === '---') {
+        if (lines[j].trim() === "---") {
           isFrontmatter = true;
           break;
         }
@@ -180,14 +180,14 @@ async function processFile(filePath, docsDir, allContent, titlePrefix) {
         // This ensures proper nesting while keeping a clean hierarchy
 
         let newLevel;
-        if (titlePrefix === '###') {
+        if (titlePrefix === "###") {
           // For document headings (###)
           if (headingLevel <= 2) {
             newLevel = 4; // ## becomes ####
           } else {
             newLevel = headingLevel + 1;
           }
-        } else if (titlePrefix === '##') {
+        } else if (titlePrefix === "##") {
           // For section headings (##)
           if (headingLevel <= 1) {
             newLevel = 3; // # becomes ###
@@ -202,7 +202,7 @@ async function processFile(filePath, docsDir, allContent, titlePrefix) {
         const adjustedLevel = Math.min(newLevel, 6);
 
         // Create the new heading
-        processedLines.push('#'.repeat(adjustedLevel) + ' ' + headingText);
+        processedLines.push("#".repeat(adjustedLevel) + " " + headingText);
         continue;
       }
     }
@@ -212,7 +212,7 @@ async function processFile(filePath, docsDir, allContent, titlePrefix) {
   }
 
   // Join the processed lines back together
-  let processedContent = processedLines.join('\n');
+  let processedContent = processedLines.join("\n");
 
   // Trim leading and trailing whitespace
   processedContent = processedContent.trim();
@@ -230,12 +230,10 @@ async function processFile(filePath, docsDir, allContent, titlePrefix) {
  */
 async function getFolders(dir) {
   const entries = await fs.promises.readdir(dir, { withFileTypes: true });
-  const folders = entries
-    .filter(entry => entry.isDirectory())
-    .map(entry => entry.name);
+  const folders = entries.filter(entry => entry.isDirectory()).map(entry => entry.name);
 
   // Add root folder for files directly in the docs directory
-  folders.unshift('');
+  folders.unshift("");
 
   return folders;
 }
@@ -248,10 +246,10 @@ async function getFolders(dir) {
  */
 async function getFolderDescription(dirPath, dirName) {
   // Check for _category_.json
-  const categoryPath = path.join(dirPath, '_category_.json');
+  const categoryPath = path.join(dirPath, "_category_.json");
   if (await fileExists(categoryPath)) {
     try {
-      const categoryContent = await fs.promises.readFile(categoryPath, 'utf8');
+      const categoryContent = await fs.promises.readFile(categoryPath, "utf8");
       const categoryData = JSON.parse(categoryContent);
 
       // Check for description in different possible locations
@@ -285,13 +283,13 @@ async function getFolderDescription(dirPath, dirName) {
  */
 async function processFolderMarkdownFile(filePath) {
   // Read file content
-  let content = await fs.promises.readFile(filePath, 'utf8');
+  let content = await fs.promises.readFile(filePath, "utf8");
 
   // Remove frontmatter
-  content = content.replace(/^---\n[\s\S]*?\n---\n/, '');
+  content = content.replace(/^---\n[\s\S]*?\n---\n/, "");
 
   // Process the content line by line to adjust heading levels
-  const lines = content.split('\n');
+  const lines = content.split("\n");
   const processedLines = [];
 
   let foundFirstHeading = false;
@@ -300,14 +298,14 @@ async function processFolderMarkdownFile(filePath) {
     const line = lines[i];
 
     // Skip any remaining frontmatter-like lines
-    if (line.trim() === '---') {
+    if (line.trim() === "---") {
       // Check if this is the start of a frontmatter block
       let j = i + 1;
       let isFrontmatter = false;
 
       // Look ahead to see if there's a closing --- within a reasonable distance
       while (j < lines.length && j < i + 20) {
-        if (lines[j].trim() === '---') {
+        if (lines[j].trim() === "---") {
           isFrontmatter = true;
           break;
         }
@@ -341,7 +339,7 @@ async function processFolderMarkdownFile(filePath) {
         }
 
         // Create the new heading
-        processedLines.push('#'.repeat(newLevel) + ' ' + headingText);
+        processedLines.push("#".repeat(newLevel) + " " + headingText);
         continue;
       }
     }
@@ -351,7 +349,7 @@ async function processFolderMarkdownFile(filePath) {
   }
 
   // Join the processed lines back together
-  let processedContent = processedLines.join('\n');
+  let processedContent = processedLines.join("\n");
 
   // Trim leading and trailing whitespace
   processedContent = processedContent.trim();
@@ -366,20 +364,20 @@ async function processFolderMarkdownFile(filePath) {
  */
 function extractDescription(content) {
   // Remove frontmatter
-  const contentWithoutFrontmatter = content.replace(/^---\n[\s\S]*?\n---\n/, '');
+  const contentWithoutFrontmatter = content.replace(/^---\n[\s\S]*?\n---\n/, "");
 
   // Remove title
-  const contentWithoutTitle = contentWithoutFrontmatter.replace(/^#\s+.*?\n+/i, '');
+  const contentWithoutTitle = contentWithoutFrontmatter.replace(/^#\s+.*?\n+/i, "");
 
   // Get first paragraph as description
-  const paragraphs = contentWithoutTitle.split('\n\n');
+  const paragraphs = contentWithoutTitle.split("\n\n");
   for (const paragraph of paragraphs) {
-    if (paragraph.trim() && !paragraph.startsWith('#') && !paragraph.startsWith('![')) {
+    if (paragraph.trim() && !paragraph.startsWith("#") && !paragraph.startsWith("![")) {
       return paragraph.trim();
     }
   }
 
-  return '';
+  return "";
 }
 
 /**
@@ -404,25 +402,27 @@ async function fileExists(filePath) {
 async function getMdFiles(dir) {
   const entries = await fs.promises.readdir(dir, { withFileTypes: true });
 
-  const files = await Promise.all(entries.map(async entry => {
-    const fullPath = path.join(dir, entry.name);
+  const files = await Promise.all(
+    entries.map(async entry => {
+      const fullPath = path.join(dir, entry.name);
 
-    if (entry.isDirectory()) {
-      return getMdFiles(fullPath);
-    } else if (entry.name.endsWith('.md') || entry.name.endsWith('.mdx')) {
-      return [fullPath];
-    } else {
-      return [];
-    }
-  }));
+      if (entry.isDirectory()) {
+        return getMdFiles(fullPath);
+      } else if (entry.name.endsWith(".md") || entry.name.endsWith(".mdx")) {
+        return [fullPath];
+      } else {
+        return [];
+      }
+    }),
+  );
 
   return files.flat();
 }
 
 // If this script is run directly
 if (require.main === module) {
-  const docsDir = path.join(__dirname, '..', 'docs');
-  const outputPath = path.join(__dirname, '..', 'static', 'llms-full.txt');
+  const docsDir = path.join(__dirname, "..", "docs");
+  const outputPath = path.join(__dirname, "..", "static", "llms-full.txt");
 
   // Read header content from a file or use a default
   const headerContent = `# Scaffold-ETH 2
@@ -569,11 +569,10 @@ export const lineaSepolia = defineChain({
 3. Contract Read Flow:
    useScaffoldReadContract → display loading/error/data`;
 
-  generateLlmsTxt(docsDir, outputPath, headerContent)
-    .catch(err => {
-      console.error('Error generating llms-full.txt:', err);
-      process.exit(1);
-    });
+  generateLlmsTxt(docsDir, outputPath, headerContent).catch(err => {
+    console.error("Error generating llms-full.txt:", err);
+    process.exit(1);
+  });
 }
 
 module.exports = generateLlmsTxt;
