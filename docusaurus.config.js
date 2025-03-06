@@ -29,7 +29,7 @@ const config = {
         includeParentCategoriesInPageTitle: true,
       },
     ],
-    "./scripts/llms-txt-plugin",
+    llmsTxtPlugin,
   ],
   scripts: [
     {

@@ -8,8 +8,6 @@ const path = require('path');
  * @param {string} headerContent - Content to include at the top of the file
  */
 async function generateLlmsTxt(docsDir, outputPath, headerContent) {
-  console.log('Generating llms-full.txt...');
-
   // Array to store all markdown content
   const allContent = [];
 
@@ -35,7 +33,6 @@ async function generateLlmsTxt(docsDir, outputPath, headerContent) {
           continue; // Skip intro file as it's likely covered in the header
         }
 
-        console.log(`Processing root file: ${filePath}`);
         await processFile(filePath, docsDir, allContent, '###');
       }
       continue;
@@ -47,8 +44,6 @@ async function generateLlmsTxt(docsDir, outputPath, headerContent) {
     if (!(await fs.promises.stat(dirPath)).isDirectory()) {
       continue;
     }
-
-    console.log(`Processing directory: ${dirPath}`);
 
     // Format directory name for title (capitalize first letter)
     const formattedDirName = dirName.charAt(0).toUpperCase() + dirName.slice(1);
@@ -84,8 +79,6 @@ async function generateLlmsTxt(docsDir, outputPath, headerContent) {
 
   // Write concatenated content to file
   await fs.promises.writeFile(outputPath, allContent.join('\n\n'));
-
-  console.log(`Generated llms-full.txt at ${outputPath}`);
 }
 
 /**
@@ -96,8 +89,6 @@ async function generateLlmsTxt(docsDir, outputPath, headerContent) {
  * @param {string} titlePrefix - Prefix for the title (## or ###)
  */
 async function processFile(filePath, docsDir, allContent, titlePrefix) {
-  console.log(`Processing file: ${filePath}`);
-
   // Read file content
   let content = await fs.promises.readFile(filePath, 'utf8');
 
@@ -130,10 +121,12 @@ async function processFile(filePath, docsDir, allContent, titlePrefix) {
   // Process content
 
   // 1. Remove any additional frontmatter-like sections (sidebar_position, etc.)
-  // This is a more aggressive approach to remove any markdown block that looks like frontmatter
-  content = content.replace(/^---[\s\S]*?---\n/gm, '');
+  content = content.replace(/^---\n[\s\S]*?---\n/gm, '');
 
-  // 2. Process the content line by line to adjust heading levels and remove duplicate title
+  // 2. Remove the title if it starts with # (could be # Title or # title)
+  content = content.replace(/^#\s+.*?\n+/i, '');
+
+  // 3. Process the content line by line to adjust heading levels
   const lines = content.split('\n');
   const processedLines = [];
 

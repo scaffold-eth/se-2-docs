@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const generateLlmsTxt = require('./generate-llms-txt');
 
 /**
@@ -8,9 +9,28 @@ const generateLlmsTxt = require('./generate-llms-txt');
 function llmsTxtPlugin() {
   return {
     name: 'llms-txt-plugin',
+    async loadContent() {
+      return {};
+    },
+    async contentLoaded({ content, actions }) {
+    },
     async postBuild({ outDir, siteConfig }) {
-      const docsDir = path.join(siteConfig.rootDir, 'docs');
+      console.log('📝 Generating llms-full.txt file for LLM context...');
+
+      if (!outDir) {
+        console.error('Error: outDir is undefined');
+        return;
+      }
+
+      // Use a simpler approach - generate the file directly in the build output directory
+      const docsDir = path.join(process.cwd(), 'docs');
       const outputPath = path.join(outDir, 'llms-full.txt');
+
+      // Check if docs directory exists
+      if (!fs.existsSync(docsDir)) {
+        console.error(`Error: Docs directory does not exist: ${docsDir}`);
+        return;
+      }
 
       // Read header content from a file or use a default
       const headerContent = `# Scaffold-ETH 2
@@ -157,8 +177,24 @@ export const lineaSepolia = defineChain({
 3. Contract Read Flow:
    useScaffoldReadContract → display loading/error/data`;
 
-      await generateLlmsTxt(docsDir, outputPath, headerContent);
-      console.log('llms-full.txt generated successfully during build');
+      try {
+        await generateLlmsTxt(docsDir, outputPath, headerContent);
+
+        // Verify the file was created
+        if (fs.existsSync(outputPath)) {
+          const stats = fs.statSync(outputPath);
+
+          // Also copy the file to the static directory for reference
+          const staticPath = path.join(process.cwd(), 'static', 'llms-full.txt');
+          fs.copyFileSync(outputPath, staticPath);
+
+          console.log(`✅ Generated llms-full.txt (${Math.round(stats.size / 1024)} KB)`);
+        } else {
+          console.error(`❌ Failed to generate llms-full.txt`);
+        }
+      } catch (error) {
+        console.error('❌ Error generating llms-full.txt:', error.message);
+      }
     },
   };
 }
