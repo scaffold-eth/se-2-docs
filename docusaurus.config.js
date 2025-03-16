@@ -28,6 +28,7 @@ const config = {
         includeParentCategoriesInPageTitle: true,
       },
     ],
+    "./src/plugins/plugin-llms-full",
   ],
   scripts: [
     {
