@@ -21,6 +21,7 @@ const config = {
   organizationName: "scaffold-eth",
   projectName: "scaffold-eth-2",
   plugins: [
+    require.resolve("./src/plugins/docusaurus-plugin-llms-full"),
     [
       require.resolve("@cmfcmf/docusaurus-search-local"),
       {
@@ -28,7 +29,6 @@ const config = {
         includeParentCategoriesInPageTitle: true,
       },
     ],
-    "./src/plugins/plugin-llms-full",
   ],
   scripts: [
     {
