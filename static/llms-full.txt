@@ -4,12 +4,17 @@ Everything you need to build dApps on Ethereum. A modern, clean version of Scaff
 
 ## High level overview
 
-### Core Interaction Patterns
-
-Smart Contract Operations:
+### Smart Contract Read and Write Operations Patterns
 
 - Read: useScaffoldReadContract (packages/nextjs/hooks/scaffold-eth/useScaffoldReadContract.ts)
 - Write: useScaffoldWriteContract (packages/nextjs/hooks/scaffold-eth/useScaffoldWriteContract.ts)
+- Event Listening: useScaffoldEventHistory for historical data (packages/nextjs/hooks/scaffold-eth/useScaffoldEventHistory.ts)
+
+You have all the details of our custom hooks in `## Hooks` section from this file.
+
+### Best Practice Guidance for Components usage
+
+Use Scaffold-ETH 2 components whenever it makes sense, they are located in `packages/nextjs/components/scaffold-eth`. You have all the details about components in `## components` section from this file.
 
 ### UI/Design System
 
@@ -23,15 +28,11 @@ Styling Framework:
   * Base styling: packages/nextjs/styles/globals.css
   * Component-specific styling in individual component files
 
-### Connect wallet
-
-Wallet Connection:
+### Wallet Connection
 
 - Supported: RainbowKit (packages/nextjs/providers/RainbowKitProvider.tsx)
 
-### Deployment Configuration
-
-Network Setup:
+### Deployment Configuration and Network Setup
 
 - Default chains: check if `viem/chains` already has the chain present if not, follow the below steps.
 - Chains: Can be defined directly in scaffold.config.ts or in a separate file (e.g., packages/nextjs/utils/customChains.ts)
@@ -65,27 +66,6 @@ export const lineaSepolia = defineChain({
   },
   testnet: true,
 });
-
-### Best Practice Guidance
-
-1. Use Address or AddressInput for all address fields (depending if it's read-only or the user inputs the values)
-2. Use scaffold.config.ts for network selection
-
-### Performance Considerations
-
-- State Management: Use useScaffoldContract for contract instances
-- Event Listening: useScaffoldEventHistory for historical data
-
-### Example Flows
-
-1. Send Transaction Flow:
-   AddressInput → EtherInput → useScaffoldWriteContract
-
-2. Balance Display Flow:
-   useAccount → Balance → Refresh on block 
-
-3. Contract Read Flow:
-   useScaffoldReadContract → display loading/error/data
 
 ### disable-type-linting-error-checks
 
@@ -338,7 +318,7 @@ Source: https://docs.scaffoldeth.io/components/IntergerInput
 
 #### IntegerInput
 
-Provides an input field for integer values, validating that user input is a valid integer, and showing error if not.  
+Provides an input field for integer values, validating that user input is a valid integer, and showing error if not.
 Shows by default a small button to multiply input's value \* 10^18 to transform to wei.
 
 ![IntegerInput Example](/img/integerInput.png)
