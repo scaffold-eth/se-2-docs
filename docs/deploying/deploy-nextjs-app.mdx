@@ -5,6 +5,8 @@ toc_max_heading_level: 5
 
 # Deploy Your NextJS App
 
+## Deploy to Vercel
+
 :::tip Hint
 We recommend connecting your GitHub repo to Vercel (through the Vercel UI) so it gets automatically deployed when pushing to `main`.
 :::tip Hint
@@ -32,6 +34,25 @@ yarn vercel --prod
 If you omit the `--prod` flag it will deploy it to a preview/test URL.
 
 **Make sure to check the values of your Scaffold Configuration before deploying your NextJS App.**
+
+## Deploy to BG IPFS
+
+You can also deploy your app to BG IPFS by running:
+
+```
+yarn ipfs
+```
+
+This will build your app and deploy it to BG IPFS. After deployment, you'll receive a URL where your app is accessible.
+
+Below is an example of the output you'll see:
+
+```
+🚀 Upload complete! Your site is now available at: https://community.bgipfs.com/ipfs/bafybeicrhakhu4bkzyuuaprtie4dkup6wpiplndnsisd2gzv4uzayurvem
+```
+
+And that is all!
+If you want to use your ENS name as a gateway(e.g. `your-ens-name.eth.limo` will point to your app), you can check the following [guide](https://eth-limo.gitbook.io/documentation/beginner/configuring-your-ens-name/updating-your-ens-content-records).
 
 ## Scaffold App Configuration
 
