@@ -5,6 +5,10 @@ toc_max_heading_level: 5
 
 # Deploy Your NextJS App
 
+Deploy to Vercel or IPFS.
+
+## Deploy to Vercel
+
 :::tip Hint
 We recommend connecting your GitHub repo to Vercel (through the Vercel UI) so it gets automatically deployed when pushing to `main`.
 :::tip Hint
@@ -41,6 +45,16 @@ yarn vercel:yolo --prod
 If you omit the `--prod` flag it will deploy it to a preview/test URL.
 
 **Make sure to check the values of your Scaffold Configuration before deploying your NextJS App.**
+
+## Deploy to IPFS
+
+You can also deploy your app to [BG IPFS](https://www.bgipfs.com/) by running:
+
+```
+yarn ipfs
+```
+
+This will build your app and deploy it to BG IPFS. After deployment, you'll receive a URL where your app is accessible.
 
 ## Scaffold App Configuration
 
