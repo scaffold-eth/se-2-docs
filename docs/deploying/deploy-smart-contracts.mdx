@@ -56,7 +56,7 @@ The deployer account is the account that will deploy your contracts. Additionall
 <Tabs groupId="dev-tool">
 <TabItem value="hardhat" label="Hardhat" default>
 
-You can generate a random account / private key by running:
+You can **generate a random account / private key** by running:
 
 ```
 yarn generate
@@ -64,13 +64,13 @@ yarn generate
 
 It will automatically add the encrypted private key (`DEPLOYER_PRIVATE_KEY_ENCRYPTED`) in your `.env` file.
 
-You will be prompted to enter a password which will be used to encrypt your private key. **Make sure to remember this password as you'll need it for future deployments and account queries.**
+You will be prompted to enter a password which will be used to encrypt your private key. <u>**Make sure to remember this password as you'll need it for future deployments and account queries.**</u>
 
 :::info Info
 We are only storing the plain private key in memory, it's never stored in disk files for security reasons. Checkout the code [here](https://github.com/scaffold-eth/create-eth/blob/main/templates/solidity-frameworks/hardhat/packages/hardhat/scripts/generateAccount.ts).
 :::info
 
-If you prefer to import your private key, run:
+If you prefer to **import your private key**, run:
 
 ```
 yarn account:import
@@ -78,7 +78,15 @@ yarn account:import
 
 You will get prompted to paste your private key and set the encryption password. It will store your encrypted private key in your `.env` file.
 
-To reveal the private key of your currently configured deployer account (from `.env`), you can run:
+You can **check the configured (generated or imported) account and balances** with:
+
+```
+yarn account
+```
+
+You will need to enter your password to decrypt the private key and view the account information and balances.
+
+**To reveal the private key of your currently configured deployer account** (from `.env`), you can run:
 
 ```
 yarn account:reveal-pk
@@ -97,7 +105,7 @@ Revealing your private key can be risky. Ensure you are in a secure environment 
 
 > **Note:** If you already have a foundry keystore account, you can skip the following steps.
 
-You can generate a new keystore account by running:
+You can **generate a new keystore account** by running:
 
 ```
 yarn generate
@@ -105,9 +113,9 @@ yarn generate
 
 It will automatically generate a new [keystore](https://book.getfoundry.sh/reference/cast/cast-wallet-import) with random private key.
 
-You will be prompted to enter keystore name and a password which will be used to encrypt your keystore. **Make sure to remember this password as you'll need it for future deployments and account queries.**
+You will be prompted to enter keystore name and a password which will be used to encrypt your keystore. <u>**Make sure to remember this password as you'll need it for future deployments and account queries.**</u>
 
-If you prefer to import your private key run:
+If you prefer to **import your private key** run:
 
 ```
 yarn account:import
@@ -115,7 +123,15 @@ yarn account:import
 
 You will get prompted to enter [keystore](https://book.getfoundry.sh/reference/cast/cast-wallet-import#cast-wallet-import) name, private key and set the encryption password. It will create a new keystore in `~/.foundry/keystore` directory.
 
-To reveal the private key of a specific keystore account, you can run:
+You can **check the configured (generated or imported) account and balances** with:
+
+```
+yarn account
+```
+
+You will need to enter your password to decrypt the private key and view the account information and balances.
+
+**To reveal the private key of a specific keystore account**, you can run:
 
 ```
 yarn account:reveal-pk
@@ -131,14 +147,6 @@ Revealing your private key can be risky. Ensure you are in a secure environment 
 
 </TabItem>
 </Tabs>
-
-You can check the configured (generated or imported) account and balances with:
-
-```
-yarn account
-```
-
-You will need to enter your password to decrypt the private key and view the account information and balances.
 
 ## 3. Deploy your smart contract(s)
 
