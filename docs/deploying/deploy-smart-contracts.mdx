@@ -78,6 +78,20 @@ yarn account:import
 
 You will get prompted to paste your private key and set the encryption password. It will store your encrypted private key in your `.env` file.
 
+To reveal the private key of your currently configured deployer account (from `.env`), you can run:
+
+```
+yarn account:reveal-pk
+```
+
+You will be prompted to enter the password you used during the `yarn generate` or `yarn account:import` process. The command will then display your private key in the terminal.
+
+This command is especially useful if you need to **export your deployer account to another tool, wallet, or environment**.
+
+:::warning Security Warning
+Revealing your private key can be risky. Ensure you are in a secure environment and understand the implications. Never share your private key or commit it to version control.
+:::
+
 </TabItem>
 <TabItem value="foundry" label="Foundry">
 
@@ -100,6 +114,20 @@ yarn account:import
 ```
 
 You will get prompted to enter [keystore](https://book.getfoundry.sh/reference/cast/cast-wallet-import#cast-wallet-import) name, private key and set the encryption password. It will create a new keystore in `~/.foundry/keystore` directory.
+
+To reveal the private key of a specific keystore account, you can run:
+
+```
+yarn account:reveal-pk
+```
+
+You will be prompted to select the keystore account and then enter the password for that keystore. The command will then display the private key in the terminal.
+
+This command is especially useful if you need to **export your deployer account to another tool, wallet, or environment**.
+
+:::warning Security Warning
+Revealing your private key can be risky. Ensure you are in a secure environment and understand the implications. Never share your private key or commit it to version control.
+:::
 
 </TabItem>
 </Tabs>
