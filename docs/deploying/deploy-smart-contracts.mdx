@@ -86,7 +86,10 @@ yarn account
 
 You will need to enter your password to decrypt the private key and view the account information and balances.
 
-**To reveal the private key of your currently configured deployer account** (from `.env`), you can run:
+<details>
+<summary><strong>Reveal the private key of your deployer account (security risk)</strong></summary>
+
+To reveal the private key of your currently configured deployer account (from `.env`), you can run:
 
 ```
 yarn account:reveal-pk
@@ -99,6 +102,8 @@ This command is especially useful if you need to **export your deployer account 
 :::warning Security Warning
 Revealing your private key can be risky. Ensure you are in a secure environment and understand the implications. Never share your private key or commit it to version control.
 :::
+
+</details>
 
 </TabItem>
 <TabItem value="foundry" label="Foundry">
@@ -131,7 +136,10 @@ yarn account
 
 You will need to enter your password to decrypt the private key and view the account information and balances.
 
-**To reveal the private key of a specific keystore account**, you can run:
+<details>
+<summary><strong>Reveal the private key of a keystore account (security risk)</strong></summary>
+
+To reveal the private key of a specific keystore account, you can run:
 
 ```
 yarn account:reveal-pk
@@ -144,6 +152,8 @@ This command is especially useful if you need to **export your deployer account 
 :::warning Security Warning
 Revealing your private key can be risky. Ensure you are in a secure environment and understand the implications. Never share your private key or commit it to version control.
 :::
+
+</details>
 
 </TabItem>
 </Tabs>
