@@ -100,7 +100,7 @@ https://<your-site>.on.fleek.co
 
 ---
 
-## 🔗 Step 4: Access the App on IPFS
+## Step 4: Access the App on IPFS
 
 You can view your deployed dApp through any IPFS gateway:
 
