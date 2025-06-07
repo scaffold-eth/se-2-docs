@@ -1,10 +1,10 @@
-# 🚀 Deploying a Scaffold-ETH 2 Next.js App to IPFS
+# Deploying a Scaffold-ETH 2 Next.js App to IPFS
 
 This guide walks through how to deploy a Scaffold-ETH 2 frontend (built with Next.js) to [IPFS](https://ipfs.tech/) using either the command-line (`ipfs-cli`) or a hosted platform like [Fleek](https://fleek.co/). Ideal for pushing decentralized apps live with minimal effort.
 
 ---
 
-## 🧱 Step 1: Build the Next.js App for Production
+## Step 1: Build the Next.js App for Production
 
 Before deploying, make sure your project is production-ready.
 
@@ -17,7 +17,7 @@ This generates an optimized `.next` folder with all production assets.
 
 ---
 
-## 📦 Step 2: Export the App as Static Files
+## Step 2: Export the App as Static Files
 
 IPFS serves static content, so we need to statically export the Next.js app.
 
@@ -39,7 +39,7 @@ This creates an `out/` directory containing the static site.
 
 ---
 
-## 🌐 Step 3: Deploy to IPFS
+## Step 3: Deploy to IPFS
 
 You have two options here:
 
