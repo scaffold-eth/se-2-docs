@@ -9,6 +9,23 @@ slug: /
 
 ⚙️ Built using NextJS, RainbowKit, Hardhat, Foundry, Wagmi, and TypeScript.
 
+<div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden" }}>
+  <iframe
+    src="https://www.youtube.com/embed/AUwYGRkxm_8"
+    title="Scaffold-ETH Intro Video"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+    style={{
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      border: 0
+    }}
+  />
+</div>
+
 ## About Scaffold-ETH 2
 
 Scaffold-ETH is an open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
