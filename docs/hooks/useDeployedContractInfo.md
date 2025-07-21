@@ -21,4 +21,4 @@ This example retrieves the details of the deployed contract with the specified n
 
 ### Return Value
 
-- `data`: Object containing `address` and `abi` of contract.
+- `data`: Object containing `address`, `deployedOnBlock` and `abi` of contract.
