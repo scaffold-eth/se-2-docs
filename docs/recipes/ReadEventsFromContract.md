@@ -1,12 +1,12 @@
 ---
 sidebar_position: 6
-title: Read and Display Contract Events
+title: Read and display contract events
 description: Learn how to fetch and display smart contract events in your dApp.
 ---
 
 # Read and Display Contract Events
 
-This recipe shows how to fetch and display events emitted by your smart contract using the `useScaffoldEventHistory` hook. You'll learn how to efficiently query, parse, and render contract events in your UI, and see how to extend your project with production-grade event indexing using Subgraph or Ponder.
+This recipe shows how to fetch and display events emitted by your smart contract using the [useScaffoldEventHistory](/hooks/useScaffoldEventHistory) hook. You'll learn how to efficiently query, parse, and render contract events in your UI, and see how to extend your project with production-grade event indexing using Subgraph or Ponder.
 
 <details open>
 <summary>Here is the full code, which we will be implementing in the guide below:</summary>
@@ -36,7 +36,7 @@ export const ContractEvents = () => {
       <h2>GreetingChange Events</h2>
       <ul>
         {events?.map(event => (
-          <li key={event.logIndex}>
+          <li key={`${event.transactionHash}-${event.logIndex}`}>
             <p>Setter: {event.args?.greetingSetter}</p>
             <p>Greeting: {event.args?.newGreeting}</p>
             <p>Premium: {event.args?.premium}</p>
@@ -52,11 +52,11 @@ export const ContractEvents = () => {
 
 </details>
 
-## Implementation Guide
+## Implementation guide
 
-### Step 1: Create a Component
+### Step 1: Create a new Component
 
-Create a new file, e.g., `components/ContractEvents.tsx`, in your project.
+Create a new component in the `components` folder of your application.
 
 ```tsx title="components/ContractEvents.tsx"
 import * as React from "react";
@@ -66,7 +66,7 @@ export const ContractEvents = () => {
 };
 ```
 
-### Step 2: Use the `useScaffoldEventHistory` Hook
+### Step 2: Initialize the `useScaffoldEventHistory` hook
 
 Import and use the `useScaffoldEventHistory` hook to fetch events. By default, the hook will start fetching from the block the contract was deployed (`deployedOnBlock`), so you don’t need to specify `fromBlock` unless you want to override it.
 
@@ -148,7 +148,7 @@ export const ContractEvents = () => {
       <h2>GreetingChange Events</h2>
       <ul>
         {events?.map(event => (
-          <li key={event.logIndex}>
+          <li key={`${event.transactionHash}-${event.logIndex}`}>
             <p>Setter: {event.args?.greetingSetter}</p>
             <p>Greeting: {event.args?.newGreeting}</p>
             <p>Premium: {event.args?.premium}</p>
@@ -162,32 +162,6 @@ export const ContractEvents = () => {
   // highlight-end
 };
 ```
-
-## How `fromBlock` and `deployedOnBlock` Work
-
-The `useScaffoldEventHistory` hook uses the `fromBlock` parameter to determine where to start fetching events from the blockchain.
-
-- **Default behavior:**
-  If you do not specify `fromBlock`, the hook will automatically start fetching events from the block where your contract was deployed. This block number is stored as `deployedOnBlock` in your deployed contracts metadata. This makes event queries more efficient, as it avoids scanning blocks before your contract existed.
-
-- **Customizing `fromBlock`:**
-  You can override this behavior by explicitly setting the `fromBlock` parameter in the hook options. For example, you might want to fetch events from a more recent block, or from the very beginning of the chain (`fromBlock: 0n`), depending on your use case.
-
-**Example:**
-
-```tsx title="components/ContractEvents.tsx"
-useScaffoldEventHistory({
-  contractName: "YourContract",
-  eventName: "GreetingChange",
-  fromBlock: 0n, // fetch from the genesis block (not recommended unless needed)
-  watch: true,
-  blockData: true,
-});
-```
-
-## Displaying Event Arguments
-
-The argument names (`greetingSetter`, `newGreeting`, `premium`, `value`, etc.) should match those defined in your contract’s event. Adjust them as needed for your use case.
 
 ## Next Steps
 
