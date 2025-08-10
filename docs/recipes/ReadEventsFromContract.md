@@ -4,7 +4,7 @@ title: Read and display contract events
 description: Learn how to fetch and display smart contract events in your dApp.
 ---
 
-# Read and Display Contract Events
+# Read and display contract events
 
 This recipe shows how to fetch and display events emitted by your smart contract using the [useScaffoldEventHistory](/hooks/useScaffoldEventHistory) hook. You'll learn how to efficiently query, parse, and render contract events in your UI, and see how to extend your project with production-grade event indexing using Subgraph or Ponder.
 
@@ -56,7 +56,7 @@ export const ContractEvents = () => {
 
 ### Step 1: Create a new Component
 
-Create a new component in the `components` folder of your application.
+Create a new component in the "components" folder of your application.
 
 ```tsx title="components/ContractEvents.tsx"
 import * as React from "react";
@@ -68,7 +68,7 @@ export const ContractEvents = () => {
 
 ### Step 2: Initialize the `useScaffoldEventHistory` hook
 
-Import and use the `useScaffoldEventHistory` hook to fetch events. By default, the hook will start fetching from the block the contract was deployed (`deployedOnBlock`), so you don’t need to specify `fromBlock` unless you want to override it.
+Import and initialize the `useScaffoldEventHistory` hook to fetch events. By default, the hook will start fetching from the block the contract was deployed (`deployedOnBlock`), so you don’t need to specify `fromBlock` unless you want to override it.
 
 ```tsx title="components/ContractEvents.tsx"
 import * as React from "react";
@@ -85,7 +85,6 @@ export const ContractEvents = () => {
   } = useScaffoldEventHistory({
     contractName: "YourContract",
     eventName: "GreetingChange",
-    // fromBlock defaults to deployedOnBlock if available (block number of the contract deployment)
     watch: true,
     blockData: true,
   });
@@ -94,34 +93,7 @@ export const ContractEvents = () => {
 };
 ```
 
-### Step 3: Handle Loading and Error States
-
-Show feedback to the user while events are loading or if an error occurs.
-
-```tsx title="components/ContractEvents.tsx"
-import * as React from "react";
-import { useScaffoldEventHistory } from "~~/hooks/scaffold-eth";
-
-export const ContractEvents = () => {
-  const {
-    data: events,
-    isLoading,
-    error,
-  } = useScaffoldEventHistory({
-    contractName: "YourContract",
-    eventName: "GreetingChange",
-    watch: true,
-    blockData: true,
-  });
-  // highlight-start
-  if (isLoading) return <div>Loading events...</div>;
-  if (error) return <div>Error loading events: {error.message}</div>;
-  // highlight-end
-  return <div>Contract Events will be displayed here.</div>;
-};
-```
-
-### Step 4: Display the Events
+### Step 3: Display the Events
 
 Render the events in your UI. Adjust the argument names to match your contract's event signature.
 
@@ -140,8 +112,6 @@ export const ContractEvents = () => {
     watch: true,
     blockData: true,
   });
-  if (isLoading) return <div>Loading events...</div>;
-  if (error) return <div>Error loading events: {error.message}</div>;
   // highlight-start
   return (
     <div>
@@ -160,6 +130,50 @@ export const ContractEvents = () => {
     </div>
   );
   // highlight-end
+};
+```
+
+### Step 4: Bonus handle Loading and Error states
+
+Show feedback to the user while events are loading or if an error occurs.
+
+```tsx title="components/ContractEvents.tsx"
+import * as React from "react";
+import { useScaffoldEventHistory } from "~~/hooks/scaffold-eth";
+
+export const ContractEvents = () => {
+  const {
+    data: events,
+    isLoading,
+    error,
+  } = useScaffoldEventHistory({
+    contractName: "YourContract",
+    eventName: "GreetingChange",
+    watch: true,
+    blockData: true,
+  });
+
+  // highlight-start
+  if (isLoading) return <div>Loading events...</div>;
+  if (error) return <div>Error loading events: {error.message}</div>;
+  // highlight-end
+
+  return (
+    <div>
+      <h2>GreetingChange Events</h2>
+      <ul>
+        {events?.map(event => (
+          <li key={`${event.transactionHash}-${event.logIndex}`}>
+            <p>Setter: {event.args?.greetingSetter}</p>
+            <p>Greeting: {event.args?.newGreeting}</p>
+            <p>Premium: {event.args?.premium}</p>
+            <p>Value: {event.args?.value}</p>
+            <p>Block: {event.block?.number?.toString()}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 ```
 
