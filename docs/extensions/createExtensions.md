@@ -92,8 +92,9 @@ The workflow consists of two main parts:
    ```
 
    This command will create a **new base instance**, similar to running `npx create-eth@latest`.
+   Note: it's recommended to create a **new base instance** outside of `create-eth` folder, so use `../<your-instance-name>`.
 
-   The name mentioned for the "Your project name" question will be used as the **extension name**. For example, if you provide `eip` as the value to the question, then the final extension name will be `eip`.
+   The name mentioned for the "Your project name" question will be used as the **extension name**. For example, if you provide `../eip` as the value to the question, then the final extension name will be `eip`.
 
 4. **Develop the Extension:**
 
@@ -109,7 +110,7 @@ The workflow consists of two main parts:
    yarn create-extension {projectName}
    ```
 
-   Example: `yarn create-extension eip`
+   Example: `yarn create-extension ../eip`
 
    This command gathers all changes from the instance and creates an extension in the `create-eth/externalExtensions/${extensionName}` directory. This directory is the actual extension directory (notice it contains only extra files related to your extension changes), which can be published to GitHub and used by others.
 
@@ -149,10 +150,10 @@ This phase allows you to test your extension locally and see how it works when u
 
    The `extensionName` should be present in `create-eth/externalExtensions/${extensionName}`.
 
-   Let's suppose you named your project "my-dev-instance". Then this `my-dev-instance` should contain all your extension changes. `--dev` will symlink the extension to the instance project.
+   Let's suppose you named your project "../my-dev-instance". Then this `../my-dev-instance` should contain all your extension changes. `--dev` will symlink the extension to the instance project.
 
 2. **Test and Tweak the Extension:**
-   Since the instance is symlinked with the extension, make necessary changes directly in the symlinked files within `my-dev-instance`, and changes should be automatically reflected in the `create-eth/externalExtensions/${extensionName}` directory.
+   Since the instance is symlinked with the extension, make necessary changes directly in the symlinked files within `../my-dev-instance`, and changes should be automatically reflected in the `create-eth/externalExtensions/${extensionName}` directory.
 
 3. **Push the tweaked changes**
 
