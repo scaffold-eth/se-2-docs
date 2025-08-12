@@ -55,7 +55,7 @@ Key points:
 
 - They allow you to add specific content to files in the base project.
 - Not all files can be modified this way. See [TEMPLATE-FILES.md](https://github.com/scaffold-eth/create-eth/blob/main/contributors/TEMPLATE-FILES.md) for a list of supported template files.
-- To use a template file, create an `*.args.mjs` file in your extension having the same path structure as `*.template.mjs`. For example, to add extra tab in the header, you'd create `extension/packages/nextjs/components/Header.tsx.args.mjs`.
+- To use a template file, create an `*.args.mjs` file in your extension having the same path structure as `*.template.mjs`. For example, to add an extra tab in the header, you'd create `extension/packages/nextjs/components/Header.tsx.args.mjs`.
 
 ### Advanced Development Workflow
 
@@ -92,7 +92,7 @@ The workflow consists of two main parts:
    ```
 
    This command will create a **new base instance**, similar to running `npx create-eth@latest`.
-   Note: it's recommended to create a **new base instance** outside of `create-eth` folder, so use `../<your-instance-name>`.
+   Note: It's recommended to create a **new base instance** outside of the `create-eth` folder, so use `../<your-instance-name>`.
 
    The name mentioned for the "Your project name" question will be used as the **extension name**. For example, if you provide `../eip` as the value to the question, then the final extension name will be `eip`.
 
@@ -112,7 +112,7 @@ The workflow consists of two main parts:
 
    Example: `yarn create-extension ../eip`
 
-   This command gathers all changes from the instance and creates an extension in the `create-eth/externalExtensions/${extensionName}` directory. This directory is the actual extension directory (notice it contains only extra files related to your extension changes), which can be published to GitHub and used by others.
+   This command gathers all changes from the instance and creates an extension in the `create-eth/externalExtensions/${extensionName}` directory. This directory is the actual extension directory (notice it contains only the extra files related to your extension changes), which can be published to GitHub and used by others.
 
 6. **Publish the Extension:**
 
@@ -153,7 +153,7 @@ This phase allows you to test your extension locally and see how it works when u
    Let's suppose you named your project "../my-dev-instance". Then this `../my-dev-instance` should contain all your extension changes. `--dev` will symlink the extension to the instance project.
 
 2. **Test and Tweak the Extension:**
-   Since the instance is symlinked with the extension, make necessary changes directly in the symlinked files within `../my-dev-instance`, and changes should be automatically reflected in the `create-eth/externalExtensions/${extensionName}` directory.
+   Since the instance is symlinked with the extension, make necessary changes directly in the symlinked files within `../my-dev-instance`, and the changes should be automatically reflected in the `create-eth/externalExtensions/${extensionName}` directory.
 
 3. **Push the tweaked changes**
 
