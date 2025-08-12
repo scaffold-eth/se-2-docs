@@ -6,7 +6,7 @@ description: Learn how to fetch and display smart contract events in your dApp.
 
 # Read and display contract events
 
-This recipe shows how to fetch and display events emitted by your smart contract using the [useScaffoldEventHistory](/hooks/useScaffoldEventHistory) hook. You'll learn how to efficiently query, parse, and render contract events in your UI, and see how to extend your project with production-grade event indexing using Subgraph or Ponder.
+This recipe shows how to fetch and display events emitted by your smart contract using the [useScaffoldEventHistory](/hooks/useScaffoldEventHistory) hook. You'll learn how to efficiently query, listen, parse, and render contract events in your UI, and see how to extend your project with production-grade event indexing using Subgraph or Ponder.
 
 <details open>
 <summary>Here is the full code, which we will be implementing in the guide below:</summary>
