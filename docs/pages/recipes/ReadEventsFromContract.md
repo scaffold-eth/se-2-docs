@@ -24,7 +24,7 @@ export const ContractEvents = () => {
     contractName: "YourContract",
     eventName: "GreetingChange",
     // fromBlock defaults to deployedOnBlock if available (block number of the contract deployment)
-    watch: true,
+    watch: true, // Defaults to false. Set to true to listen for new events in real-time
     blockData: true,
   });
 
