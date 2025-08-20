@@ -8,6 +8,10 @@ description: Learn how to fetch and display smart contract events in your dApp.
 
 This recipe shows how to fetch and display events emitted by your smart contract using the [useScaffoldEventHistory](/hooks/useScaffoldEventHistory) hook. You'll learn how to efficiently query, listen, parse, and render contract events in your UI, and see how to extend your project with production-grade event indexing using Subgraph or Ponder.
 
+:::caution Performance Considerations
+The `useScaffoldEventHistory` hook is primarily designed for **local development** (hardhat/anvil chains). Using it in production environments(mainnet or L2 chains), can cause performance issues and excessive RPC usage. For production applications, consider using specialized indexing solutions like [Subgraph](#next-steps) or [Ponder](#next-steps) instead.
+:::caution
+
 <details open>
 <summary>Here is the full code, which we will be implementing in the guide below:</summary>
 
