@@ -85,12 +85,12 @@ To add a custom chain that's not in viem/chains, see the recipe, [Add a custom c
 
 The interval in milliseconds at which your front-end application polls the RPC servers for fresh data. _Note that this setting does not affect the local network._
 
-#### - alchemyApiKey
+#### - NEXT_PUBLIC_ALCHEMY_API_KEY
 
 Default Alchemy API key from Scaffold-ETH 2 for local testing purposes.
 It's recommended to obtain your own API key from the [Alchemy Dashboard](https://dashboard.alchemyapi.io/) and store it in this environment variable: `NEXT_PUBLIC_ALCHEMY_API_KEY` in the `\packages\nextjs\.env.local` file.
 
-#### - walletConnectProjectId
+#### - NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID
 
 WalletConnect's default project ID from Scaffold-ETH 2 for local testing purposes.
 It's recommended to obtain your own project ID from the [WalletConnect website](https://cloud.walletconnect.com) and store it in this environment variable: `NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID` in the `\packages\nextjs\.env.local` file.
@@ -120,3 +120,20 @@ To use the values from the `ScaffoldConfig` in any other file of your applicatio
 ```ts
 import scaffoldConfig from "~~/scaffold.config";
 ```
+
+:::tip Vercel deploy checklist
+**Project → Settings → General**  
+- **Root Directory:** `packages/nextjs`
+
+**Project → Settings → Environment Variables**  
+- `NEXT_PUBLIC_ALCHEMY_API_KEY` = your key  
+- `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID` = your WalletConnect Cloud projectId
+
+**Project → Settings → Build & Development**  
+- **Build Command:** `yarn generate && yarn build`  
+- **Output Directory:** `.next`
+
+**Notes**  
+- `NEXT_PUBLIC_*` vars are injected at **build** time; redeploy after changes.  
+- Contract addresses are read from `packages/nextjs/generated/deployedContracts.ts` (created by `yarn generate`).
+:::
