@@ -1,28 +1,60 @@
 "use client";
 
-import * as React from "react";
+import {
+  useMemo,
+  useState,
+  useEffect,
+  Children,
+  createContext,
+  isValidElement,
+  useReducer,
+  useCallback,
+  useContext,
+} from "react";
 
-interface TabsContextValue {
+const tabsGroupStore: Record<string, string> = {};
+const tabsGroupListeners: Record<string, Set<() => void>> = {};
+
+function getGroupValue(groupId: string): string | undefined {
+  return tabsGroupStore[groupId];
+}
+
+function setGroupValue(groupId: string, value: string): void {
+  tabsGroupStore[groupId] = value;
+  tabsGroupListeners[groupId]?.forEach((listener) => listener());
+}
+
+function subscribeToGroup(groupId: string, listener: () => void): () => void {
+  if (!tabsGroupListeners[groupId]) {
+    tabsGroupListeners[groupId] = new Set();
+  }
+  tabsGroupListeners[groupId].add(listener);
+  return () => {
+    tabsGroupListeners[groupId].delete(listener);
+  };
+}
+
+type TabsContextValue = {
   groupId?: string;
   activeTab: string;
   setActiveTab: (value: string) => void;
-}
+};
 
-const TabsContext = React.createContext<TabsContextValue | null>(null);
+const TabsContext = createContext<TabsContextValue | null>(null);
 
-interface TabsProps {
+type TabsProps = {
   groupId?: string;
   children: React.ReactNode;
   defaultValue?: string;
-}
+};
 
 export function Tabs({ groupId, children, defaultValue }: TabsProps) {
-  const tabs = React.useMemo(() => {
+  const tabs = useMemo(() => {
     const tabItems: Array<{ value: string; label: string; default: boolean }> =
       [];
 
-    React.Children.forEach(children, (child) => {
-      if (React.isValidElement<TabItemProps>(child)) {
+    Children.forEach(children, (child) => {
+      if (isValidElement<TabItemProps>(child)) {
         // Check if it's a TabItem by checking props
         if (child.props?.value) {
           tabItems.push({
@@ -39,13 +71,44 @@ export function Tabs({ groupId, children, defaultValue }: TabsProps) {
 
   const defaultTab =
     tabs.find((t) => t.default)?.value || tabs[0]?.value || defaultValue || "";
-  const [activeTab, setActiveTab] = React.useState<string>(defaultTab);
 
-  React.useEffect(() => {
+  // Local state for tabs without groupId
+  const [localActiveTab, setLocalActiveTab] = useState<string>(defaultTab);
+
+  // Sync state for tabs with groupId
+  const [, forceUpdate] = useReducer((x) => x + 1, 0);
+
+  useEffect(() => {
+    if (!groupId) return;
+
+    if (!getGroupValue(groupId)) {
+      setGroupValue(groupId, defaultTab);
+    }
+
+    const unsubscribe = subscribeToGroup(groupId, forceUpdate);
+    return unsubscribe;
+  }, [groupId, defaultTab]);
+
+  const activeTab = groupId
+    ? getGroupValue(groupId) || defaultTab
+    : localActiveTab;
+
+  const setActiveTab = useCallback(
+    (value: string) => {
+      if (groupId) {
+        setGroupValue(groupId, value);
+      } else {
+        setLocalActiveTab(value);
+      }
+    },
+    [groupId]
+  );
+
+  useEffect(() => {
     if (!activeTab && tabs.length > 0) {
       setActiveTab(defaultTab);
     }
-  }, [activeTab, tabs, defaultTab]);
+  }, [activeTab, tabs, defaultTab, setActiveTab]);
 
   return (
     <TabsContext.Provider value={{ groupId, activeTab, setActiveTab }}>
@@ -111,7 +174,7 @@ export function TabItem({
   default: _isDefault,
   children,
 }: TabItemProps) {
-  const context = React.useContext(TabsContext);
+  const context = useContext(TabsContext);
 
   // Only render if this tab is active
   if (!context || context.activeTab !== value) {
