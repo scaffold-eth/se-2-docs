@@ -1,4 +1,3 @@
-
 # 🙏 Contributing to Scaffold-ETH 2
 
 We welcome contributions to Scaffold-ETH 2!
@@ -8,6 +7,7 @@ This section aims to provide an overview of the contribution workflow to help us
 :::warning
 The project is under active development. You can view the open Issues, follow the development process, and contribute to the project.
 :::
+
 ## Getting Started
 
 You can contribute to this repo in many ways:

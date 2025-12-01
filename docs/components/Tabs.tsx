@@ -22,7 +22,7 @@ export function Tabs({ groupId, children, defaultValue }: TabsProps) {
       [];
 
     React.Children.forEach(children, (child) => {
-      if (React.isValidElement(child)) {
+      if (React.isValidElement<TabItemProps>(child)) {
         // Check if it's a TabItem by checking props
         if (child.props?.value) {
           tabItems.push({
@@ -107,8 +107,8 @@ interface TabItemProps {
 
 export function TabItem({
   value,
-  label,
-  default: isDefault,
+  label: _label,
+  default: _isDefault,
   children,
 }: TabItemProps) {
   const context = React.useContext(TabsContext);

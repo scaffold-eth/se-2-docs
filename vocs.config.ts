@@ -26,6 +26,10 @@ export default defineConfig({
       text: "⚙ Components",
       items: [
         {
+          text: "overview",
+          link: "/components",
+        },
+        {
           text: "Address",
           link: "/components/Address",
         },
@@ -63,8 +67,24 @@ export default defineConfig({
       text: "🔌 Hooks",
       items: [
         {
-          text: "Hooks Overview",
-          link: "/hooks/hooks",
+          text: "overview",
+          link: "/hooks",
+        },
+        {
+          text: "useScaffoldReadContract",
+          link: "/hooks/useScaffoldReadContract",
+        },
+        {
+          text: "useScaffoldWriteContract",
+          link: "/hooks/useScaffoldWriteContract",
+        },
+        {
+          text: "useScaffoldWatchContractEvent",
+          link: "/hooks/useScaffoldWatchContractEvent",
+        },
+        {
+          text: "useScaffoldEventHistory",
+          link: "/hooks/useScaffoldEventHistory",
         },
         {
           text: "useDeployedContractInfo",
@@ -75,26 +95,14 @@ export default defineConfig({
           link: "/hooks/useScaffoldContract",
         },
         {
-          text: "useScaffoldEventHistory",
-          link: "/hooks/useScaffoldEventHistory",
-        },
-        {
-          text: "useScaffoldReadContract",
-          link: "/hooks/useScaffoldReadContract",
-        },
-        {
-          text: "useScaffoldWatchContractEvent",
-          link: "/hooks/useScaffoldWatchContractEvent",
-        },
-        {
-          text: "useScaffoldWriteContract",
-          link: "/hooks/useScaffoldWriteContract",
-        },
-        {
           text: "useTransactor",
           link: "/hooks/useTransactor",
         },
       ],
+    },
+    {
+      text: "📡 External Contracts",
+      link: "/external-contracts/external-contracts",
     },
     {
       text: "🧪 Recipes",
@@ -135,12 +143,16 @@ export default defineConfig({
       ],
     },
     {
-      text: "📡 External Contracts",
-      link: "/external-contracts/external-contracts",
+      text: "✅ Disable Type & Linting Error Checks",
+      link: "/disable-type-linting-error-checks",
     },
     {
-      text: "🔌 Extensions",
+      text: " Extensions",
       items: [
+        {
+          text: "Overview",
+          link: "/extensions",
+        },
         {
           text: "How to Install",
           link: "/extensions/howToInstall",
@@ -155,6 +167,10 @@ export default defineConfig({
       text: "🙏 Contributing",
       items: [
         {
+          text: "overview",
+          link: "/contributing",
+        },
+        {
           text: "Issues",
           link: "/contributing/Issues",
         },
@@ -162,15 +178,7 @@ export default defineConfig({
           text: "Pull Requests",
           link: "/contributing/pullRequests",
         },
-        {
-          text: "Contributing",
-          link: "/contributing/contributing",
-        },
       ],
-    },
-    {
-      text: "✅ Disable Type & Linting Error Checks",
-      link: "/disable-type-linting-error-checks",
     },
   ],
   socials: [
