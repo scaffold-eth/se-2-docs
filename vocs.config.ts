@@ -10,6 +10,10 @@ export default defineConfig({
   },
   sidebar: [
     {
+      text: "🏗 Welcome",
+      link: "/",
+    },
+    {
       text: "🚀 Quick Start",
       items: [
         {
