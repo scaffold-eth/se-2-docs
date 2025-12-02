@@ -1,3 +1,7 @@
+---
+title: Issues
+description: Report bugs, request features, or find issues to solve.
+---
 
 # Issues
 

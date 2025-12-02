@@ -1,3 +1,7 @@
+---
+title: useScaffoldContract
+description: Get a contract instance for direct read/write interactions.
+---
 
 # useScaffoldContract
 

@@ -1,3 +1,7 @@
+---
+title: useScaffoldWriteContract
+description: Send transactions to smart contract functions.
+---
 
 # useScaffoldWriteContract
 

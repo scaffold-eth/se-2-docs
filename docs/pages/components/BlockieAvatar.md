@@ -1,3 +1,7 @@
+---
+title: BlockieAvatar
+description: Generate blockie avatars for Ethereum addresses.
+---
 
 # BlockieAvatar
 

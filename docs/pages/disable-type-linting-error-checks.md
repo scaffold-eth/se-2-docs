@@ -1,3 +1,7 @@
+---
+title: Disable Type & Lint Checks
+description: Skip TypeScript and linting checks during development or deployment.
+---
 
 # ✅ Disabling Type and Linting Error Checks
 

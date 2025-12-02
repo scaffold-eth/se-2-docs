@@ -1,3 +1,8 @@
+---
+title: Contributing
+description: How to contribute to the Scaffold-ETH 2 project.
+---
+
 # 🙏 Contributing to Scaffold-ETH 2
 
 We welcome contributions to Scaffold-ETH 2!

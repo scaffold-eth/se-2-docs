@@ -1,3 +1,7 @@
+---
+title: useDeployedContractInfo
+description: Fetch ABI and address of deployed contracts.
+---
 
 # useDeployedContractInfo
 

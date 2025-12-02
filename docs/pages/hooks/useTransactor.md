@@ -1,3 +1,7 @@
+---
+title: useTransactor
+description: Handle transactions with built-in UI feedback.
+---
 
 # useTransactor
 

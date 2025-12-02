@@ -1,3 +1,8 @@
+---
+title: Create Extensions
+description: Build custom extensions for Scaffold-ETH 2.
+---
+
 # Creating Your Own Extension
 
 This section will help you develop custom extensions for Scaffold-ETH 2, from simple additions to more complex modifications.

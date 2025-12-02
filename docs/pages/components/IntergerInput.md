@@ -1,3 +1,7 @@
+---
+title: IntegerInput
+description: Input field for integer values with wei conversion.
+---
 
 # IntegerInput
 

@@ -1,3 +1,7 @@
+---
+title: useScaffoldWatchContractEvent
+description: Subscribe to real-time smart contract events.
+---
 
 # useScaffoldWatchContractEvent
 

@@ -1,3 +1,8 @@
+---
+title: Hooks
+description: Custom React hooks for seamless smart contract interactions.
+---
+
 # 🛠 Interacting with Your Smart Contracts
 
 Scaffold-ETH 2 provides a collection of custom React hooks designed to simplify interactions with your deployed smart contracts. These hooks are wrappers around Wagmi, an easy-to-use interface with typescript autocompletions for reading from, writing to, and monitoring events emitted by your smart contracts.

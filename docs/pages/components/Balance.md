@@ -1,3 +1,7 @@
+---
+title: Balance
+description: Display ETH balance with USD conversion.
+---
 
 # Balance
 

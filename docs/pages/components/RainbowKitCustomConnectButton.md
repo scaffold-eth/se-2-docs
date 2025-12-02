@@ -1,3 +1,7 @@
+---
+title: RainbowKitCustomConnectButton
+description: Enhanced wallet connect button with balance display.
+---
 
 # RainbowKitCustomConnectButton
 

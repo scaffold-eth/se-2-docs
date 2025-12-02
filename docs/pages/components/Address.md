@@ -1,3 +1,7 @@
+---
+title: Address
+description: Display Ethereum addresses with ENS resolution and copy feature.
+---
 
 # Address
 

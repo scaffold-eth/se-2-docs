@@ -1,3 +1,7 @@
+---
+title: External Contracts
+description: Interact with contracts not deployed by your SE-2 instance.
+---
 
 # 📡 Interacting with External Contracts
 

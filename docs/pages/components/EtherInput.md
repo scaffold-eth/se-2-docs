@@ -1,3 +1,7 @@
+---
+title: EtherInput
+description: Input field for ETH amounts with USD toggle.
+---
 
 # EtherInput
 

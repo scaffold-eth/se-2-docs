@@ -1,3 +1,7 @@
+---
+title: InputBase
+description: Base input component with default styling.
+---
 
 # InputBase
 

@@ -1,3 +1,7 @@
+---
+title: AddressInput
+description: Input field with address validation and ENS support.
+---
 
 # AddressInput
 

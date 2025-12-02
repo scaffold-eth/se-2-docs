@@ -1,3 +1,7 @@
+---
+title: Install Extensions
+description: Add extensions to your Scaffold-ETH 2 project.
+---
 
 # How to Install Extensions
 

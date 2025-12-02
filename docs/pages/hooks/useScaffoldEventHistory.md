@@ -1,3 +1,7 @@
+---
+title: useScaffoldEventHistory
+description: Retrieve historical event logs from smart contracts.
+---
 
 # useScaffoldEventHistory
 

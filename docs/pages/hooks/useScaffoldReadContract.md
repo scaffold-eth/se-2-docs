@@ -1,3 +1,7 @@
+---
+title: useScaffoldReadContract
+description: Read data from smart contract functions.
+---
 
 # useScaffoldReadContract
 
