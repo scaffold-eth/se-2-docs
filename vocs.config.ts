@@ -7,7 +7,7 @@ export default defineConfig({
   iconUrl: "/img/favicon.png",
   baseUrl: "https://scaffold-eth-2-docs-git-vocs-buidlguidldao.vercel.app",
   ogImageUrl:
-    "https://vocs-og-bg.vercel.app/api/og?logo=%logo&title=%title&description=%description",
+    "https://vocs-og-bg.vercel.app/api/og?logo=https%3A%2F%2Fscaffold-eth-2-docs-git-vocs-buidlguidldao.vercel.app%2Fimg%2Ffavicon.png&title=%title&description=%description",
   vite: {
     publicDir: "docs/public",
   },
