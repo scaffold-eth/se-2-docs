@@ -18,12 +18,12 @@ import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
 export const GreetingsCount = () => {
   const { address: connectedAddress } = useAccount();
 
-  const { data: totalCounter, isLoading: isTotalCounterLoading } = useScaffoldReadContract({
+  const { data: totalCounter, isSuccess: isTotalCounterSuccess } = useScaffoldReadContract({
     contractName: "YourContract",
     functionName: "totalCounter",
   });
 
-  const { data: connectedAddressCounter, isLoading: isConnectedAddressCounterLoading } = useScaffoldReadContract({
+  const { data: connectedAddressCounter, isSuccess: isConnectedAddressCounterSuccess } = useScaffoldReadContract({
     contractName: "YourContract",
     functionName: "userGreetingCounter",
     args: [connectedAddress], // passing args to function
@@ -35,16 +35,16 @@ export const GreetingsCount = () => {
         <h2 className="card-title">Greetings Count</h2>
         <div className="card-actions items-center flex-col gap-1 text-lg">
           <h2 className="font-bold m-0">Total Greetings count:</h2>
-          {isTotalCounterLoading ? (
-            <span className="loading loading-spinner"></span>
-          ) : (
+          {isTotalCounterSuccess ? (
             <p className="m-0">{totalCounter ? totalCounter.toString() : 0}</p>
+          ) : (
+            <span className="loading loading-spinner"></span>
           )}
           <h2 className="font-bold m-0">Your Greetings count:</h2>
-          {isConnectedAddressCounterLoading ? (
-            <span className="loading loading-spinner"></span>
-          ) : (
+          {isConnectedAddressCounterSuccess ? (
             <p className="m-0">{connectedAddressCounter ? connectedAddressCounter.toString() : 0}</p>
+          ) : (
+            <span className="loading loading-spinner"></span>
           )}
         </div>
       </div>
@@ -148,7 +148,7 @@ export const GreetingsCount = () => {
 
 ### Step 4: Bonus adding loading state
 
-We can use `isLoading` returned from the [`useScaffoldReadContract`](/hooks/usescaffoldreadcontract) hook. This variable is set to `true` while fetching data from the contract.
+We can use `isSuccess` returned from the [`useScaffoldReadContract`](/hooks/usescaffoldreadcontract) hook. This variable is set to `true` when the data has been fetched successfully.
 
 ```tsx title="components/GreetingsCount.tsx"
 import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
@@ -158,14 +158,14 @@ export const GreetingsCount = () => {
   const { address: connectedAddress } = useAccount();
 
   // highlight-start
-  const { data: totalCounter, isLoading: isTotalCounterLoading } = useScaffoldReadContract({
+  const { data: totalCounter, isSuccess: isTotalCounterSuccess } = useScaffoldReadContract({
     // highlight-end
     contractName: "YourContract",
     functionName: "totalCounter",
   });
 
   // highlight-start
-  const { data: connectedAddressCounter, isLoading: isConnectedAddressCounterLoading } = useScaffoldReadContract({
+  const { data: connectedAddressCounter, isSuccess: isConnectedAddressCounterSuccess } = useScaffoldReadContract({
     // highlight-end
     contractName: "YourContract",
     functionName: "userGreetingCounter",
@@ -176,18 +176,18 @@ export const GreetingsCount = () => {
     <div>
       <h2>Total Greetings count:</h2>
       // highlight-start
-      {isTotalCounterLoading ? (
-        <span className="loading loading-spinner"></span>
-      ) : (
+      {isTotalCounteSuccess ? (
         <p className="m-0">{totalCounter ? totalCounter.toString() : 0}</p>
+      ) : (
+        <span className="loading loading-spinner"></span>
       )}
       // highlight-end
       <h2>Your Greetings count:</h2>
       // highlight-start
-      {isConnectedAddressCounterLoading ? (
-        <span className="loading loading-spinner"></span>
-      ) : (
+      {isConnectedAddressCounterSuccess ? (
         <p className="m-0">{connectedAddressCounter ? connectedAddressCounter.toString() : 0}</p>
+      ) : (
+        <span className="loading loading-spinner"></span>
       )}
       // highlight-end
     </div>
