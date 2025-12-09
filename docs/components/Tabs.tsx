@@ -123,7 +123,6 @@ export function Tabs({ groupId, children, defaultValue }: TabsProps) {
             display: "flex",
             gap: "0.5rem",
             borderBottom: "1px solid var(--vocs-color_border)",
-            marginBottom: "1rem",
           }}
         >
           {tabs.map((tab) => (
@@ -153,7 +152,11 @@ export function Tabs({ groupId, children, defaultValue }: TabsProps) {
             </button>
           ))}
         </div>
-        <div className="vocs_Tabs_content" role="tabpanel">
+        <div
+          className="vocs_Tabs_content"
+          style={{ padding: 0 }}
+          role="tabpanel"
+        >
           {children}
         </div>
       </div>
