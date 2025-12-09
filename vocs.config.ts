@@ -120,16 +120,16 @@ export default defineConfig({
           link: "/recipes/GetCurrentBalanceFromAccount",
         },
         {
+          text: "Write To Contract Write Async Button",
+          link: "/recipes/WriteToContractWriteAsyncButton",
+        },
+        {
           text: "Read Uint From Contract",
           link: "/recipes/ReadUintFromContract",
         },
         {
           text: "Wagmi Contract Write With Feedback",
           link: "/recipes/WagmiContractWriteWithFeedback",
-        },
-        {
-          text: "Write To Contract Write Async Button",
-          link: "/recipes/WriteToContractWriteAsyncButton",
         },
         {
           text: "Add Custom Chain",
