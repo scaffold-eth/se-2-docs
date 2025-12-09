@@ -14,7 +14,7 @@ export default defineConfig({
   },
   sidebar: [
     {
-      text: "🏗 Welcome",
+      text: "🏗️ Welcome to Scaffold-ETH 2",
       link: "/",
     },
     {
