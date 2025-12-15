@@ -9,12 +9,11 @@ import { Tabs, TabItem } from "../../components/Tabs";
 
 To deploy your smart contracts to a live network, there are a few things you need to adjust.
 
-## 1. Configure your network
+### 1. Configure your network
 
 Scaffold-ETH 2 comes with a selection of predefined networks. To add your custom network:
 
 <Tabs groupId="dev-tool">
-
 <TabItem value="hardhat" label="Hardhat" default>
 
 Go to `packages/hardhat/hardhat.config.ts` and add your network to the `networks` object.
@@ -30,7 +29,6 @@ networks: {
 ```
 
 </TabItem>
-
 <TabItem value="foundry" label="Foundry">
 
 Go to `packages/foundry/foundry.toml` and add your network to the `rpc_endpoints` object.
@@ -42,14 +40,13 @@ base = "https://mainnet.base.org"
 ```
 
 </TabItem>
-
 </Tabs>
 
 Here are the [Alchemy docs](https://docs.alchemy.com/docs/how-to-add-alchemy-rpc-endpoints-to-metamask) for information on specific networks.
 
 You can also add your custom network by following the recipe [here](/recipes/add-custom-chain).
 
-## 2. Generate a new account or add one to deploy the contract(s) from.
+### 2. Generate a new account or add one to deploy the contract(s) from
 
 The deployer account is the account that will deploy your contracts. Additionally, the deployer account will be used to execute any function calls that are part of your deployment script.
 
@@ -80,7 +77,7 @@ You will get prompted to paste your private key and set the encryption password.
 
 You can **check the configured (generated or imported) account and balances** with:
 
-```
+```bash
 yarn account
 ```
 
@@ -108,7 +105,9 @@ Revealing your private key can be risky. Ensure you are in a secure environment 
 </TabItem>
 <TabItem value="foundry" label="Foundry">
 
-> **Note:** If you already have a foundry keystore account, you can skip the following steps.
+:::note
+If you already have a foundry keystore account, you can skip the following steps.
+:::
 
 You can **generate a new keystore account** by running:
 
@@ -120,7 +119,7 @@ It will automatically generate a new [keystore](https://book.getfoundry.sh/refer
 
 You will be prompted to enter keystore name and a password which will be used to encrypt your keystore. <u>**Make sure to remember this password as you'll need it for future deployments and account queries.**</u>
 
-If you prefer to **import your private key** run:
+If you prefer to **import your private key**, run:
 
 ```bash
 yarn account:import
@@ -158,23 +157,22 @@ Revealing your private key can be risky. Ensure you are in a secure environment 
 </TabItem>
 </Tabs>
 
-## 3. Deploy your smart contract(s)
+### 3. Deploy your smart contract(s)
 
 <Tabs groupId="dev-tool">
 <TabItem value="hardhat" label="Hardhat" default>
 
 By default `yarn deploy` will deploy all the contracts from your `packages/hardhat/contracts` folder to the local network. You can change `defaultNetwork` in `packages/hardhat/hardhat.config.ts` file.
 
-To deploy to a specific network, you can also use the `--network` flag.
+To deploy to a specific network, you can also use the `--network` flag:
 
-```sh
+```bash
 yarn deploy --network network_name
 ```
 
 eg: `yarn deploy --network sepolia`
 
 </TabItem>
-
 <TabItem value="foundry" label="Foundry">
 
 By default, `yarn deploy` runs `Deploy.s.sol`, deploying to the local network using Anvil's 9th account (configured via `LOCALHOST_KEYSTORE_ACCOUNT` in `packages/foundry/.env`).
@@ -183,17 +181,19 @@ Change the `default_network` in `packages/foundry/foundry.toml` to change defaul
 
 To deploy to a specific network, you can also use the `--network` flag:
 
-```sh
+```bash
 yarn deploy --network network_name
 ```
 
 eg: `yarn deploy --network sepolia`
 
-> **Note:** When deploying to a live network, you'll be prompted to create or select a keystore account and enter its password.
+:::note
+When deploying to a live network, you'll be prompted to create or select a keystore account and enter its password.
+:::
 
 You can also bypass the keystore selection prompt and use a specific keystore account with the `--keystore` flag:
 
-```sh
+```bash
 yarn deploy --network sepolia --keystore my-account
 ```
 
@@ -202,7 +202,7 @@ The keystore must exist in `~/.foundry/keystores/`.
 </TabItem>
 </Tabs>
 
-### Deploy Specific Contracts
+#### Deploy Specific Contracts
 
 <Tabs groupId="dev-tool">
 <TabItem value="hardhat" label="Hardhat" default>
@@ -215,17 +215,16 @@ deployMyContract.tags = ["tagExample"];
 
 Then run:
 
-```sh
+```bash
 yarn deploy --tags tagExample
 ```
 
 </TabItem>
-
 <TabItem value="foundry" label="Foundry">
 
 For individual contracts, create a separate deployment script in `packages/foundry/script`, e.g., `DeployMyContract.s.sol`. Run the script with:
 
-```sh
+```bash
 yarn deploy --file DeployMyContract.s.sol
 ```
 
@@ -234,7 +233,7 @@ If `--file` parameter is not specified, `Deploy.s.sol` file is used.
 </TabItem>
 </Tabs>
 
-## 4. Verify your smart contract
+### 4. Verify your smart contract
 
 You can verify your smart contract on Etherscan by running:
 
@@ -251,10 +250,10 @@ This command **works in both Hardhat and Foundry**, verifying all the deployed c
 
 Hardhat uses [etherscan-verify from hardhat-deploy](https://www.npmjs.com/package/hardhat-deploy#4-hardhat-etherscan-verify).
 
-Additionally, **in Hardhat**, there's an alternative method for contract verification. You can use [hardhat-verify](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify) to verify your contracts, passing in the network name, contract address and constructor arguments (if any):
+Additionally, there's an alternative method for contract verification. You can use [hardhat-verify](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify) to verify your contracts, passing in the network name, contract address and constructor arguments (if any):
 
-```sh
-yarn hardhat-verify --network network_name contract_address "Constructor arg 1"`
+```bash
+yarn hardhat-verify --network network_name contract_address "Constructor arg 1"
 ```
 
 If the chain you're using is not supported by any of the verifying methods, you can add new supported chains to your chosen method, either [etherscan-verify](https://www.npmjs.com/package/hardhat-deploy#options-2) or [hardhat-verify](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify#adding-support-for-other-networks).
@@ -267,7 +266,7 @@ Foundry uses `VerifyAll.s.sol` script located in `packages/foundry/script`.
 </TabItem>
 </Tabs>
 
-## Configuration of Third-Party Services for Production-Grade Apps.
+## Configuration of Third-Party Services for Production-Grade Apps
 
 By default, Scaffold-ETH 2 provides predefined API keys for popular services such as Alchemy and Etherscan. This allows you to begin developing and testing your applications more easily, avoiding the need to register for these services.
 

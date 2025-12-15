@@ -113,53 +113,41 @@ export function Tabs({ groupId, children, defaultValue }: TabsProps) {
   return (
     <TabsContext.Provider value={{ groupId, activeTab, setActiveTab }}>
       <div
-        className="vocs_Tabs"
-        style={{ marginTop: "1rem", marginBottom: "1rem" }}
+        className="vocs_Tabs_list"
+        role="tablist"
+        style={{
+          display: "flex",
+          gap: "0.5rem",
+        }}
       >
-        <div
-          className="vocs_Tabs_list"
-          role="tablist"
-          style={{
-            display: "flex",
-            gap: "0.5rem",
-            borderBottom: "1px solid var(--vocs-color_border)",
-          }}
-        >
-          {tabs.map((tab) => (
-            <button
-              key={tab.value}
-              role="tab"
-              aria-selected={activeTab === tab.value}
-              onClick={() => setActiveTab(tab.value)}
-              style={{
-                padding: "0.5rem 1rem",
-                border: "none",
-                background: "transparent",
-                cursor: "pointer",
-                borderBottom:
-                  activeTab === tab.value
-                    ? "2px solid var(--vocs-color_textAccent)"
-                    : "2px solid transparent",
-                color:
-                  activeTab === tab.value
-                    ? "var(--vocs-color_textAccent)"
-                    : "var(--vocs-color_text2)",
-                fontWeight: activeTab === tab.value ? "600" : "400",
-                transition: "all 0.2s",
-              }}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-        <div
-          className="vocs_Tabs_content"
-          style={{ padding: 0 }}
-          role="tabpanel"
-        >
-          {children}
-        </div>
+        {tabs.map((tab) => (
+          <button
+            key={tab.value}
+            role="tab"
+            aria-selected={activeTab === tab.value}
+            onClick={() => setActiveTab(tab.value)}
+            style={{
+              padding: "0.5rem 1rem",
+              border: "none",
+              background: "transparent",
+              cursor: "pointer",
+              borderBottom:
+                activeTab === tab.value
+                  ? "2px solid var(--vocs-color_textAccent)"
+                  : "2px solid transparent",
+              color:
+                activeTab === tab.value
+                  ? "var(--vocs-color_textAccent)"
+                  : "var(--vocs-color_text2)",
+              fontWeight: activeTab === tab.value ? "600" : "400",
+              transition: "all 0.2s",
+            }}
+          >
+            {tab.label}
+          </button>
+        ))}
       </div>
+      {children}
     </TabsContext.Provider>
   );
 }
