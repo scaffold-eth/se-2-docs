@@ -9,231 +9,239 @@ import { Tabs, TabItem } from "../../components/Tabs";
 
 To deploy your smart contracts to a live network, there are a few things you need to adjust.
 
-### 1. Configure your network
+## 1. Configure your network
 
 Scaffold-ETH 2 comes with a selection of predefined networks. To add your custom network:
 
 <Tabs groupId="dev-tool">
-<TabItem value="hardhat" label="Hardhat" default>
 
-Go to `packages/hardhat/hardhat.config.ts` and add your network to the `networks` object.
+    <TabItem value="hardhat" label="Hardhat" default>
 
-```typescript title="packages/hardhat/hardhat.config.ts"
-networks: {
-    // ... other networks
-    base: {
-        url: "https://mainnet.base.org",
-        accounts: [deployerPrivateKey]
-    },
-}
-```
+        Go to `packages/hardhat/hardhat.config.ts` and add your network to the `networks` object.
 
-</TabItem>
-<TabItem value="foundry" label="Foundry">
+        ```typescript title="packages/hardhat/hardhat.config.ts"
+        networks: {
+            // ... other networks
+            base: {
+                url: "https://mainnet.base.org",
+                accounts: [deployerPrivateKey]
+            },
+        }
+        ```
 
-Go to `packages/foundry/foundry.toml` and add your network to the `rpc_endpoints` object.
+    </TabItem>
+    <TabItem value="foundry" label="Foundry">
 
-```toml title="packages/foundry/foundry.toml"
-[rpc_endpoints]
-...other chains
-base = "https://mainnet.base.org"
-```
+        Go to `packages/foundry/foundry.toml` and add your network to the `rpc_endpoints` object.
 
-</TabItem>
+        ```toml title="packages/foundry/foundry.toml"
+        [rpc_endpoints]
+        ...other chains
+        base = "https://mainnet.base.org"
+        ```
+
+    </TabItem>
+
 </Tabs>
 
 Here are the [Alchemy docs](https://docs.alchemy.com/docs/how-to-add-alchemy-rpc-endpoints-to-metamask) for information on specific networks.
 
 You can also add your custom network by following the recipe [here](/recipes/add-custom-chain).
 
-### 2. Generate a new account or add one to deploy the contract(s) from
+## 2. Generate a new account or add one to deploy the contract(s) from
 
 The deployer account is the account that will deploy your contracts. Additionally, the deployer account will be used to execute any function calls that are part of your deployment script.
 
 <Tabs groupId="dev-tool">
-<TabItem value="hardhat" label="Hardhat" default>
 
-You can **generate a random account / private key** by running:
+    <TabItem value="hardhat" label="Hardhat" default>
 
-```bash
-yarn generate
-```
+        You can **generate a random account / private key** by running:
 
-It will automatically add the encrypted private key (`DEPLOYER_PRIVATE_KEY_ENCRYPTED`) in your `.env` file.
+        ```bash
+        yarn generate
+        ```
 
-You will be prompted to enter a password which will be used to encrypt your private key. <u>**Make sure to remember this password as you'll need it for future deployments and account queries.**</u>
+        It will automatically add the encrypted private key (`DEPLOYER_PRIVATE_KEY_ENCRYPTED`) in your `.env` file.
 
-:::info
-We are only storing the plain private key in memory, it's never stored in disk files for security reasons. Checkout the code [here](https://github.com/scaffold-eth/create-eth/blob/main/templates/solidity-frameworks/hardhat/packages/hardhat/scripts/generateAccount.ts).
-:::
+        You will be prompted to enter a password which will be used to encrypt your private key. <u>**Make sure to remember this password as you'll need it for future deployments and account queries.**</u>
 
-If you prefer to **import your private key**, run:
+        :::info
+        We are only storing the plain private key in memory, it's never stored in disk files for security reasons. Checkout the code [here](https://github.com/scaffold-eth/create-eth/blob/main/templates/solidity-frameworks/hardhat/packages/hardhat/scripts/generateAccount.ts).
+        :::
 
-```bash
-yarn account:import
-```
+        If you prefer to **import your private key**, run:
 
-You will get prompted to paste your private key and set the encryption password. It will store your encrypted private key in your `.env` file.
+        ```bash
+        yarn account:import
+        ```
 
-You can **check the configured (generated or imported) account and balances** with:
+        You will get prompted to paste your private key and set the encryption password. It will store your encrypted private key in your `.env` file.
 
-```bash
-yarn account
-```
+        You can **check the configured (generated or imported) account and balances** with:
 
-You will need to enter your password to decrypt the private key and view the account information and balances.
+        ```bash
+        yarn account
+        ```
 
-<details>
-<summary><strong>Reveal the private key of your deployer account (security risk)</strong></summary>
+        You will need to enter your password to decrypt the private key and view the account information and balances.
 
-To reveal the private key of your currently configured deployer account (from `.env`), you can run:
+        <details>
+        <summary><strong>Reveal the private key of your deployer account (security risk)</strong></summary>
 
-```bash
-yarn account:reveal-pk
-```
+            To reveal the private key of your currently configured deployer account (from `.env`), you can run:
 
-You will be prompted to enter the password you used during the `yarn generate` or `yarn account:import` process. The command will then display your private key in the terminal.
+            ```bash
+            yarn account:reveal-pk
+            ```
 
-This command is especially useful if you need to **export your deployer account to another tool, wallet, or environment**.
+            You will be prompted to enter the password you used during the `yarn generate` or `yarn account:import` process. The command will then display your private key in the terminal.
 
-:::warning
-Revealing your private key can be risky. Ensure you are in a secure environment and understand the implications. Never share your private key or commit it to version control.
-:::
+            This command is especially useful if you need to **export your deployer account to another tool, wallet, or environment**.
 
-</details>
+            :::warning
+            Revealing your private key can be risky. Ensure you are in a secure environment and understand the implications. Never share your private key or commit it to version control.
+            :::
 
-</TabItem>
-<TabItem value="foundry" label="Foundry">
+    </details>
 
-:::note
-If you already have a foundry keystore account, you can skip the following steps.
-:::
+    </TabItem>
+    <TabItem value="foundry" label="Foundry">
 
-You can **generate a new keystore account** by running:
+        :::note
+        If you already have a foundry keystore account, you can skip the following steps.
+        :::
 
-```bash
-yarn generate
-```
+        You can **generate a new keystore account** by running:
 
-It will automatically generate a new [keystore](https://book.getfoundry.sh/reference/cast/cast-wallet-import) with random private key.
+        ```bash
+        yarn generate
+        ```
 
-You will be prompted to enter keystore name and a password which will be used to encrypt your keystore. <u>**Make sure to remember this password as you'll need it for future deployments and account queries.**</u>
+        It will automatically generate a new [keystore](https://book.getfoundry.sh/reference/cast/cast-wallet-import) with random private key.
 
-If you prefer to **import your private key**, run:
+        You will be prompted to enter keystore name and a password which will be used to encrypt your keystore. <u>**Make sure to remember this password as you'll need it for future deployments and account queries.**</u>
 
-```bash
-yarn account:import
-```
+        If you prefer to **import your private key**, run:
 
-You will get prompted to enter [keystore](https://book.getfoundry.sh/reference/cast/cast-wallet-import#cast-wallet-import) name, private key and set the encryption password. It will create a new keystore in `~/.foundry/keystore` directory.
+        ```bash
+        yarn account:import
+        ```
 
-You can **check the configured (generated or imported) account and balances** with:
+        You will get prompted to enter [keystore](https://book.getfoundry.sh/reference/cast/cast-wallet-import#cast-wallet-import) name, private key and set the encryption password. It will create a new keystore in `~/.foundry/keystore` directory.
 
-```bash
-yarn account
-```
+        You can **check the configured (generated or imported) account and balances** with:
 
-You will need to enter your password to decrypt the private key and view the account information and balances.
+        ```bash
+        yarn account
+        ```
 
-<details>
-<summary><strong>Reveal the private key of a keystore account (security risk)</strong></summary>
+        You will need to enter your password to decrypt the private key and view the account information and balances.
 
-To reveal the private key of a specific keystore account, you can run:
+        <details>
+        <summary><strong>Reveal the private key of a keystore account (security risk)</strong></summary>
 
-```bash
-yarn account:reveal-pk
-```
+            To reveal the private key of a specific keystore account, you can run:
 
-You will be prompted to select the keystore account and then enter the password for that keystore. The command will then display the private key in the terminal.
+            ```bash
+            yarn account:reveal-pk
+            ```
 
-This command is especially useful if you need to **export your deployer account to another tool, wallet, or environment**.
+            You will be prompted to select the keystore account and then enter the password for that keystore. The command will then display the private key in the terminal.
 
-:::warning
-Revealing your private key can be risky. Ensure you are in a secure environment and understand the implications. Never share your private key or commit it to version control.
-:::
+            This command is especially useful if you need to **export your deployer account to another tool, wallet, or environment**.
 
-</details>
+            :::warning
+            Revealing your private key can be risky. Ensure you are in a secure environment and understand the implications. Never share your private key or commit it to version control.
+            :::
 
-</TabItem>
+        </details>
+
+    </TabItem>
+
 </Tabs>
 
-### 3. Deploy your smart contract(s)
+## 3. Deploy your smart contract(s)
 
 <Tabs groupId="dev-tool">
-<TabItem value="hardhat" label="Hardhat" default>
+    <TabItem value="hardhat" label="Hardhat" default>
 
-By default `yarn deploy` will deploy all the contracts from your `packages/hardhat/contracts` folder to the local network. You can change `defaultNetwork` in `packages/hardhat/hardhat.config.ts` file.
+        By default `yarn deploy` will deploy all the contracts from your `packages/hardhat/contracts` folder to the local network. You can change `defaultNetwork` in `packages/hardhat/hardhat.config.ts` file.
 
-To deploy to a specific network, you can also use the `--network` flag:
+        To deploy to a specific network, you can also use the `--network` flag:
 
-```bash
-yarn deploy --network network_name
-```
+        ```bash
+        yarn deploy --network network_name
+        ```
 
-eg: `yarn deploy --network sepolia`
+        eg: `yarn deploy --network sepolia`
 
-</TabItem>
-<TabItem value="foundry" label="Foundry">
+    </TabItem>
 
-By default, `yarn deploy` runs `Deploy.s.sol`, deploying to the local network using Anvil's 9th account (configured via `LOCALHOST_KEYSTORE_ACCOUNT` in `packages/foundry/.env`).
+    <TabItem value="foundry" label="Foundry">
 
-Change the `default_network` in `packages/foundry/foundry.toml` to change default deployment network.
+        By default, `yarn deploy` runs `Deploy.s.sol`, deploying to the local network using Anvil's 9th account (configured via `LOCALHOST_KEYSTORE_ACCOUNT` in `packages/foundry/.env`).
 
-To deploy to a specific network, you can also use the `--network` flag:
+        Change the `default_network` in `packages/foundry/foundry.toml` to change default deployment network.
 
-```bash
-yarn deploy --network network_name
-```
+        To deploy to a specific network, you can also use the `--network` flag:
 
-eg: `yarn deploy --network sepolia`
+        ```bash
+        yarn deploy --network network_name
+        ```
 
-:::note
-When deploying to a live network, you'll be prompted to create or select a keystore account and enter its password.
-:::
+        eg: `yarn deploy --network sepolia`
 
-You can also bypass the keystore selection prompt and use a specific keystore account with the `--keystore` flag:
+        :::note
+        When deploying to a live network, you'll be prompted to create or select a keystore account and enter its password.
+        :::
 
-```bash
-yarn deploy --network sepolia --keystore my-account
-```
+        You can also bypass the keystore selection prompt and use a specific keystore account with the `--keystore` flag:
 
-The keystore must exist in `~/.foundry/keystores/`.
+        ```bash
+        yarn deploy --network sepolia --keystore my-account
+        ```
 
-</TabItem>
+        The keystore must exist in `~/.foundry/keystores/`.
+
+    </TabItem>
+
 </Tabs>
 
 #### Deploy Specific Contracts
 
 <Tabs groupId="dev-tool">
-<TabItem value="hardhat" label="Hardhat" default>
 
-To deploy specific contracts, add tags to the deploy scripts in `packages/hardhat/deploy`. For example, in `01_deploy_my_contract.ts`:
+    <TabItem value="hardhat" label="Hardhat" default>
 
-```ts
-deployMyContract.tags = ["tagExample"];
-```
+        To deploy specific contracts, add tags to the deploy scripts in `packages/hardhat/deploy`. For example, in `01_deploy_my_contract.ts`:
 
-Then run:
+        ```ts
+        deployMyContract.tags = ["tagExample"];
+        ```
 
-```bash
-yarn deploy --tags tagExample
-```
+        Then run:
 
-</TabItem>
-<TabItem value="foundry" label="Foundry">
+        ```bash
+        yarn deploy --tags tagExample
+        ```
 
-For individual contracts, create a separate deployment script in `packages/foundry/script`, e.g., `DeployMyContract.s.sol`. Run the script with:
+    </TabItem>
+    <TabItem value="foundry" label="Foundry">
 
-```bash
-yarn deploy --file DeployMyContract.s.sol
-```
+        For individual contracts, create a separate deployment script in `packages/foundry/script`, e.g., `DeployMyContract.s.sol`. Run the script with:
 
-If `--file` parameter is not specified, `Deploy.s.sol` file is used.
+        ```bash
+        yarn deploy --file DeployMyContract.s.sol
+        ```
 
-</TabItem>
+        If `--file` parameter is not specified, `Deploy.s.sol` file is used.
+
+    </TabItem>
+
 </Tabs>
 
-### 4. Verify your smart contract
+## 4. Verify your smart contract
 
 You can verify your smart contract on Etherscan by running:
 
@@ -246,24 +254,27 @@ eg: `yarn verify --network sepolia`
 This command **works in both Hardhat and Foundry**, verifying all the deployed contracts. However, the verification method differs depending on the Solidity framework you're using...
 
 <Tabs groupId="dev-tool">
-<TabItem value="hardhat" label="Hardhat" default>
 
-Hardhat uses [etherscan-verify from hardhat-deploy](https://www.npmjs.com/package/hardhat-deploy#4-hardhat-etherscan-verify).
+    <TabItem value="hardhat" label="Hardhat" default>
 
-Additionally, there's an alternative method for contract verification. You can use [hardhat-verify](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify) to verify your contracts, passing in the network name, contract address and constructor arguments (if any):
+        Hardhat uses [etherscan-verify from hardhat-deploy](https://www.npmjs.com/package/hardhat-deploy#4-hardhat-etherscan-verify).
 
-```bash
-yarn hardhat-verify --network network_name contract_address "Constructor arg 1"
-```
+        Additionally, there's an alternative method for contract verification. You can use [hardhat-verify](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify) to verify your contracts, passing in the network name, contract address and constructor arguments (if any):
 
-If the chain you're using is not supported by any of the verifying methods, you can add new supported chains to your chosen method, either [etherscan-verify](https://www.npmjs.com/package/hardhat-deploy#options-2) or [hardhat-verify](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify#adding-support-for-other-networks).
+        ```bash
+        yarn hardhat-verify --network network_name contract_address "Constructor arg 1"
+        ```
 
-</TabItem>
-<TabItem value="foundry" label="Foundry">
+        If the chain you're using is not supported by any of the verifying methods, you can add new supported chains to your chosen method, either [etherscan-verify](https://www.npmjs.com/package/hardhat-deploy#options-2) or [hardhat-verify](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify#adding-support-for-other-networks).
 
-Foundry uses `VerifyAll.s.sol` script located in `packages/foundry/script`.
+    </TabItem>
 
-</TabItem>
+    <TabItem value="foundry" label="Foundry">
+
+        Foundry uses `VerifyAll.s.sol` script located in `packages/foundry/script`.
+
+    </TabItem>
+
 </Tabs>
 
 ## Configuration of Third-Party Services for Production-Grade Apps
@@ -273,18 +284,21 @@ By default, Scaffold-ETH 2 provides predefined API keys for popular services suc
 For production-grade applications, it's recommended to obtain your own API keys (to prevent rate limiting issues). You can configure these at:
 
 <Tabs groupId="dev-tool">
-<TabItem value="hardhat" label="Hardhat" default>
 
-- `ALCHEMY_API_KEY` variable in `packages/hardhat/.env` and `packages/nextjs/.env.local`. You can create API keys from the [Alchemy dashboard](https://dashboard.alchemy.com/).
-- `ETHERSCAN_API_KEY` variable in `packages/hardhat/.env` using your generated API key. You can get your key [here](https://etherscan.io/myapikey).
+    <TabItem value="hardhat" label="Hardhat" default>
 
-</TabItem>
-<TabItem value="foundry" label="Foundry">
+    - `ALCHEMY_API_KEY` variable in `packages/hardhat/.env` and `packages/nextjs/.env.local`. You can create API keys from the [Alchemy dashboard](https://dashboard.alchemy.com/).
+    - `ETHERSCAN_API_KEY` variable in `packages/hardhat/.env` using your generated API key. You can get your key [here](https://etherscan.io/myapikey).
 
-- `ALCHEMY_API_KEY` variable in `packages/nextjs/.env.local`. You can create API keys from the [Alchemy dashboard](https://dashboard.alchemy.com/).
-- `ETHERSCAN_API_KEY` variable in `packages/foundry/.env` using your generated API key. You can get your key [here](https://etherscan.io/myapikey).
+    </TabItem>
 
-</TabItem>
+    <TabItem value="foundry" label="Foundry">
+
+    - `ALCHEMY_API_KEY` variable in `packages/nextjs/.env.local`. You can create API keys from the [Alchemy dashboard](https://dashboard.alchemy.com/).
+    - `ETHERSCAN_API_KEY` variable in `packages/foundry/.env` using your generated API key. You can get your key [here](https://etherscan.io/myapikey).
+
+    </TabItem>
+
 </Tabs>
 
 :::tip
