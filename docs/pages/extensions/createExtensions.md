@@ -98,7 +98,6 @@ The workflow consists of two main parts:
    The name mentioned for the "Your project name" question will be used as the **extension name**. For example, if you provide `../eip` as the value to the question, then the final extension name will be `eip`.
 
 4. **Develop the Extension:**
-
    - cd into the instance directory.
    - Make necessary changes to the instance project.
    - Commit the changes in the instance repository.
@@ -116,7 +115,6 @@ The workflow consists of two main parts:
    This command gathers all changes from the instance and creates an extension in the `create-eth/externalExtensions/${extensionName}` directory. This directory is the actual extension directory (notice it contains only the extra files related to your extension changes), which can be published to GitHub and used by others.
 
 6. **Publish the Extension:**
-
    - Go inside the extension directory.
    - Push the extension to GitHub.
 
@@ -157,7 +155,6 @@ This phase allows you to test your extension locally and see how it works when u
    Since the instance is symlinked with the extension, make necessary changes directly in the symlinked files within `../my-dev-instance`, and the changes should be automatically reflected in the `create-eth/externalExtensions/${extensionName}` directory.
 
 3. **Push the tweaked changes**
-
    - Go inside the extension directory.
    - Push the changes to GitHub.
 

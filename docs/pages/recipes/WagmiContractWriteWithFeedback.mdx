@@ -40,7 +40,11 @@ export const ContractInteraction = () => {
   };
 
   return (
-    <button className="btn btn-primary" onClick={handleSetGreeting} disabled={isPending}>
+    <button
+      className="btn btn-primary"
+      onClick={handleSetGreeting}
+      disabled={isPending}
+    >
       {isPending ? <span className="loading loading-spinner loading-sm"></span> : "Send"}
     </button>
   );
@@ -204,7 +208,11 @@ export const ContractInteraction = () => {
 
   return (
     // [!code hl]
-    <button className="btn btn-primary" onClick={handleSetGreeting} disabled={isPending}>
+    <button
+      className="btn btn-primary"
+      onClick={handleSetGreeting}
+      disabled={isPending}
+    >
       // [!code hl]
       {isPending ? <span className="loading loading-spinner loading-sm"></span> : "Send"}
     </button>

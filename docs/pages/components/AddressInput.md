@@ -24,7 +24,11 @@ const [address, setAddress] = useState("");
 ```
 
 ```tsx
-<AddressInput onChange={setAddress} value={address} placeholder="Input your address" />
+<AddressInput
+  onChange={setAddress}
+  value={address}
+  placeholder="Input your address"
+/>
 ```
 
 ## Props

@@ -22,7 +22,10 @@ import { BlockieAvatar } from "~~/components/scaffold-eth";
 ## Usage
 
 ```tsx
-<BlockieAvatar address="0x34aA3F359A9D614239015126635CE7732c18fDF3" size={24} />
+<BlockieAvatar
+  address="0x34aA3F359A9D614239015126635CE7732c18fDF3"
+  size={24}
+/>
 ```
 
 ## Props

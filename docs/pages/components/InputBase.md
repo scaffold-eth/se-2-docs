@@ -22,7 +22,12 @@ const [url, setUrl] = useState<string>();
 ```
 
 ```tsx
-<InputBase name="url" placeholder="url" value={url} onChange={setUrl} />
+<InputBase
+  name="url"
+  placeholder="url"
+  value={url}
+  onChange={setUrl}
+/>
 ```
 
 ## Props

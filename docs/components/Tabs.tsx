@@ -50,8 +50,7 @@ type TabsProps = {
 
 export function Tabs({ groupId, children, defaultValue }: TabsProps) {
   const tabs = useMemo(() => {
-    const tabItems: Array<{ value: string; label: string; default: boolean }> =
-      [];
+    const tabItems: Array<{ value: string; label: string; default: boolean }> = [];
 
     Children.forEach(children, (child) => {
       if (isValidElement<TabItemProps>(child)) {
@@ -69,8 +68,7 @@ export function Tabs({ groupId, children, defaultValue }: TabsProps) {
     return tabItems;
   }, [children]);
 
-  const defaultTab =
-    tabs.find((t) => t.default)?.value || tabs[0]?.value || defaultValue || "";
+  const defaultTab = tabs.find((t) => t.default)?.value || tabs[0]?.value || defaultValue || "";
 
   // Local state for tabs without groupId
   const [localActiveTab, setLocalActiveTab] = useState<string>(defaultTab);
@@ -89,9 +87,7 @@ export function Tabs({ groupId, children, defaultValue }: TabsProps) {
     return unsubscribe;
   }, [groupId, defaultTab]);
 
-  const activeTab = groupId
-    ? getGroupValue(groupId) || defaultTab
-    : localActiveTab;
+  const activeTab = groupId ? getGroupValue(groupId) || defaultTab : localActiveTab;
 
   const setActiveTab = useCallback(
     (value: string) => {
@@ -101,7 +97,7 @@ export function Tabs({ groupId, children, defaultValue }: TabsProps) {
         setLocalActiveTab(value);
       }
     },
-    [groupId]
+    [groupId],
   );
 
   useEffect(() => {
@@ -132,13 +128,8 @@ export function Tabs({ groupId, children, defaultValue }: TabsProps) {
               background: "transparent",
               cursor: "pointer",
               borderBottom:
-                activeTab === tab.value
-                  ? "2px solid var(--vocs-color_textAccent)"
-                  : "2px solid transparent",
-              color:
-                activeTab === tab.value
-                  ? "var(--vocs-color_textAccent)"
-                  : "var(--vocs-color_text2)",
+                activeTab === tab.value ? "2px solid var(--vocs-color_textAccent)" : "2px solid transparent",
+              color: activeTab === tab.value ? "var(--vocs-color_textAccent)" : "var(--vocs-color_text2)",
               fontWeight: activeTab === tab.value ? "600" : "400",
               transition: "all 0.2s",
             }}
@@ -159,12 +150,7 @@ interface TabItemProps {
   children: React.ReactNode;
 }
 
-export function TabItem({
-  value,
-  label: _label,
-  default: _isDefault,
-  children,
-}: TabItemProps) {
+export function TabItem({ value, label: _label, default: _isDefault, children }: TabItemProps) {
   const context = useContext(TabsContext);
 
   // Only render if this tab is active

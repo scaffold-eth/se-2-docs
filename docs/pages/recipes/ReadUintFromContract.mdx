@@ -17,16 +17,12 @@ import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
 export const GreetingsCount = () => {
   const { address: connectedAddress } = useAccount();
 
-  const { data: totalCounter, isLoading: isTotalCounterLoading } =
-    useScaffoldReadContract({
-      contractName: "YourContract",
-      functionName: "totalCounter",
-    });
+  const { data: totalCounter, isLoading: isTotalCounterLoading } = useScaffoldReadContract({
+    contractName: "YourContract",
+    functionName: "totalCounter",
+  });
 
-  const {
-    data: connectedAddressCounter,
-    isLoading: isConnectedAddressCounterLoading,
-  } = useScaffoldReadContract({
+  const { data: connectedAddressCounter, isLoading: isConnectedAddressCounterLoading } = useScaffoldReadContract({
     contractName: "YourContract",
     functionName: "userGreetingCounter",
     args: [connectedAddress], // passing args to function
@@ -47,9 +43,7 @@ export const GreetingsCount = () => {
           {isConnectedAddressCounterLoading ? (
             <span className="loading loading-spinner"></span>
           ) : (
-            <p className="m-0">
-              {connectedAddressCounter ? connectedAddressCounter.toString() : 0}
-            </p>
+            <p className="m-0">{connectedAddressCounter ? connectedAddressCounter.toString() : 0}</p>
           )}
         </div>
       </div>
@@ -156,17 +150,13 @@ export const GreetingsCount = () => {
   const { address: connectedAddress } = useAccount();
 
   // [!code hl]
-  const { data: totalCounter, isLoading: isTotalCounterLoading } =
-    useScaffoldReadContract({
-      contractName: "YourContract",
-      functionName: "totalCounter",
-    });
+  const { data: totalCounter, isLoading: isTotalCounterLoading } = useScaffoldReadContract({
+    contractName: "YourContract",
+    functionName: "totalCounter",
+  });
 
   // [!code hl]
-  const {
-    data: connectedAddressCounter,
-    isLoading: isConnectedAddressCounterLoading,
-  } = useScaffoldReadContract({
+  const { data: connectedAddressCounter, isLoading: isConnectedAddressCounterLoading } = useScaffoldReadContract({
     contractName: "YourContract",
     functionName: "userGreetingCounter",
     args: [connectedAddress], // passing args to function
@@ -186,9 +176,7 @@ export const GreetingsCount = () => {
       {isConnectedAddressCounterLoading ? (
         <span className="loading loading-spinner"></span>
       ) : (
-        <p className="m-0">
-          {connectedAddressCounter ? connectedAddressCounter.toString() : 0}
-        </p>
+        <p className="m-0">{connectedAddressCounter ? connectedAddressCounter.toString() : 0}</p>
       )}
     </div>
   );

@@ -18,8 +18,7 @@ import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 export const Greetings = () => {
   const [newGreeting, setNewGreeting] = useState("");
 
-  const { writeContractAsync, isPending } =
-    useScaffoldWriteContract("YourContract");
+  const { writeContractAsync, isPending } = useScaffoldWriteContract("YourContract");
 
   const handleSetGreeting = async () => {
     try {
@@ -33,7 +32,7 @@ export const Greetings = () => {
           onBlockConfirmation: (txnReceipt) => {
             console.log("📦 Transaction blockHash", txnReceipt.blockHash);
           },
-        }
+        },
       );
     } catch (e) {
       console.error("Error setting greeting", e);
@@ -53,11 +52,7 @@ export const Greetings = () => {
         onClick={handleSetGreeting}
         disabled={isPending}
       >
-        {isPending ? (
-          <span className="loading loading-spinner loading-sm"></span>
-        ) : (
-          "Send"
-        )}
+        {isPending ? <span className="loading loading-spinner loading-sm"></span> : "Send"}
       </button>
     </>
   );
@@ -119,7 +114,7 @@ export const Greetings = () => {
           onBlockConfirmation: (txnReceipt) => {
             console.log("📦 Transaction blockHash", txnReceipt.blockHash);
           },
-        }
+        },
       );
     } catch (e) {
       console.error("Error setting greeting", e);
@@ -164,7 +159,7 @@ export const Greetings = () => {
           onBlockConfirmation: (txnReceipt) => {
             console.log("📦 Transaction blockHash", txnReceipt.blockHash);
           },
-        }
+        },
       );
     } catch (e) {
       console.error("Error setting greeting", e);
@@ -204,8 +199,7 @@ import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 export const Greetings = () => {
   const [newGreeting, setNewGreeting] = useState("");
   // [!code hl]
-  const { writeContractAsync, isPending } =
-    useScaffoldWriteContract("YourContract");
+  const { writeContractAsync, isPending } = useScaffoldWriteContract("YourContract");
 
   const handleSetGreeting = async () => {
     try {
@@ -219,7 +213,7 @@ export const Greetings = () => {
           onBlockConfirmation: (txnReceipt) => {
             console.log("📦 Transaction blockHash", txnReceipt.blockHash);
           },
-        }
+        },
       );
     } catch (e) {
       console.error("Error setting greeting", e);
@@ -242,11 +236,7 @@ export const Greetings = () => {
         disabled={isPending}
       >
         // [!code hl]
-        {isPending ? (
-          <span className="loading loading-spinner loading-sm"></span>
-        ) : (
-          "Send"
-        )}
+        {isPending ? <span className="loading loading-spinner loading-sm"></span> : "Send"}
       </button>
     </>
   );

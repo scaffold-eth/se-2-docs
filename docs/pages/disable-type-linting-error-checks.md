@@ -8,6 +8,7 @@ description: Skip TypeScript and linting checks during development or deployment
 :::tip
 TypeScript helps you catch errors at compile time, which can save time and improve code quality, but can be challenging for those who are new to the language or who are used to the more dynamic nature of JavaScript. These sections show the steps required to disable type & lint checks on different levels.
 :::
+
 ## Disabling Commit Checks
 
 We run the `pre-commit` [git hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) which lints the staged files and doesn't let you commit if there is an linting error.

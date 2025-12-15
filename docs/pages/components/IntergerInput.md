@@ -25,7 +25,7 @@ const [txValue, setTxValue] = useState<string | bigint>("");
 ```tsx
 <IntegerInput
   value={txValue}
-  onChange={updatedTxValue => {
+  onChange={(updatedTxValue) => {
     setTxValue(updatedTxValue);
   }}
   placeholder="value (wei)"
