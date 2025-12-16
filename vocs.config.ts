@@ -72,7 +72,7 @@ export default defineConfig({
       ],
     },
     {
-      text: "🔌 Hooks",
+      text: "🪝 Hooks",
       items: [
         {
           text: "Overview",
@@ -155,7 +155,7 @@ export default defineConfig({
       link: "/disable-type-linting-error-checks",
     },
     {
-      text: " Extensions",
+      text: "🔌 Extensions",
       items: [
         {
           text: "Overview",
