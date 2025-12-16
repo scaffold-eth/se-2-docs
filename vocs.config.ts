@@ -63,7 +63,7 @@ export default defineConfig({
         },
         {
           text: "IntegerInput",
-          link: "/components/IntergerInput",
+          link: "/components/IntegerInput",
         },
         {
           text: "RainbowKitCustomConnectButton",
