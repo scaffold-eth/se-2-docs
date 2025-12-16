@@ -32,9 +32,9 @@ You can pass in anything that is a valid parameter to [Viem's `sendTransaction` 
 
 ### useTransactor
 
-| Parameter                     | Type                                                       | Description                                                                                                                                                                       |
-| :---------------------------- | :--------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **\_walletClient** (optional) | [`WalletClient`](https://viem.sh/docs/clients/wallet.html) | The wallet client that should sign the transaction. Defaults to the connected wallet client, and is only needed if the transaction is not already sent using `writeContractAsync` |
+| Parameter                     | Type                                                                | Description                                                                                                                                                                       |
+| :---------------------------- | :------------------------------------------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **\_walletClient** (optional) | [`WalletClient`](https://viem.sh/docs/clients/wallet#wallet-client) | The wallet client that should sign the transaction. Defaults to the connected wallet client, and is only needed if the transaction is not already sent using `writeContractAsync` |
 
 ### callback function
 
