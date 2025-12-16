@@ -34,7 +34,7 @@ export default defineConfig({
       text: "⚙ Components",
       items: [
         {
-          text: "overview",
+          text: "Overview",
           link: "/components",
         },
         {
@@ -75,7 +75,7 @@ export default defineConfig({
       text: "🔌 Hooks",
       items: [
         {
-          text: "overview",
+          text: "Overview",
           link: "/hooks",
         },
         {
@@ -175,7 +175,7 @@ export default defineConfig({
       text: "🙏 Contributing",
       items: [
         {
-          text: "overview",
+          text: "Overview",
           link: "/contributing",
         },
         {
