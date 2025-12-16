@@ -207,4 +207,9 @@ export default defineConfig({
       match: "/",
     },
   ],
+  editLink: {
+    pattern:
+      "https://github.com/scaffold-eth//se-2-docs/edit/main/docs/pages/:path",
+    text: "Suggest changes to this page",
+  },
 });
