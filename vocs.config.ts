@@ -110,7 +110,7 @@ export default defineConfig({
     },
     {
       text: "📡 External Contracts",
-      link: "/external-contracts/external-contracts",
+      link: "/external-contracts",
     },
     {
       text: "🧪 Recipes",

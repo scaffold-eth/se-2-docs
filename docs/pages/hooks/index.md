@@ -13,7 +13,7 @@ To ensure autocompletions function correctly, always update the [`targetNetworks
 The custom hooks rely on three main files for their functionality and TypeScript autocompletion:
 
 - `packages/nextjs/contracts/deployedContracts.ts`
-- [`packages/nextjs/contracts/externalContracts.ts`](/external-contracts/external-contracts)
+- [`packages/nextjs/contracts/externalContracts.ts`](/external-contracts)
 - `scaffold.config.ts`
 
 The `deployedContracts.ts` file is auto-generated/updated whenever you run `yarn deploy --network`. It organizes contract addresses and abi's based on chainId.
