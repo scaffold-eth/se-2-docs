@@ -11,6 +11,14 @@ export default defineConfig({
   },
   vite: {
     publicDir: "docs/public",
+    plugins: [
+      {
+        name: "add-custom-css",
+        transformIndexHtml(html) {
+          return html.replace("</head>", '<link rel="stylesheet" href="/custom.css" /></head>');
+        },
+      },
+    ],
   },
   sidebar: [
     {

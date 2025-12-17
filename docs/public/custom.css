@@ -1,0 +1,14 @@
+.vocs_Sidebar_logo a[href="/"]::after,
+.vocs_MobileTopNav_logo a[href="/"]::after {
+  content: "Scaffold-ETH 2 | Docs";
+  margin-left: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--vocs-color-text);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.vocs_MobileTopNav_navigation_compact {
+  display: none;
+}
