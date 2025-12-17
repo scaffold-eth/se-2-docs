@@ -56,11 +56,11 @@ In this file, we're defining the Base chain. We're using the `defineChain` funct
 Next, update your `scaffold.config.ts` file to include the new chain:
 
 ```typescript title="packages/nextjs/scaffold.config.ts"
-import { base } from "./utils/customChains";
+import { base } from "./utils/customChains"; // [!code hl]
 // ... other imports and type definitions
 
 const scaffoldConfig = {
-  targetNetworks: [base],
+  targetNetworks: [base], // [!code hl]
   // ... other configuration options
 } as const satisfies ScaffoldConfig;
 
@@ -70,10 +70,10 @@ export default scaffoldConfig;
 If you'd like to add multiple chains, you can do so by adding them to the `targetNetworks` array. Below is a simple example of how to add multiple chains.
 
 ```typescript title="packages/nextjs/scaffold.config.ts"
-import { base, baseSepolia } from "./utils/customChains";
+import { base, baseSepolia } from "./utils/customChains"; // [!code hl]
 
 const scaffoldConfig = {
-  targetNetworks: [base, baseSepolia],
+  targetNetworks: [base, baseSepolia], // [!code hl]
   // ... other configuration options
 } as const satisfies ScaffoldConfig;
 ```

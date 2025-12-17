@@ -73,26 +73,21 @@ Add wagmi's `useWriteContract` hook and configure `writeContractAsync` with the 
 
 ```tsx
 import * as React from "react";
-// [!code hl]
-import { parseEther } from "viem";
-// [!code hl]
-import { useWriteContract } from "wagmi";
-// [!code hl]
-import DeployedContracts from "~~/contracts/deployedContracts";
+import { parseEther } from "viem"; // [!code hl]
+import { useWriteContract } from "wagmi"; // [!code hl]
+import DeployedContracts from "~~/contracts/deployedContracts"; // [!code hl]
 
 export const ContractInteraction = () => {
-  // [!code hl]
-  const { writeContractAsync } = useWriteContract();
+  const { writeContractAsync } = useWriteContract(); // [!code hl]
 
-  // [!code hl]
-  const writeContractAsyncWithParams = () =>
-    writeContractAsync({
-      address: DeployedContracts[31337].YourContract.address,
-      abi: DeployedContracts[31337].YourContract.abi,
-      functionName: "setGreeting",
-      value: parseEther("0.01"),
-      args: ["Hello world!"],
-    });
+  const writeContractAsyncWithParams = () => // [!code hl]
+    writeContractAsync({ // [!code hl]
+      address: DeployedContracts[31337].YourContract.address, // [!code hl]
+      abi: DeployedContracts[31337].YourContract.abi, // [!code hl]
+      functionName: "setGreeting", // [!code hl]
+      value: parseEther("0.01"), // [!code hl]
+      args: ["Hello world!"], // [!code hl]
+    }); // [!code hl]
   return <button>Send</button>;
 };
 ```
@@ -106,8 +101,7 @@ import * as React from "react";
 import { parseEther } from "viem";
 import { useWriteContract } from "wagmi";
 import DeployedContracts from "~~/contracts/deployedContracts";
-// [!code hl]
-import { useTransactor } from "~~/hooks/scaffold-eth";
+import { useTransactor } from "~~/hooks/scaffold-eth"; // [!code hl]
 
 export const ContractInteraction = () => {
   const { writeContractAsync } = useWriteContract();
@@ -121,11 +115,9 @@ export const ContractInteraction = () => {
       args: ["Hello world!"],
     });
 
-  // [!code hl]
-  const writeTx = useTransactor();
+  const writeTx = useTransactor(); // [!code hl]
 
-  // [!code hl]
-  return <button onClick={() => writeTx(writeContractAsyncWithParams, { blockConfirmations: 1 })}>Send</button>;
+  return <button onClick={() => writeTx(writeContractAsyncWithParams, { blockConfirmations: 1 })}>Send</button>{/* // [!code hl] */};
 };
 ```
 
@@ -141,35 +133,33 @@ import DeployedContracts from "~~/contracts/deployedContracts";
 import { useTransactor } from "~~/hooks/scaffold-eth";
 
 export const ContractInteraction = () => {
-  const { writeContractAsync, isPending } = useWriteContract();
+  const { writeContractAsync } = useWriteContract();
 
   const writeContractAsyncWithParams = () =>
-  writeContractAsync({
-    address: DeployedContracts[31337].YourContract.address,
-    abi: DeployedContracts[31337].YourContract.abi,
-    functionName: "setGreeting",
-    value: parseEther("0.01"),
-    args: ["Hello world!"],
-  });
+    writeContractAsync({
+      address: DeployedContracts[31337].YourContract.address,
+      abi: DeployedContracts[31337].YourContract.abi,
+      functionName: "setGreeting",
+      value: parseEther("0.01"),
+      args: ["Hello world!"],
+    });
 
   const writeTx = useTransactor();
 
-  // [!code hl]
-  const handleSetGreeting = async () => {
-    try {
-      await writeTx(writeContractAsyncWithParams, { blockConfirmations: 1 });
-    } catch (e) {
-      console.log("Unexpected error in writeTx", e);
-    }
-  };
+  const handleSetGreeting = async () => { // [!code hl]
+    try { // [!code hl]
+      await writeTx(writeContractAsyncWithParams, { blockConfirmations: 1 }); // [!code hl]
+    } catch (e) { // [!code hl]
+      console.log("Unexpected error in writeTx", e); // [!code hl]
+    } // [!code hl]
+  }; // [!code hl]
 
   return (
-    // [!code hl]
-    <button className="btn btn-primary" onClick={handleSetGreeting}>
+    <button className="btn btn-primary" onClick={handleSetGreeting}>{/* // [!code hl] */}
       Send
     </button>
   );
-
+};
 ```
 
 ### Step 5: Bonus adding loading state
@@ -184,8 +174,7 @@ import DeployedContracts from "~~/contracts/deployedContracts";
 import { useTransactor } from "~~/hooks/scaffold-eth";
 
 export const ContractInteraction = () => {
-  // [!code hl]
-  const { writeContractAsync, isPending } = useWriteContract();
+  const { writeContractAsync, isPending } = useWriteContract(); // [!code hl]
 
   const writeContractAsyncWithParams = () =>
     writeContractAsync({
@@ -207,14 +196,12 @@ export const ContractInteraction = () => {
   };
 
   return (
-    // [!code hl]
     <button
       className="btn btn-primary"
       onClick={handleSetGreeting}
-      disabled={isPending}
+      disabled={isPending} // [!code hl]
     >
-      // [!code hl]
-      {isPending ? <span className="loading loading-spinner loading-sm"></span> : "Send"}
+      {isPending ? <span className="loading loading-spinner loading-sm"></span> : "Send"}{/* // [!code hl] */}
     </button>
   );
 };

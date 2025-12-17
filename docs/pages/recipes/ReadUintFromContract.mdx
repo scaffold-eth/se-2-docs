@@ -76,21 +76,18 @@ export const GreetingsCount = () => {
 Initialize the [useScaffoldReadContract](/hooks/useScaffoldReadContract) hook to read from the contract. This hook provides the `data` which contains the return value of the function.
 
 ```tsx title="components/GreetingsCount.tsx"
-// [!code hl]
-import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
+import { useScaffoldReadContract } from "~~/hooks/scaffold-eth"; // [!code hl]
 
 export const GreetingsCount = () => {
-  // [!code hl]
-  const { data: totalCounter } = useScaffoldReadContract({
-    contractName: "YourContract",
-    functionName: "totalCounter",
-  });
+  const { data: totalCounter } = useScaffoldReadContract({ // [!code hl]
+    contractName: "YourContract", // [!code hl]
+    functionName: "totalCounter", // [!code hl]
+  }); // [!code hl]
 
   return (
     <div>
       <h2 className="font-bold m-0">Total Greetings count:</h2>
-      // [!code hl]
-      <p>{totalCounter ? totalCounter.toString() : 0}</p>
+      <p>{totalCounter ? totalCounter.toString() : 0}</p>{/* // [!code hl] */}
       <h2 className="font-bold m-0">Your Greetings count:</h2>
     </div>
   );
@@ -107,32 +104,28 @@ We can get the connected address using the [useAccount](https://wagmi.sh/react/a
 
 ```tsx title="components/GreetingsCount.tsx"
 import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
-// [!code hl]
-import { useAccount } from "wagmi";
+import { useAccount } from "wagmi"; // [!code hl]
 
 export const GreetingsCount = () => {
-  // [!code hl]
-  const { address: connectedAddress } = useAccount();
+  const { address: connectedAddress } = useAccount(); // [!code hl]
 
   const { data: totalCounter } = useScaffoldReadContract({
     contractName: "YourContract",
     functionName: "totalCounter",
   });
 
-  // [!code hl]
-  const { data: connectedAddressCounter } = useScaffoldReadContract({
-    contractName: "YourContract",
-    functionName: "userGreetingCounter",
-    args: [connectedAddress], // passing args to function
-  });
+  const { data: connectedAddressCounter } = useScaffoldReadContract({ // [!code hl]
+    contractName: "YourContract", // [!code hl]
+    functionName: "userGreetingCounter", // [!code hl]
+    args: [connectedAddress], // passing args to function // [!code hl]
+  }); // [!code hl]
 
   return (
     <div>
       <h2>Total Greetings count:</h2>
       <p>{totalCounter ? totalCounter.toString() : 0}</p>
       <h2>Your Greetings count:</h2>
-      // [!code hl]
-      <p>{connectedAddressCounter ? connectedAddressCounter.toString() : 0}</p>
+      <p>{connectedAddressCounter ? connectedAddressCounter.toString() : 0}</p>{/* // [!code hl] */}
     </div>
   );
 };
@@ -149,14 +142,12 @@ import { useAccount } from "wagmi";
 export const GreetingsCount = () => {
   const { address: connectedAddress } = useAccount();
 
-  // [!code hl]
-  const { data: totalCounter, isLoading: isTotalCounterLoading } = useScaffoldReadContract({
+  const { data: totalCounter, isLoading: isTotalCounterLoading } = useScaffoldReadContract({ // [!code hl]
     contractName: "YourContract",
     functionName: "totalCounter",
   });
 
-  // [!code hl]
-  const { data: connectedAddressCounter, isLoading: isConnectedAddressCounterLoading } = useScaffoldReadContract({
+  const { data: connectedAddressCounter, isLoading: isConnectedAddressCounterLoading } = useScaffoldReadContract({ // [!code hl]
     contractName: "YourContract",
     functionName: "userGreetingCounter",
     args: [connectedAddress], // passing args to function
@@ -165,19 +156,17 @@ export const GreetingsCount = () => {
   return (
     <div>
       <h2>Total Greetings count:</h2>
-      // [!code hl]
-      {isTotalCounterLoading ? (
-        <span className="loading loading-spinner"></span>
-      ) : (
-        <p className="m-0">{totalCounter ? totalCounter.toString() : 0}</p>
-      )}
+      {isTotalCounterLoading ? ( // [!code hl]
+        <span className="loading loading-spinner"></span>{/* // [!code hl] */}
+      ) : ( // [!code hl]
+        <p className="m-0">{totalCounter ? totalCounter.toString() : 0}</p>{/* // [!code hl] */}
+      )}{/* // [!code hl] */}
       <h2>Your Greetings count:</h2>
-      // [!code hl]
-      {isConnectedAddressCounterLoading ? (
-        <span className="loading loading-spinner"></span>
-      ) : (
-        <p className="m-0">{connectedAddressCounter ? connectedAddressCounter.toString() : 0}</p>
-      )}
+      {isConnectedAddressCounterLoading ? ( // [!code hl]
+        <span className="loading loading-spinner"></span>{/* // [!code hl] */}
+      ) : ( // [!code hl]
+        <p className="m-0">{connectedAddressCounter ? connectedAddressCounter.toString() : 0}</p>{/* // [!code hl] */}
+      )} // [!code hl]
     </div>
   );
 };

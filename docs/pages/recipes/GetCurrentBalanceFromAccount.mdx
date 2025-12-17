@@ -56,26 +56,23 @@ export const ConnectedAddressBalance = () => {
 Fetch the Ethereum address of the currently connected account using the [useAccount wagmi hook](https://wagmi.sh/react/api/hooks/useAccount) and easily display them using Scaffold ETH-2 [Address](/components/Address) and [Balance](/components/Balance) components.
 
 ```tsx title="components/ConnectedAddressBalance.tsx"
-// [!code hl]
-import { useAccount } from "wagmi";
-// [!code hl]
-import { Address, Balance } from "~~/components/scaffold-eth";
+import { useAccount } from "wagmi"; // [!code hl]
+import { Address, Balance } from "~~/components/scaffold-eth"; // [!code hl]
 
 export const ConnectedAddressBalance = () => {
-  // [!code hl]
-  const { address: connectedAddress } = useAccount();
+  const { address: connectedAddress } = useAccount(); // [!code hl]
 
   return (
     <div>
       <h2>Your Ethereum Balance</h2>
-      // [!code hl]
-      <div>
-        Address: <Address address={connectedAddress} />
-      </div>
-      // [!code hl]
-      <div>
-        Balance: <Balance address={connectedAddress} />
-      </div>
+      
+      <div>{/* // [!code hl] */}
+        Address: <Address address={connectedAddress} />{/* // [!code hl] */}
+      </div>{/* // [!code hl] */}
+
+      <div>{/* // [!code hl] */}
+        Balance: <Balance address={connectedAddress} />{/* // [!code hl] */}
+      </div>{/* // [!code hl] */}
     </div>
   );
 };
