@@ -200,13 +200,6 @@ export default defineConfig({
       label: "Docs Repo",
     },
   ],
-  topNav: [
-    {
-      text: "Documentation",
-      link: "/",
-      match: "/",
-    },
-  ],
   editLink: {
     pattern:
       "https://github.com/scaffold-eth//se-2-docs/edit/main/docs/pages/:path",
