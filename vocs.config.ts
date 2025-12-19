@@ -189,24 +189,6 @@ export default defineConfig({
       ],
     },
   ],
-  socials: [
-    {
-      icon: "github",
-      link: "https://github.com/scaffold-eth/scaffold-eth-2",
-    },
-    {
-      icon: "github",
-      link: "https://github.com/scaffold-eth/se2-docs",
-      label: "Docs Repo",
-    },
-  ],
-  topNav: [
-    {
-      text: "Documentation",
-      link: "/",
-      match: "/",
-    },
-  ],
   editLink: {
     pattern:
       "https://github.com/scaffold-eth//se-2-docs/edit/main/docs/pages/:path",

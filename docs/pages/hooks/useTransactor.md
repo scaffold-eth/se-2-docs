@@ -22,7 +22,7 @@ const writeTx = transactor({
 await writeTx();
 ```
 
-This example tries to send 1 ETH to the address `buidlguidl.eth`, prompting the connected [`WalletClient`](https://wagmi.sh/react/api/hooks/useWalletClient#usewalletclient) for a signature. And in the case of a successful transaction, it will show a popup in the UI with the message: "🎉 Transaction completed successfully!".
+This example tries to send 1 ETH to the address `buidlguidl.eth`, prompting the connected [`WalletClient`](https://viem.sh/docs/clients/wallet) for a signature. And in the case of a successful transaction, it will show a popup in the UI with the message: "🎉 Transaction completed successfully!".
 
 You can pass in anything that is a valid parameter to [Viem's `sendTransaction` function](https://viem.sh/docs/actions/wallet/sendTransaction#parameters) to callback function. It also possible to pass it an promise that resolves in with a transaction hash for example promise from [Wagmi's `writeContractAsync` function](https://wagmi.sh/react/api/hooks/useWriteContract#mutate-async).
 
