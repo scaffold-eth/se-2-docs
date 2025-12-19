@@ -5,7 +5,7 @@ export default defineConfig({
   description: "Open-source toolkit for building dapps",
   logoUrl: "/img/logo.svg",
   iconUrl: "/img/favicon.png",
-  baseUrl: "https://scaffold-eth-2-docs-git-vocs-buidlguidldao.vercel.app",
+  baseUrl: "https://docs.scaffoldeth.io",
   ogImageUrl: {
     "/": "https://vocs.dev/api/og?logo=%logo&title=%title&description=%description",
   },
@@ -190,8 +190,7 @@ export default defineConfig({
     },
   ],
   editLink: {
-    pattern:
-      "https://github.com/scaffold-eth//se-2-docs/edit/main/docs/pages/:path",
+    pattern: "https://github.com/scaffold-eth//se-2-docs/edit/main/docs/pages/:path",
     text: "Suggest changes to this page",
   },
 });
