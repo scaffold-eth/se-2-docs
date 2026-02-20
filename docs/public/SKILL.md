@@ -26,34 +26,23 @@ Once the scaffold is on disk, read `<project-name>/AGENTS.md` -- this is the sou
 
 ## Step 3: Fetch Reference Skills (if needed)
 
-Check the [ethereum-app-skill](https://github.com/technophile-04/ethereum-app-skill/tree/main) repository for reference skills that cover specialized Ethereum needs (event indexing, token standards, etc.). If any skill is relevant to what the user is building, fetch and use it.
+The [ethereum-app-skill](https://github.com/technophile-04/ethereum-app-skill/tree/main) repository contains reference skills for specialized Ethereum needs (event indexing, token standards, etc.). Browse the `skills/` directory to discover available skills. If any skill is relevant to what the user is building, fetch and use it.
 
 **IMPORTANT: Always use `curl` to fetch skill files. Do NOT use WebFetch — it summarizes content and loses critical implementation details.**
+
+To discover available skills:
+
+```bash
+curl -sL https://api.github.com/repos/technophile-04/ethereum-app-skill/contents/skills | grep '"name"'
+```
+
+To fetch a specific skill:
 
 ```bash
 curl -sL https://raw.githubusercontent.com/technophile-04/ethereum-app-skill/main/skills/<skill-name>/SKILL.md
 ```
 
 Read the full curl output carefully before proceeding to implementation.
-
-Known reference skills:
-
-- **Ponder** -- Blockchain event indexing with Ponder, including SE-2 integration, schema setup, and GraphQL API
-  ```bash
-  curl -sL https://raw.githubusercontent.com/technophile-04/ethereum-app-skill/main/skills/ponder/SKILL.md
-  ```
-- **ERC-20** -- Add an ERC-20 fungible token contract to the project
-  ```bash
-  curl -sL https://raw.githubusercontent.com/technophile-04/ethereum-app-skill/main/skills/erc-20/SKILL.md
-  ```
-- **ERC-721** -- Add an ERC-721 NFT contract to the project
-  ```bash
-  curl -sL https://raw.githubusercontent.com/technophile-04/ethereum-app-skill/main/skills/erc-721/SKILL.md
-  ```
-- **EIP-5792** -- Add EIP-5792 batched transaction support
-  ```bash
-  curl -sL https://raw.githubusercontent.com/technophile-04/ethereum-app-skill/main/skills/eip-5792/SKILL.md
-  ```
 
 ## Step 4: Build the User's Idea
 
