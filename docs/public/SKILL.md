@@ -14,7 +14,7 @@ Scaffold full-stack Ethereum dApps using create-eth (Scaffold-ETH 2). Guide the 
 Run this command immediately -- no planning, no research, no exploration beforehand:
 
 ```bash
-npx create-eth@beta -s <hardhat|foundry> <project-name>
+npx create-eth@latest -s <hardhat|foundry> <project-name>
 ```
 
 - If no preference by the user, use Foundry.
