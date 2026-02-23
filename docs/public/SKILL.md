@@ -28,28 +28,10 @@ Read `<project-name>/AGENTS.md` -- this is the source of truth for the project's
 
 **STOP here. You must have fully read and understood AGENTS.md before moving to Step 3.**
 
-## Step 3: Fetch Reference Skills
+## Step 3: Read Reference Skills
 
-Only now -- after the project is scaffolded and AGENTS.md is loaded -- fetch any reference skills relevant to what the user is building.
-
-The [ethereum-app-skill](https://github.com/technophile-04/ethereum-app-skill/tree/main) repository contains reference skills for specialized Ethereum needs (event indexing, token standards, etc.).
-
-**IMPORTANT: Always use `curl` to fetch skill files. Do NOT use WebFetch — it summarizes content and loses critical implementation details.**
-
-To discover available skills:
-
-```bash
-curl -sL https://api.github.com/repos/technophile-04/ethereum-app-skill/contents/skills | grep '"name"'
-```
-
-To fetch a specific skill:
-
-```bash
-curl -sL https://raw.githubusercontent.com/technophile-04/ethereum-app-skill/main/skills/<skill-name>/SKILL.md
-```
-
-Read the full curl output carefully before proceeding to implementation.
+After the project is scaffolded and AGENTS.md is loaded, **read relevant `.agents/skills/<skill-name>/SKILL.md` file to what the user is building.**
 
 ## Step 4: Build the User's Idea
 
-Using `AGENTS.md` and any fetched reference skills as your guide, implement the user's idea -- contracts, frontend, integrations. Make sure it all compiles.
+Follow `AGENTS.md` and the reference skills to implement what the user asked for (contracts, frontend, integrations, etc). Make sure it all compiles.
