@@ -14,7 +14,7 @@ Scaffold full-stack Ethereum dApps using create-eth (Scaffold-ETH 2). Guide the 
 Run this command immediately -- no planning, no research, no exploration beforehand:
 
 ```bash
-npx create-eth@latest -s <hardhat|foundry> <project-name>
+npx create-eth@beta -s <hardhat|foundry> <project-name>
 ```
 
 - If no preference by the user, use Foundry.
@@ -30,12 +30,8 @@ Read `<project-name>/AGENTS.md` -- this is the source of truth for the project's
 
 ## Step 3: Read Reference Skills
 
-Only now -- after the project is scaffolded and AGENTS.md is loaded -- read any reference skills relevant to what the user is building.
-
-Skills are bundled directly in the project under `.agents/skills/<skill-name>/SKILL.md`. The "Skills & Agents Index" section in `AGENTS.md` lists all available skills and what they cover.
-
-**Read the relevant `.agents/skills/<skill-name>/SKILL.md` files thoroughly before proceeding to implementation.** These contain version-accurate patterns, APIs, and implementation details specific to the scaffolded project.
+After the project is scaffolded and AGENTS.md is loaded, **read relevant `.agents/skills/<skill-name>/SKILL.md` file to what the user is building.**
 
 ## Step 4: Build the User's Idea
 
-Using `AGENTS.md` and the reference skills as your guide, implement the user's idea -- contracts, frontend, integrations. Make sure it all compiles.
+Follow `AGENTS.md` and the reference skills to implement what the user asked for (contracts, frontend, integrations, etc). Make sure it all compiles.
