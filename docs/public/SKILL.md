@@ -17,7 +17,9 @@ Before running the scaffold command, do these pre-flight checks in order:
    - If output contains `Msys`, `Cygwin`, or `Windows` → use Hardhat. Do not check for Foundry. Foundry has known compatibility issues with create-eth on Windows.
    - If Linux/Mac → run `forge --version`. If Foundry is available use it, otherwise fall back to Hardhat.
 
-2. **Resolve project name:** suggest a kebab-case name derived from what the user wants to build. Check if that directory already exists in the current location. If it does, auto-increment the suffix (`-2`, `-3`, etc.) until a free name is found. Confirm with the user that folder name is good to use.
+2. **Resolve project name:** suggest a kebab-case name derived from what the user wants to build. Check if that directory already exists in the current location. If it does, auto-increment the suffix (`-2`, `-3`, etc.) until a free name is found.
+
+3. **Important: Always confirm with the user if he wants to use the resolved <project-name>, and let him choose another one if he doesn't like resolved one.**. If the user choose another project name, use it as <project-name> in the next command.
 
 Then run:
 
