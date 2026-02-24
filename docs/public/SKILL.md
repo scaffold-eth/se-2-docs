@@ -11,7 +11,15 @@ Scaffold full-stack Ethereum dApps using create-eth (Scaffold-ETH 2). Guide the 
 
 ## Step 1: Scaffold the Project
 
-Run this command immediately -- no planning, no research, no exploration beforehand:
+Before running the scaffold command, do these pre-flight checks in order:
+
+1. **Detect OS:** run `uname -o 2>/dev/null || echo "Windows"`.
+   - If output contains `Msys`, `Cygwin`, or `Windows` → use Hardhat. Do not check for Foundry. Foundry has known compatibility issues with create-eth on Windows.
+   - If Linux/Mac → run `forge --version`. If Foundry is available use it, otherwise fall back to Hardhat.
+
+2. **Resolve project name:** suggest a kebab-case name derived from what the user wants to build. Check if that directory already exists in the current location. If it does, auto-increment the suffix (`-2`, `-3`, etc.) until a free name is found. Confirm with the user that folder name is good to use.
+
+Then run:
 
 ```bash
 npx create-eth@latest -s <hardhat|foundry> <project-name>
