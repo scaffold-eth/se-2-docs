@@ -1,11 +1,18 @@
 import { defineConfig } from "vocs";
 
+// Only set baseUrl on production so Vercel preview deployments
+// resolve links against the preview URL instead of docs.scaffoldeth.io
+const baseUrl =
+  process.env.VERCEL_ENV === "production"
+    ? "https://docs.scaffoldeth.io"
+    : undefined;
+
 export default defineConfig({
   title: "🏗 Scaffold-ETH 2 | Docs",
   description: "Open-source toolkit for building dapps",
   logoUrl: "/img/logo.svg",
   iconUrl: "/img/favicon.png",
-  baseUrl: "https://docs.scaffoldeth.io",
+  baseUrl,
   ogImageUrl: {
     "/": "https://vocs.dev/api/og?logo=%logo&title=%title&description=%description",
   },
