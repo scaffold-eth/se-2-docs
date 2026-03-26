@@ -172,6 +172,23 @@ export default defineConfig({
       ],
     },
     {
+      text: "🤖 Build with AI",
+      items: [
+        {
+          text: "Overview",
+          link: "/build-with-ai",
+        },
+        {
+          text: "AGENTS.md",
+          link: "/build-with-ai/agents-md",
+        },
+        {
+          text: "Skills",
+          link: "/build-with-ai/skills",
+        },
+      ],
+    },
+    {
       text: "🙏 Contributing",
       items: [
         {

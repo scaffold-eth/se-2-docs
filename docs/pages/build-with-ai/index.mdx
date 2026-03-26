@@ -1,0 +1,47 @@
+---
+title: Build with AI
+description: Use AI coding agents to build faster with Scaffold-ETH 2.
+---
+
+# 🤖 Build with AI
+
+Scaffold-ETH 2 is designed to work great with AI coding agents like [Claude Code](https://claude.ai/code), [Cursor](https://cursor.sh), [Cline](https://github.com/cline/cline), and others.
+
+Every SE-2 project ships with an **AGENTS.md** file that gives AI agents deep context about the project structure, available commands, architecture patterns, and code style. On top of that, **Skills** provide reusable instructions that agents can follow to add features like NFT contracts, Sign-In with Ethereum, subgraph indexing, and more.
+
+## What's included
+
+:::note[📄 AGENTS.md — Project Context for AI Agents]
+Every SE-2 project includes an `AGENTS.md` file at the root. AI agents automatically read this file when they enter your project, giving them full context about the architecture, commands, and patterns.
+
+[Learn more about AGENTS.md →](/build-with-ai/agents-md)
+:::
+
+:::note[⚡ Skills — Reusable Agent Instructions]
+Skills are markdown files that teach AI agents how to add specific features to your SE-2 project. Instead of explaining everything from scratch, just point your agent to a skill.
+
+[Browse available Skills →](/build-with-ai/skills)
+:::
+
+## Quick Start
+
+The fastest way to build with AI in Scaffold-ETH 2:
+
+1. **Scaffold your project** as usual:
+
+```bash [Terminal]
+npx create-eth@latest
+```
+
+2. **Open the project in your AI-powered editor** (Cursor, VS Code with Cline, etc.) or start a [Claude Code](https://claude.ai/code) session in the project directory.
+
+3. **Start building.** The agent will automatically pick up `AGENTS.md` and understand your project. For specific features, point it to a skill:
+
+```
+Use the openzeppelin skill from .agents/skills/openzeppelin/SKILL.md
+to add an ERC-20 token contract.
+```
+
+## Build Prompts
+
+Looking for project ideas? Check out [Build Prompts on SpeedRunEthereum](https://speedrunethereum.com/build-prompts) — curated AI-friendly project prompts that give your agent everything it needs to scaffold a complete dApp from a single prompt.
