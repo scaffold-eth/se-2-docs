@@ -8,12 +8,16 @@ const skillSidebarItems = skills.map((s) => ({
   link: `/build-with-ai/${s.name}`,
 }));
 
+const baseUrl = process.env.VERCEL_ENV === "production"
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : `https://${process.env.VERCEL_URL}`;
+
 export default defineConfig({
   title: "🏗 Scaffold-ETH 2 | Docs",
   description: "Open-source toolkit for building dapps",
   logoUrl: "/img/logo.svg",
   iconUrl: "/img/favicon.png",
-  baseUrl: "https://docs.scaffoldeth.io",
+  baseUrl,
   ogImageUrl: {
     "/": "https://vocs.dev/api/og?logo=%logo&title=%title&description=%description",
   },
