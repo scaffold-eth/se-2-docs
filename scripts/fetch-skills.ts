@@ -113,16 +113,21 @@ export async function fetchSkills(): Promise<Skill[]> {
   const existing = readExistingSkills();
   if (existing) return existing;
 
-  fs.mkdirSync(SKILLS_DIR, { recursive: true });
+  try {
+    fs.mkdirSync(SKILLS_DIR, { recursive: true });
 
-  const names = await getSkillNames();
-  const results = await Promise.all(names.map(fetchAndWriteSkill));
-  const skills = results.filter(Boolean) as Skill[];
+    const names = await getSkillNames();
+    const results = await Promise.all(names.map(fetchAndWriteSkill));
+    const skills = results.filter(Boolean) as Skill[];
 
-  if (skills.length > 0) {
-    writeSkillsOverview(skills);
-    console.log(`✅ Fetched ${skills.length} skills from GitHub`);
+    if (skills.length > 0) {
+      writeSkillsOverview(skills);
+      console.log(`✅ Fetched ${skills.length} skills from GitHub`);
+    }
+
+    return skills;
+  } catch (err) {
+    console.warn("⚠️  Failed to fetch skills from GitHub:", err);
+    return [];
   }
-
-  return skills;
 }
