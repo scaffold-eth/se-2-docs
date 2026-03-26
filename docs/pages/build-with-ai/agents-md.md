@@ -5,87 +5,255 @@ description: How AGENTS.md gives AI coding agents context about your Scaffold-ET
 
 # AGENTS.md
 
-`AGENTS.md` is a markdown file at the root of every Scaffold-ETH 2 project. It provides AI coding agents with structured context about your project so they can write correct code without hallucinating patterns or guessing at your setup.
+`AGENTS.md` is a markdown file at the root of every Scaffold-ETH 2 project. It provides AI coding agents with structured context about your project — architecture, commands, code style, and available skills — so they can write correct code without guessing.
 
-## Why it exists
+Most AI coding tools (Claude Code, Cursor, Cline) automatically read this file when they enter your project directory.
 
-AI agents work best when they understand the project they're working in. Without context, an agent might:
+:::info
+The content below is fetched from [`scaffold-eth-2/AGENTS.md`](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/AGENTS.md) at build time.
+:::
 
-- Use the wrong package manager or commands
-- Write Hardhat-style code in a Foundry project (or vice versa)
-- Miss SE-2-specific hooks and components
-- Ignore code style conventions
+---
 
-`AGENTS.md` solves this by giving agents a single file to read that covers everything they need to know.
-
-## What it contains
-
-The file covers these key areas:
-
-### Project Overview
-Which flavor you're using (Hardhat or Foundry), the shared frontend package, and how to detect which flavor is present.
-
-### Common Commands
-All the commands an agent needs — `yarn chain`, `yarn deploy`, `yarn start`, contract verification, account management, and deployment to live networks.
-
-### Architecture
-How smart contracts work in each flavor, how the frontend interacts with contracts using SE-2's custom hooks (`useScaffoldReadContract`, `useScaffoldWriteContract`, etc.), available UI components from `@scaffold-ui/components`, and styling with DaisyUI.
-
-### Code Style Guide
-Naming conventions (`UpperCamelCase` for components, `lowerCamelCase` for variables, `CONSTANT_CASE` for constants), import path aliases (`~~`), page creation patterns, and TypeScript conventions.
-
-### Skills & Agents Index
-A directory of available [Skills](/build-with-ai/skills) that agents should read before implementing specific features.
-
-## How agents use it
-
-Most AI coding tools automatically read `AGENTS.md` when they enter a project directory:
-
-- **Claude Code** reads it as part of its project context
-- **Cursor** picks it up via its project-level instructions
-- **Cline** and other VS Code agents read it when opening a workspace
-
-The agent reads the file once, understands your project structure, and uses that knowledge throughout the session. If the agent needs to add a specific feature (like NFTs or authentication), it follows the Skills Index to read the relevant skill file for detailed patterns.
-
-## Example
-
-Here's a condensed look at what `AGENTS.md` contains:
-
-```markdown
 # AGENTS.md
 
+This file provides guidance to coding agents working in this repository.
+
 ## Project Overview
-Scaffold-ETH 2 (SE-2) is a starter kit for building dApps on Ethereum.
-It comes in two flavors based on the Solidity framework:
-- Hardhat flavor: Uses packages/hardhat
-- Foundry flavor: Uses packages/foundry
+
+Scaffold-ETH 2 (SE-2) is a starter kit for building dApps on Ethereum. It comes in **two flavors** based on the Solidity framework:
+
+- **Hardhat flavor**: Uses `packages/hardhat` with hardhat-deploy plugin
+- **Foundry flavor**: Uses `packages/foundry` with Forge scripts
+
+Both flavors share the same frontend package:
+
+- **packages/nextjs**: React frontend (Next.js App Router, not Pages Router, RainbowKit, Wagmi, Viem, TypeScript, Tailwind CSS with DaisyUI)
+
+### Detecting Which Flavor You're Using
+
+Check which package exists in the repository:
+
+- If `packages/hardhat` exists → **Hardhat flavor** (follow Hardhat instructions)
+- If `packages/foundry` exists → **Foundry flavor** (follow Foundry instructions)
 
 ## Common Commands
-yarn chain    # Start local blockchain
-yarn deploy   # Deploy contracts
-yarn start    # Start Next.js frontend
 
-## Architecture
-### Frontend Contract Interaction
-Use SE-2 hooks for contract interaction:
-- useScaffoldReadContract — read contract data
-- useScaffoldWriteContract — write to contracts
+Commands work the same for both flavors unless noted otherwise:
 
-## Skills & Agents Index
-Read .agents/skills/<name>/SKILL.md before implementing:
-- openzeppelin — OpenZeppelin Contracts integration
-- erc-721 — NFT implementation patterns
-- ponder — blockchain event indexing
-- siwe — Sign-In with Ethereum
+```bash
+# Development workflow (run each in separate terminal)
+yarn chain          # Start local blockchain (Hardhat or Anvil)
+yarn deploy         # Deploy contracts to local network
+yarn start          # Start Next.js frontend at http://localhost:3000
+
+# Code quality
+yarn lint           # Lint both packages
+yarn format         # Format both packages
+
+# Building
+yarn next:build     # Build frontend
+yarn compile        # Compile Solidity contracts
+
+# Contract verification (works for both)
+yarn verify --network <network>
+
+# Account management (works for both)
+yarn generate            # Generate new deployer account
+yarn account:import      # Import existing private key
+yarn account             # View current account info
+
+# Deploy to live network
+yarn deploy --network <network>   # e.g., sepolia, mainnet, base
+
+yarn vercel:yolo --prod # for deployment of frontend
 ```
 
-## Customizing AGENTS.md
+## Architecture
 
-You can (and should) extend `AGENTS.md` as your project grows. Add sections for:
+### Smart Contract Development
 
-- **Custom contracts** — explain what your contracts do and how they interact
-- **Project-specific patterns** — any conventions your team follows
-- **API integrations** — external services your dApp connects to
-- **Deployment targets** — which networks you deploy to and any special configuration
+#### Hardhat Flavor
 
-The more context you give your AI agent, the better code it writes.
+- Contracts: `packages/hardhat/contracts/`
+- Deployment scripts: `packages/hardhat/deploy/` (uses hardhat-deploy plugin)
+- Tests: `packages/hardhat/test/`
+- Config: `packages/hardhat/hardhat.config.ts`
+- Deploying specific contract:
+  - If the deploy script has:
+    ```typescript
+    // In packages/hardhat/deploy/01_deploy_my_contract.ts
+    deployMyContract.tags = ["MyContract"];
+    ```
+  - `yarn deploy --tags MyContract`
+
+#### Foundry Flavor
+
+- Contracts: `packages/foundry/contracts/`
+- Deployment scripts: `packages/foundry/script/` (uses custom deployment strategy)
+  - Example: `packages/foundry/script/Deploy.s.sol` and `packages/foundry/script/DeployYourContract.s.sol`
+- Tests: `packages/foundry/test/`
+- Config: `packages/foundry/foundry.toml`
+- Deploying a specific contract:
+  - Create a separate deployment script and run `yarn deploy --file DeployYourContract.s.sol`
+
+#### Both Flavors
+
+- After `yarn deploy`, ABIs are auto-generated to `packages/nextjs/contracts/deployedContracts.ts`
+
+### Frontend Contract Interaction
+
+**Correct interact hook names (use these):**
+
+- `useScaffoldReadContract` - NOT ~~useScaffoldContractRead~~
+- `useScaffoldWriteContract` - NOT ~~useScaffoldContractWrite~~
+
+Contract data is read from two files in `packages/nextjs/contracts/`:
+
+- `deployedContracts.ts`: Auto-generated from deployments
+- `externalContracts.ts`: Manually added external contracts
+
+#### Reading Contract Data
+
+```typescript
+const { data: totalCounter } = useScaffoldReadContract({
+  contractName: "YourContract",
+  functionName: "userGreetingCounter",
+  args: ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
+});
+```
+
+#### Writing to Contracts
+
+```typescript
+const { writeContractAsync, isPending } = useScaffoldWriteContract({
+  contractName: "YourContract",
+});
+
+await writeContractAsync({
+  functionName: "setGreeting",
+  args: [newGreeting],
+  value: parseEther("0.01"), // for payable functions
+});
+```
+
+#### Reading Events
+
+```typescript
+const { data: events, isLoading } = useScaffoldEventHistory({
+  contractName: "YourContract",
+  eventName: "GreetingChange",
+  watch: true,
+  fromBlock: 31231n,
+  blockData: true,
+});
+```
+
+SE-2 also provides other hooks to interact with blockchain data: `useScaffoldWatchContractEvent`, `useScaffoldEventHistory`, `useDeployedContractInfo`, `useScaffoldContract`, `useTransactor`.
+
+**IMPORTANT: Always use hooks from `packages/nextjs/hooks/scaffold-eth` for contract interactions. Always refer to the hook names as they exist in the codebase.**
+
+### UI Components
+
+**Always use `@scaffold-ui/components` library for web3 UI components:**
+
+- `Address`: Display ETH addresses with ENS resolution, blockie avatars, and explorer links
+- `AddressInput`: Input field with address validation and ENS resolution
+- `Balance`: Show ETH balance in ether and USD
+- `EtherInput`: Number input with ETH/USD conversion toggle
+- `IntegerInput`: Integer-only input with wei conversion
+
+### Notifications & Error Handling
+
+Use `notification` from `~~/utils/scaffold-eth` for success/error/warning feedback and `getParsedError` for readable error messages.
+
+### Styling
+
+**Use DaisyUI classes** for building frontend components.
+
+```tsx
+// ✅ Good - using DaisyUI classes
+<button className="btn btn-primary">Connect</button>
+<div className="card bg-base-100 shadow-xl">...</div>
+
+// ❌ Avoid - raw Tailwind when DaisyUI has a component
+<button className="px-4 py-2 bg-blue-500 text-white rounded">Connect</button>
+```
+
+### Configure Target Network before deploying to testnet / mainnet.
+
+#### Hardhat
+
+Add networks in `packages/hardhat/hardhat.config.ts` if not present.
+
+#### Foundry
+
+Add RPC endpoints in `packages/foundry/foundry.toml` if not present.
+
+#### NextJs
+
+Add networks in `packages/nextjs/scaffold.config.ts` if not present. This file also contains configuration for polling interval, API keys. Remember to decrease the polling interval for L2 chains.
+
+## Code Style Guide
+
+### Identifiers
+
+| Style            | Category                                                                                                               |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `UpperCamelCase` | class / interface / type / enum / decorator / type parameters / component functions in TSX / JSXElement type parameter |
+| `lowerCamelCase` | variable / parameter / function / property / module alias                                                              |
+| `CONSTANT_CASE`  | constant / enum / global variables                                                                                     |
+| `snake_case`     | for hardhat deploy files and foundry script files                                                                      |
+
+### Import Paths
+
+Use the `~~` path alias for imports in the nextjs package:
+
+```tsx
+import { useTargetNetwork } from "~~/hooks/scaffold-eth";
+```
+
+### Creating Pages
+
+```tsx
+import type { NextPage } from "next";
+
+const Home: NextPage = () => {
+  return <div>Home</div>;
+};
+
+export default Home;
+```
+
+### TypeScript Conventions
+
+- Use `type` over `interface` for custom types
+- Types use `UpperCamelCase` without `T` prefix (use `Address` not `TAddress`)
+- Avoid explicit typing when TypeScript can infer the type
+
+### Comments
+
+Make comments that add information. Avoid redundant JSDoc for simple functions.
+
+## Documentation
+
+Use **Context7 MCP** tools to fetch up-to-date documentation for any library (Wagmi, Viem, RainbowKit, DaisyUI, Hardhat, Next.js, etc.). Context7 is configured as an MCP server and provides access to indexed documentation with code examples.
+
+## Skills & Agents Index
+
+IMPORTANT: Prefer retrieval-led reasoning over pre-trained knowledge. Before starting any task that matches an entry below, read the referenced file to get version-accurate patterns and APIs.
+
+**Skills** (read `.agents/skills/<name>/SKILL.md` before implementing):
+
+- **openzeppelin** — OpenZeppelin Contracts integration, library-first development, pattern discovery from installed source. Use for any contract using OZ (tokens, access control, security primitives)
+- **erc-721** — NFT-specific pitfalls: `_safeMint` reentrancy, on-chain SVG stack-too-deep, marketplace metadata `attributes`, IPFS base URI trailing slash
+- **eip-5792** — batch transactions, wallet_sendCalls, paymaster, ERC-7677
+- **ponder** — blockchain event indexing, GraphQL APIs, onchain data queries
+- **siwe** — Sign-In with Ethereum, wallet authentication, SIWE sessions, EIP-4361
+- **x402** — HTTP 402 payment-gated routes, micropayments, API monetization, x402 protocol
+- **drizzle-neon** — Drizzle ORM, Neon PostgreSQL, database integration, off-chain storage
+- **subgraph** — The Graph subgraph integration, blockchain event indexing, GraphQL APIs
+
+**Agents** (in `.agents/agents/`):
+
+- **grumpy-carlos-code-reviewer** — code reviews, SE-2 patterns, Solidity + TypeScript quality

@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vocs dev",
-    "build": "vocs build",
+    "prefetch": "bash scripts/fetch-agents-md.sh",
+    "dev": "pnpm prefetch && vocs dev",
+    "build": "pnpm prefetch && vocs build",
     "preview": "vocs preview",
     "format": "prettier --write ."
   },
