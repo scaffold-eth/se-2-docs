@@ -20,29 +20,38 @@ Skills live in your project at `.agents/skills/<name>/SKILL.md`. Your AI agent r
 
 ## Using a Skill
 
-Point your AI agent to the skill file:
+Point your AI agent to the skill file. You can reference the local copy in your project:
 
 ```
 Read .agents/skills/erc-721/SKILL.md and use it to add an NFT
 contract to this project.
 ```
 
-The agent will read the skill, understand the patterns, and implement the feature following SE-2 conventions.
+Or fetch it from the docs site (useful if you haven't scaffolded yet):
+
+```
+Fetch https://docs.scaffoldeth.io/skills/erc-721.md and use it
+to add an NFT contract to this project.
+```
 
 ## Available Skills
 
-These skills ship with every SE-2 project:
+These skills ship with every SE-2 project and are also hosted on this site:
 
-| Skill | What it does |
-|-------|-------------|
-| **openzeppelin** | OpenZeppelin Contracts integration. Library-first development, pattern discovery from installed source. Use for tokens, access control, security primitives. |
-| **erc-721** | NFT implementation with SE-2. Covers `_safeMint` reentrancy, on-chain SVG patterns, marketplace metadata, IPFS base URI handling. |
-| **eip-5792** | Batch transactions with `wallet_sendCalls`, paymaster integration, ERC-7677 support. |
-| **ponder** | Blockchain event indexing with Ponder. Set up GraphQL APIs for querying on-chain data. |
-| **siwe** | Sign-In with Ethereum. Wallet-based authentication, SIWE sessions, EIP-4361 compliance. |
-| **x402** | HTTP 402 payment-gated routes. Add micropayments and API monetization using the x402 protocol. |
-| **drizzle-neon** | Drizzle ORM with Neon PostgreSQL. Add off-chain database storage to your dApp. |
-| **subgraph** | The Graph subgraph integration. Index blockchain events and serve them via GraphQL. |
+| Skill | What it does | Hosted |
+|-------|-------------|--------|
+| **openzeppelin** | OpenZeppelin Contracts integration. Library-first development, pattern discovery from installed source. | [openzeppelin.md](https://docs.scaffoldeth.io/skills/openzeppelin.md) |
+| **erc-721** | NFT implementation with SE-2. Covers `_safeMint` reentrancy, on-chain SVG patterns, marketplace metadata. | [erc-721.md](https://docs.scaffoldeth.io/skills/erc-721.md) |
+| **eip-5792** | Batch transactions with `wallet_sendCalls`, paymaster integration, ERC-7677 support. | [eip-5792.md](https://docs.scaffoldeth.io/skills/eip-5792.md) |
+| **ponder** | Blockchain event indexing with Ponder. Set up GraphQL APIs for querying on-chain data. | [ponder.md](https://docs.scaffoldeth.io/skills/ponder.md) |
+| **siwe** | Sign-In with Ethereum. Wallet-based authentication, SIWE sessions, EIP-4361 compliance. | [siwe.md](https://docs.scaffoldeth.io/skills/siwe.md) |
+| **x402** | HTTP 402 payment-gated routes. Add micropayments and API monetization using the x402 protocol. | [x402.md](https://docs.scaffoldeth.io/skills/x402.md) |
+| **drizzle-neon** | Drizzle ORM with Neon PostgreSQL. Add off-chain database storage to your dApp. | [drizzle-neon.md](https://docs.scaffoldeth.io/skills/drizzle-neon.md) |
+| **subgraph** | The Graph subgraph integration. Index blockchain events and serve them via GraphQL. | [subgraph.md](https://docs.scaffoldeth.io/skills/subgraph.md) |
+
+:::info
+The orchestrator skill is also hosted at [`docs.scaffoldeth.io/SKILL.md`](https://docs.scaffoldeth.io/SKILL.md) — this is the main entry point that AI agents use to scaffold a new SE-2 project from scratch.
+:::
 
 ## Skills vs Extensions
 
