@@ -185,6 +185,40 @@ export default defineConfig({
         {
           text: "Skills",
           link: "/build-with-ai/skills",
+          items: [
+            {
+              text: "OpenZeppelin",
+              link: "/build-with-ai/openzeppelin",
+            },
+            {
+              text: "ERC-721",
+              link: "/build-with-ai/erc-721",
+            },
+            {
+              text: "EIP-5792",
+              link: "/build-with-ai/eip-5792",
+            },
+            {
+              text: "Ponder",
+              link: "/build-with-ai/ponder",
+            },
+            {
+              text: "SIWE",
+              link: "/build-with-ai/siwe",
+            },
+            {
+              text: "x402",
+              link: "/build-with-ai/x402",
+            },
+            {
+              text: "Drizzle + Neon",
+              link: "/build-with-ai/drizzle-neon",
+            },
+            {
+              text: "Subgraph",
+              link: "/build-with-ai/subgraph",
+            },
+          ],
         },
       ],
     },

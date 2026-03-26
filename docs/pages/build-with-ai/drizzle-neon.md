@@ -1,7 +1,8 @@
 ---
-name: drizzle-neon
-description: "Add a PostgreSQL database with Drizzle ORM to a Scaffold-ETH 2 project. Use when the user wants to: add a database, use Drizzle ORM, integrate Neon PostgreSQL, store off-chain data, build a backend with database, or add persistent storage to their dApp."
+title: "Drizzle + Neon"
+description: "Drizzle ORM with Neon PostgreSQL skill for Scaffold-ETH 2."
 ---
+
 
 # Drizzle ORM + Neon PostgreSQL Integration for Scaffold-ETH 2
 
