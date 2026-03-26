@@ -7,18 +7,6 @@ const RAW_BASE =
 const GITHUB_API =
   "https://api.github.com/repos/scaffold-eth/scaffold-eth-2/contents/.agents/skills";
 
-// Known skill names — used as fallback when GitHub API is unavailable
-const KNOWN_SKILLS = [
-  "openzeppelin",
-  "erc-721",
-  "eip-5792",
-  "ponder",
-  "siwe",
-  "x402",
-  "drizzle-neon",
-  "subgraph",
-];
-
 export type Skill = {
   name: string;
   title: string;
@@ -26,16 +14,10 @@ export type Skill = {
 };
 
 async function getSkillNames(): Promise<string[]> {
-  try {
-    const res = await fetch(GITHUB_API);
-    if (res.ok) {
-      const dirs = (await res.json()) as { name: string; type: string }[];
-      return dirs.filter((d) => d.type === "dir").map((d) => d.name);
-    }
-  } catch { }
-
-  // Fallback to known list if API is unavailable
-  return KNOWN_SKILLS;
+  const res = await fetch(GITHUB_API);
+  if (!res.ok) return [];
+  const dirs = (await res.json()) as { name: string; type: string }[];
+  return dirs.filter((d) => d.type === "dir").map((d) => d.name);
 }
 
 async function fetchAndWriteSkill(name: string): Promise<Skill | null> {
