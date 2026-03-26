@@ -39,14 +39,14 @@ If your prompt mentions indexing, the agent reads the **ponder** skill. NFTs? It
 
 ### Already have a project?
 
-If you've already scaffolded, just point your agent to a skill directly:
+Just describe what you want. Your agent reads the skill descriptions from `.agents/skills/` and picks the right one:
 
 ```
-Read .agents/skills/erc-721/SKILL.md and add an NFT contract
-to this project.
+I want users to authenticate with their wallet before
+interacting with this page.
 ```
 
-The agent picks up `AGENTS.md` for project context and follows the skill's patterns for implementation.
+The agent recognizes this matches the **siwe** skill, reads it, and implements Sign-In with Ethereum following SE-2 patterns. You don't need to know which skill exists — just say what you need.
 
 ## Build Prompts
 
