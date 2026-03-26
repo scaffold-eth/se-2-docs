@@ -13,14 +13,6 @@ Most AI coding tools (Claude Code, Cursor, Cline) automatically read this file w
 View the full file on GitHub: [`scaffold-eth-2/AGENTS.md`](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/AGENTS.md)
 :::
 
-## What it covers
-
-- **Project Overview** — which flavor you're using (Hardhat or Foundry), shared frontend package
-- **Common Commands** — `yarn chain`, `yarn deploy`, `yarn start`, verification, deployment
-- **Architecture** — smart contract patterns, frontend hooks (`useScaffoldReadContract`, `useScaffoldWriteContract`, etc.), UI components, DaisyUI styling
-- **Code Style Guide** — naming conventions, import aliases (`~~`), TypeScript patterns
-- **Skills & Agents Index** — directory of available [Skills](/build-with-ai/skills) for feature-specific guidance
-
 ## Customizing AGENTS.md
 
-You can extend `AGENTS.md` as your project grows. Add sections for your custom contracts, project-specific patterns, API integrations, or deployment targets. The more context you give your AI agent, the better code it writes.
+You can extend `AGENTS.md` as your project grows. Add sections for your custom contracts, project-specific patterns, API integrations, or deployment targets which model keeps getting wrong.
