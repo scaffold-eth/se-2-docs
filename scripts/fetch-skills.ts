@@ -26,18 +26,21 @@ async function fetchAndWriteSkill(name: string): Promise<Skill | null> {
 
   const raw = await res.text();
 
-  // Extract description from original frontmatter
+  // Extract original frontmatter and body
+  const fmMatch = raw.match(/^---\n([\s\S]*?)\n---\n*/);
+  const originalFrontmatter = fmMatch ? fmMatch[1] : "";
+  const body = raw.replace(/^---[\s\S]*?---\n*/, "");
+
+  // Extract description for Vocs meta
   const descMatch = raw.match(/description:\s*"([^"]+)"/);
   const shortDesc = descMatch
     ? descMatch[1].split(". Use when")[0]
     : `${name} skill for Scaffold-ETH 2`;
 
-  // Replace frontmatter with Vocs-compatible one
-  const body = raw.replace(/^---[\s\S]*?---\n*/, "");
-
+  // Vocs frontmatter for page meta, original frontmatter as visible code block
   fs.writeFileSync(
     path.join(SKILLS_DIR, `${name}.md`),
-    `---\ntitle: "${name}"\ndescription: "${shortDesc}"\n---\n\n${body}`,
+    `---\ntitle: "${name}"\ndescription: "${shortDesc}"\n---\n\n\`\`\`yaml\n---\n${originalFrontmatter}\n---\n\`\`\`\n\n${body}`,
   );
 
   return { name, title: name, shortDesc };
@@ -60,11 +63,7 @@ description: Reusable AI agent instructions for adding features to Scaffold-ETH 
 
 # Skills
 
-Skills are markdown files (\`SKILL.md\`) that contain detailed instructions for AI agents to add specific features to your Scaffold-ETH 2 project. Think of them as expert knowledge packaged into a format that AI agents can take inspiration from.
-
-## How Skills work
-
-Each skill covers prerequisites, implementation patterns, gotchas, and SE-2 integration details. Skills live in your project at \`.agents/skills/<name>/SKILL.md\`. Your AI agent reads them before implementing a feature, so it follows proven patterns instead of guessing.
+Skills are markdown files (\`SKILL.md\`) that teach AI agents how to add specific features to your SE-2 project. Each one covers the prerequisites, implementation patterns, common gotchas of smart contracts / frontend, and how the feature connects to SE-2's hooks and components. They live in your project at \`.agents/skills/<name>/SKILL.md\`, and your agent reads them before implementing a feature so it follows proven patterns instead of guessing.
 
 ## Available Skills
 
@@ -73,17 +72,14 @@ Each skill covers prerequisites, implementation patterns, gotchas, and SE-2 inte
 ${rows}
 
 :::info
-The orchestrator skill is hosted at [\`docs.scaffoldeth.io/SKILL.md\`](https://docs.scaffoldeth.io/SKILL.md) — the entry point AI agents use to scaffold a new SE-2 project.
+The orchestrator skill is hosted at [\`docs.scaffoldeth.io/SKILL.md\`](https://docs.scaffoldeth.io/SKILL.md). This is the entry point AI agents use to scaffold a new SE-2 project.
 :::
 
 ## Skills vs Extensions
 
-| | Extensions | Skills |
-|---|---|---|
-| **When** | At project creation (\`npx create-eth@latest\`) | Anytime during development |
-| **How** | CLI selection during scaffolding | AI agent reads and applies the instructions |
-| **What** | Adds boilerplate files to your project | Guides the agent to implement features correctly |
-| **Flexibility** | Fixed template output | Agent adapts to your existing code |
+Extensions and skills solve different problems. Extensions run at project creation time (\`npx create-eth@latest\`) and add boilerplate files to your project. Skills work anytime during development. Your AI agent reads the skill instructions and adapts the implementation to your existing code, instead of dumping a fixed template.
+
+The plan is to eventually migrate all extensions to skills. Skills are more flexible since the agent can adapt to your existing codebase, and they don't require changes to the CLI scaffolding pipeline.
 
 ## Creating your own Skills
 
