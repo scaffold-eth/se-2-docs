@@ -7,16 +7,17 @@ const RAW_BASE =
 const GITHUB_API =
   "https://api.github.com/repos/scaffold-eth/scaffold-eth-2/contents/.agents/skills";
 
-const SKILL_TITLES: Record<string, string> = {
-  openzeppelin: "OpenZeppelin",
-  "erc-721": "ERC-721",
-  "eip-5792": "EIP-5792",
-  ponder: "Ponder",
-  siwe: "SIWE",
-  x402: "x402",
-  "drizzle-neon": "Drizzle + Neon",
-  subgraph: "Subgraph",
-};
+// Known skill names — used as fallback when GitHub API is unavailable
+const KNOWN_SKILLS = [
+  "openzeppelin",
+  "erc-721",
+  "eip-5792",
+  "ponder",
+  "siwe",
+  "x402",
+  "drizzle-neon",
+  "subgraph",
+];
 
 export type Skill = {
   name: string;
@@ -31,10 +32,10 @@ async function getSkillNames(): Promise<string[]> {
       const dirs = (await res.json()) as { name: string; type: string }[];
       return dirs.filter((d) => d.type === "dir").map((d) => d.name);
     }
-  } catch {}
+  } catch { }
 
   // Fallback to known list if API is unavailable
-  return Object.keys(SKILL_TITLES);
+  return KNOWN_SKILLS;
 }
 
 async function fetchAndWriteSkill(name: string): Promise<Skill | null> {
@@ -51,14 +52,13 @@ async function fetchAndWriteSkill(name: string): Promise<Skill | null> {
 
   // Replace frontmatter with Vocs-compatible one
   const body = raw.replace(/^---[\s\S]*?---\n*/, "");
-  const title = SKILL_TITLES[name] || name;
 
   fs.writeFileSync(
     path.join(SKILLS_DIR, `${name}.md`),
-    `---\ntitle: "${title}"\ndescription: "${shortDesc}"\n---\n\n${body}`,
+    `---\ntitle: "${name}"\ndescription: "${shortDesc}"\n---\n\n${body}`,
   );
 
-  return { name, title, shortDesc };
+  return { name, title: name, shortDesc };
 }
 
 function writeSkillsOverview(skills: Skill[]) {
@@ -78,20 +78,11 @@ description: Reusable AI agent instructions for adding features to Scaffold-ETH 
 
 # Skills
 
-Skills are markdown files (\`SKILL.md\`) that contain detailed instructions for AI agents to add specific features to your Scaffold-ETH 2 project. Think of them as expert knowledge packaged into a format that AI agents can follow step by step.
+Skills are markdown files (\`SKILL.md\`) that contain detailed instructions for AI agents to add specific features to your Scaffold-ETH 2 project. Think of them as expert knowledge packaged into a format that AI agents can take inspiration from.
 
 ## How Skills work
 
 Each skill covers prerequisites, implementation patterns, gotchas, and SE-2 integration details. Skills live in your project at \`.agents/skills/<name>/SKILL.md\`. Your AI agent reads them before implementing a feature, so it follows proven patterns instead of guessing.
-
-## Using a Skill
-
-Point your AI agent to the skill file in your project:
-
-\`\`\`
-Read .agents/skills/erc-721/SKILL.md and use it to add an NFT
-contract to this project.
-\`\`\`
 
 ## Available Skills
 
@@ -135,8 +126,7 @@ function readExistingSkills(): Skill[] | null {
 
   return files.map((f) => {
     const name = f.replace(".md", "");
-    const title = SKILL_TITLES[name] || name;
-    return { name, title, shortDesc: "" };
+    return { name, title: name, shortDesc: "" };
   });
 }
 
