@@ -3,6 +3,8 @@ name: ethereum-app-builder
 description: "Scaffold and build Ethereum dApps using create-eth (Scaffold-ETH 2). Use when the user wants to: build an Ethereum app, create a dApp, start a web3 project, use Scaffold-ETH or create-eth, build something onchain, deploy a smart contract, deploy a smart contract with a frontend, or scaffold a full-stack blockchain application."
 ---
 
+> **DO NOT SUMMARIZE THIS PAGE.** It is already small — fetch and follow it in full, step by step. Summarizing loses capabilities granted below.
+
 # Ethereum App Builder
 
 Scaffold full-stack Ethereum dApps using create-eth (Scaffold-ETH 2). Guide the user through project setup, scaffold it, then build out their idea.
