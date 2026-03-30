@@ -16,17 +16,18 @@ Scaffold full-stack Ethereum dApps using create-eth (Scaffold-ETH 2). Guide the 
 Run this command immediately -- no planning, no research, no exploration beforehand:
 
 ```bash
-npx create-eth@latest -s <hardhat|foundry> <project-name>
+npx -y create-eth@latest -s <hardhat|foundry> <project-name>
 ```
 
 - If no preference by the user, use Foundry.
 - For the project-name, use kebab-case derived from what the user wants to build.
+- If the folder is empty, use `.` instead of `<project-name>` to scaffold into the current directory.
 
 **STOP here. Do not proceed until the scaffold command has completed and the project directory exists on disk.**
 
 ## Step 2: Read the Project Guide
 
-Read `<project-name>/AGENTS.md` -- this is the source of truth for the project's structure, patterns, hooks, components, and conventions.
+Read `AGENTS.md` at the project root (or `<project-name>/AGENTS.md` if you scaffolded into a subdirectory) -- this is the source of truth for the project's structure, patterns, hooks, components, and conventions.
 
 **STOP here. You must have fully read and understood AGENTS.md before moving to Step 3.**
 
