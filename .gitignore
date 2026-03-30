@@ -1,2 +1,6 @@
 node_modules
 docs/dist
+
+# Generated at build time by fetching from GitHub API (see vocs.config.ts)
+docs/pages/build-with-ai/*.md
+!docs/pages/build-with-ai/agents-md.md

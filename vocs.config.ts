@@ -1,4 +1,12 @@
 import { defineConfig } from "vocs";
+import { fetchSkills } from "./scripts/fetch-skills";
+
+const skills = await fetchSkills();
+
+const skillSidebarItems = skills.map((s) => ({
+  text: s.title,
+  link: `/build-with-ai/${s.name}`,
+}));
 
 const baseUrl = process.env.VERCEL_ENV === "production"
   ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
@@ -176,6 +184,24 @@ export default defineConfig({
       ],
     },
     {
+      text: "🤖 Build with AI",
+      items: [
+        {
+          text: "Overview",
+          link: "/build-with-ai",
+        },
+        {
+          text: "AGENTS.md",
+          link: "/build-with-ai/agents-md",
+        },
+        {
+          text: "Skills",
+          link: "/build-with-ai/skills",
+          items: skillSidebarItems,
+        },
+      ],
+    },
+    {
       text: "🙏 Contributing",
       items: [
         {
@@ -194,7 +220,8 @@ export default defineConfig({
     },
   ],
   editLink: {
-    pattern: "https://github.com/scaffold-eth//se-2-docs/edit/main/docs/pages/:path",
+    pattern:
+      "https://github.com/scaffold-eth//se-2-docs/edit/main/docs/pages/:path",
     text: "Suggest changes to this page",
   },
 });

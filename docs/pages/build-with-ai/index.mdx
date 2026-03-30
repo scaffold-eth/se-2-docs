@@ -1,0 +1,51 @@
+---
+title: Build with AI
+description: Use AI coding agents to build faster with Scaffold-ETH 2.
+---
+
+# 🤖 Build with AI
+
+Scaffold-ETH 2 is built for AI coding agents like [Claude Code](https://claude.ai/code), [Cursor](https://cursor.sh), [Cline](https://github.com/cline/cline), and others.
+
+Every SE-2 project ships with an **AGENTS.md** file that gives AI agents deep context about the project structure, available commands, architecture patterns, and code style. On top of that, **Skills** provide reusable instructions that agents can follow to add features like NFT contracts, Sign-In with Ethereum, subgraph indexing, and more.
+
+## Quick Start
+
+Open your AI agent and give it the orchestrator skill URL along with your dApp idea:
+
+```
+https://docs.scaffoldeth.io/SKILL.md Build me a mass payout dApp that
+lets a user upload a CSV of addresses and amounts, then sends ETH to
+all of them in a single transaction using a batch-transfer contract.
+```
+
+The orchestrator skill tells your agent how to scaffold a new SE-2 project with `npx create-eth@latest` and walks it through the full setup. Based on what you asked for, the agent picks the right sub-skills from `.agents/skills/` to implement features correctly. So if your prompt involves indexing blockchain events, the agent will read the ponder skill and follow its patterns. If you're building something with NFTs, it reaches for the erc-721 skill instead. The skills ship with every SE-2 project and the agent finds them on its own.
+
+### Already have a project?
+
+Just describe what you want. Your agent reads the skill descriptions from `.agents/skills/` and picks the right one:
+
+```
+I want users to authenticate with their wallet before
+interacting with this page.
+```
+
+The agent recognizes this matches the **siwe** skill, reads it, and implements Sign-In with Ethereum following SE-2 patterns. No need to mention skill names, just describe what you're trying to build.
+
+## Build Prompts
+
+Looking for project ideas? Check out [Build Prompts on SpeedRunEthereum](https://speedrunethereum.com/build-prompts), curated AI-friendly project prompts designed to work with the orchestrator skill.
+
+## What's included
+
+:::note[📄 AGENTS.md — Project Context for AI Agents]
+Every SE-2 project includes an `AGENTS.md` file at the root. AI agents automatically read this file when they enter your project, giving them full context about the architecture, commands, and patterns.
+
+[Learn more about AGENTS.md →](/build-with-ai/agents-md)
+:::
+
+:::note[⚡ Skills — Reusable Agent Instructions]
+Skills are markdown files that teach AI agents how to add specific features to your SE-2 project. Instead of explaining everything from scratch, just point your agent to a skill.
+
+[Browse available Skills →](/build-with-ai/skills)
+:::
