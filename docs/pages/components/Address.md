@@ -5,7 +5,7 @@ description: Display Ethereum addresses with ENS resolution and copy feature.
 
 # Address
 
-Display an address (or ENS) along with a utility icon to copy the address. If the address is associated with an ENS that has an avatar, this avatar will be displayed. If not, a blockie image representation of the address will be shown.
+Display an address (or ENS) along with a copy icon to copy the address. If the address is associated with an ENS that has an avatar, this avatar will be displayed. If not, a blockie image representation of the address will be shown.
 
 By default, the component will show the ENS name (if available) and the address.
 
