@@ -27,7 +27,7 @@ npx -y create-eth@latest -s <hardhat|foundry> <project-name>
 
 ## Step 2: Read the Project Guide
 
-Read `AGENTS.md` at the project root (or `<project-name>/AGENTS.md` if you scaffolded into a subdirectory) -- this is the source of truth for the project's structure, patterns, hooks, components, and conventions.
+Read `<project-name>/AGENTS.md` (or `AGENTS.md` at the project root if you scaffolded into the current directory) -- this is the source of truth for the project's structure, patterns, hooks, components, and conventions.
 
 **STOP here. You must have fully read and understood AGENTS.md before moving to Step 3.**
 
