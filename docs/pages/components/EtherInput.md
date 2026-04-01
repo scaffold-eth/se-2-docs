@@ -12,7 +12,7 @@ Displays an input field for ETH/USD amount, with an option to convert between ET
 ## Import
 
 ```tsx
-import { EtherInput } from "~~/components/scaffold-eth";
+import { EtherInput } from "@scaffold-ui/components";
 ```
 
 ## Usage
@@ -37,3 +37,7 @@ const [ethAmount, setEthAmount] = useState("");
 | **placeholder** (optional) | `string`   | `undefined`   | The string that will be rendered when there is no input value.                          |
 | **name** (optional)        | `string`   | `undefined`   | Helps identify the data being sent if EtherInput is submitted into a form.              |
 | **disabled** (optional)    | `boolean`  | `false`       | When set to `true`, changes input background color and border to have disabled styling. |
+
+:::tip[Scaffold-UI]
+This component is powered by Scaffold-UI. For more details on customization and theming, check the [Scaffold-UI EtherInput docs](https://scaffold-ui-docs.vercel.app/components/EtherInput).
+:::

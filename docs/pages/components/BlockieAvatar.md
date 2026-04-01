@@ -19,6 +19,10 @@ If you want more control over styling the blockie, you can directly use [blo](ht
 import { BlockieAvatar } from "~~/components/scaffold-eth";
 ```
 
+:::info
+`BlockieAvatar` is a local SE-2 component, not part of Scaffold-UI.
+:::
+
 ## Usage
 
 ```tsx
@@ -35,3 +39,4 @@ import { BlockieAvatar } from "~~/components/scaffold-eth";
 | `address`             | `string` | `undefined`   | The address for which you want to display its blockie. Ensure it's in the `0x___` format. |
 | `size`                | `number` | `undefined`   | Width and Height in pixels (square).                                                      |
 | `ensImage` (optional) | `string` | `undefined`   | An arbitrary image url to render instead of the blockie.                                  |
+
