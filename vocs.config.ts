@@ -70,8 +70,8 @@ export default defineConfig({
           link: "/components/EtherInput",
         },
         {
-          text: "InputBase",
-          link: "/components/InputBase",
+          text: "BaseInput",
+          link: "/components/BaseInput",
         },
         {
           text: "IntegerInput",
