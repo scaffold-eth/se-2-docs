@@ -13,7 +13,7 @@ Shows by default a small button to multiply input's value \* 10^18 to transform 
 ## Import
 
 ```tsx
-import { IntegerInput } from "~~/components/scaffold-eth";
+import { IntegerInput } from "@scaffold-ui/debug-contracts";
 ```
 
 ## Usage
@@ -42,3 +42,7 @@ const [txValue, setTxValue] = useState<string | bigint>("");
 | **name** (optional)        | `string`   | `undefined`   | Helps identify the data being sent if InputBase is submitted into a form.               |
 | **error** (optional)       | `boolean`  | `false`       | When set to `true`, changes input border to have error styling.                         |
 | **disabled** (optional)    | `boolean`  | `false`       | When set to `true`, changes input background color and border to have disabled styling. |
+
+:::tip[Scaffold-UI]
+This component is part of the `@scaffold-ui/debug-contracts` package. For more details, check the [Scaffold-UI docs](https://scaffold-ui-docs.vercel.app/).
+:::
