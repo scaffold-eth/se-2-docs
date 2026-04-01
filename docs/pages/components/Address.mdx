@@ -3,17 +3,24 @@ title: Address
 description: Display Ethereum addresses with ENS resolution and copy feature.
 ---
 
+import { Address } from "@scaffold-ui/components";
+import { DocsProvider } from "../../components/DocsProvider";
+
 # Address
 
 Display an address (or ENS) along with a utility icon to copy the address. If the address is associated with an ENS that has an avatar, this avatar will be displayed. If not, a blockie image representation of the address will be shown.
 
 By default, the component will show the ENS name (if available) and the address.
 
-![Ens And Address Example](/img/AddressFull.png)
+<DocsProvider>
+  <Address address="0xd8da6bf26964af9d7eed9e03e53415d37aa96045" />
+</DocsProvider>
 
 You can also choose to display only the ENS name (if available) or the address, by setting the `onlyEnsOrAddress` prop to `true`.
 
-![Only Ens Or Address Example](/img/AddressOnlyEnsOrAddress.png)
+<DocsProvider>
+  <Address address="0xd8da6bf26964af9d7eed9e03e53415d37aa96045" onlyEnsOrAddress={true} />
+</DocsProvider>
 
 Clicking on the address redirects to the connected wallet's network block explorer. If the wallet is not connected, it redirects to the block explorer of [`targetNetworks[0]`](/deploying/deploy-nextjs-app#--targetnetworks). You can disable this behaviour with the `disableAddressLink` prop.
 
