@@ -3,13 +3,18 @@ title: AddressInput
 description: Input field with address validation and ENS support.
 ---
 
+import { DocsProvider } from "../../components/DocsProvider";
+import { AddressInputExample } from "../../components/AddressInputExample";
+
 # AddressInput
 
 Display an Ethereum address input that validates the address format, resolves ENS domains, and shows their avatars.
 
 Also shows a blockie image for each address.
 
-![AddressInput Example](/img/addressInput.gif)
+<DocsProvider>
+  <AddressInputExample placeholder="start typing ENS or address" />
+</DocsProvider>
 
 ## Import
 

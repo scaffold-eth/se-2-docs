@@ -23,6 +23,17 @@ export default defineConfig({
   },
   vite: {
     publicDir: "docs/public",
+    resolve: {
+      extensions: [".mjs", ".js", ".mts", ".ts", ".jsx", ".tsx", ".json"],
+    },
+    ssr: {
+      noExternal: [
+        "@scaffold-ui/components",
+        "@scaffold-ui/hooks",
+        "@scaffold-ui/debug-contracts",
+        "@uniswap/sdk-core",
+      ],
+    },
   },
   sidebar: [
     {

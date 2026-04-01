@@ -10,9 +10,15 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@scaffold-ui/components": "^0.1.9",
+    "@scaffold-ui/debug-contracts": "^0.1.8",
+    "@scaffold-ui/hooks": "^0.1.7",
+    "@tanstack/react-query": "^5.96.0",
     "react": "latest",
     "react-dom": "latest",
-    "vocs": "^1.2.1"
+    "viem": "^2.47.6",
+    "vocs": "^1.2.1",
+    "wagmi": "^2.14.15"
   },
   "devDependencies": {
     "@types/react": "latest",
