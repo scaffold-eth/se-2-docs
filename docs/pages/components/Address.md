@@ -40,5 +40,5 @@ import { Address } from "@scaffold-ui/components";
 | **onlyEnsOrAddress** (optional)   | `boolean` | `false`       | When `true`, displays only the ENS name (if available) or the address, not both.                                              |
 
 :::tip[Scaffold-UI]
-This component is powered by Scaffold-UI. For more details on customization and theming, check the [Scaffold-UI Address docs](https://scaffold-ui-docs.vercel.app/components/Address).
+For more details on customization and theming, check the [Scaffold-UI Address docs](https://scaffold-ui-docs.vercel.app/components/Address).
 :::

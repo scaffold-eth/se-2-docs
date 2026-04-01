@@ -26,7 +26,3 @@ import { RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 ```tsx
 <RainbowKitCustomConnectButton />
 ```
-
-:::info
-Unlike other components, `RainbowKitCustomConnectButton` is a local SE-2 component and not part of Scaffold-UI. You can find and customize it directly in your project at `components/scaffold-eth/RainbowKitCustomConnectButton/`.
-:::

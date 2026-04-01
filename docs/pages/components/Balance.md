@@ -29,5 +29,5 @@ import { Balance } from "@scaffold-ui/components";
 | **className** (optional) | `string` | `""`          | Prop to pass additional CSS styling to the component. You can use Tailwind / daisyUI classes like `text-3xl` for styling. |
 
 :::tip[Scaffold-UI]
-This component is powered by Scaffold-UI. For more details on customization and theming, check the [Scaffold-UI Balance docs](https://scaffold-ui-docs.vercel.app/components/Balance).
+For more details on customization and theming, check the [Scaffold-UI Balance docs](https://scaffold-ui-docs.vercel.app/components/Balance).
 :::

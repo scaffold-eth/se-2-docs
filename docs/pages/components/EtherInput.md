@@ -39,5 +39,5 @@ const [ethAmount, setEthAmount] = useState("");
 | **disabled** (optional)    | `boolean`  | `false`       | When set to `true`, changes input background color and border to have disabled styling. |
 
 :::tip[Scaffold-UI]
-This component is powered by Scaffold-UI. For more details on customization and theming, check the [Scaffold-UI EtherInput docs](https://scaffold-ui-docs.vercel.app/components/EtherInput).
+For more details on customization and theming, check the [Scaffold-UI EtherInput docs](https://scaffold-ui-docs.vercel.app/components/EtherInput).
 :::

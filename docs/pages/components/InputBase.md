@@ -15,10 +15,6 @@ Simple building block for creating an input which comes with basic default style
 import { BaseInput } from "@scaffold-ui/components";
 ```
 
-:::warning
-This component was renamed from `InputBase` to `BaseInput` in Scaffold-UI.
-:::
-
 ## Usage
 
 ```tsx
@@ -46,5 +42,5 @@ const [url, setUrl] = useState<string>();
 | **disabled** (optional)    | `boolean`  | `false`       | When set to `true`, changes input background color and border to have disabled styling. |
 
 :::tip[Scaffold-UI]
-This component is powered by Scaffold-UI. For more details on customization and theming, check the [Scaffold-UI BaseInput docs](https://scaffold-ui-docs.vercel.app/components/BaseInput).
+For more details on customization and theming, check the [Scaffold-UI BaseInput docs](https://scaffold-ui-docs.vercel.app/components/BaseInput).
 :::

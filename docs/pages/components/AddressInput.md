@@ -42,5 +42,5 @@ const [address, setAddress] = useState("");
 | **disabled** (optional)    | `boolean`  | `false`       | If `true`, sets the address input un-clickable and unusable.                 |
 
 :::tip[Scaffold-UI]
-This component is powered by Scaffold-UI. For more details on customization and theming, check the [Scaffold-UI AddressInput docs](https://scaffold-ui-docs.vercel.app/components/AddressInput).
+For more details on customization and theming, check the [Scaffold-UI AddressInput docs](https://scaffold-ui-docs.vercel.app/components/AddressInput).
 :::
