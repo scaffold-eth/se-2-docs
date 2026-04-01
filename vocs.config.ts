@@ -147,6 +147,10 @@ export default defineConfig({
           text: "Add Custom Chain",
           link: "/recipes/add-custom-chain",
         },
+        {
+          text: "Read and Display Contract Events",
+          link: "/recipes/ReadEventsFromContract",
+        },
       ],
     },
     {
