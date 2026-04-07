@@ -40,6 +40,23 @@ import { EtherInput } from "@scaffold-ui/components";
 `EtherInput` no longer accepts `value` and `onChange` props. It is now an uncontrolled component. Use `defaultValue` to set the initial value and `onValueChange` to receive updates.
 :::
 
+### Clearing / Resetting the input
+
+Since `EtherInput` is uncontrolled, use React's `key` prop to reset it:
+
+```tsx
+const [inputKey, setInputKey] = useState(0);
+
+<EtherInput
+  key={inputKey}
+  onValueChange={({ valueInEth }) => {
+    console.log(valueInEth);
+  }}
+/>
+
+<button onClick={() => setInputKey((prev) => prev + 1)}>Clear</button>
+```
+
 ## Props
 
 | Prop                            | Type                                                                                       | Default Value | Description                                                                             |
