@@ -40,6 +40,10 @@ const [url, setUrl] = useState<string>();
 | **name** (optional)        | `string`   | `undefined`   | Helps identify the data being sent if BaseInput is submitted into a form.               |
 | **error** (optional)       | `boolean`  | `false`       | When set to `true`, changes input border to have error styling.                         |
 | **disabled** (optional)    | `boolean`  | `false`       | When set to `true`, changes input background color and border to have disabled styling. |
+| **prefix** (optional)      | `ReactNode`| `undefined`   | Element to render before the input (e.g., an icon).                                    |
+| **suffix** (optional)      | `ReactNode`| `undefined`   | Element to render after the input (e.g., a button).                                    |
+| **reFocus** (optional)     | `boolean`  | `undefined`   | When `true`, the input auto-focuses with the cursor at the end.                        |
+| **style** (optional)       | `CSSProperties` | `undefined` | Custom CSS styles to apply to the component.                                         |
 
 :::tip[Scaffold-UI]
 For more details on customization and theming, check the [Scaffold-UI BaseInput docs](https://scaffold-ui-docs.vercel.app/components/BaseInput).

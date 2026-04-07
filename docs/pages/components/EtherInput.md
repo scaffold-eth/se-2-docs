@@ -18,25 +18,39 @@ import { EtherInput } from "@scaffold-ui/components";
 ## Usage
 
 ```tsx
-const [ethAmount, setEthAmount] = useState("");
+<EtherInput
+  onValueChange={({ valueInEth, valueInUsd, displayUsdMode }) => {
+    console.log(valueInEth, valueInUsd, displayUsdMode);
+  }}
+/>
 ```
 
 ```tsx
 <EtherInput
-  value={ethAmount}
-  onChange={(amount) => setEthAmount(amount)}
+  defaultValue="1.5"
+  defaultUsdMode
+  placeholder="Amount"
+  onValueChange={({ valueInEth, valueInUsd, displayUsdMode }) => {
+    console.log(valueInEth, valueInUsd, displayUsdMode);
+  }}
 />
 ```
 
+:::warning[Breaking Change]
+`EtherInput` no longer accepts `value` and `onChange` props. It is now an uncontrolled component. Use `defaultValue` to set the initial value and `onValueChange` to receive updates.
+:::
+
 ## Props
 
-| Prop                       | Type       | Default Value | Description                                                                             |
-| -------------------------- | ---------- | ------------- | --------------------------------------------------------------------------------------- |
-| **value**                  | `string`   | `undefined`   | You can enter ether quantity or USD quantity, but value will always be stored in ETH.   |
-| **onChange**               | `function` | `undefined`   | A callback invoked when the amount in the EtherInput changes.                           |
-| **placeholder** (optional) | `string`   | `undefined`   | The string that will be rendered when there is no input value.                          |
-| **name** (optional)        | `string`   | `undefined`   | Helps identify the data being sent if EtherInput is submitted into a form.              |
-| **disabled** (optional)    | `boolean`  | `false`       | When set to `true`, changes input background color and border to have disabled styling. |
+| Prop                            | Type                                                                                       | Default Value | Description                                                                             |
+| ------------------------------- | ------------------------------------------------------------------------------------------ | ------------- | --------------------------------------------------------------------------------------- |
+| **defaultValue** (optional)     | `string`                                                                                   | `undefined`   | Initial value for the input (in ETH).                                                   |
+| **defaultUsdMode** (optional)   | `boolean`                                                                                  | `false`       | When set to `true`, the input starts in USD mode instead of ETH.                        |
+| **onValueChange** (optional)    | `(value: { valueInEth: string; valueInUsd: string; displayUsdMode: boolean }) => void`     | `undefined`   | Callback fired when the value or display mode changes. Provides both ETH and USD values.|
+| **placeholder** (optional)      | `string`                                                                                   | `undefined`   | The string that will be rendered when there is no input value.                          |
+| **name** (optional)             | `string`                                                                                   | `undefined`   | Helps identify the data being sent if EtherInput is submitted into a form.              |
+| **disabled** (optional)         | `boolean`                                                                                  | `false`       | When set to `true`, changes input background color and border to have disabled styling. |
+| **style** (optional)            | `CSSProperties`                                                                            | `undefined`   | Custom CSS styles to apply to the component.                                            |
 
 :::tip[Scaffold-UI]
 For more details on customization and theming, check the [Scaffold-UI EtherInput docs](https://scaffold-ui-docs.vercel.app/components/EtherInput).

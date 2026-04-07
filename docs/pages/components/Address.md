@@ -38,6 +38,9 @@ import { Address } from "@scaffold-ui/components";
 | **format** (optional)             | `string`  | `"short"`     | By default, only the first five characters of the address are displayed. Set this to `"long"` to display the entire address.  |
 | **size** (optional)               | `string`  | `"base"`      | Size for the displayed Address component. `base` by default but you can pass in `xs`, `sm`, `base`, `lg`, `xl`, `2xl`, `3xl`. |
 | **onlyEnsOrAddress** (optional)   | `boolean` | `false`       | When `true`, displays only the ENS name (if available) or the address, not both.                                              |
+| **chain** (optional)              | `Chain`   | `undefined`   | The blockchain network to use for ENS resolution. Defaults to the first configured chain or mainnet.                          |
+| **style** (optional)              | `CSSProperties` | `undefined` | Custom CSS styles to apply to the component.                                                                             |
+| **blockExplorerAddressLink** (optional) | `string` | `undefined` | Custom block explorer URL. Overrides the default block explorer link for the connected chain.                            |
 
 :::tip[Scaffold-UI]
 For more details on customization and theming, check the [Scaffold-UI Address docs](https://scaffold-ui-docs.vercel.app/components/Address).
