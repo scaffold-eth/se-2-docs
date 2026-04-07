@@ -42,8 +42,6 @@ const [txValue, setTxValue] = useState<string | bigint>("");
 | **name** (optional)        | `string`   | `undefined`   | Helps identify the data being sent if InputBase is submitted into a form.               |
 | **error** (optional)       | `boolean`  | `false`       | When set to `true`, changes input border to have error styling.                         |
 | **disabled** (optional)    | `boolean`  | `false`       | When set to `true`, changes input background color and border to have disabled styling. |
-| **variant** (optional)     | `IntegerVariant` | `UINT256` | The integer variant to validate against (e.g., `uint8`, `int256`).                     |
-| **disableMultiplyBy1e18** (optional) | `boolean` | `false` | When set to `true`, hides the multiply by 10^18 (wei) button.                         |
 
 :::tip[Scaffold-UI]
 This component is part of the `@scaffold-ui/debug-contracts` package. For more details, check the [Scaffold-UI docs](https://scaffold-ui-docs.vercel.app/).
