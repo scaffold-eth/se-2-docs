@@ -22,9 +22,7 @@ const [ethAmount, setEthAmount] = useState("");
 ```
 
 ```tsx
-<EtherInput
-  onValueChange={({ valueInEth }) => setEthAmount(valueInEth)}
-/>
+<EtherInput onValueChange={({ valueInEth, valueInUsd, displayUsdMode }) => setEthAmount(valueInEth)} />
 ```
 
 ## Props
