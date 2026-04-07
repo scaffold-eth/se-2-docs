@@ -19,7 +19,7 @@ import { IntegerInput } from "@scaffold-ui/debug-contracts";
 ## Usage
 
 ```tsx
-const [txValue, setTxValue] = useState<string | bigint>("");
+const [txValue, setTxValue] = useState("");
 ```
 
 ```tsx

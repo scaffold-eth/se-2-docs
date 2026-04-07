@@ -23,10 +23,9 @@ import { Balance } from "@scaffold-ui/components";
 
 ## Props
 
-| Prop                     | Type     | Default Value | Description                                                                                                               |
-| ------------------------ | -------- | ------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| **address**              | `string` | `undefined`   | Address in `0x___` format, it will resolve its ENS if it has one associated.                                              |
-| **className** (optional) | `string` | `""`          | Prop to pass additional CSS styling to the component. You can use Tailwind / daisyUI classes like `text-3xl` for styling. |
+| Prop        | Type     | Default Value | Description                                                  |
+| ----------- | -------- | ------------- | ------------------------------------------------------------ |
+| **address** | `string` | `undefined`   | Address in `0x___` format to display the balance for.        |
 
 :::tip[Scaffold-UI]
 For more details on customization and theming, check the [Scaffold-UI Balance docs](https://scaffold-ui-docs.vercel.app/components/Balance).
