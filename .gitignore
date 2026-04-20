@@ -4,3 +4,6 @@ docs/dist
 # Generated at build time by fetching from GitHub API (see vocs.config.ts)
 docs/pages/build-with-ai/*.md
 !docs/pages/build-with-ai/agents-md.md
+
+# Generated at build time by scripts/gen-sitemap.ts (see vocs.config.ts)
+docs/public/sitemap.xml

@@ -1,7 +1,9 @@
 import { defineConfig } from "vocs";
 import { fetchSkills } from "./scripts/fetch-skills";
+import { generateSitemap } from "./scripts/gen-sitemap";
 
 const skills = await fetchSkills();
+generateSitemap();
 
 const skillSidebarItems = skills.map((s) => ({
   text: s.title,
