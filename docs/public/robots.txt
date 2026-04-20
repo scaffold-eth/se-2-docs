@@ -3,6 +3,7 @@
 
 User-agent: *
 Allow: /
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 # AI training and search crawlers — explicitly allowed so agents can
 # index SE-2 patterns, hooks, components, recipes, and skills.
