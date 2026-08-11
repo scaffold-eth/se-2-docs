@@ -14,6 +14,13 @@ export type Skill = {
   shortDesc: string;
 };
 
+// Title the page from the skill's own heading, minus the tail every skill repeats.
+function skillTitle(name: string, body: string): string {
+  const heading = body.match(/^#\s+(.+)$/m)?.[1]?.trim();
+  if (!heading) return name;
+  return heading.replace(/(?:\s+Integration)?\s+for Scaffold-ETH 2$/i, "").trim() || name;
+}
+
 async function getSkillNames(): Promise<string[]> {
   const res = await fetch(GITHUB_API);
   if (!res.ok) return [];
@@ -38,10 +45,12 @@ async function fetchAndWriteSkill(name: string): Promise<Skill | null> {
     ? descMatch[1].split(". Use when")[0]
     : `${name} skill for Scaffold-ETH 2`;
 
+  const title = skillTitle(name, body);
+
   // Vocs frontmatter for page meta, original frontmatter as visible code block
   fs.writeFileSync(
     path.join(SKILLS_DIR, `${name}.md`),
-    `---\ntitle: "${name}"\ndescription: "${shortDesc}"\n---\n\n\`\`\`yaml\n---\n${originalFrontmatter}\n---\n\`\`\`\n\n${body}`,
+    `---\ntitle: "${title}"\ndescription: "${shortDesc}"\n---\n\n\`\`\`yaml\n---\n${originalFrontmatter}\n---\n\`\`\`\n\n${body}`,
   );
 
   // Raw, untouched SKILL.md for agent discovery index (/.well-known/agent-skills)
@@ -49,7 +58,7 @@ async function fetchAndWriteSkill(name: string): Promise<Skill | null> {
   fs.mkdirSync(rawDir, { recursive: true });
   fs.writeFileSync(path.join(rawDir, "SKILL.md"), raw);
 
-  return { name, title: name, shortDesc };
+  return { name, title, shortDesc };
 }
 
 function writeSkillsOverview(skills: Skill[]) {
@@ -118,7 +127,11 @@ function readExistingSkills(): Skill[] | null {
 
   return files.map((f) => {
     const name = f.replace(".md", "");
-    return { name, title: name, shortDesc: "" };
+    // Read the title back from the fetched page so cached runs match cold ones.
+    const page = fs.readFileSync(path.join(SKILLS_DIR, f), "utf8");
+    const frontmatter = page.match(/^---\n([\s\S]*?)\n---/)?.[1] ?? "";
+    const title = frontmatter.match(/^title:\s*"(.*)"$/m)?.[1] || name;
+    return { name, title, shortDesc: "" };
   });
 }
 
