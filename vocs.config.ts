@@ -28,7 +28,9 @@ const baseUrl =
     : undefined;
 
 export default defineConfig({
-  title: "🏗 Scaffold-ETH 2 | Docs",
+  // Site name only. Vocs skips titleTemplate when a page title already contains it.
+  title: "Scaffold-ETH 2 Docs",
+  titleTemplate: "%s – 🏗 Scaffold-ETH 2 Docs",
   description: "Open-source toolkit for building dapps",
   logoUrl: "/img/logo.svg",
   iconUrl: "/img/favicon.png",
