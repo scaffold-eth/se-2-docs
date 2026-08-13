@@ -136,7 +136,6 @@ function readExistingSkills(): Skill[] | null {
 }
 
 export async function fetchSkills(): Promise<Skill[]> {
-  // Skip fetch if pages already exist (Vocs evaluates config multiple times)
   const existing = readExistingSkills();
   if (existing) return existing;
 
