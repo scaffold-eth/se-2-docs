@@ -1,15 +1,13 @@
 ---
 title: Components
-description: Drop-in React components for connecting a wallet, displaying addresses and balances, and taking ETH input, ready to use in any Scaffold-ETH 2 project.
+description: Drop-in React components for connecting a wallet, displaying addresses and balances, and taking ETH input.
 ---
 
 # ⚙ Components
 
-Scaffold-ETH 2 ships with reusable React components for the things almost every dapp needs: connecting a wallet, displaying an address with ENS resolution, showing an ETH balance, and taking addresses or ETH amounts as input. Import them from `~~/components/scaffold-eth` and drop them into your own pages.
+Scaffold-ETH 2 ships with reusable, drop-in React components for the things almost every dapp needs: connecting a wallet, displaying an address with ENS resolution, showing an ETH balance, and taking addresses or ETH amounts as input. For reading from and writing to your contracts, it also ships [custom hooks](/hooks) that wrap wagmi.
 
-The connect button is built on RainbowKit. For reading from and writing to your contracts, Scaffold-ETH 2 also ships [custom hooks](/hooks) that wrap wagmi.
-
-Most of these components are powered by [**Scaffold-UI**](https://scaffold-ui-docs.vercel.app/), a standalone library that provides the underlying components and UI hooks. The examples below show how they work within a Scaffold-ETH 2 project. For more details on customization, theming, and advanced usage, check the [Scaffold-UI documentation](https://scaffold-ui-docs.vercel.app/).
+Most of these components are powered by [**Scaffold-UI**](https://scaffold-ui-docs.vercel.app/), a standalone library that comes pre-installed in every Scaffold-ETH 2 project; import them from `@scaffold-ui/components`. The app-specific ones live in your project at `~~/components/scaffold-eth`. The main one is the wallet connect button, built on [RainbowKit](https://rainbowkit.com) and extended with Scaffold-ETH 2's network and balance UI. For customization, theming, and advanced usage, check the [Scaffold-UI documentation](https://scaffold-ui-docs.vercel.app/).
 
 ## Available Components
 
